@@ -13,7 +13,7 @@ patches:
     patch: |-
       - op: add
         path: /spec/template/spec/containers/0/args/-
-        value: --gke-autologin-for-gcp
+        value: --gcp-autologin-for-gcr
 images: # []
 - name: ghcr.io/fluxcd/image-reflector-controller
   newName: docker.io/kingdonb/image-reflector-controller
