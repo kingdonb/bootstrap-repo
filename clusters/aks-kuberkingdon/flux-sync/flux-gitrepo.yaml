@@ -6,5 +6,5 @@ metadata:
 spec:
   interval: 5m0s
   ref:
-    branch: traefik
+    branch: rbac
   url: https://github.com/kingdonb/bootstrap-repo
