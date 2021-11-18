@@ -1,20 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: simplewhoami
-spec:
-  routes:
-   - kind: Rule
-     match: Host(`whoami.prod.hephy.pro`)
-     services:
-        - kind: Service
-          name: whoamiv1
-          port: 80
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: whoamitls
+  name: whoami
 spec:
   routes:
    - kind: Rule
