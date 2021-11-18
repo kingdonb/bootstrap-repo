@@ -9,7 +9,9 @@ spec:
     secretRef:
       name: cluster-api-sops-gpg
   interval: 10m0s
-  kubeconfig: aks-kuberkingdon-kubeconfig
+  kubeConfig:
+    secretRef:
+      name: aks-kuberkingdon-kubeconfig
   timeout: 2m10s
   path: ./clusters/aks-kuberkingdon
   prune: true
