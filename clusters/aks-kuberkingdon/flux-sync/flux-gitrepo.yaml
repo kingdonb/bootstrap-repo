@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: flux-sync
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  ref:
+    branch: traefik
+  url: https://github.com/kingdonb/bootstrap-repo

@@ -13,8 +13,8 @@ resources:
 #    patch: |-
 #      - op: add
 #        path: /spec/template/spec/containers/0/args/-
-#        value: --gcp-autologin-for-gcr
+#        value: --azure-autologin-for-acr
 #images: # []
 #- name: ghcr.io/fluxcd/image-reflector-controller
-#  newName: docker.io/kingdonb/image-reflector-controller
-#  newTag: 80bc6fb8
+#  newName: docker.io/somma/image-reflector-controller
+#  newTag: test-autologin-1.0
