@@ -1,16 +1,32 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: whoami
+  name: simplewhoami
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`fix.me`) && PathPrefix(`/notls`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: whoamiv1
+      port: 80
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: whoamitls
 spec:
   entryPoints:
     - websecure
   routes:
-    - kind: Rule
-      match: Host(`fix.me`)
-      services:
-        - kind: Service
-          name: whoamiv1
-          port: 80
+  - match: Host(`fix.me`) && PathPrefix(`/tls`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: whoamiv1
+      port: 80
   tls:
     certResolver: myresolver
