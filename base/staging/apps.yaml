@@ -10,7 +10,7 @@ spec:
     - name: infrastructure
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: flux-sync
   path: ./apps/staging
   prune: true
   wait: true
