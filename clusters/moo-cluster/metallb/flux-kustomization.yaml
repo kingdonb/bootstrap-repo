@@ -1,16 +1,16 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: apps
+  name: metallb
   namespace: flux-system
 spec:
-  interval: 10m0s
-  timeout: 2m0s
-  dependsOn:
-    - name: infrastructure
+  interval: 60m0s
+  retryInterval: 6m0s
+  timeout: 4m0s
+  #suspend: false
+  path: ./apps/metallb
+  prune: true
+  wait: true
   sourceRef:
     kind: GitRepository
     name: flux-sync
-  path: ./apps/staging
-  prune: true
-  wait: true

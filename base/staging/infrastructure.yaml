@@ -8,7 +8,7 @@ spec:
   timeout: 2m0s
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: flux-sync
   path: ./infrastructure
   prune: true
   wait: true

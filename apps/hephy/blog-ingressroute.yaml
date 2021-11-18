@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: simpleblog
+  namespace: blog
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`blog.teamhephy.info`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: blog
+      port: 80
