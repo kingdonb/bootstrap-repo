@@ -4,16 +4,12 @@ metadata:
   name: aks-kuberkingdon
   namespace: flux-system
 spec:
-  decryption:
-    provider: sops
-    secretRef:
-      name: cluster-api-sops-gpg
   interval: 10m0s
   kubeConfig:
     secretRef:
       name: aks-kuberkingdon-kubeconfig
   timeout: 2m10s
-  path: ./clusters/aks-kuberkingdon
+  path: ./clusters/aks-kuberkingdon/flux-system
   prune: true
   sourceRef:
     kind: GitRepository

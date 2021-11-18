@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 40m0s
+  timeout: 2m0s
   path: ./clusters/aks-kuberkingdon
   prune: true
   sourceRef:
