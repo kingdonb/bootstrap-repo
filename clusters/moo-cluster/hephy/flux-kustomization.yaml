@@ -7,7 +7,7 @@ spec:
   interval: 60m0s
   retryInterval: 6m0s
   timeout: 4m0s
-  suspend: false
+  #suspend: false
   path: ./apps/hephy
   prune: true
   wait: false

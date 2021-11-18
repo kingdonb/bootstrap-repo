@@ -18,7 +18,7 @@ metadata:
 spec:
   routes:
    - kind: Rule
-     match: Host(`whoami.t2.demo.traefiklabs.tech`)
+     match: Host(`whoami.prod.hephy.pro`)
      services:
         - kind: Service
           name: whoamiv1
