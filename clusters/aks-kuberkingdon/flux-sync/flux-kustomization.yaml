@@ -9,4 +9,4 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: bootstrap-repo
+    name: flux-sync
