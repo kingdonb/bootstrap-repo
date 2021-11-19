@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: deis
 resources:
 - namespace.yaml
-- ../../base/hephy
+- ../base/hephy
 
 patchesStrategicMerge:
   - hephy-patch.yaml

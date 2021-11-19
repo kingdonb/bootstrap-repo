@@ -8,7 +8,7 @@ spec:
   retryInterval: 6m0s
   timeout: 4m0s
   suspend: false
-  path: ./apps/staging/hephy
+  path: ./apps/hephy
   prune: true
   wait: false
   sourceRef:
