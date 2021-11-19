@@ -18,6 +18,7 @@ spec:
             - "--providers.kubernetescrd"
             - "--providers.kubernetescrd.allowCrossNamespace=true" 
             - "--providers.kubernetesingress=true"
+            - "--providers.kubernetesingress.allowEmptyServices=true"
             - "--certificatesresolvers.myresolver.acme.storage=/data/acme.json"
             - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
             - "--certificatesresolvers.myresolver.acme.email=kingdon+acme@weave.works"
