@@ -2,8 +2,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
-  name: flux-system
-  namespace: flux-sync
+  name: flux-sync
+  namespace: flux-system
 spec:
   interval: 10m0s
   ref:
