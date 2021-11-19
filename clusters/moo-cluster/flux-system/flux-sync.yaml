@@ -1,0 +1,13 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: flux-sync
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  ref:
+    branch: metallb
+  secretRef:
+    name: flux-system
+  url: ssh://git@github.com/kingdonb/bootstrap-repo
