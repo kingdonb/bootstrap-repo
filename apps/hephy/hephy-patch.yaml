@@ -44,15 +44,15 @@ spec:
                   - name: deis-hephy
                     persistentVolumeClaim:
                       claimName: deis-hephy
-          - kind: Ingress
-            apiVersion: extensions/v1beta1
-            metadata:
-              name: controller-api-server-ingress-http
-              namespace: deis
-              annotations:
-                kubernetes.io/ingress.class: internal
-            # spec:
-            #   ingressClassName: internal
+         # - kind: Ingress
+         #   apiVersion: extensions/v1beta1
+         #   metadata:
+         #     name: controller-api-server-ingress-http
+         #     namespace: deis
+         #     annotations:
+         #       kubernetes.io/ingress.class: internal
+         #   # spec:
+         #   #   ingressClassName: internal
   values:
     controller:
       platform_domain: deis.hephy.pro
