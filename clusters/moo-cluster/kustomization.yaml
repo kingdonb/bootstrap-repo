@@ -8,3 +8,4 @@ resources:
 - flux-system
 - ../../base/staging
 - hephy/flux-kustomization.yaml
+- my-secrets/my-secrets-kustomization.yaml
