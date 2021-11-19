@@ -1,7 +1,8 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: simplewhoami
+  name: simpleblog
+  namespace: blog
 spec:
   entryPoints:
     - web
@@ -10,14 +11,15 @@ spec:
     kind: Rule
     services:
     - kind: Service
-      name: whoamiv1
+      name: blog
       port: 80
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: whoamitls
+  name: blogtls
+  namespace: blog
 spec:
   entryPoints:
     - websecure
@@ -26,7 +28,7 @@ spec:
     kind: Rule
     services:
     - kind: Service
-      name: whoamiv1
+      name: blog
       port: 80
   tls:
     certResolver: myresolver
