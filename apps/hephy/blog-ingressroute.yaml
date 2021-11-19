@@ -1,46 +1,13 @@
-#apiVersion: traefik.containo.us/v1alpha1
-#kind: IngressRoute
-#metadata:
-#  name: blog
-#  namespace: blog
-#spec:
-#  entryPoints:
-#    - web
-#  routes:
-#  - match: Host(`blog.teamhephy.info`)
-#    kind: Rule
-#    services:
-#    - kind: Service
-#      name: blog
-#      port: 80
-
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: simpleblog
+  name: blog
   namespace: blog
 spec:
   entryPoints:
     - web
   routes:
-  - match: Host(`blog.teamhephy.info`) && PathPrefix(`/notls`)
-    kind: Rule
-    services:
-    - kind: Service
-      name: blog
-      port: 80
-
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: blogtls
-  namespace: blog
-spec:
-  entryPoints:
-    - websecure
-  routes:
-  - match: Host(`blog.teamhephy.info`) && PathPrefix(`/tls`)
+  - match: Host(`blog.teamhephy.info`)
     kind: Rule
     services:
     - kind: Service
@@ -48,3 +15,38 @@ spec:
       port: 80
   tls:
     certResolver: myresolver
+
+#apiVersion: traefik.containo.us/v1alpha1
+#kind: IngressRoute
+#metadata:
+#  name: simpleblog
+#  namespace: blog
+#spec:
+#  entryPoints:
+#    - web
+#  routes:
+#  - match: Host(`blog.teamhephy.info`) && PathPrefix(`/notls`)
+#    kind: Rule
+#    services:
+#    - kind: Service
+#      name: blog
+#      port: 80
+#
+#---
+#apiVersion: traefik.containo.us/v1alpha1
+#kind: IngressRoute
+#metadata:
+#  name: blogtls
+#  namespace: blog
+#spec:
+#  entryPoints:
+#    - websecure
+#  routes:
+#  - match: Host(`blog.teamhephy.info`) && PathPrefix(`/tls`)
+#    kind: Rule
+#    services:
+#    - kind: Service
+#      name: blog
+#      port: 80
+#  tls:
+#    certResolver: myresolver
