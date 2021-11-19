@@ -8,7 +8,7 @@ metadata:
 spec:
   interval: 40m0s
   ref:
-    branch: hephy
+    branch: metallb
   secretRef:
     name: flux-system
   url: ssh://git@github.com/kingdonb/bootstrap-repo
