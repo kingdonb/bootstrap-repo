@@ -1,11 +1,11 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: simplewhoami
+  name: whoami
 spec:
   routes:
    - kind: Rule
-     match: Host(`whoami.staging.hephy.pro`) && PathPrefix(`/notls`)
+     match: Host(`whoami.staging.hephy.pro`) # && PathPrefix(`/notls`)
      services:
         - kind: Service
           name: whoamiv1
