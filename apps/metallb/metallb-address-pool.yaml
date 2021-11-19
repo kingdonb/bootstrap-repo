@@ -1,0 +1,9 @@
+apiVersion: metallb.io/v1alpha1
+kind: AddressPool
+metadata:
+  name: moo-cluster
+  namespace: metallb-system
+spec:
+  protocol: layer2
+  addresses:
+    - 10.17.12.201-10.17.12.220

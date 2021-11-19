@@ -7,3 +7,6 @@ resources:
 - cluster-api/gke-geekingdon.yaml
 - flux-system
 - ../../base/staging
+- hephy/flux-kustomization.yaml
+- metallb/flux-kustomization.yaml
+- my-secrets/my-secrets-kustomization.yaml
