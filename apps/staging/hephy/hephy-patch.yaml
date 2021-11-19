@@ -3,8 +3,17 @@ kind: HelmRelease
 metadata:
   name: hephy
 spec:
+  chart:
+    spec:
+      sourceRef:
+        kind: HelmRepository
+        name: teamhephy
+        namespace: deis
+      version: 2.23.0
   interval: 15m15s
   timeout: 10m0s
+  storageNamespace: deis
+  targetNamespace: deis
   postRenderers:
     - kustomize:
         patchesStrategicMerge:

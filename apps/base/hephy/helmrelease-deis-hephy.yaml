@@ -3,6 +3,15 @@ kind: HelmRelease
 metadata:
   name: hephy
 spec:
+  chart:
+    spec:
+      chart: workflow
+      sourceRef:
+        kind: HelmRepository
+        name: teamhephy
+        namespace: deis
+      version: 2.23.0
+  releaseName: deis-hephy
   values:
     controller:
       platform_domain: deis.example.com
