@@ -1,0 +1,26 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: hephy
+spec:
+  values:
+    controller:
+      platform_domain: deis.example.com
+    global:
+      experimental_native_ingress: true
+      use_cni: true
+      gunicorn_workers: 5
+      database_location: off-cluster
+      grafana_location: off-cluster
+      influxdb_location: off-cluster
+    database:
+      postgres:
+        name: hephy-example
+        username: hephy_admin-example
+        host: 1.2.3.4
+        port: "5432"
+  #valuesFrom:
+  #- kind: Secret
+  #  name: deis-db-admin-password
+  #  valuesKey: password
+  #  targetPath: database.postgres.password

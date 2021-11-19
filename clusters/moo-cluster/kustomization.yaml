@@ -7,3 +7,4 @@ resources:
 - cluster-api/gke-geekingdon.yaml
 - flux-system
 - ../../base/staging
+- hephy/flux-kustomization.yaml
