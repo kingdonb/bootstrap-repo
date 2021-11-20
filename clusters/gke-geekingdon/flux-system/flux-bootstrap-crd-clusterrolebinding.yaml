@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: flux-bootstrap-crd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: crd-controller-flux-system
+subjects:
+- kind: ServiceAccount
+  name: flux-bootstrap
+  namespace: flux-system
