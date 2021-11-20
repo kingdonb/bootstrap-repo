@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- cluster-api/aks-kuberkingdon.yaml
+- cluster-api/flux-kustomization.yaml
+- cluster-api/gitrepository.yaml
+- cluster-api/gke-geekingdon.yaml
+- flux-system
+- ../../base/staging
+- hephy/flux-kustomization.yaml
+- metallb/flux-kustomization.yaml
+- my-secrets/my-secrets-kustomization.yaml
