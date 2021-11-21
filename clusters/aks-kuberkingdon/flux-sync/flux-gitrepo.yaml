@@ -6,5 +6,5 @@ metadata:
 spec:
   interval: 5m0s
   ref:
-    branch: main
+    branch: staging
   url: https://github.com/kingdonb/bootstrap-repo
