@@ -3,6 +3,7 @@ kind: HelmRelease
 metadata:
   name: hephy
 spec:
+  interval: 10m0s
   chart:
     spec:
       chart: workflow
