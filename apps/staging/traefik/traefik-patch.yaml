@@ -23,3 +23,12 @@ spec:
             - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
             - "--certificatesresolvers.myresolver.acme.email=kingdon+acme@weave.works"
             - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik
+spec:
+  loadBalancerIP: 10.17.12.207 # traefik-proxy.turkey.local
+  type: LoadBalancer
