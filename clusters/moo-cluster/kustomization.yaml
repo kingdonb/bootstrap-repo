@@ -6,6 +6,12 @@ resources:
 - cluster-api/gitrepository.yaml
 - cluster-api/gke-geekingdon.yaml
 - flux-system
+- flux-system-extras/gitno-hephy-pro-ingress.yaml
+- flux-system-extras/git-webhook-receiver.yaml
+#- flux-system-extras/image-webhook-receiver.yaml
+#- flux-system-extras/podinfo-image-webhook-receiver.yaml
+#- flux-system-extras/slack-notification.yaml
+#- flux-system-extras/on-call-webapp-alert.yaml
 - ../../base/staging
 - hephy/flux-kustomization.yaml
 - metallb/flux-kustomization.yaml
