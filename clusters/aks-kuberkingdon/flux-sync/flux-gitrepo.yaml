@@ -4,7 +4,7 @@ metadata:
   name: flux-sync
   namespace: flux-system
 spec:
-  interval: 5m0s
+  interval: 30s
   ref:
     branch: staging
   url: https://github.com/kingdonb/bootstrap-repo
