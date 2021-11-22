@@ -1,0 +1,46 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Provider
+metadata:
+  name: flux-sync
+  namespace: flux-system
+spec:
+  type: github
+  address: https://github.com/kingdonb/bootstrap-repo
+  secretRef:
+    name: github-bootstrap-token
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Alert
+metadata:
+  name: bootstrap
+  namespace: flux-system
+spec:
+  providerRef:
+    name: flux-sync
+  eventSeverity: info
+  eventSources:
+    - kind: Kustomization
+      name: aks-kuberkingdon2
+      namespace: flux-system
+    - kind: Kustomization
+      name: gke-geekingdon
+      namespace: flux-system
+    - kind: Kustomization
+      name: apps
+      namespace: flux-system
+    - kind: Kustomization
+      name: deis
+      namespace: flux-system
+    - kind: Kustomization
+      name: infrastructure
+      namespace: flux-system
+    - kind: Kustomization
+      name: metallb
+      namespace: flux-system
+    - kind: Kustomization
+      name: my-secrets
+      namespace: flux-system
+    - kind: Kustomization
+      name: cluster-api-secrets
+      namespace: flux-system
+
