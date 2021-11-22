@@ -16,5 +16,5 @@ patches:
         value: --gcp-autologin-for-gcr
 images: # []
 - name: ghcr.io/fluxcd/image-reflector-controller
-  newName: docker.io/kingdonb/image-reflector-controller
+  newName: docker.io/somma/image-reflector-controller
   newTag: test-autologin-c34c7cf34b1
