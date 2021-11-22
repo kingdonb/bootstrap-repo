@@ -4,7 +4,7 @@ apiVersion: apps/v1
 metadata:
   name: whoamiv1
 spec:
-  replicas: 4
+  replicas: 0
   template:
     spec:
       containers:
