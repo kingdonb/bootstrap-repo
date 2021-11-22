@@ -1,0 +1,12 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Receiver
+metadata:
+  name: podinfo-image-webhook
+  namespace: flux-system
+spec:
+  type: dockerhub
+  secretRef:
+    name: webhook-token
+  resources:
+    - kind: ImageRepository
+      name: kingdonb-podinfo

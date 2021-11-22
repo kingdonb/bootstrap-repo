@@ -8,10 +8,10 @@ resources:
 - flux-system
 - flux-system-extras/gitno-hephy-pro-ingress.yaml
 - flux-system-extras/git-webhook-receiver.yaml
-#- flux-system-extras/image-webhook-receiver.yaml
+- flux-system-extras/image-webhook-receiver.yaml
 - flux-system-extras/git-commit-status-alert-provider.yaml
 - flux-system-extras/on-call-webapp-alert.yaml
-#- flux-system-extras/podinfo-image-webhook-receiver.yaml
+- flux-system-extras/podinfo-image-webhook-receiver.yaml
 - flux-system-extras/slack-notification.yaml
 - ../../base/staging
 - hephy/flux-kustomization.yaml
