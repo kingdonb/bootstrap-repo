@@ -2,7 +2,6 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: blog
-  namespace: blog
 spec:
   entryPoints:
     - web
@@ -12,4 +11,5 @@ spec:
     services:
     - kind: Service
       name: blog
+      namespace: blog
       port: 80
