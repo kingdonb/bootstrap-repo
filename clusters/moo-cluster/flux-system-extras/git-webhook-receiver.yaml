@@ -1,0 +1,23 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Receiver
+metadata:
+  name: git-webhook
+  namespace: flux-system
+spec:
+  type: github
+  events:
+    - "ping"
+    - "push"
+  secretRef:
+    name: webhook-token
+  resources:
+    - kind: GitRepository
+      name: flux-system
+    - kind: GitRepository
+      name: flux-sync
+    - kind: GitRepository
+      name: cluster-api-bootstrap-repo
+    #- kind: GitRepository
+    #  name: flux-system-rw
+    #- kind: GitRepository
+    #  name: my-secrets-branch
