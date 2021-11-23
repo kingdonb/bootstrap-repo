@@ -1,0 +1,32 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: simplepodinfo
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`fix.me`) && PathPrefix(`/notls`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: podinfo
+      port: 9898
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: podinfotls
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`fix.me`) && PathPrefix(`/tls`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: podinfo
+      port: 9898
+  tls:
+    certResolver: myresolver

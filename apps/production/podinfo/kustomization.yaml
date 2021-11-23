@@ -1,0 +1,11 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: podinfo-production
+resources:
+  - namespace.yaml
+  - ../../base/podinfo
+
+patchesStrategicMerge:
+  - podinfo-patch.yaml
+  - ingressroute-patch.yaml

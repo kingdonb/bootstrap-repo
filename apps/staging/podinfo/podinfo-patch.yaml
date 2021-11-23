@@ -1,0 +1,14 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: podinfo
+spec:
+  replicas: 4
+  #template:
+  #  spec:
+  #    containers:
+  #      - name: podinfo
+  #        args:
+  #          - -ascii
+  #          - -name=STAGING

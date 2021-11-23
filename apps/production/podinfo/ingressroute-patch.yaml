@@ -1,0 +1,25 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: simplepodinfo
+spec:
+  routes:
+   - kind: Rule
+     match: Host(`podinfo.prod.hephy.pro`)
+     services:
+        - kind: Service
+          name: podinfo
+          port: 9898
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: podinfotls
+spec:
+  routes:
+   - kind: Rule
+     match: Host(`podinfo.prod.hephy.pro`)
+     services:
+        - kind: Service
+          name: podinfo
+          port: 9898
