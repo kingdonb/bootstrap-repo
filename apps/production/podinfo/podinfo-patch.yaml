@@ -5,10 +5,11 @@ metadata:
   name: podinfo
 spec:
   replicas: 4
-  #template:
-  #  spec:
-  #    containers:
-  #      - name: podinfo
+  template:
+    spec:
+      containers:
+        - name: podinfo
+          image: gcr.io/dx-kingdon/podinfo:5.0.0
   #        args:
   #          - -ascii
   #          - -name=PRODUCTION
