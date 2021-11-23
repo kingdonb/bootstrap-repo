@@ -11,4 +11,4 @@ spec:
         - name: whoamiv1
           args:
             - -ascii
-            - -name=STAGING  
+            - -name=STAGING
