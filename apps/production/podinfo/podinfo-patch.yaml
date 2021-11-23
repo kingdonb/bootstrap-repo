@@ -8,7 +8,7 @@ spec:
   template:
     spec:
       containers:
-        - name: podinfo
+        - name: podinfod
           image: gcr.io/dx-kingdon/podinfo:5.0.0
   #        args:
   #          - -ascii
