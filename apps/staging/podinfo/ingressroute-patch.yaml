@@ -5,7 +5,7 @@ metadata:
 spec:
   routes:
    - kind: Rule
-     match: Host(`podinfo.staging.hephy.pro`) && PathPrefix(`/notls`)
+     match: Host(`podinfo.staging.hephy.pro`)
      services:
         - kind: Service
           name: podinfo
@@ -18,7 +18,7 @@ metadata:
 spec:
   routes:
    - kind: Rule
-     match: Host(`podinfo.staging.hephy.pro`) && PathPrefix(`/tls`)
+     match: Host(`podinfo.staging.hephy.pro`)
      services:
         - kind: Service
           name: podinfo
