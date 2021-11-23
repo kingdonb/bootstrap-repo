@@ -3,17 +3,17 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 #- gotk-sync.yaml
-#patches:
-#  - target:
-#      version: v1
-#      group: apps
-#      kind: Deployment
-#      name: image-reflector-controller
-#      namespace: flux-system
-#    patch: |-
-#      - op: add
-#        path: /spec/template/spec/containers/0/args/-
-#        value: --gcp-autologin-for-gcr
+patches:
+  - target:
+      version: v1
+      group: apps
+      kind: Deployment
+      name: image-reflector-controller
+      namespace: flux-system
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --gcp-autologin-for-gcr
 images: # []
 - name: ghcr.io/fluxcd/image-reflector-controller
   newName: docker.io/somma/image-reflector-controller
