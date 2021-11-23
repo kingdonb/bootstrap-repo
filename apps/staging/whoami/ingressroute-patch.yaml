@@ -5,7 +5,7 @@ metadata:
 spec:
   routes:
    - kind: Rule
-     match: Host(`whoami.staging.hephy.pro`) && PathPrefix(`/notls`)
+     match: Host(`whoami.staging.hephy.pro`)
      services:
         - kind: Service
           name: whoamiv1
@@ -18,7 +18,7 @@ metadata:
 spec:
   routes:
    - kind: Rule
-     match: Host(`whoami.staging.hephy.pro`) && PathPrefix(`/tls`)
+     match: Host(`whoami.staging.hephy.pro`)
      services:
         - kind: Service
           name: whoamiv1
