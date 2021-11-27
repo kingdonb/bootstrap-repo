@@ -12,9 +12,9 @@ spec:
     name: flux-system
   path: ./apps/kube-oidc-proxy
   dependsOn:
-    - name: ingress-nginx
     - name: my-secrets
     - name: certificates
+    - name: ingress-nginx
   prune: true
   wait: true
-  suspend: true
+  suspend: false
