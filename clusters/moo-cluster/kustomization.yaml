@@ -19,3 +19,6 @@ resources:
 - my-secrets/my-secrets-kustomization.yaml
 - openvpn-as
 - ingress-nginx
+- cert-manager
+- keycloak
+- kube-oidc-proxy
