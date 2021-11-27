@@ -18,3 +18,4 @@ resources:
 - metallb/flux-kustomization.yaml
 - my-secrets/my-secrets-kustomization.yaml
 - openvpn-as
+- ingress-nginx
