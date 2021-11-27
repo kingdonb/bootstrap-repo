@@ -7,7 +7,7 @@ spec:
   interval: 15m0s
   retryInterval: 10m
   timeout: 12m0s
-  suspend: true
+  suspend: false
   path: ./apps/openvpn-as
   prune: false
   wait: true
