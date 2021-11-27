@@ -23,3 +23,4 @@ resources:
 - keycloak
 - kube-oidc-proxy
 - persistence
+- certificates
