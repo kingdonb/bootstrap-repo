@@ -17,3 +17,4 @@ resources:
 - hephy/flux-kustomization.yaml
 - metallb/flux-kustomization.yaml
 - my-secrets/my-secrets-kustomization.yaml
+- openvpn-as
