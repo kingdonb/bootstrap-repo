@@ -1,0 +1,44 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: keycloak
+resources:
+  - keycloak-ingress.yaml
+  - keycloak-db-user-configmap.yaml
+  - https://raw.githubusercontent.com/keycloak/keycloak-quickstarts/latest/kubernetes-examples/keycloak.yaml
+patchesStrategicMerge:
+- |-
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: keycloak
+  spec:
+    type: ClusterIP
+- |-
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: keycloak
+  spec:
+    template:
+      spec:
+        containers:
+        - name: keycloak
+          envFrom:
+          - configMapRef:
+              name: keycloak-db-user
+          - secretRef:
+              name: keycloak-db-pass
+          env:
+         #- name: KEYCLOAK_USER
+         #  value: "admin"
+         #- name: KEYCLOAK_PASSWORD
+         #  value: "admin"
+          - name: PROXY_ADDRESS_FORWARDING
+            value: "true"
+          resources:
+            requests:
+              memory: 512Mi
+              cpu: 250m
+            limits:
+              memory: 768Mi
+              cpu: 1500m
