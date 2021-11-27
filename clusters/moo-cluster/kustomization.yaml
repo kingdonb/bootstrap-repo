@@ -22,3 +22,4 @@ resources:
 - cert-manager
 - keycloak
 - kube-oidc-proxy
+- persistence
