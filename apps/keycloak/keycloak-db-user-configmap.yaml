@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  DB_ADDR: keycloak-db.turkey.local
+  DB_DATABASE: keycloak
+  DB_PORT: "3306"
+  DB_USER: keycloak_admin
+  DB_VENDOR: mariadb
+kind: ConfigMap
+metadata:
+  name: keycloak-db-user
