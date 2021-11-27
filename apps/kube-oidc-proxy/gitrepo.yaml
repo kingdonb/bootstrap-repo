@@ -1,0 +1,15 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: kubernetes-sso-guide
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: https://github.com/kingdonb/kubernetes-sso-guide
+  ref:
+    branch: master
+  ignore: |
+    # exclude all
+    /*
+    # include charts directory
+    !/charts/
