@@ -1,7 +1,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: my-secrets
+  name: persistence
   namespace: flux-system
 spec:
   interval: 10m0s
@@ -9,12 +9,8 @@ spec:
   timeout: 4m0s
   sourceRef:
     kind: GitRepository
-    name: flux-sync
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-gpg
-  path: ./secrets/moo-cluster
+    name: flux-system
+  path: ./persistence
   prune: false
-  wait: true
-  #suspend: false
+  wait: false
+ #suspend: false

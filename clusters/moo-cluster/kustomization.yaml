@@ -17,3 +17,10 @@ resources:
 - hephy/flux-kustomization.yaml
 - metallb/flux-kustomization.yaml
 - my-secrets/my-secrets-kustomization.yaml
+- openvpn-as
+- ingress-nginx
+- cert-manager
+- keycloak
+- kube-oidc-proxy
+- persistence
+- certificates

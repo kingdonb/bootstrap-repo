@@ -1,0 +1,11 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: kingdonb-helm-charts-1
+  namespace: flux-system
+spec:
+  interval: 19h38m0s
+  ref:
+    branch: helm-single-lb-only
+  url: https://github.com/kingdonb/helm-charts-1
