@@ -10,7 +10,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./infrastructure/ingress-nginx
+  path: ./apps/ingress-nginx
   dependsOn:
     - name: metallb
   prune: true
