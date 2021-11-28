@@ -1,7 +1,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: openvpn
+  name: 31-openvpn
   namespace: flux-system
 spec:
   interval: 15m0s
@@ -12,10 +12,10 @@ spec:
     name: flux-system
   path: ./apps/openvpn
   dependsOn:
-    - name: my-secrets
-    - name: persistence
-  # - name: certificates
-    - name: ingress-nginx
+  # - name: 11-certificates
+    - name: 12-persistence
+    - name: 20-my-secrets
+    - name: 30-ingress-nginx
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
