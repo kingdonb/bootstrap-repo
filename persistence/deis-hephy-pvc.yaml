@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    volume.beta.kubernetes.io/storage-provisioner: rancher.io/local-path
+    volume.kubernetes.io/selected-node: msigaming
+  labels:
+    app.kubernetes.io/instance: deis-hephy
+    app.kubernetes.io/name: deis-hephy
+  name: deis-hephy
+  namespace: deis
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: local-path
+  volumeName: pvc-c2160e8b-eed1-417e-851e-e27ba3fde324

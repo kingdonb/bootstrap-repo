@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: rancher.io/local-path
+  name: pvc-c2160e8b-eed1-417e-851e-e27ba3fde324
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  hostPath:
+    path: /opt/local-path-provisioner/pvc-c2160e8b-eed1-417e-851e-e27ba3fde324_deis_deis-hephy
+    type: DirectoryOrCreate
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - msigaming
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-path
