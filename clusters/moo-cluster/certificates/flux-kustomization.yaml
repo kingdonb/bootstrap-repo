@@ -17,4 +17,4 @@ spec:
   path: ./certificates/moo-cluster
   prune: false
   wait: false
- #suspend: false
+  suspend: true
