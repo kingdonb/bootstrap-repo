@@ -15,6 +15,8 @@ spec:
     secretRef:
       name: sops-gpg
   path: ./certificates/moo-cluster
+  dependsOn:
+    - name: 20-my-secrets
   prune: false
   wait: false
  #suspend: false
