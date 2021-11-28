@@ -10,7 +10,7 @@ spec:
   path: ./apps/cert-manager
   prune: true
   wait: true
-  suspend: true
+  suspend: false
   sourceRef:
     kind: GitRepository
     name: flux-system
