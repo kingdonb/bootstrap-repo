@@ -4,3 +4,14 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - flux-sync.yaml
+patches:
+  - target:
+      version: v1
+      group: apps
+      kind: Deployment
+      name: kustomize-controller
+      namespace: flux-system
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --requeue-dependency=4s
