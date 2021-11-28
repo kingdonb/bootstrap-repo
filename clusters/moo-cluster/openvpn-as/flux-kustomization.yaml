@@ -7,20 +7,20 @@ spec:
   interval: 15m0s
   retryInterval: 10m
   timeout: 12m0s
-  suspend: false
-  path: ./apps/openvpn
-  prune: false
-  wait: true
   sourceRef:
     kind: GitRepository
     name: flux-system
+  path: ./apps/openvpn
   dependsOn:
-    - name: ingress-nginx
-    - name: persistence
-    - name: certificates
     - name: my-secrets
+    - name: persistence
+  # - name: certificates
+    - name: ingress-nginx
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
       name: openvpn-openvpn-as
       namespace: openvpn
+  prune: false
+  wait: true
+  suspend: false

@@ -13,7 +13,7 @@ spec:
   path: ./apps/kube-oidc-proxy
   dependsOn:
     - name: my-secrets
-    - name: certificates
+  # - name: certificates
     - name: ingress-nginx
   prune: true
   wait: true
