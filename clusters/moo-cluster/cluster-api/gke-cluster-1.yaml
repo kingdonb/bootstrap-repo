@@ -11,6 +11,8 @@ spec:
   timeout: 2m10s
   path: ./clusters/gke-geekingdon/flux-system
   prune: true
+  dependsOn:
+    - name: 00-cluster-api-secrets
   sourceRef:
     kind: GitRepository
     name: cluster-api-bootstrap-repo

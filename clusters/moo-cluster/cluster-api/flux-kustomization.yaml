@@ -12,6 +12,8 @@ spec:
   timeout: 30s
   path: ./secrets/cluster-api
   prune: true
+  dependsOn:  # N.b. (this is not circular)
+    - name: 20-my-secrets
   sourceRef:
     kind: GitRepository
     name: cluster-api-bootstrap-repo

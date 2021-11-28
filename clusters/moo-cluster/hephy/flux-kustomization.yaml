@@ -11,8 +11,9 @@ spec:
     kind: GitRepository
     name: flux-sync
   path: ./apps/hephy
-  dependsOn: []
-  #  - name: certificates
+  dependsOn:
+    - name: 11-certificates
+    - name: 12-persistence
   prune: true
   wait: false
  #suspend: false
