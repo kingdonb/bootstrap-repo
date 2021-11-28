@@ -1,7 +1,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: 11-certificates
+  name: 80-monitoring
   namespace: flux-system
 spec:
   interval: 10m0s
@@ -10,13 +10,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-gpg
-  path: ./certificates/moo-cluster
-  dependsOn:
-    - name: 20-my-secrets
+  path: ./apps/monitoring
   prune: false
   wait: false
-  suspend: true
+  suspend: false

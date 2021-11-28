@@ -25,3 +25,4 @@ resources:
 - kube-oidc-proxy
 - persistence
 - certificates
+- monitoring
