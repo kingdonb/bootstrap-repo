@@ -5,8 +5,8 @@ namespace: podinfo-production
 resources:
   - namespace.yaml
   - ../../base/podinfo
-  - imagerepo.yaml
-  - imagepolicy.yaml
+  #- imagerepo.yaml
+  #- imagepolicy.yaml
 
 patchesStrategicMerge:
   - podinfo-patch.yaml
