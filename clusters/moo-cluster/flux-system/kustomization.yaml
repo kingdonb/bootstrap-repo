@@ -14,4 +14,4 @@ patches:
     patch: |-
       - op: add
         path: /spec/template/spec/containers/0/args/-
-        value: --requeue-dependency=4s
+        value: --requeue-dependency=15s
