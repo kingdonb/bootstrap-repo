@@ -8,7 +8,7 @@ spec:
     provider: sops
     secretRef:
       name: cluster-api-sops-gpg
-  interval: 10m0s
+  interval: 11m8s
   timeout: 30s
   path: ./secrets/cluster-api
   prune: true
