@@ -5,7 +5,8 @@ metadata:
   name: monitoring-config
   namespace: flux-system
 spec:
-  interval: 1h0m0s
+  interval: 1h3m9s
+  timeout: 2m0s
   path: ./manifests/monitoring/monitoring-config
   prune: true
   dependsOn:

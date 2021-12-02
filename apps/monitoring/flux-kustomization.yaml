@@ -5,6 +5,8 @@ metadata:
   name: monitoring-stack
   namespace: flux-system
 spec:
+  interval: 59m17s
+  timeout: 2m0s
   healthChecks:
   - kind: Deployment
     name: kube-prometheus-stack-operator
@@ -12,11 +14,9 @@ spec:
   - kind: Deployment
     name: kube-prometheus-stack-grafana
     namespace: monitoring
-  interval: 1h0m0s
   path: ./manifests/monitoring/kube-prometheus-stack
   prune: true
   sourceRef:
     kind: GitRepository
     name: monitoring
-  timeout: 2m0s
 
