@@ -4,6 +4,7 @@ namespace: deis
 resources:
 - ../base/hephy
 - blog-ingressroute.yaml
+- example-clusterrolebinding.yaml
 
 patchesStrategicMerge:
   - hephy-patch.yaml
