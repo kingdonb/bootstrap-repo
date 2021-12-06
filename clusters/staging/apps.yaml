@@ -14,4 +14,4 @@ spec:
     name: flux-system
   path: ./apps/staging
   prune: true
-  validation: client
+  wait: true
