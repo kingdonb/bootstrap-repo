@@ -15,7 +15,6 @@ spec:
     - name: 29-metallb
   prune: true
   wait: true
-  validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
