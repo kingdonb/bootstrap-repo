@@ -27,3 +27,4 @@ resources:
 - persistence
 - certificates
 - monitoring
+- kuby-test/manifests.yaml
