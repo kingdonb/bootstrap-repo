@@ -4,14 +4,7 @@ metadata:
   name: hephy
 spec:
   interval: 10m0s
-  chart:
-    spec:
-      chart: workflow
-      sourceRef:
-        kind: HelmRepository
-        name: teamhephy
-        namespace: deis
-      version: 2.23.0
+  chart: ""
   releaseName: deis-hephy
   values:
     controller:
