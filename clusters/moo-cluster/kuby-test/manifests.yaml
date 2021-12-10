@@ -100,7 +100,7 @@ spec:
             name: kubytest-config
         - secretRef:
             name: kubytest-secrets
-        image: kingdonb/kuby-tester:20211206201922
+        image: kingdonb/kuby-tester:20211210154644
         name: kubytest-create-db
       - command:
         - bundle
@@ -112,7 +112,7 @@ spec:
             name: kubytest-config
         - secretRef:
             name: kubytest-secrets
-        image: kingdonb/kuby-tester:20211206201922
+        image: kingdonb/kuby-tester:20211210154644
         name: kubytest-migrate-db
       restartPolicy: Always
       serviceAccountName: kubytest-sa
@@ -291,7 +291,7 @@ spec:
         role: assets
     spec:
       containers:
-      - image: kingdonb/kuby-tester:20211206201922-assets
+      - image: kingdonb/kuby-tester:20211210154644-assets
         imagePullPolicy: IfNotPresent
         name: kubytest-assets
         ports:
