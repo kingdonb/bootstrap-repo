@@ -123,7 +123,7 @@ metadata:
   annotations:
     #cert-manager.io/cluster-issuer: letsencrypt-production
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.tls.certresolver: myresolver
+    #traefik.ingress.kubernetes.io/router.tls.certresolver: myresolver
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
   name: kubytest-ingress
   namespace: kubytest-production
