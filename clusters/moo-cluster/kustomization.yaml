@@ -28,3 +28,4 @@ resources:
 - certificates
 - monitoring
 - kuby-test/manifests.yaml
+- kuby-test/dashboard.yaml
