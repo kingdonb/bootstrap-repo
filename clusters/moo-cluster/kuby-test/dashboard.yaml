@@ -12,6 +12,10 @@ spec:
       kind: TraefikService
     middlewares:
       - name: auth
+  entryPoints:
+    - websecure
+  tls:
+    certResolver: myresolver
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
