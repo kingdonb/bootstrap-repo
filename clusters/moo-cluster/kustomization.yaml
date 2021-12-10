@@ -27,5 +27,5 @@ resources:
 - persistence
 - certificates
 - monitoring
-- kuby-test/manifests.yaml
-- kuby-test/dashboard.yaml
+- kuby-test/flux-kustomization.yaml
+- kuby-test/config.yaml
