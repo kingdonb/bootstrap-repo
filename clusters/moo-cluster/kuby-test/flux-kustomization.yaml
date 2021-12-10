@@ -18,7 +18,7 @@ spec:
   postBuild:
     substituteFrom:
       - kind: ConfigMap
-        name: kuby-release-config
+        name: kubytest-release-config
   prune: true
   wait: false
  #suspend: false
