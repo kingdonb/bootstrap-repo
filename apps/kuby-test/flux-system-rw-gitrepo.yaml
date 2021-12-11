@@ -6,7 +6,7 @@ metadata:
   namespace: kubytest-production
 spec:
   gitImplementation: go-git
-  interval: 1m0s
+  interval: 30m0s
   ref:
     branch: staging
   secretRef:
