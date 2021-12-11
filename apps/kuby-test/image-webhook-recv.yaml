@@ -9,6 +9,4 @@ spec:
     name: kuby-tester
   secretRef:
     name: webhook-token
-  type: github
-  events:
-    - "package"
+  type: generic-hmac
