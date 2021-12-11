@@ -42,7 +42,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    getkuby.io/dockerfile-checksum: 230d07411b0e335ad84a2db1f666c4b3bf5eafb4e3f900189aae6d89a0fdb1fc
+    getkuby.io/dockerfile-checksum: e33dec77423209ab02c508440ae7f8e3266dbc64f7b4001e895c38f71597666c
   labels:
     app: kubytest
     role: web
