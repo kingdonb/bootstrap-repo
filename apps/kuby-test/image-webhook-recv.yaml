@@ -10,4 +10,4 @@ spec:
     name: kuby-tester
   secretRef:
     name: webhook-token
-  type: generic-hmac
+  type: generic
