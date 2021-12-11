@@ -5,7 +5,8 @@ metadata:
   namespace: kubytest-production
 spec:
   resources:
-  - kind: ImageRepository
+  - apiVersion: image.toolkit.fluxcd.io/v1alpha1
+    kind: ImageRepository
     name: kuby-tester
   secretRef:
     name: webhook-token
