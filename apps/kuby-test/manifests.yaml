@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -41,7 +42,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    getkuby.io/dockerfile-checksum: 161fb80039c2085fedbfccda95e7df4cea676b119e3da8caa396da4b9ef7bd27
+    getkuby.io/dockerfile-checksum: 230d07411b0e335ad84a2db1f666c4b3bf5eafb4e3f900189aae6d89a0fdb1fc
   labels:
     app: kubytest
     role: web
@@ -70,7 +71,7 @@ spec:
             name: kubytest-config
         - secretRef:
             name: kubytest-secrets
-        image: kingdonb/kuby-tester:${current_release}
+        image: ghcr.io/kingdonb/kuby-tester:${current_release}
         imagePullPolicy: IfNotPresent
         name: kubytest-web
         ports:
@@ -100,7 +101,7 @@ spec:
             name: kubytest-config
         - secretRef:
             name: kubytest-secrets
-        image: kingdonb/kuby-tester:${current_release}
+        image: ghcr.io/kingdonb/kuby-tester:${current_release}
         name: kubytest-create-db
       - command:
         - bundle
@@ -112,7 +113,7 @@ spec:
             name: kubytest-config
         - secretRef:
             name: kubytest-secrets
-        image: kingdonb/kuby-tester:${current_release}
+        image: ghcr.io/kingdonb/kuby-tester:${current_release}
         name: kubytest-migrate-db
       restartPolicy: Always
       serviceAccountName: kubytest-sa
@@ -151,48 +152,6 @@ spec:
   - hosts:
     - kuby-test.hephy.pro
     secretName: kubytest-tls
-#---
-#kind: Postgres
-#spec:
-#  storageType: Durable
-#  terminationPolicy: DoNotTerminate
-#  storage:
-#    accessModes:
-#    - ReadWriteOnce
-#    resources:
-#      requests:
-#        storage: 10Gi
-#    storageClassName: do-block-storage
-#  databaseSecret:
-#    secretName: kubytest-web-postgres-secret
-#  version: '11.2'
-#  standbyMode: Hot
-#  streamingMode: asynchronous
-#apiVersion: kubedb.com/v1alpha1
-#metadata:
-#  name: kubytest-web-postgres
-#  namespace: kubytest-production
-#---
-#kind: Postgres
-#spec:
-#  storageType: Durable
-#  terminationPolicy: DoNotTerminate
-#  storage:
-#    accessModes:
-#    - ReadWriteOnce
-#    resources:
-#      requests:
-#        storage: 10Gi
-#    storageClassName: do-block-storage
-#  databaseSecret:
-#    secretName: kubytest-web-postgres-secret
-#  version: '11.2'
-#  standbyMode: Hot
-#  streamingMode: asynchronous
-#apiVersion: kubedb.com/v1alpha1
-#metadata:
-#  name: kubytest-web-postgres
-#  namespace: kubytest-production
 ---
 apiVersion: v1
 kind: Service
@@ -291,7 +250,7 @@ spec:
         role: assets
     spec:
       containers:
-      - image: kingdonb/kuby-tester:${current_release}-assets
+      - image: ghcr.io/kingdonb/kuby-tester:${current_release}-assets
         imagePullPolicy: IfNotPresent
         name: kubytest-assets
         ports:
@@ -329,7 +288,7 @@ spec:
 #spec:
 #  acme:
 #    server: https://acme-v02.api.letsencrypt.org/directory
-#    email: yebyen@gmail.com
+#    email: yebyen+1@gmail.com
 #    privateKeySecretRef:
 #      name: letsencrypt-production
 #    solvers:
