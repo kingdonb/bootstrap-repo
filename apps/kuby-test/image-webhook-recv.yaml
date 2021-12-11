@@ -10,3 +10,5 @@ spec:
   secretRef:
     name: webhook-token
   type: github
+  events:
+    - "package"
