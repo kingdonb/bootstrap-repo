@@ -6,6 +6,7 @@ metadata:
 spec:
   entryPoints:
     - web
+    - web-secure
   routes:
   - match: Host(`blog.teamhephy.info`)
     kind: Rule
@@ -14,3 +15,5 @@ spec:
       name: blog
       namespace: blog
       port: 80
+  tls:
+    certResolver: myresolver
