@@ -7,7 +7,7 @@ metadata:
 spec:
   filterTags:
     extract: $ts
-    pattern: ^(?P<ts>[0-9]+)$
+    pattern: ^(?P<ts>[0-9]+)-assets$
   imageRepositoryRef:
     name: kuby-tester
   policy:
