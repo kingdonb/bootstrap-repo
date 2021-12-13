@@ -9,7 +9,7 @@ spec:
   timeout: 4m0s
   sourceRef:
     kind: GitRepository
-    name: flux-sync
+    name: flux-system
   path: ./apps/kuby-test
   dependsOn:
     - name: flux-system # the configmap from postBuild must sync first
