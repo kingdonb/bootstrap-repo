@@ -5,7 +5,7 @@ metadata:
   name: flux-sync
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 1d
   ref:
     branch: staging
   secretRef:
