@@ -42,7 +42,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    getkuby.io/dockerfile-checksum: e33dec77423209ab02c508440ae7f8e3266dbc64f7b4001e895c38f71597666c
+    getkuby.io/dockerfile-checksum: 49602c374399cc5d74f824386d8e9984840f4ebae97ad78ff3ff46eb2854fe83
   labels:
     app: kubytest
     role: web
@@ -118,7 +118,7 @@ spec:
       restartPolicy: Always
       serviceAccountName: kubytest-sa
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
@@ -134,20 +134,29 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: kubytest-svc
-          servicePort: 8080
+          service:
+            name: kubytest-svc
+            port:
+              number: 8080
         path: "/"
+        pathType: Prefix
   - host: kuby-test.hephy.pro
     http:
       paths:
       - backend:
-          serviceName: kubytest-assets-svc
-          servicePort: 8082
+          service:
+            name: kubytest-assets-svc
+            port:
+              number: 8082
         path: "/assets"
+        pathType: Prefix
       - backend:
-          serviceName: kubytest-assets-svc
-          servicePort: 8082
+          service:
+            name: kubytest-assets-svc
+            port:
+              number: 8082
         path: "/packs"
+        pathType: Prefix
   tls:
   - hosts:
     - kuby-test.hephy.pro
@@ -280,7 +289,7 @@ spec:
           name: kubytest-assets-nginx-config
         name: nginx-config
 #---
-#apiVersion: cert-manager.io/v1alpha2
+#apiVersion: cert-manager.io/v1
 #kind: ClusterIssuer
 #metadata:
 #  name: letsencrypt-production
