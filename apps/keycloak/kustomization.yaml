@@ -4,7 +4,7 @@ namespace: keycloak
 resources:
   - keycloak-ingress.yaml
   - keycloak-db-user-configmap.yaml
-  - https://raw.githubusercontent.com/keycloak/keycloak-quickstarts/latest/kubernetes-examples/keycloak.yaml
+  - https://raw.githubusercontent.com/keycloak/keycloak-quickstarts/15.1.0/kubernetes-examples/keycloak.yaml
 patchesStrategicMerge:
 - |-
   apiVersion: v1
