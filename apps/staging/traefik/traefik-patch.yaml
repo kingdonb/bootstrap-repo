@@ -24,6 +24,9 @@ spec:
             - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
             - "--certificatesresolvers.myresolver.acme.email=kingdon+acme@weave.works"
             - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+            - "--certificatesresolvers.prodresolver.acme.storage=/data/acme-prod.json"
+            - "--certificatesresolvers.prodresolver.acme.tlschallenge=true"
+            - "--certificatesresolvers.prodresolver.acme.email=kingdon+acme@weave.works"
 
 ---
 apiVersion: v1
