@@ -21,12 +21,12 @@ spec:
           - kind: Deployment
             apiVersion: apps/v1
             metadata:
-              name: minio-stage-minio
+              name: deis-minio
             spec:
               template:
                 spec:
                   containers:
-                  - name: minio-stage-minio
+                  - name: deis-minio
                     volumeMounts:
                     - mountPath: /home/minio
                       name: minio-storage
