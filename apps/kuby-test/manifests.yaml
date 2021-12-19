@@ -129,6 +129,7 @@ metadata:
   name: kubytest-ingress
   namespace: kubytest-production
 spec:
+  ingressClassName: traefik
   rules:
   - host: kuby-test.hephy.pro
     http:
