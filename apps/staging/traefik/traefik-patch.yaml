@@ -19,6 +19,7 @@ spec:
             - "--providers.kubernetescrd.allowCrossNamespace=true" 
             - "--providers.kubernetesingress=true"
             - "--providers.kubernetesingress.allowEmptyServices=true"
+            - "--providers.kubernetesingress.ingressclass=traefik"
             - "--certificatesresolvers.myresolver.acme.storage=/data/acme.json"
             - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
             - "--certificatesresolvers.myresolver.acme.email=kingdon+acme@weave.works"
