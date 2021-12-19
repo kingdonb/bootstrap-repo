@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: traefik-staging
 resources:
   - namespace.yaml
+  - traefik-ingressclass.yaml
   - ../../base/traefik
 
 patchesStrategicMerge:
