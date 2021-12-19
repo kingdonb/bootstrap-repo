@@ -4,3 +4,4 @@ namespace: minio-stage
 resources:
 #- ../base/minio
 - minio-helmrelease.yaml
+- minio-ingressroute.yaml
