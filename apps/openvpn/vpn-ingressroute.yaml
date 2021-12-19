@@ -26,8 +26,7 @@ spec:
   routes:
   - match: HostSNI(`vpn.hephy.pro`)
     services:
-    - kind: Service
-      name: ingress-internal-ingress-nginx-controller
+    - name: ingress-internal-ingress-nginx-controller
       namespace: ingress-nginx
       port: 443
   tls:
