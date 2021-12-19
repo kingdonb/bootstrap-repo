@@ -78,4 +78,5 @@ spec:
               name: storage-volume
       volumes:
         - name: storage-volume
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: traefik-tls

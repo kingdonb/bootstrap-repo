@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: rancher.io/local-path
+  name: pvc-65d3ca0d-7ba1-481a-9b5a-1f0f0fb9e453
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  hostPath:
+    path: /opt/local-path-provisioner/pvc-65d3ca0d-7ba1-481a-9b5a-1f0f0fb9e453_traefik-staging_traefik-tls
+    type: DirectoryOrCreate
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - msigaming
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-path

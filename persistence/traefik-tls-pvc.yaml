@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    volume.beta.kubernetes.io/storage-provisioner: rancher.io/local-path
+    volume.kubernetes.io/selected-node: msigaming
+  labels:
+    app.kubernetes.io/instance: traefik-tls
+    app.kubernetes.io/name: traefik-tls
+  name: traefik-tls
+  namespace: traefik-staging
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: local-path
+  volumeName: pvc-65d3ca0d-7ba1-481a-9b5a-1f0f0fb9e453
