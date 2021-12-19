@@ -18,6 +18,8 @@ resources:
 - hephy/namespace.yaml
 - metallb/flux-kustomization.yaml
 - metrics-server/flux-kustomization.yaml
+- minio-stage/flux-kustomization.yaml
+- minio-stage/namespace.yaml
 - my-secrets/my-secrets-kustomization.yaml
 - openvpn-as
 - ingress-nginx
