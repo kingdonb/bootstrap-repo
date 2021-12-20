@@ -2,12 +2,12 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 metadata:
-  name: kuby-tester
+  name: kuby-tester-assets
   namespace: kubytest-production
 spec:
   filterTags:
     extract: $ts
-    pattern: ^(?P<ts>[0-9]+)$
+    pattern: ^(?P<ts>[0-9]+)-assets$
   imageRepositoryRef:
     name: kuby-tester
   policy:

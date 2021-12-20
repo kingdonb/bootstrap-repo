@@ -71,7 +71,7 @@ spec:
             name: kubytest-config
         - secretRef:
             name: kubytest-secrets
-        image: ghcr.io/kingdonb/kuby-tester:${current_release/-assets/}
+        image: ghcr.io/kingdonb/kuby-tester:${current_release}
         imagePullPolicy: IfNotPresent
         name: kubytest-web
         ports:
@@ -101,7 +101,7 @@ spec:
             name: kubytest-config
         - secretRef:
             name: kubytest-secrets
-        image: ghcr.io/kingdonb/kuby-tester:${current_release/-assets/}
+        image: ghcr.io/kingdonb/kuby-tester:${current_release}
         name: kubytest-create-db
       - command:
         - bundle
@@ -113,7 +113,7 @@ spec:
             name: kubytest-config
         - secretRef:
             name: kubytest-secrets
-        image: ghcr.io/kingdonb/kuby-tester:${current_release/-assets/}
+        image: ghcr.io/kingdonb/kuby-tester:${current_release}
         name: kubytest-migrate-db
       restartPolicy: Always
       serviceAccountName: kubytest-sa
@@ -260,7 +260,7 @@ spec:
         role: assets
     spec:
       containers:
-      - image: ghcr.io/kingdonb/kuby-tester:${current_release}
+      - image: ghcr.io/kingdonb/kuby-tester:${current_assets_release}
         imagePullPolicy: IfNotPresent
         name: kubytest-assets
         ports:
