@@ -35,7 +35,7 @@ patchesStrategicMerge:
           path: /spec/template/spec/containers/0/args/-
           value: --requeue-dependency=15s
         - op: add
-          path: /spec/template/spec/containers/0/args/-
+          path: /spec/template/spec/containers/0/args/0
           value: --concurrent=6
         - op: replace
           path: /spec/template/spec/containers/0/resources/limits/cpu
