@@ -1,0 +1,31 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: socryx-topled
+  namespace: traefik-staging
+spec:
+  ports:
+    - name: urbit-https
+      protocol: TCP
+      port: 443
+      targetPort: 443
+      nodePort: 0
+    - name: urbit-http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: socryx-topled
+  namespace: traefik-staging
+subsets:
+- addresses:
+  - ip: 10.17.12.146
+  ports:
+  - port: 443
+    name: urbit-https
+  - port: 80
+    name: urbit-http
