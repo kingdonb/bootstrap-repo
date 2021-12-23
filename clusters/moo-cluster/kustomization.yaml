@@ -27,6 +27,7 @@ resources:
 - keycloak
 - kube-oidc-proxy
 - persistence
+- routers
 - certificates
 - monitoring
 - kuby-test/flux-kustomization.yaml
