@@ -11,8 +11,8 @@ spec:
     match: Host(`socryx-topled.arvo.network`)
     services:
     - kind: Service
-      name: ingress-internal-ingress-nginx-controller
-      namespace: ingress-nginx
+      name: socryx-topled
+      namespace: traefik-staging
       port: 80
 ---
 apiVersion: traefik.containo.us/v1alpha1
@@ -26,8 +26,8 @@ spec:
   routes:
   - match: HostSNI(`socryx-topled.arvo.network`)
     services:
-    - name: ingress-public-ingress-nginx-controller
-      namespace: ingress-nginx
+    - name: socryx-topled
+      namespace: traefik-staging
       port: 443
   tls:
     passthrough: true
