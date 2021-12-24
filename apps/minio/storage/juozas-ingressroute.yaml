@@ -1,0 +1,35 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: storage-public-access
+  namespace: minio-juozas
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`storage.hephy.pro`)
+    services:
+    - kind: Service
+      name: deis-minio
+      namespace: minio-juozas
+      port: 9000
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: storage-public-access-https
+  namespace: minio-juozas
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`storage.hephy.pro`)
+    services:
+    - kind: Service
+      name: deis-minio
+      namespace: minio-juozas
+      port: 9000
+  tls:
+    certResolver: prodresolver
