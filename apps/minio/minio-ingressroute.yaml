@@ -33,3 +33,39 @@ spec:
       port: 9000
   tls:
     certResolver: prodresolver
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: minio-public-access-urbit-files
+  namespace: minio-stage
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`urbit-files.minio.hephy.pro`)
+    services:
+    - kind: Service
+      name: deis-minio
+      namespace: minio-stage
+      port: 9000
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: minio-public-access-https-urbit-files
+  namespace: minio-stage
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`urbit-files.minio.hephy.pro`)
+    services:
+    - kind: Service
+      name: deis-minio
+      namespace: minio-stage
+      port: 9000
+  tls:
+    certResolver: prodresolver
