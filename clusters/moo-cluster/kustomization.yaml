@@ -20,6 +20,7 @@ resources:
 - metrics-server/flux-kustomization.yaml
 - minio-stage/flux-kustomization.yaml
 - minio-stage/namespace.yaml
+- minio-stage/juozas-namespace.yaml
 - my-secrets/my-secrets-kustomization.yaml
 - openvpn-as
 - ingress-nginx
