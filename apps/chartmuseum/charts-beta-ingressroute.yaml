@@ -18,7 +18,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: charts-beta-public-access
+  name: charts-beta-public-access-https
   namespace: chartmuseum
 spec:
   entryPoints:
