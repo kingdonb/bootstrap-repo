@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 #- cluster-api/aks-kuberkingdon2.yaml
 #- cluster-api/gke-cluster-1.yaml
+- chartmuseum
 - cluster-api/flux-kustomization.yaml
 - cluster-api/gitrepository.yaml
 - flux-system
