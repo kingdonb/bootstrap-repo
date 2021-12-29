@@ -17,6 +17,16 @@ spec:
   postRenderers:
     - kustomize:
         patchesStrategicMerge:
+          - kind: Deployment
+            apiVersion: apps/v1
+            metadata:
+              name: deis-controller
+            spec:
+              template:
+                spec:
+                  containers:
+                    - name: deis-controller
+                      image: kingdonb/controller:git-7beda111
           - kind: Service
             apiVersion: v1
             metadata:
