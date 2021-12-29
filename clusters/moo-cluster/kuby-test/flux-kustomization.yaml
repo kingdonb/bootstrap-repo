@@ -13,6 +13,7 @@ spec:
   path: ./apps/kuby-test
   dependsOn:
     - name: flux-system # the configmap from postBuild must sync first
+    - name: infrastructure
   # - name: 11-certificates
   # - name: 12-persistence
   # - name: traefik-api-crds
