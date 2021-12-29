@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 - helmrelease-deis-hephy.yaml
 - teamhephy-repo.yaml
+- hephy-workflow-beta.yaml
