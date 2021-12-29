@@ -11,7 +11,7 @@ spec:
     kind: GitRepository
     name: flux-sync
   path: ./apps/harbor
-  dependsOn:
+  dependsOn: []
   # - name: 11-certificates
   # - name: 12-persistence
   # - name: traefik-api-crds
