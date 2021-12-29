@@ -1,0 +1,36 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: chartmuseum
+  namespace: chartmuseum
+spec:
+  chart:
+    spec:
+      chart: chartmuseum
+      sourceRef:
+        kind: HelmRepository
+        name: chartmuseum
+  targetNamespace: chartmuseum
+  storageNamespace: chartmuseum
+  interval: 15m0s
+  values:
+    env:
+      open:
+        STORAGE: amazon
+        STORAGE_AMAZON_BUCKET: charts-beta
+        STORAGE_AMAZON_PREFIX:
+        STORAGE_AMAZON_REGION: us-east-1
+        STORAGE_AMAZON_ENDPOINT: https://minio.hephy.pro
+      # secret:
+        # AWS_ACCESS_KEY_ID: "********" ## aws access key id value
+        # AWS_SECRET_ACCESS_KEY: "********" ## aws access key secret value
+  valuesFrom:
+  - kind: Secret
+    name: minio-user
+    valuesKey: accesskey
+    targetPath: env.secret.AWS_ACCESS_KEY_ID
+  - kind: Secret
+    name: minio-user
+    valuesKey: secretkey
+    targetPath: env.secret.AWS_SECRET_ACCESS_KEY
