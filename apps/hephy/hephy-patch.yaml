@@ -22,16 +22,16 @@ spec:
   postRenderers:
     - kustomize:
         patchesStrategicMerge:
-          - kind: Deployment
-            apiVersion: apps/v1
-            metadata:
-              name: deis-builder
-            spec:
-              template:
-                spec:
-                  containers:
-                    - name: deis-builder
-                      image: kingdonb/builder:git-a3cb9b2
+          # - kind: Deployment
+          #   apiVersion: apps/v1
+          #   metadata:
+          #     name: deis-builder
+          #   spec:
+          #     template:
+          #       spec:
+          #         containers:
+          #           - name: deis-builder
+          #             image: kingdonb/builder:git-a3cb9b2
           - kind: Deployment
             apiVersion: apps/v1
             metadata:
