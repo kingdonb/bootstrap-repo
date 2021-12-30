@@ -16,9 +16,9 @@ spec:
   targetNamespace: deis
   dependsOn:
     - namespace: ingress-nginx
-      name: ingress-internal
+      name: internal-ingress
     - namespace: ingress-nginx
-      name: ingress-public
+      name: public-ingress
   postRenderers:
     - kustomize:
         patchesStrategicMerge:
