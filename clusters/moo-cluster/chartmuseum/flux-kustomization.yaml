@@ -11,10 +11,8 @@ spec:
     kind: GitRepository
     name: flux-sync
   path: ./apps/chartmuseum
-  dependsOn: []
-  # - name: 11-certificates
-  # - name: 12-persistence
-  # - name: traefik-api-crds
+  dependsOn:
+  - name: 90-minio-stage
   prune: true
   wait: false
  #suspend: false
