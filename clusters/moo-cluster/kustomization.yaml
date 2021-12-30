@@ -15,6 +15,7 @@ resources:
 - flux-system-extras/podinfo-image-webhook-receiver.yaml
 - flux-system-extras/slack-notification.yaml
 - ../../base/staging
+- harbor
 - hephy/flux-kustomization.yaml
 - hephy/namespace.yaml
 - metallb/flux-kustomization.yaml
