@@ -46,6 +46,7 @@ spec:
             kind: Ingress
             metadata:
               name: harbor-ingress
+              namespace: harbor
               annotations:
                 cert-manager.io/cluster-issuer: example-clusterissuer
             spec:
@@ -54,6 +55,7 @@ spec:
             kind: Ingress
             metadata:
               name: harbor-ingress-notary
+              namespace: harbor
               annotations:
                 cert-manager.io/cluster-issuer: letsencrypt-production
             spec:
