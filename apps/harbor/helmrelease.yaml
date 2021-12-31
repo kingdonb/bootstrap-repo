@@ -21,6 +21,24 @@ spec:
           core: img.hephy.pro
           notary: not.hephy.pro
     externalURL: https://img.hephy.pro
+    persistence:
+      imageChartStorage:
+        type: s3
+        s3:
+          region: us-east-1
+          bucket: harbor-storage
+          regionendpoint: https://minio.hephy.pro
+
+  valuesFrom:
+  - kind: Secret
+    name: minio-user
+    valuesKey: accesskey
+    targetPath: persistence.imageChartStorage.s3.accesskey
+  - kind: Secret
+    name: minio-user
+    valuesKey: secretkey
+    targetPath: persistence.imageChartStorage.s3.secretkey
+
   postRenderers:
     - kustomize:
         patchesStrategicMerge:
@@ -28,11 +46,15 @@ spec:
             kind: Ingress
             metadata:
               name: harbor-ingress
+              annotations:
+                cert-manager.io/cluster-issuer: letsencrypt-production
             spec:
               ingressClassName: traefik
           - apiVersion: networking.k8s.io/v1
             kind: Ingress
             metadata:
               name: harbor-ingress-notary
+              annotations:
+                cert-manager.io/cluster-issuer: letsencrypt-production
             spec:
               ingressClassName: traefik
