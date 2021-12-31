@@ -22,7 +22,7 @@ spec:
       ingress:
         hosts:
           core: img.hephy.pro
-          notary: not.hephy.pro
+          #notary: not.hephy.pro
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-production
     externalURL: https://img.hephy.pro
@@ -53,9 +53,9 @@ spec:
               name: harbor-ingress
             spec:
               ingressClassName: internal
-          - apiVersion: networking.k8s.io/v1
-            kind: Ingress
-            metadata:
-              name: harbor-ingress-notary
-            spec:
-              ingressClassName: internal
+         #- apiVersion: networking.k8s.io/v1
+         #  kind: Ingress
+         #  metadata:
+         #    name: harbor-ingress-notary
+         #  spec:
+         #    ingressClassName: internal
