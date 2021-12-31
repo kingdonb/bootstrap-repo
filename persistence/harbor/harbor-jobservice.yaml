@@ -5,8 +5,6 @@ metadata:
     helm.sh/resource-policy: keep
     meta.helm.sh/release-name: harbor
     meta.helm.sh/release-namespace: harbor
-    pv.kubernetes.io/bind-completed: "yes"
-    pv.kubernetes.io/bound-by-controller: "yes"
     volume.beta.kubernetes.io/storage-provisioner: rancher.io/local-path
     volume.kubernetes.io/selected-node: msigaming
     volume.kubernetes.io/storage-provisioner: rancher.io/local-path
