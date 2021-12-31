@@ -1,0 +1,35 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: charts-beta-public-access
+  namespace: chartmuseum
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`charts-beta.hephy.pro`)
+    services:
+    - kind: Service
+      name: chartmuseum-chartmuseum
+      namespace: chartmuseum
+      port: 8080
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: charts-beta-public-access-https
+  namespace: chartmuseum
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`charts-beta.hephy.pro`)
+    services:
+    - kind: Service
+      name: chartmuseum-chartmuseum
+      namespace: chartmuseum
+      port: 8080
+  tls:
+    certResolver: prodresolver

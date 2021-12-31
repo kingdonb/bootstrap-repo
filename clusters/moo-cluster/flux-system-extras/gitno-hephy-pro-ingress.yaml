@@ -8,7 +8,7 @@ metadata:
     #nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     #nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  #ingressClassName: public
+  ingressClassName: traefik
   rules:
   - host: gitno.hephy.pro
     http:

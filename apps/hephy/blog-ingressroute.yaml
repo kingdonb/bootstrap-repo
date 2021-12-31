@@ -1,7 +1,8 @@
+---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: blog
+  name: blog-insecure
 spec:
   entryPoints:
     - web
@@ -13,3 +14,21 @@ spec:
       name: blog
       namespace: blog
       port: 80
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: blog
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`blog.teamhephy.info`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: blog
+      namespace: blog
+      port: 80
+  tls:
+    certResolver: prodresolver

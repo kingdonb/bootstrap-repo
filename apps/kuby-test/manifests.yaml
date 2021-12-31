@@ -1,0 +1,307 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kubytest-production
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kubytest
+    role: web
+  name: kubytest-svc
+  namespace: kubytest-production
+spec:
+  ports:
+  - name: http
+    port: 8080
+    protocol: TCP
+    targetPort: http
+  selector:
+    app: kubytest
+    role: web
+  type: NodePort
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: kubytest
+    role: web
+  name: kubytest-sa
+  namespace: kubytest-production
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kubytest-config
+  namespace: kubytest-production
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    getkuby.io/dockerfile-checksum: 49602c374399cc5d74f824386d8e9984840f4ebae97ad78ff3ff46eb2854fe83
+  labels:
+    app: kubytest
+    role: web
+  name: kubytest-web
+  namespace: kubytest-production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubytest
+      role: web
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: kubytest
+        role: web
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: kubytest-config
+        - secretRef:
+            name: kubytest-secrets
+        image: ghcr.io/kingdonb/kuby-tester:${current_release}
+        imagePullPolicy: IfNotPresent
+        name: kubytest-web
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 2
+          httpGet:
+            path: "/healthz"
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 3
+          successThreshold: 1
+          timeoutSeconds: 1
+      imagePullSecrets:
+      - name: kubytest-registry-secret
+      initContainers:
+      - command:
+        - bundle
+        - exec
+        - rake
+        - kuby:rails_app:db:create_unless_exists
+        envFrom:
+        - configMapRef:
+            name: kubytest-config
+        - secretRef:
+            name: kubytest-secrets
+        image: ghcr.io/kingdonb/kuby-tester:${current_release}
+        name: kubytest-create-db
+      - command:
+        - bundle
+        - exec
+        - rake
+        - db:migrate
+        envFrom:
+        - configMapRef:
+            name: kubytest-config
+        - secretRef:
+            name: kubytest-secrets
+        image: ghcr.io/kingdonb/kuby-tester:${current_release}
+        name: kubytest-migrate-db
+      restartPolicy: Always
+      serviceAccountName: kubytest-sa
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    #cert-manager.io/cluster-issuer: letsencrypt-production
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    #traefik.ingress.kubernetes.io/router.tls.certresolver: myresolver
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+  name: kubytest-ingress
+  namespace: kubytest-production
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: kuby-test.hephy.pro
+    http:
+      paths:
+      - backend:
+          service:
+            name: kubytest-svc
+            port:
+              number: 8080
+        path: "/"
+        pathType: Prefix
+  - host: kuby-test.hephy.pro
+    http:
+      paths:
+      - backend:
+          service:
+            name: kubytest-assets-svc
+            port:
+              number: 8082
+        path: "/assets"
+        pathType: Prefix
+      - backend:
+          service:
+            name: kubytest-assets-svc
+            port:
+              number: 8082
+        path: "/packs"
+        pathType: Prefix
+  tls:
+  - hosts:
+    - kuby-test.hephy.pro
+    secretName: kubytest-tls
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kubytest
+    role: assets
+  name: kubytest-assets-svc
+  namespace: kubytest-production
+spec:
+  ports:
+  - name: http
+    port: 8082
+    protocol: TCP
+    targetPort: http
+  selector:
+    app: kubytest
+    role: assets
+  type: NodePort
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: kubytest
+    role: assets
+  name: kubytest-assets-sa
+  namespace: kubytest-production
+---
+apiVersion: v1
+data:
+  nginx.conf: |
+    user  nginx;
+    worker_processes  1;
+
+    error_log  /var/log/nginx/error.log warn;
+    pid        /var/run/nginx.pid;
+
+    events {
+      worker_connections  1024;
+    }
+
+    http {
+      include       /etc/nginx/mime.types;
+      default_type  application/octet-stream;
+
+      log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                        '$status $body_bytes_sent "$http_referer" '
+                        '"$http_user_agent" "$http_x_forwarded_for"';
+
+      access_log  /var/log/nginx/access.log  main;
+
+      sendfile           on;
+      keepalive_timeout  65;
+      gzip               on;
+
+      server {
+        listen 8082;
+        server_name localhost;
+
+        location / {
+          root /usr/share/nginx/assets/current;
+        }
+
+        error_page   500 502 503 504  /500.html;
+      }
+    }
+kind: ConfigMap
+metadata:
+  name: kubytest-assets-nginx-config
+  namespace: kubytest-production
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kubytest
+    role: assets
+  name: kubytest-assets
+  namespace: kubytest-production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubytest
+      role: assets
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: kubytest
+        role: assets
+    spec:
+      containers:
+      - image: ghcr.io/kingdonb/kuby-tester:${current_assets_release}
+        imagePullPolicy: IfNotPresent
+        name: kubytest-assets
+        ports:
+        - containerPort: 8082
+          name: http
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 2
+          httpGet:
+            path: "/500.html"
+            port: 8082
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 3
+          successThreshold: 1
+          timeoutSeconds: 1
+        volumeMounts:
+        - mountPath: "/etc/nginx/nginx.conf"
+          name: nginx-config
+          subPath: nginx.conf
+      imagePullSecrets:
+      - name: kubytest-registry-secret
+      restartPolicy: Always
+      serviceAccountName: kubytest-assets-sa
+      volumes:
+      - configMap:
+          name: kubytest-assets-nginx-config
+        name: nginx-config
+#---
+#apiVersion: cert-manager.io/v1
+#kind: ClusterIssuer
+#metadata:
+#  name: letsencrypt-production
+#  namespace: cert-manager
+#spec:
+#  acme:
+#    server: https://acme-v02.api.letsencrypt.org/directory
+#    email: yebyen+1@gmail.com
+#    privateKeySecretRef:
+#      name: letsencrypt-production
+#    solvers:
+#    - http01:
+#        ingress:
+#          class: nginx

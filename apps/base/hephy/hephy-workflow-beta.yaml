@@ -1,0 +1,11 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: hephy-workflow-beta
+  namespace: deis
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  url: https://github.com/kingdonb/hephy-workflow-beta

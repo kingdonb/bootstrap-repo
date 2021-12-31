@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 #- cluster-api/aks-kuberkingdon2.yaml
 #- cluster-api/gke-cluster-1.yaml
+- chartmuseum
 - cluster-api/flux-kustomization.yaml
 - cluster-api/gitrepository.yaml
 - flux-system
@@ -14,10 +15,14 @@ resources:
 - flux-system-extras/podinfo-image-webhook-receiver.yaml
 - flux-system-extras/slack-notification.yaml
 - ../../base/staging
+- harbor
 - hephy/flux-kustomization.yaml
 - hephy/namespace.yaml
 - metallb/flux-kustomization.yaml
 - metrics-server/flux-kustomization.yaml
+- minio-stage/flux-kustomization.yaml
+- minio-stage/namespace.yaml
+- minio-stage/juozas-namespace.yaml
 - my-secrets/my-secrets-kustomization.yaml
 - openvpn-as
 - ingress-nginx
@@ -25,5 +30,8 @@ resources:
 - keycloak
 - kube-oidc-proxy
 - persistence
+- routers
 - certificates
 - monitoring
+- kuby-test/flux-kustomization.yaml
+- kuby-test/config.yaml

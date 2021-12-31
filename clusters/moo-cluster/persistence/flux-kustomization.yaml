@@ -5,12 +5,14 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  retryInterval: 6m0s
+  retryInterval: 40s
   timeout: 4m0s
   sourceRef:
     kind: GitRepository
     name: flux-system
   path: ./persistence
+  dependsOn:
+    - name: apps  # this is less than ideal, but traefik-staging namespace is created in "apps"
   prune: false
   wait: false
  #suspend: false

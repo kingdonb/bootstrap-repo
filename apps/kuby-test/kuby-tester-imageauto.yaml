@@ -1,0 +1,26 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: kuby-tester
+  namespace: kubytest-production
+spec:
+  git:
+    checkout:
+      ref:
+        branch: staging
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: staging
+  interval: 30m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system-rw
+  update:
+    path: ./clusters/moo-cluster/kuby-test
+    strategy: Setters
+

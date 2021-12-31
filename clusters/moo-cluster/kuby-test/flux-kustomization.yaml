@@ -1,0 +1,26 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: 85-kuby-test
+  namespace: flux-system
+spec:
+  interval: 60m0s
+  retryInterval: 6m0s
+  timeout: 4m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./apps/kuby-test
+  dependsOn:
+    - name: flux-system # the configmap from postBuild must sync first
+    - name: infrastructure
+  # - name: 11-certificates
+  # - name: 12-persistence
+  # - name: traefik-api-crds
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: kubytest-release-config
+  prune: true
+  wait: true
+ #suspend: false

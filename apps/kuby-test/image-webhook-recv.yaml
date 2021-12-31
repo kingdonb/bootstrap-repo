@@ -1,0 +1,13 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Receiver
+metadata:
+  name: image-webhook
+  namespace: kubytest-production
+spec:
+  resources:
+  - apiVersion: image.toolkit.fluxcd.io/v1alpha1
+    kind: ImageRepository
+    name: kuby-tester
+  secretRef:
+    name: webhook-token
+  type: generic
