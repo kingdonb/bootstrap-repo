@@ -12,3 +12,25 @@ spec:
       version: 1.8.1
   interval: 15m15s
   timeout: 10m0s
+  values:
+    expose:
+      ingress:
+        hosts:
+          core: img.hephy.pro
+          notary: not.hephy.pro
+    externalURL: https://img.hephy.pro
+  postRenderers:
+    - kustomize:
+        patchesStrategicMerge:
+          - apiVersion: networking.k8s.io/v1
+            kind: Ingress
+            metadata:
+              name: harbor-ingress
+            spec:
+              ingressClassName: traefik
+          - apiVersion: networking.k8s.io/v1
+            kind: Ingress
+            metadata:
+              name: harbor-ingress-notary
+            spec:
+              ingressClassName: traefik
