@@ -17,8 +17,8 @@ spec:
       enabled: false
     expose:
       tls:
-        certSource: auto
-       # secretName: img.hephy.pro-tls
+        certSource: secret
+        secretName: harbor-ingress
       ingress:
         hosts:
           core: img.hephy.pro
