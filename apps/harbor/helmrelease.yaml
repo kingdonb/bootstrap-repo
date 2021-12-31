@@ -15,7 +15,8 @@ spec:
   values:
     expose:
       tls:
-        certSource: none
+        certSource: secret
+        secretName: img.hephy.pro-tls
       ingress:
         hosts:
           core: img.hephy.pro
