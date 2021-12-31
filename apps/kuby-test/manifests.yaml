@@ -260,7 +260,7 @@ spec:
         role: assets
     spec:
       containers:
-      - image: img.hephy.pro/kuby-tester/kuby_test:${current_assets_release}
+      - image: img.hephy.pro/kuby-tester/kuby_test:${current_release}-assets
         imagePullPolicy: IfNotPresent
         name: kubytest-assets
         ports:
