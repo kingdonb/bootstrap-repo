@@ -13,6 +13,8 @@ spec:
   interval: 15m15s
   timeout: 2m0s
   values:
+    notary:
+      enabled: false
     expose:
       tls:
         certSource: auto
