@@ -49,17 +49,11 @@ spec:
             kind: Ingress
             metadata:
               name: harbor-ingress
-              namespace: harbor
-              annotations:
-                cert-manager.io/cluster-issuer: example-clusterissuer
             spec:
-              ingressClassName: traefik
+              ingressClassName: internal
           - apiVersion: networking.k8s.io/v1
             kind: Ingress
             metadata:
               name: harbor-ingress-notary
-              namespace: harbor
-              annotations:
-                cert-manager.io/cluster-issuer: letsencrypt-production
             spec:
-              ingressClassName: traefik
+              ingressClassName: internal
