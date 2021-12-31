@@ -7,5 +7,5 @@ metadata:
 spec:
   image: img.hephy.pro/kuby-tester/kuby_test
   interval: 10m0s
-  secretRef:
-    name: kubytest-registry-secret
+ #secretRef:
+ #  name: kubytest-registry-secret
