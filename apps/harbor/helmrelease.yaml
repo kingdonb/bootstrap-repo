@@ -21,6 +21,8 @@ spec:
         hosts:
           core: img.hephy.pro
           notary: not.hephy.pro
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-production
     externalURL: https://img.hephy.pro
     persistence:
       imageChartStorage:
