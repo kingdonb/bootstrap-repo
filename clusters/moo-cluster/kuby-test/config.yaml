@@ -1,7 +1,7 @@
 apiVersion: v1
 data:
   current_release: "20211231042624" # {"$imagepolicy": "kubytest-production:kuby-tester:tag"}
-  current_assets_release: "20211231042411-assets" # {"$imagepolicy": "kubytest-production:kuby-tester-assets:tag"}
+  current_assets_release: "20211231042624-assets" # {"$imagepolicy": "kubytest-production:kuby-tester-assets:tag"}
 kind: ConfigMap
 metadata:
   name: kubytest-release-config
