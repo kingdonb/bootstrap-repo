@@ -22,5 +22,5 @@ spec:
       - kind: ConfigMap
         name: kubytest-release-config
   prune: true
-  wait: true
+  wait: false
  #suspend: false
