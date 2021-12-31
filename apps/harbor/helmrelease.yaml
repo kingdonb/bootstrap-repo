@@ -14,6 +14,8 @@ spec:
   timeout: 10m0s
   values:
     expose:
+      tls:
+        certSource: none
       ingress:
         hosts:
           core: img.hephy.pro
