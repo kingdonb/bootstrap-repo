@@ -53,6 +53,10 @@ spec:
               name: harbor-ingress
             spec:
               ingressClassName: internal
+              tls:
+              - hosts:
+                - img.hephy.pro
+                secretName: harbor-ingress
          #- apiVersion: networking.k8s.io/v1
          #  kind: Ingress
          #  metadata:
