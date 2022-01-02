@@ -12,6 +12,9 @@ spec:
       version: 1.8.1
   interval: 15m15s
   timeout: 5m0s
+  dependsOn:
+    - name: internal-ingress
+    - name: public-ingress
   values:
     notary:
       enabled: false

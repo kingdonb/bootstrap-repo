@@ -14,6 +14,7 @@ spec:
   dependsOn:
   - name: 11-certificates
   - name: 12-persistence
+  - name: 30-ingress-nginx
   - name: 90-minio-stage
   # - name: traefik-api-crds
   prune: true
