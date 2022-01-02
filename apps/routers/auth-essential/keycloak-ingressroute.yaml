@@ -1,33 +1,33 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: vpn-public-access
-  namespace: openvpn
+  name: keycloak
+  namespace: traefik-staging
 spec:
   entryPoints:
   - web
   routes:
   - kind: Rule
-    match: Host(`vpn.hephy.pro`)
+    match: Host(`keycloak.hephy.pro`)
     services:
     - kind: Service
-      name: ingress-public-ingress-nginx-controller
-      namespace: ingress-nginx
+      name: keycloak-public-challenge
+      namespace: traefik-staging
       port: 80
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
 metadata:
-  name: vpn-public-access
-  namespace: openvpn
+  name: keycloak
+  namespace: traefik-staging
 spec:
   entryPoints:
     - websecure
   routes:
-  - match: HostSNI(`vpn.hephy.pro`)
+  - match: HostSNI(`keycloak.hephy.pro`)
     services:
-    - name: ingress-public-ingress-nginx-controller
-      namespace: ingress-nginx
+    - name: keycloak-public-challenge
+      namespace: traefik-staging
       port: 443
   tls:
     passthrough: true
