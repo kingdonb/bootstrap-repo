@@ -11,8 +11,7 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./persistence
-  dependsOn:
-    - name: apps  # this is less than ideal, but traefik-staging namespace is created in "apps"
+  dependsOn: []
   prune: false
   wait: false
  #suspend: false
