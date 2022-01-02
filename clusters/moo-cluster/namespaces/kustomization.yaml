@@ -4,3 +4,4 @@ resources:
 - podinfo-namespace.yaml
 - traefik-staging-namespace.yaml
 - whoami-namespace.yaml
+- kubytest-production-namespace.yaml
