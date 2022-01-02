@@ -1,8 +1,8 @@
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: kubytest-production
+#---
+#apiVersion: v1
+#kind: Namespace
+#metadata:
+#  name: kubytest-production
 ---
 apiVersion: v1
 kind: Service
@@ -42,7 +42,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    getkuby.io/dockerfile-checksum: 49602c374399cc5d74f824386d8e9984840f4ebae97ad78ff3ff46eb2854fe83
+    getkuby.io/dockerfile-checksum: 22476897626539a1837acd734a0de19a40f645e365cc3ecf870e05567c0c0d69
   labels:
     app: kubytest
     role: web
@@ -71,7 +71,7 @@ spec:
             name: kubytest-config
         - secretRef:
             name: kubytest-secrets
-        image: ghcr.io/kingdonb/kuby-tester:${current_release}
+        image: img.hephy.pro/kuby-tester/kuby_test:${current_release}
         imagePullPolicy: IfNotPresent
         name: kubytest-web
         ports:
@@ -101,7 +101,7 @@ spec:
             name: kubytest-config
         - secretRef:
             name: kubytest-secrets
-        image: ghcr.io/kingdonb/kuby-tester:${current_release}
+        image: img.hephy.pro/kuby-tester/kuby_test:${current_release}
         name: kubytest-create-db
       - command:
         - bundle
@@ -113,7 +113,7 @@ spec:
             name: kubytest-config
         - secretRef:
             name: kubytest-secrets
-        image: ghcr.io/kingdonb/kuby-tester:${current_release}
+        image: img.hephy.pro/kuby-tester/kuby_test:${current_release}
         name: kubytest-migrate-db
       restartPolicy: Always
       serviceAccountName: kubytest-sa
@@ -260,7 +260,7 @@ spec:
         role: assets
     spec:
       containers:
-      - image: ghcr.io/kingdonb/kuby-tester:${current_assets_release}
+      - image: img.hephy.pro/kuby-tester/kuby_test:${current_release}-assets
         imagePullPolicy: IfNotPresent
         name: kubytest-assets
         ports:

@@ -7,8 +7,11 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
+  timeout: 2m0s
+  retryInterval: 2m30s
   dependsOn:
     - name: infrastructure
+    - name: 12-persistence # traefik depends on traefik-tls pvc for persistence
   sourceRef:
     kind: GitRepository
     name: flux-system

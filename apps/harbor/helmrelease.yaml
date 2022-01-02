@@ -11,4 +11,77 @@ spec:
         name: harbor
       version: 1.8.1
   interval: 15m15s
-  timeout: 10m0s
+  timeout: 5m0s
+  dependsOn:
+    - name: internal-ingress
+      namespace: ingress-nginx
+    - name: public-ingress
+      namespace: ingress-nginx
+  values:
+    notary:
+      enabled: false
+    expose:
+      tls:
+        certSource: secret
+        secretName: harbor-ingress
+      ingress:
+        hosts:
+          core: img.hephy.pro
+          #notary: not.hephy.pro
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-production
+    externalURL: https://img.hephy.pro
+    persistence:
+      imageChartStorage:
+        type: s3
+        s3:
+          region: us-east-1
+          bucket: harbor-storage
+          regionendpoint: https://minio.hephy.pro
+      persistentVolumeClaim:
+        registry:
+          existingClaim: "harbor-registry"
+        chartmuseum:
+          existingClaim: "harbor-chartmuseum"
+        jobservice:
+          existingClaim: "harbor-jobservice"
+        database:
+          existingClaim: "database-data-harbor-database-0"
+        redis:
+          existingClaim: "data-harbor-redis-0"
+        trivy:
+          existingClaim: "data-harbor-trivy-0"
+
+  valuesFrom:
+  - kind: Secret
+    name: minio-user
+    valuesKey: accesskey
+    targetPath: persistence.imageChartStorage.s3.accesskey
+  - kind: Secret
+    name: minio-user
+    valuesKey: secretkey
+    targetPath: persistence.imageChartStorage.s3.secretkey
+  - kind: Secret
+    name: harbor-admin-password
+    valuesKey: adminpw
+    targetPath: harborAdminPassword
+
+  postRenderers:
+    - kustomize:
+        patchesStrategicMerge:
+          - apiVersion: networking.k8s.io/v1
+            kind: Ingress
+            metadata:
+              name: harbor-ingress
+            spec:
+              ingressClassName: internal
+              tls:
+              - hosts:
+                - img.hephy.pro
+                secretName: harbor-ingress
+         #- apiVersion: networking.k8s.io/v1
+         #  kind: Ingress
+         #  metadata:
+         #    name: harbor-ingress-notary
+         #  spec:
+         #    ingressClassName: internal

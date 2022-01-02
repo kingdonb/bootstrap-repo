@@ -24,6 +24,7 @@ resources:
 - minio-stage/namespace.yaml
 - minio-stage/juozas-namespace.yaml
 - my-secrets/my-secrets-kustomization.yaml
+- namespaces
 - openvpn-as
 - ingress-nginx
 - cert-manager

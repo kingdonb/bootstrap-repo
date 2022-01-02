@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: rancher.io/local-path
+  name: pvc-7f0f4586-d250-40b6-b149-758ba9c0c8a9
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: /opt/local-path-provisioner/pvc-7f0f4586-d250-40b6-b149-758ba9c0c8a9_harbor_harbor-jobservice
+    type: DirectoryOrCreate
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - msigaming
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-path
