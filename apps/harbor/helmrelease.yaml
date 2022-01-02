@@ -14,7 +14,9 @@ spec:
   timeout: 5m0s
   dependsOn:
     - name: internal-ingress
+      namespace: ingress-nginx
     - name: public-ingress
+      namespace: ingress-nginx
   values:
     notary:
       enabled: false
