@@ -1,0 +1,31 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: vpn-admin-public-challenge
+  namespace: traefik-staging
+spec:
+  ports:
+    - name: vpn-admin-not-found
+      protocol: TCP
+      port: 443
+      targetPort: 443
+      nodePort: 0
+    - name: vpn-admin-http-challenge
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: vpn-admin-public-challenge
+  namespace: traefik-staging
+subsets:
+- addresses:
+  - ip: 10.17.12.202
+  ports:
+  - port: 443
+    name: vpn-admin-not-found
+  - port: 80
+    name: vpn-admin-http-challenge
