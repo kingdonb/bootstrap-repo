@@ -16,6 +16,7 @@ spec:
     - name: infrastructure
   # - name: 11-certificates
   # - name: 12-persistence
+    - name: 30-ingress-nginx
   # - name: traefik-api-crds
   postBuild:
     substituteFrom:
