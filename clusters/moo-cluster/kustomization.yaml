@@ -26,6 +26,7 @@ resources:
 - my-secrets/my-secrets-kustomization.yaml
 - namespaces
 - openvpn-as
+- scrob
 - ingress-nginx
 - cert-manager
 - keycloak
