@@ -1,24 +1,24 @@
-kind: Service
-apiVersion: v1
-metadata:
-  name: scrob-public-challenge
-  namespace: traefik-staging
-spec:
-  ports:
-    - name: scrob-http-challenge
-      protocol: TCP
-      port: 80
-      targetPort: 80
-      nodePort: 0
----
-kind: Endpoints
-apiVersion: v1
-metadata:
-  name: scrob-public-challenge
-  namespace: traefik-staging
-subsets:
-- addresses:
-  - ip: 10.17.12.202
-  ports:
-  - port: 80
-    name: scrob-http-challenge
+#kind: Service
+#apiVersion: v1
+#metadata:
+#  name: scrob-public-challenge
+#  namespace: traefik-staging
+#spec:
+#  ports:
+#    - name: scrob-http-challenge
+#      protocol: TCP
+#      port: 80
+#      targetPort: 80
+#      nodePort: 0
+#---
+#kind: Endpoints
+#apiVersion: v1
+#metadata:
+#  name: scrob-public-challenge
+#  namespace: traefik-staging
+#subsets:
+#- addresses:
+#  - ip: 10.17.12.202
+#  ports:
+#  - port: 80
+#    name: scrob-http-challenge
