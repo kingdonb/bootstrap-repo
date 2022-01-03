@@ -31,4 +31,4 @@ spec:
       port: 443
   tls:
     secretName: scrob-tls
-    passthrough: false
+    passthrough: true
