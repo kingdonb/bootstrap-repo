@@ -24,7 +24,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: HostSNI(`vpn.hephy.pro`)
+  - match: HostSNI(`scrob.hephy.pro`)
     services:
     - name: scrob-public-ingress
       namespace: traefik-staging
