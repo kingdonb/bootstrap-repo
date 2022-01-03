@@ -1,16 +1,34 @@
-#apiVersion: traefik.containo.us/v1alpha1
-#kind: IngressRoute
-#metadata:
-#  name: scrob
-#  namespace: traefik-staging
-#spec:
-#  entryPoints:
-#  - web
-#  routes:
-#  - kind: Rule
-#    match: Host(`scrob.hephy.pro`)
-#    services:
-#    - kind: Service
-#      name: scrob-public-challenge
-#      namespace: traefik-staging
-#      port: 80
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: scrob
+  namespace: traefik-staging
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`scrob.hephy.pro`)
+    services:
+    - kind: Service
+      name: scrob-public-ingress
+      namespace: traefik-staging
+      port: 80
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: scrob-web
+  namespace: scrob-production
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: HostSNI(`vpn.hephy.pro`)
+    services:
+    - name: scrob-public-ingress
+      namespace: traefik-staging
+      port: 443
+  tls:
+    secretName: scrob-tls
+    passthrough: false
