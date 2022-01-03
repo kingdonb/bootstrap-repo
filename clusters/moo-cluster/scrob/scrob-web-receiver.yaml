@@ -1,0 +1,16 @@
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Receiver
+metadata:
+  name: scrob-web
+  namespace: flux-system
+spec:
+  events:
+  - push
+  - ping
+  resources:
+  - kind: GitRepository
+    name: scrob-web
+  secretRef:
+    name: webhook-token
+  type: github

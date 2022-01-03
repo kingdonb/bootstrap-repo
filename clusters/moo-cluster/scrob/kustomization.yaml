@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 - flux-kustomization.yaml
 - gitrepo.yaml
+- scrob-web-receiver.yaml
