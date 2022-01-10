@@ -4,10 +4,10 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - flux-sync.yaml
-images:
-  - name: ghcr.io/fluxcd/kustomize-controller
-    newName: ghcr.io/fluxcd/kustomize-controller
-    newTag: rc-1cc795fa
+#images:
+#  - name: ghcr.io/fluxcd/kustomize-controller
+#    newName: ghcr.io/fluxcd/kustomize-controller
+#    newTag: rc-1cc795fa
 #patches:
 #  - target:
 #      version: v1
