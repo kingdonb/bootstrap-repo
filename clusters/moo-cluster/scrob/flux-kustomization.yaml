@@ -6,6 +6,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
+  timeout: 2m0s
+  retryInterval: 30s
   path: ./manifests
   prune: true
   sourceRef:
