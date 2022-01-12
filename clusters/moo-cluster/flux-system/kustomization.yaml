@@ -4,8 +4,21 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - flux-sync.yaml
-images: []
+images:
+  - name: ghcr.io/fluxcd/kustomize-controller
+    newName: ghcr.io/fluxcd/kustomize-controller
+    newTag: rc-408a889a
 patches: []
+#  - target:
+#      version: v1
+#      group: apps
+#      kind: Deployment
+#      name: kustomize-controller
+#      namespace: flux-system
+#    patch: |-
+#      - op: add
+#        path: /spec/template/spec/containers/0/args/-
+#        value: --requeue-dependency=15s
 #  - target:
 #      version: v1
 #      group: apps
