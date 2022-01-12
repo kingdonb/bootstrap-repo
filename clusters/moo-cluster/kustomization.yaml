@@ -27,7 +27,7 @@ resources:
 - namespaces
 - openvpn-as
 - scrob
-- sealed-secrets
+#- sealed-secrets
 - ingress-nginx
 - cert-manager
 - keycloak
