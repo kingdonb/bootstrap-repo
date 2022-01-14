@@ -22,7 +22,7 @@ patchesStrategicMerge:
     name: image-reflector-controller
     namespace: flux-system
     annotations:
-      iam.gke.io/gcp-service-account: kingdon-test-gcr-sa.dx-kingdon.iam.gserviceaccount.com
+      iam.gke.io/gcp-service-account: kingdon-test-gcr-sa@dx-kingdon.iam.gserviceaccount.com
 images: # []
 - name: ghcr.io/fluxcd/image-reflector-controller
   newName: docker.io/somma/image-reflector-controller
