@@ -15,7 +15,7 @@ patches:
       path: /spec/template/spec/containers/0/args/-
       value: --gcp-autologin-for-gcr
 patchesStrategicMerge:
-  apiVersion: v1
+- apiVersion: v1
   kind: ServiceAccount
   metadata:
     name: image-reflector-controller
