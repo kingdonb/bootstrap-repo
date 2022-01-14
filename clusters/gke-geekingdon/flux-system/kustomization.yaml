@@ -26,4 +26,4 @@ patchesStrategicMerge:
 images: # []
 - name: ghcr.io/fluxcd/image-reflector-controller
   newName: kingdonb/image-reflector-controller
-  newTag: 1b16ce1
+  newTag: 2eb0be8
