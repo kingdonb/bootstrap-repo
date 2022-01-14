@@ -5,6 +5,7 @@ namespace: traefik-production
 resources:
   - namespace.yaml
   - ../../base/traefik
+  - certificates-pvc.yaml
 
 patchesStrategicMerge:
   - traefik-patch.yaml
