@@ -15,14 +15,15 @@ patches:
       path: /spec/template/spec/containers/0/args/-
       value: --gcp-autologin-for-gcr
 patchesStrategicMerge:
+- |-
   apiVersion: v1
   kind: ServiceAccount
   metadata:
     name: image-reflector-controller
     namespace: flux-system
     annotations:
-      iam.gke.io/gcp-service-account: kingdon-test-gcr-sa.dx-kingdon.iam.gserviceaccount.com
+      iam.gke.io/gcp-service-account: kingdon-test-gcr-sa@dx-kingdon.iam.gserviceaccount.com
 images: # []
 - name: ghcr.io/fluxcd/image-reflector-controller
-  newName: docker.io/somma/image-reflector-controller
-  newTag: test-autologin-18df01042
+  newName: kingdonb/image-reflector-controller
+  newTag: 2eb0be8
