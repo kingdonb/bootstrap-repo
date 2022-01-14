@@ -4,5 +4,6 @@ resources:
 - apps/podinfo
 - flux-sync/flux-gitrepo.yaml
 - flux-sync/flux-kustomization.yaml
+- imagerepo.yaml
 - ../../base/production
 #- flux-system
