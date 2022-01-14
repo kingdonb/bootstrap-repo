@@ -5,5 +5,6 @@ resources:
 - flux-sync/flux-gitrepo.yaml
 - flux-sync/flux-kustomization.yaml
 - imagerepo.yaml
+- artifact-imagerepo.yaml
 - ../../base/production
 #- flux-system

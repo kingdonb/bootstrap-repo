@@ -1,0 +1,9 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: podinfo-artifact-registry
+  namespace: flux-system
+spec:
+  image: us-central1-docker.pkg.dev/dx-kingdon/geekingdon-images/podinfo
+  interval: 1m0s
