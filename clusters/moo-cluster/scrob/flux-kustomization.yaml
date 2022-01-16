@@ -5,7 +5,7 @@ metadata:
   name: 93-scrob-prod
   namespace: flux-system
 spec:
-  interval: 1m0s
+  interval: 7m44s
   timeout: 2m0s
   retryInterval: 30s
   path: ./manifests
