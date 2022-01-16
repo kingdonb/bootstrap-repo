@@ -12,7 +12,7 @@ spec:
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Alert
 metadata:
-  name: bootstrap
+  name: bootstrap-repo
   namespace: flux-system
 spec:
   providerRef:

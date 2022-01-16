@@ -8,6 +8,8 @@ spec:
     name: slack
   eventSeverity: info
   summary: Internal (staging) cluster ROOT events
+  exclusionList:
+    - '^Dependencies do not meet ready condition, retrying in \d+s$'
   eventSources:
     - kind: GitRepository
       name: '*'
