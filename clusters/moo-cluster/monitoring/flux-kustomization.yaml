@@ -1,4 +1,4 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: 80-monitoring
@@ -12,5 +12,5 @@ spec:
     name: flux-system
   path: ./apps/monitoring
   prune: false
- #wait: false
+  wait: false
   suspend: false
