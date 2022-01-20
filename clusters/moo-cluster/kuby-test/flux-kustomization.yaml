@@ -1,4 +1,4 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
   name: 85-kuby-test
@@ -23,5 +23,5 @@ spec:
       - kind: ConfigMap
         name: kubytest-release-config
   prune: true
-  wait: false
+ #wait: false
  #suspend: false
