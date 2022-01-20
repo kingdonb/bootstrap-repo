@@ -4,13 +4,13 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - flux-sync.yaml
-images:
-  - name: ghcr.io/fluxcd/kustomize-controller
-    newName: ghcr.io/fluxcd/kustomize-controller
-    newTag: rc-3f36db07
-  - name: ghcr.io/fluxcd/source-controller
-    newName: kingdonb/source-controller
-    newTag: 382e812
+images: []
+#  - name: ghcr.io/fluxcd/kustomize-controller
+#    newName: ghcr.io/fluxcd/kustomize-controller
+#    newTag: rc-3f36db07
+#  - name: ghcr.io/fluxcd/source-controller
+#    newName: kingdonb/source-controller
+#    newTag: 382e812
 patches: []
 #  - target:
 #      version: v1
