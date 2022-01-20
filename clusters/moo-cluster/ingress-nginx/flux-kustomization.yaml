@@ -1,4 +1,4 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
   name: 30-ingress-nginx
@@ -14,7 +14,7 @@ spec:
   dependsOn:
     - name: 29-metallb
   prune: true
-  wait: true
+ #wait: true
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
