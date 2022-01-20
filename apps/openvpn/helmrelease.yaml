@@ -33,6 +33,10 @@ spec:
         spec:
           template:
             spec:
+              containers:
+              - name: openvpn-as
+                livenessProbe:
+                  initialDelaySeconds: 300
               tolerations:
               - key: "node-role.kubernetes.io/master"
                 operator: "Exists"
