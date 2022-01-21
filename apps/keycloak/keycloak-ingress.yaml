@@ -4,7 +4,7 @@ metadata:
   name: keycloak
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-production
-    #kubernetes.io/ingress.class: internal
+    kubernetes.io/ingress.class: internal
 spec:
   ingressClassName: internal
   tls:
