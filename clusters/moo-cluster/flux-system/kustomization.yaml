@@ -40,6 +40,7 @@ patchesStrategicMerge:
     name: flux-system
     namespace: flux-system
   spec:
+    interval: 1m
     patches:
     - target:
         version: v1
