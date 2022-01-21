@@ -7,6 +7,10 @@ metadata:
     #kubernetes.io/ingress.class: internal
 spec:
   ingressClassName: internal
+  tls:
+    - hosts:
+      - keycloak.hephy.pro
+      secretName: keycloak-hephy-pro
   rules:
   - host: keycloak.hephy.pro
     http:
