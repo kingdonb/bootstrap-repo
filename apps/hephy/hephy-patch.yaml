@@ -62,13 +62,8 @@ spec:
                 spec:
                   containers:
                   - name: deis-minio
-                    volumeMounts:
-                    - mountPath: /home/minio
-                      name: deis-hephy
-                  volumes:
-                  - name: deis-hephy
-                    persistentVolumeClaim:
-                      claimName: deis-hephy
+                    volumeMounts: []
+                  volumes: []
          # - kind: Ingress
          #   apiVersion: extensions/v1beta1
          #   metadata:
