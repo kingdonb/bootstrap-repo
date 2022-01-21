@@ -11,7 +11,7 @@ images:
 #  - name: ghcr.io/fluxcd/source-controller
 #    newName: kingdonb/source-controller
 #    newTag: 382e812
-patches: []
+patches:
 #  - target:
 #      version: v1
 #      group: apps
@@ -32,31 +32,31 @@ patches: []
 #      - op: add
 #        path: /spec/template/spec/containers/0/args/-
 #        value: --requeue-dependency=15s
-patchesStrategicMerge: []
-#- |-
-#  apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-#  kind: Kustomization
-#  metadata:
-#    name: flux-system
-#    namespace: flux-system
-#  spec:
-#    patches:
-#    - target:
-#        version: v1
-#        group: apps
-#        kind: Deployment
-#        name: kustomize-controller
-#        namespace: flux-system
-#      patch: |-
-#        - op: add
-#          path: /spec/template/spec/containers/0/args/-
-#          value: --requeue-dependency=15s
-#        - op: add
-#          path: /spec/template/spec/containers/0/args/0
-#          value: --concurrent=6
-#        - op: replace
-#          path: /spec/template/spec/containers/0/resources/limits/cpu
-#          value: "2"
-#        - op: replace
-#          path: /spec/template/spec/containers/0/resources/limits/memory
-#          value: "2Gi"
+patchesStrategicMerge:
+- |-
+  apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+  kind: Kustomization
+  metadata:
+    name: flux-system
+    namespace: flux-system
+  spec:
+    patches:
+    - target:
+        version: v1
+        group: apps
+        kind: Deployment
+        name: kustomize-controller
+        namespace: flux-system
+      patch: |-
+        - op: add
+          path: /spec/template/spec/containers/0/args/-
+          value: --requeue-dependency=15s
+        - op: add
+          path: /spec/template/spec/containers/0/args/0
+          value: --concurrent=6
+        - op: replace
+          path: /spec/template/spec/containers/0/resources/limits/cpu
+          value: "2"
+        - op: replace
+          path: /spec/template/spec/containers/0/resources/limits/memory
+          value: "2Gi"
