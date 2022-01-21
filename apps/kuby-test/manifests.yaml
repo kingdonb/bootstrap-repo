@@ -61,9 +61,6 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      annotations:
-        some-annotation.io: string-value
-        other-annotation.com: something-else
       labels:
         app: kubytest
         role: web
