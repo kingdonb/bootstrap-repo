@@ -13,6 +13,8 @@ spec:
   path: ./apps/hephy
   dependsOn:
   # - name: 11-certificates
+    - name: 12-persistence
+    - name: infrastructure
     - name: traefik-api-crds
   prune: true
  #wait: false
