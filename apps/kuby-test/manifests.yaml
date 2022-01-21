@@ -277,10 +277,10 @@ spec:
           periodSeconds: 3
           successThreshold: 1
           timeoutSeconds: 1
-        volumeMounts: []
-        #- mountPath: "/etc/nginx/nginx.conf"
-        #  name: nginx-config
-        #  subPath: nginx.conf
+        volumeMounts:
+        - mountPath: "/etc/nginx/nginx.conf"
+          name: nginx-config
+          subPath: nginx.conf
       imagePullSecrets:
       - name: kubytest-registry-secret
       restartPolicy: Always
