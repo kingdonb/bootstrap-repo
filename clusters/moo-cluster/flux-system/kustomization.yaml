@@ -45,6 +45,16 @@ patchesStrategicMerge:
         version: v1
         group: apps
         kind: Deployment
+        name: notification-controller
+        namespace: flux-system
+      patch: |-
+        - op: add
+          path: /spec/template/spec/containers/0/args/-
+          value: --rate-limit-interval=10s
+    - target:
+        version: v1
+        group: apps
+        kind: Deployment
         name: kustomize-controller
         namespace: flux-system
       patch: |-
