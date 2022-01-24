@@ -6,8 +6,8 @@ resources:
 - flux-sync.yaml
 images:
   - name: ghcr.io/fluxcd/kustomize-controller
-    newName: stefanprodan/kustomize-controller
-    newTag: ssa-fix1
+    newName: ghcr.io/fluxcd/kustomize-controller
+    newTag: rc-e611de4e
 #  - name: ghcr.io/fluxcd/source-controller
 #    newName: kingdonb/source-controller
 #    newTag: 382e812
