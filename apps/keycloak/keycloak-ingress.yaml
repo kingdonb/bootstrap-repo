@@ -6,6 +6,10 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-production
 spec:
   ingressClassName: internal
+  tls:
+    - hosts:
+      - keycloak.hephy.pro
+      secretName: keycloak-hephy-pro
   rules:
   - host: keycloak.hephy.pro
     http:
