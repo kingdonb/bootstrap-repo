@@ -4,6 +4,7 @@ metadata:
   name: keycloak
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-production
+    test-extra-anno.tation: delete-me
 spec:
   ingressClassName: internal
   tls:
