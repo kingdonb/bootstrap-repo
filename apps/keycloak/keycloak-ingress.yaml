@@ -11,6 +11,16 @@ spec:
       - keycloak.hephy.pro
       secretName: keycloak-hephy-pro
   rules:
+  - host: testing
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: keycloak
+              port:
+                number: 8080
   - host: keycloak.hephy.pro
     http:
       paths:
