@@ -13,9 +13,9 @@ images:
   - name: ghcr.io/fluxcd/kustomize-controller
     newName: ghcr.io/fluxcd/kustomize-controller
     newTag: rc-e611de4e
-#  - name: ghcr.io/fluxcd/source-controller
-#    newName: kingdonb/source-controller
-#    newTag: 382e812
+  - name: ghcr.io/fluxcd/source-controller
+    newName: fluxcd/source-controller
+    newTag: rc-72e34343
 patches:
 #  - target:
 #      version: v1
