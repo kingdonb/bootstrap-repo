@@ -1,15 +1,15 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  labels:
-    control-plane: controller
-  name: source-system
+#apiVersion: v1
+#kind: Namespace
+#metadata:
+#  labels:
+#    control-plane: controller
+#  name: source-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: source-leader-election-role
-  namespace: source-system
+  namespace: flux-system
 rules:
 - apiGroups:
   - ""
@@ -196,7 +196,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: source-leader-election-rolebinding
-  namespace: source-system
+  namespace: flux-system
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -204,7 +204,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: default
-  namespace: source-system
+  namespace: flux-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -217,7 +217,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: default
-  namespace: source-system
+  namespace: flux-system
 ---
 apiVersion: v1
 kind: Service
@@ -225,7 +225,7 @@ metadata:
   labels:
     control-plane: controller
   name: source-controller
-  namespace: source-system
+  namespace: flux-system
 spec:
   ports:
   - name: http
@@ -242,7 +242,7 @@ metadata:
   labels:
     control-plane: controller
   name: source-controller
-  namespace: source-system
+  namespace: flux-system
 spec:
   replicas: 1
   selector:
