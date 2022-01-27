@@ -4,6 +4,11 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - flux-sync.yaml
+- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_helmrepositories.yaml
+- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_helmcharts.yaml
+- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_gitrepositories.yaml
+- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_buckets.yaml
+
 images:
   - name: ghcr.io/fluxcd/kustomize-controller
     newName: ghcr.io/fluxcd/kustomize-controller
