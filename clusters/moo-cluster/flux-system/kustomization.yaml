@@ -17,7 +17,7 @@ images:
   - name: ghcr.io/fluxcd/source-controller
     newName: fluxcd/source-controller
     newTag: rc-61941672
-patches:
+patches: []
 #  - target:
 #      version: v1
 #      group: apps
