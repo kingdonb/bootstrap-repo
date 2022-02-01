@@ -11,9 +11,9 @@ resources:
 - https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_buckets.yaml
 
 images:
-  - name: ghcr.io/fluxcd/kustomize-controller
-    newName: ghcr.io/fluxcd/kustomize-controller
-    newTag: rc-e611de4e
+#  - name: ghcr.io/fluxcd/kustomize-controller
+#    newName: ghcr.io/fluxcd/kustomize-controller
+#    newTag: rc-e611de4e
   - name: ghcr.io/fluxcd/source-controller
     newName: fluxcd/source-controller
     newTag: rc-61941672
