@@ -10,7 +10,7 @@ spec:
         name: hephy-workflow-beta
         namespace: deis
       version: ^2.24.0-0
-  interval: 15m15s
+  interval: 15m
   timeout: 10m0s
   storageNamespace: deis
   targetNamespace: deis
