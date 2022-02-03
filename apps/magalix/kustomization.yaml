@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: kube-system
 resources:
 - deployment.yaml
-- validating.yaml
+#- validating.yaml
