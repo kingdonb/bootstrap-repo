@@ -1,0 +1,24 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: com.magalix.magalix-default-guard
+  labels:
+    app.kubernetes.io/name: com.magalix.magalix-default-guard
+webhooks:
+  - name: com.magalix.magalix-default-guard
+    clientConfig:
+      url: https://console.magalix.com/api/v1/kubeguard/admission/6af04d15-1d96-4805-8eec-57230868a0cd/5191b005-9c8e-4147-96e8-685b689a01a4/5ed94b1c-b165-4c2f-ab9e-f5ab313da099
+    rules:
+      - operations: [ "CREATE", "UPDATE" ]
+        apiVersions: ["*"]
+        apiGroups: ["", "extensions", "apps", "batch", "metrics.k8s.io", "networking.k8s.io"]
+        resources: ["nodes", "nodes/stats", "nodes/metrics", "nodes/proxy", "namespaces", "pods", "limitranges", "deployments", "replicationcontrollers", "statefulsets", "daemonsets", "replicasets", "jobs", "cronjobs", "ingresses", "ingressclasses", "services", "networkpolicies"]
+      - operations: [ "CREATE", "UPDATE" ]
+        apiVersions: ["*"]
+        apiGroups: ["", "rbac.authorization.k8s.io", "storage.k8s.io"]
+        resources: ["clusterrolebindings", "clusterroles", "roles", "rolebindings", "persistentvolumes", "persistentvolumeclaims", "storageclasses"]
+    timeoutSeconds: 5
+    failurePolicy: Ignore
+    admissionReviewVersions: ["v1", "v1beta1"]
+    sideEffects: None
+    matchPolicy: Equivalent
