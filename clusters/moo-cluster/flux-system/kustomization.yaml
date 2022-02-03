@@ -4,39 +4,39 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - flux-sync.yaml
-#- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_helmrepositories.yaml
-#- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_helmcharts.yaml
-#- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_gitrepositories.yaml
-#- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_buckets.yaml
+- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_helmrepositories.yaml
+- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_helmcharts.yaml
+- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_gitrepositories.yaml
+- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_buckets.yaml
 
 images:
 #  - name: ghcr.io/fluxcd/kustomize-controller
 #    newName: ghcr.io/fluxcd/kustomize-controller
 #    newTag: rc-e611de4e
-#  - name: ghcr.io/fluxcd/source-controller
-#    newName: fluxcd/source-controller
-#    newTag: rc-61941672
-patches: []
-#  - target:
-#      version: v1
-#      group: apps
-#      kind: Deployment
-#      name: kustomize-controller
-#      namespace: flux-system
-#    patch: |-
-#      - op: add
-#        path: /spec/template/spec/containers/0/args/-
-#        value: --requeue-dependency=15s
-#  - target:
-#      version: v1
-#      group: apps
-#      kind: Deployment
-#      name: kustomize-controller
-#      namespace: flux-system
-#    patch: |-
-#      - op: add
-#        path: /spec/template/spec/containers/0/args/-
-#        value: --requeue-dependency=15s
+  - name: ghcr.io/fluxcd/source-controller
+    newName: fluxcd/source-controller
+    newTag: rc-61941672
+patches:
+  - target:
+      version: v1
+      group: apps
+      kind: Deployment
+      name: kustomize-controller
+      namespace: flux-system
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --requeue-dependency=15s
+  - target:
+      version: v1
+      group: apps
+      kind: Deployment
+      name: kustomize-controller
+      namespace: flux-system
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --requeue-dependency=15s
 patchesStrategicMerge:
 - |-
   apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
