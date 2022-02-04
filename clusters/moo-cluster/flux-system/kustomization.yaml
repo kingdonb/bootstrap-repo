@@ -5,18 +5,18 @@ resources:
 - gotk-sync.yaml
 - flux-sync.yaml
 #- source-controller.yaml
-#- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_helmrepositories.yaml
-#- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_helmcharts.yaml
-#- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_gitrepositories.yaml
-#- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_buckets.yaml
+- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_helmrepositories.yaml
+- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_helmcharts.yaml
+- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_gitrepositories.yaml
+- https://github.com/fluxcd/source-controller/raw/rewrite-dev/config/crd/bases/source.toolkit.fluxcd.io_buckets.yaml
 
 images:
   - name: ghcr.io/fluxcd/kustomize-controller
     newName: somma/kustomize-controller
     newTag: rc-f7e83795a4f
-#  - name: fluxcd/source-controller
-#    newName: fluxcd/source-controller
-#    newTag: rc-61941672
+  - name: fluxcd/source-controller
+    newName: fluxcd/source-controller
+    newTag: rc-61941672
 patches: []
 #  - target:
 #      version: v1
