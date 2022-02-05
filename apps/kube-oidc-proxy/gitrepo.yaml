@@ -5,9 +5,9 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
-  url: https://github.com/TremoloSecurity/kube-oidc-proxy
+  url: https://github.com/kingdonb/kube-oidc-proxy
   ref:
-    branch: master
+    branch: ingress-v1
   ignore: |
     # exclude all
     /*
