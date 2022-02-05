@@ -1,15 +1,15 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
-  name: kubernetes-sso-guide
+  name: tremolo-kube-oidc-proxy
   namespace: flux-system
 spec:
   interval: 1h
-  url: https://github.com/kingdonb/kubernetes-sso-guide
+  url: https://github.com/TremoloSecurity/kube-oidc-proxy
   ref:
     branch: master
   ignore: |
     # exclude all
     /*
     # include charts directory
-    !/charts/
+    !/deploy/charts/
