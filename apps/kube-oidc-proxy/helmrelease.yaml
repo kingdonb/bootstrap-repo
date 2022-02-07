@@ -19,6 +19,12 @@ spec:
         namespace: flux-system
       interval: 15m0s
   values:
+    image:
+      repository: docker.io/tremolosecurity/kube-oidc-proxy
+      tag: latest
+      pullPolicy: Always
+    extraArgs:
+      oidc-ca-file: /etc/ssl/certs/ca-certificates.crt
     oidc:
       clientId: kube-oidc-proxy
       issuerUrl: https://keycloak.hephy.pro/auth/realms/hephymoo
