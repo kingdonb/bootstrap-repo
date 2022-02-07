@@ -18,6 +18,7 @@ resources:
 - harbor
 - hephy/flux-kustomization.yaml
 - hephy/namespace.yaml
+- magalix
 - metallb/flux-kustomization.yaml
 - metrics-server/flux-kustomization.yaml
 - minio-stage/flux-kustomization.yaml

@@ -5,6 +5,16 @@
 #    control-plane: controller
 #  name: source-system
 ---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app.kubernetes.io/instance: flux-system
+    app.kubernetes.io/part-of: flux
+    app.kubernetes.io/version: v0.26.0
+  name: source-controller
+  namespace: flux-system
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -224,6 +234,9 @@ kind: Service
 metadata:
   labels:
     control-plane: controller
+    app.kubernetes.io/instance: flux-system
+    app.kubernetes.io/part-of: flux
+    app.kubernetes.io/version: v0.26.0
   name: source-controller
   namespace: flux-system
 spec:
@@ -240,6 +253,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
+    app.kubernetes.io/instance: flux-system
+    app.kubernetes.io/part-of: flux
+    app.kubernetes.io/version: v0.26.0
     control-plane: controller
   name: source-controller
   namespace: flux-system
@@ -260,7 +276,8 @@ spec:
     spec:
       containers:
       - args:
-        - --watch-all-namespaces
+        - --events-addr=http://notification-controller.flux-system.svc.cluster.local/
+        - --watch-all-namespaces=true
         - --log-level=info
         - --log-encoding=json
         - --enable-leader-election
@@ -313,8 +330,11 @@ spec:
           name: data
         - mountPath: /tmp
           name: tmp
+      nodeSelector:
+        kubernetes.io/os: linux
       securityContext:
         fsGroup: 1337
+      serviceAccountName: source-controller
       terminationGracePeriodSeconds: 10
       volumes:
       - emptyDir: {}

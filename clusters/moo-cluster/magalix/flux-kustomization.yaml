@@ -1,0 +1,20 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: 34-magalix
+  namespace: flux-system
+spec:
+  interval: 73m0s
+  retryInterval: 1m30s
+  timeout: 4m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./apps/magalix
+  dependsOn: []
+  #  - name: 11-certificates
+  #  - name: 20-my-secrets
+  #  - name: 30-ingress-nginx
+  prune: true
+ #wait: true
+  suspend: false

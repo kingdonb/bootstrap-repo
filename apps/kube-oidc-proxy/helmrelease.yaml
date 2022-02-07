@@ -11,14 +11,20 @@ spec:
   storageNamespace: kube-oidc-proxy
   chart:
     spec:
-      chart: ./charts/kube-oidc-proxy
-      version: '^0.3.1'
+      chart: ./deploy/charts/kube-oidc-proxy
+      version: '^0.3.2'
       sourceRef:
         kind: GitRepository
-        name: kubernetes-sso-guide
+        name: tremolo-kube-oidc-proxy
         namespace: flux-system
       interval: 15m0s
   values:
+    image:
+      repository: docker.io/tremolosecurity/kube-oidc-proxy
+      tag: latest
+      pullPolicy: Always
+    extraArgs:
+      oidc-ca-file: /etc/ssl/certs/ca-certificates.crt
     oidc:
       clientId: kube-oidc-proxy
       issuerUrl: https://keycloak.hephy.pro/auth/realms/hephymoo

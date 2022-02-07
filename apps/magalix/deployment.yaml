@@ -1,0 +1,156 @@
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: magalix-agent
+  namespace: kube-system
+  labels:
+    app.kubernetes.io/name: "magalix-agent"
+    app.kubernetes.io/instance: "magalix-agent"
+    app.kubernetes.io/part-of: "magalix-agent"
+    app.kubernetes.io/managed-by: "magalix"
+    app.kubernetes.io/version: "1"
+    app.kubernetes.io/component: "magalix-agent"
+    app.kubernetes.io/tier: "backend"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name:  magalix-agent
+  template:
+    metadata:
+      labels:
+        name: magalix-agent
+    spec:
+      serviceAccountName: magalix-agent
+      restartPolicy: Always
+      containers:
+        - image: magalixcorp/agent:latest
+          imagePullPolicy: Always
+          name: agent
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            procMount: Default
+            readOnlyRootFilesystem: true
+            runAsGroup: 1000
+            runAsUser: 1000
+          resources:
+            limits:
+              memory: 750Mi
+              cpu: 1
+            requests:
+              memory: 200Mi
+              cpu: 100m
+          livenessProbe:
+            httpGet:
+              path: /live
+              port: 8080
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+          startupProbe:
+            failureThreshold: 10
+            httpGet:
+              path: /ready
+              port: 8080
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          args:
+            - --kube-incluster
+            - --gateway=wss://agent-gateway.magalix.com/
+            - --source=kubelet
+            - --trace-log=/agent.log
+            - --port=8080
+          envFrom:
+            - secretRef:
+                name: magalix-agent
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: magalix-agent
+  namespace: kube-system
+  labels:
+    app.kubernetes.io/name: "magalix-agent"
+    app.kubernetes.io/version: "1"
+    app.kubernetes.io/component: "service-account"
+    app.kubernetes.io/tier: "backend"
+
+---
+
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: magalix-agent
+  labels:
+    app.kubernetes.io/name: "magalix-agent"
+    app.kubernetes.io/version: "1"
+    app.kubernetes.io/component: "cluster-role"
+    app.kubernetes.io/tier: "backend"
+rules:
+- apiGroups:
+  - ""
+  - extensions
+  - apps
+  - batch
+  - networking.k8s.io
+  - rbac.authorization.k8s.io
+  - storage.k8s.io
+  resources: 
+  - nodes
+  - nodes/proxy
+  - namespaces
+  - pods
+  - limitranges
+  - deployments
+  - replicationcontrollers
+  - statefulsets
+  - daemonsets
+  - replicasets
+  - jobs
+  - cronjobs
+  - ingresses
+  - ingressclasses
+  - services
+  - networkpolicies
+  - clusterrolebindings
+  - clusterroles
+  - roles
+  - rolebindings
+  - persistentvolumes
+  - persistentvolumeclaims
+  - storageclasses
+  - serviceaccounts
+  verbs:
+  - get
+  - list
+  - watch
+
+---
+
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: magalix-agent
+  labels:
+    app.kubernetes.io/name: "magalix-agent"
+    app.kubernetes.io/version: "1"
+    app.kubernetes.io/component: "cluster-role-binding"
+    app.kubernetes.io/tier: "backend"
+subjects:
+- kind: ServiceAccount
+  name: magalix-agent
+  namespace: kube-system
+roleRef:
+  kind: ClusterRole
+  name: magalix-agent
+  apiGroup: rbac.authorization.k8s.io
+
