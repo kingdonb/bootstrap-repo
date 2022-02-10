@@ -17,28 +17,7 @@ images:
   - name: fluxcd/source-controller
     newName: fluxcd/source-controller
     newTag: rc-61941672
-patches:
-  - patch: |
-      - op: add
-        path: /spec/template/spec/containers/0/args/0
-        value: --no-cross-namespace-refs=true
-    target:
-      kind: Deployment
-      name: "(kustomize-controller|helm-controller|notification-controller|image-reflector-controller|image-automation-controller)"
-  - patch: |
-      - op: add
-        path: /spec/template/spec/containers/0/args/0
-        value: --default-service-account=default
-    target:
-      kind: Deployment
-      name: "(kustomize-controller|helm-controller)"
-  - patch: |
-      - op: add
-        path: /spec/serviceAccountName
-        value: kustomize-controller
-    target:
-      kind: Kustomization
-      name: "flux-system"
+patches: []
 #  - target:
 #      version: v1
 #      group: apps
