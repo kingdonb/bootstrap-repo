@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
 - helmrepo.yaml
 - helmrelease.yaml
-- helmrelease2.yaml
 - kingdonb-helm-charts-1-gitrepo.yaml
 - openvpn-openvpn-as-lb-udp.yaml
 - vpn-ingressroute.yaml
