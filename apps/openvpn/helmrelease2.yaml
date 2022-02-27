@@ -29,7 +29,7 @@ spec:
       - kind: Deployment
         apiVersion: apps/v1
         metadata:
-          name: openvpn-openvpn-as
+          name: openvpn2-openvpn-as
         spec:
           template:
             spec:
@@ -81,7 +81,7 @@ spec:
         type: LoadBalancer
         ipAddress: 10.17.12.203         # openvpn-tcp.nerdland.local
     persistence:
-      existingClaim: openvpn-openvpn-as-state
+      existingClaim: openvpn-openvpn-as-state-2
     ingress:
       gui:
         enabled: true
