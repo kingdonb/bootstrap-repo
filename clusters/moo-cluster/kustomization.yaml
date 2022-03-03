@@ -6,6 +6,7 @@ resources:
 - chartmuseum
 - cluster-api/flux-kustomization.yaml
 - cluster-api/gitrepository.yaml
+- flamingo
 - flux-system
 - flux-system-extras/gitno-hephy-pro-ingress.yaml
 - flux-system-extras/git-webhook-receiver.yaml
