@@ -26,10 +26,16 @@ spec:
   routes:
   - kind: Rule
     match: Host(`argocd.hephy.pro`)
+    priority: 10
     services:
-    - kind: Service
-      name: argocd-server
-      namespace: argocd
-      port: 443
+      - name: argocd-server
+        port: 80
+  - kind: Rule
+    match: Host(`argocd.hephy.pro`) && Headers(`Content-Type`, `application/grpc`)
+    priority: 11
+    services:
+      - name: argocd-server
+        port: 80
+        scheme: h2c
   tls:
     certResolver: prodresolver
