@@ -3,3 +3,5 @@ kind: Kustomization
 namespace: argocd
 resources:
   - https://github.com/chanwit/flamingo//release?ref=v2.2.5-fl.0
+  - flux-system-app.yaml
+  - scrob-prod-app.yaml
