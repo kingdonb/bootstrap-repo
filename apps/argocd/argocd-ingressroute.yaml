@@ -11,7 +11,7 @@ spec:
     match: Host(`argocd.hephy.pro`)
     services:
     - kind: Service
-      name: cm-acme-http-solver-9vc5r
+      name: cm-acme-http-solver-987b8
       namespace: argocd
       port: 8089
 ---
