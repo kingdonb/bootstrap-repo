@@ -1,0 +1,35 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: argocd-public-access
+  namespace: argocd
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`argocd.hephy.pro`)
+    services:
+    - kind: Service
+      name: cm-acme-http-solver-9vc5r
+      namespace: argocd
+      port: 8089
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: argocd-public-access-https
+  namespace: argocd
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`argocd.hephy.pro`)
+    services:
+    - kind: Service
+      name: argocd-server
+      namespace: argocd
+      port: 80
+  tls:
+    certResolver: prodresolver
