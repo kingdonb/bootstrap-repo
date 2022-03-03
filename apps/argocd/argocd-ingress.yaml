@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: keycloak
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+spec:
+  ingressClassName: internal
+  tls:
+    - hosts:
+      - argocd.hephy.pro
+      secretName: argocd-hephy-pro
+  rules:
+  - host: argocd.hephy.pro
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: argocd-server
+              port: 
+                number: 80
+
