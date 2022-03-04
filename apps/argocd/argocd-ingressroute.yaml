@@ -11,31 +11,31 @@ spec:
     match: Host(`argocd.hephy.pro`)
     services:
     - kind: Service
-      name: cm-acme-http-solver-dz4vl
+      name: argocd-public-challenge
       namespace: argocd
-      port: 8089
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: argocd-public-access-https
-  namespace: argocd
-spec:
-  entryPoints:
-    - websecure
-  routes:
-  - kind: Rule
-    match: Host(`argocd.hephy.pro`)
-    priority: 10
-    services:
-      - name: argocd-server
-        port: 80
-  - kind: Rule
-    match: Host(`argocd.hephy.pro`) && Headers(`Content-Type`, `application/grpc`)
-    priority: 11
-    services:
-      - name: argocd-server
-        port: 80
-        scheme: h2c
-  tls:
-    certResolver: prodresolver
+      port: 80
+#---
+#apiVersion: traefik.containo.us/v1alpha1
+#kind: IngressRoute
+#metadata:
+#  name: argocd-public-access-https
+#  namespace: argocd
+#spec:
+#  entryPoints:
+#    - websecure
+#  routes:
+#  - kind: Rule
+#    match: Host(`argocd.hephy.pro`)
+#    priority: 10
+#    services:
+#      - name: argocd-server
+#        port: 80
+#  - kind: Rule
+#    match: Host(`argocd.hephy.pro`) && Headers(`Content-Type`, `application/grpc`)
+#    priority: 11
+#    services:
+#      - name: argocd-server
+#        port: 80
+#        scheme: h2c
+#  tls:
+#    passthrough: true
