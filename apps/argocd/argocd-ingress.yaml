@@ -11,7 +11,7 @@ spec:
   tls:
     - hosts:
       - argocd.hephy.pro
-      secretName: argocd-server
+      secretName: argocd-secret
   rules:
   - host: argocd.hephy.pro
     http:
