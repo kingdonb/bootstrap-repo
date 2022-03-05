@@ -4,12 +4,14 @@ metadata:
   name: argocd
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-production
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
 spec:
   ingressClassName: internal
   tls:
     - hosts:
       - argocd.hephy.pro
-      secretName: argocd-hephy-pro
+      secretName: argocd-server
   rules:
   - host: argocd.hephy.pro
     http:
@@ -20,5 +22,5 @@ spec:
             service:
               name: argocd-server
               port: 
-                number: 80
+                name: https
 
