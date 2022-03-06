@@ -1,3 +1,4 @@
+### From the instructions at https://github.com/chanwit/flamingo/releases/tag/v2.2.5-fl.0
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:

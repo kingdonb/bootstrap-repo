@@ -1,3 +1,5 @@
+### This Application doesn't function correctly because the destination
+### namespace isn't matching, so downstream resources aren't visualized.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:

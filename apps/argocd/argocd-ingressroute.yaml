@@ -1,3 +1,4 @@
+### Traefik LB is the DMZ so all external public traffic must come through Traefik
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
@@ -15,6 +16,8 @@ spec:
       namespace: argocd
       port: 80
 #---
+### https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#traefik-v22
+### Traefik can terminate TLS or ArgoCD Server can, but not both at once apparently
 #apiVersion: traefik.containo.us/v1alpha1
 #kind: IngressRoute
 #metadata:

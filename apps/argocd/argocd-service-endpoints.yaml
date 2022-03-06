@@ -1,3 +1,4 @@
+### There is no TLS backend for the HTTP-01 challenge, only plain-text HTTP
 kind: Service
 apiVersion: v1
 metadata:
