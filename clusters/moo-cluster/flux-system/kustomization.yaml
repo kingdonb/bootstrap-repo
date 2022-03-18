@@ -4,6 +4,7 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - flux-sync.yaml
+- github.com/kingdonb/source-controller//config/default?ref=kingdon-test
 
 images: []
 #  - name: ghcr.io/fluxcd/kustomize-controller
