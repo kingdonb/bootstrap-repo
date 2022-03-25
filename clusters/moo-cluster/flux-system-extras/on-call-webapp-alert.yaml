@@ -17,6 +17,34 @@ spec:
       name: '*'
     - kind: HelmRelease
       name: '*'
+      #namespace: flux-system  # (this is inferred from the Alert namespace)
+    - kind: HelmRelease
+      name: '*'
+      namespace: minio-juozas
+    - kind: HelmRelease
+      name: '*'
+      namespace: minio-stage
+    - kind: HelmRelease
+      name: '*'
+      namespace: monitoring
+    - kind: HelmRelease
+      name: '*'
+      namespace: podinfo
+    - kind: HelmRelease
+      name: '*'
+      namespace: ingress-nginx
+    - kind: HelmRelease
+      name: '*'
+      namespace: harbor
+    - kind: HelmRelease
+      name: '*'
+      namespace: ex7
+    - kind: HelmRelease
+      name: '*'
+      namespace: deis
+    - kind: HelmRelease
+      name: '*'
+      namespace: chartmuseum
     - kind: HelmChart
       name: '*'
     - kind: HelmRepository
