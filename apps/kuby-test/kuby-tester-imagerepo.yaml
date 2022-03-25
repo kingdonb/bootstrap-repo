@@ -6,6 +6,6 @@ metadata:
   namespace: kubytest-production
 spec:
   image: img.hephy.pro/kuby-tester/kuby_test
-  interval: 10m0s
+  interval: 2m0s
  #secretRef:
  #  name: kubytest-registry-secret
