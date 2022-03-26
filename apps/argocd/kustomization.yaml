@@ -11,3 +11,10 @@ resources:
 # A Flux Kustomization in ArgoCD may be instantiated through an Application
   - flux-system-app.yaml
   - scrob-prod-app.yaml
+patchesStrategicMerge:
+- |-  # The certificate is already captured in /certificates/moo-cluster
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: argocd-secret
+  $patch: delete
