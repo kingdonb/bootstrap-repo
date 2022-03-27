@@ -23,4 +23,4 @@ spec:
       namespace: openvpn
   prune: false
  #wait: true
-  suspend: false
+ #suspend: false

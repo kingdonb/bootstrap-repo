@@ -17,4 +17,4 @@ spec:
     - name: 30-ingress-nginx
   prune: true
  #wait: true
-  suspend: false
+ #suspend: false
