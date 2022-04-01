@@ -4,6 +4,7 @@ resources:
 - cert-manager-ns.yaml
 - ingress-nginx-ns.yaml
 - metallb-system-ns.yaml
+- monitoring-ns.yaml
 - kubytest-production-namespace.yaml
 - podinfo-namespace.yaml
 - scrob-production-namespace.yaml
