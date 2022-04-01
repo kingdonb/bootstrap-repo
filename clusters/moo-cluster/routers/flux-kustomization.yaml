@@ -13,6 +13,7 @@ spec:
   path: ./apps/routers
   dependsOn:
     - name: infrastructure
+    - name: traefik-api-crds
   prune: true
  #wait: true
  #suspend: false
