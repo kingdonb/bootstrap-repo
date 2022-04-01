@@ -2,7 +2,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
   name: 91-harbor
-  namespace: flux-system
+  namespace: harbor
 spec:
   interval: 60m0s
   retryInterval: 6m0s
@@ -10,12 +10,17 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-sync
+    namespace: flux-system
   path: ./apps/harbor
   dependsOn:
   - name: 11-certificates
+    namespace: flux-system
   - name: 12-persistence
+    namespace: harbor
   - name: 30-ingress-nginx
+    namespace: ingress-nginx
   - name: 90-minio-stage
+    namespace: minio-stage
   # - name: traefik-api-crds
   prune: true
  #wait: false
