@@ -15,6 +15,6 @@ spec:
     name: scrob-web
   dependsOn:
     - name: infrastructure
-   #- name: 11-certificates
+    - name: 11-certificates
     - name: 20-my-secrets
     - name: 30-ingress-nginx
