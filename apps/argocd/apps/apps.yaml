@@ -5,9 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: podinfo-staging
-    # namespace: traefik-staging
-    # namespace: whoami-staging
+    namespace: flux-system
     server: https://kubernetes.default.svc
   project: default
   source:

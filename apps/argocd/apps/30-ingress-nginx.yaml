@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: ingress-nginx
+    namespace: flux-system
     server: https://kubernetes.default.svc
   project: default
   source:

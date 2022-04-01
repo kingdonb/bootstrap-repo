@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: cert-manager
+    namespace: flux-system
     server: https://kubernetes.default.svc
   project: default
   source:
