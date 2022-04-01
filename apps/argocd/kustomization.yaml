@@ -8,9 +8,8 @@ resources:
   - argocd-ingress.yaml
   - argocd-ingressroute.yaml
   - argocd-service-endpoints.yaml
-# A Flux Kustomization in ArgoCD may be instantiated through an Application
-  - flux-system-app.yaml
-  - scrob-prod-app.yaml
+# A Flux Kustomization in ArgoCD is instantiated with a matching Application
+  - apps
 patchesStrategicMerge:
 - |-  # The certificate is already captured in /certificates/moo-cluster
   apiVersion: v1
