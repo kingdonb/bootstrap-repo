@@ -3,7 +3,7 @@ apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Receiver
 metadata:
   name: scrob-web
-  namespace: flux-system
+  namespace: scrob-production
 spec:
   events:
   - push
@@ -11,6 +11,7 @@ spec:
   resources:
   - kind: GitRepository
     name: scrob-web
+    namespace: scrob-production
   secretRef:
     name: webhook-token
   type: github
