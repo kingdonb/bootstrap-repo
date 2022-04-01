@@ -11,6 +11,7 @@ spec:
   prune: true
   dependsOn:
     - name: monitoring-stack
+      namespace: monitoring
   sourceRef:
     kind: GitRepository
     name: monitoring
