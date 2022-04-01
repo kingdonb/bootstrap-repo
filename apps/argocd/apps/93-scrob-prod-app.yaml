@@ -7,7 +7,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: flux-system
+    namespace: scrob-production
     server: https://kubernetes.default.svc
   project: default
   source:
