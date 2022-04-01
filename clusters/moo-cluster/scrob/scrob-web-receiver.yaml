@@ -3,7 +3,7 @@ apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Receiver
 metadata:
   name: scrob-web
-  namespace: scrob-production
+  namespace: flux-system
 spec:
   events:
   - push
