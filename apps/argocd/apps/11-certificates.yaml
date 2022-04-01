@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 11-certificates
+  namespace: argocd
+spec:
+  destination:
+    namespace: flux-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./
+    repoURL: flux://loopback
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
