@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: flux-system
+    namespace: deis
     server: https://kubernetes.default.svc
   project: default
   source:
