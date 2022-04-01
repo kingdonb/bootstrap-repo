@@ -1,8 +1,8 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: 95-flamingo
-  namespace: flux-system
+  namespace: argocd
 spec:
   interval: 60m0s
   retryInterval: 4m0s
@@ -10,8 +10,10 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-sync
+    namespace: flux-system
   dependsOn:
     - name: 30-ingress-nginx
+      namespace: ingress-nginx
   path: ./apps/argocd
   prune: true
  #wait: false
