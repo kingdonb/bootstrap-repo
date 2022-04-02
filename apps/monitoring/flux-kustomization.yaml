@@ -15,8 +15,17 @@ spec:
     name: kube-prometheus-stack-grafana
     namespace: monitoring
   path: ./manifests/monitoring/kube-prometheus-stack
-  prune: true
+  prune: false
   sourceRef:
     kind: GitRepository
     name: monitoring
-
+  patches:
+    - patch: |-
+        apiVersion: v1
+        kind: Namespace
+        metadata:
+          name: monitoring
+        $patch: delete
+      target:
+        kind: Namespace
+        name: monitoring

@@ -17,3 +17,7 @@ patchesStrategicMerge:
   metadata:
     name: argocd-secret
   $patch: delete
+images:
+  - name: ghcr.io/chanwit/flamingo/argocd
+    newName: ghcr.io/chanwit/flamingo/argocd
+    newTag: v2.2.8-fl.0-main-c97931a3
