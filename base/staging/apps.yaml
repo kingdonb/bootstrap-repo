@@ -9,6 +9,7 @@ spec:
   retryInterval: 2m0s
   dependsOn:
     - name: infrastructure
+      namespace: flux-system
   sourceRef:
     kind: GitRepository
     name: flux-sync
