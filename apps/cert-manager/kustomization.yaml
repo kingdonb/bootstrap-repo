@@ -4,3 +4,10 @@ resources:
   - https://github.com/jetstack/cert-manager/releases/download/v1.6.1/cert-manager.yaml
   - example-clusterissuer.yaml
   - letsencrypt-production-clusterissuer.yaml
+patchesStrategicMerge:
+  - |-
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: cert-manager
+    $patch: delete
