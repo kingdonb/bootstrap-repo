@@ -9,7 +9,7 @@ spec:
   timeout: 4m0s
   #suspend: false
   path: ./apps/metallb
-  prune: true
+  prune: false
  #wait: true
   sourceRef:
     kind: GitRepository
