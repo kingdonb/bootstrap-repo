@@ -9,8 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: ./
-    targetRevision: HEAD
+    path: ./apps/routers
+    repoURL: https://github.com/kingdonb/bootstrap-repo
+    targetRevision: staging
   syncPolicy:
     syncOptions:
     - ApplyOutOfSyncOnly=true

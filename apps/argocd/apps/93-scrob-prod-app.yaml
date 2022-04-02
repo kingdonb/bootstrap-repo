@@ -1,5 +1,3 @@
-### This Application doesn't function correctly because the destination
-### namespace isn't matching, so downstream resources aren't visualized.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -11,8 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: ./
-    targetRevision: HEAD
+    path: ./manifests
+    repoURL: https://github.com/kingdonb/scrob-web
+    targetRevision: main
   syncPolicy:
     syncOptions:
     - ApplyOutOfSyncOnly=true
