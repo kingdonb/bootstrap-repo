@@ -4,7 +4,7 @@ metadata:
   name: 32-keycloak
   namespace: keycloak
 spec:
-  interval: 73m0s
+  interval: 10m
   retryInterval: 1m30s
   timeout: 4m0s
   sourceRef:
@@ -20,5 +20,5 @@ spec:
     - name: 30-ingress-nginx
       namespace: ingress-nginx
   prune: true
- #wait: true
+  wait: true
   suspend: false

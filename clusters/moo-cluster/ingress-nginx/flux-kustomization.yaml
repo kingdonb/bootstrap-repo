@@ -4,7 +4,7 @@ metadata:
   name: 30-ingress-nginx
   namespace: ingress-nginx
 spec:
-  interval: 173m
+  interval: 10m
   retryInterval: 5m0s
   timeout: 3m0s
   sourceRef:
@@ -16,7 +16,7 @@ spec:
     - name: 29-metallb
       namespace: metallb-system
   prune: true
- #wait: true
+  wait: true
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
