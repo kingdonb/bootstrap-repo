@@ -1,10 +1,10 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: 34-magalix
   namespace: kube-system
 spec:
-  interval: 73m0s
+  interval: 2h0m0s
   retryInterval: 1m30s
   timeout: 4m0s
   sourceRef:
@@ -17,5 +17,5 @@ spec:
   #  - name: 20-my-secrets
   #  - name: 30-ingress-nginx
   prune: true
- #wait: true
+  wait: true
   suspend: false
