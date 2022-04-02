@@ -1,8 +1,8 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: apps
-  namespace: flux-system
+  namespace: podinfo-staging
 spec:
   interval: 10m0s
   timeout: 1m30s
@@ -12,6 +12,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-sync
+    namespace: flux-system
   path: ./apps/staging
   prune: false
  #wait: true
