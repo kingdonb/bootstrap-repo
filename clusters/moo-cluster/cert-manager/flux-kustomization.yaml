@@ -8,7 +8,7 @@ spec:
   interval: 10m
   retryInterval: 2m
   path: ./apps/cert-manager
-  prune: false
+  prune: true
  #wait: true
   suspend: false
   sourceRef:
