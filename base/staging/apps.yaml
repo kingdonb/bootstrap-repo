@@ -14,5 +14,5 @@ spec:
     name: flux-sync
     namespace: flux-system
   path: ./apps/staging
-  prune: false
+  prune: true
  #wait: true

@@ -11,5 +11,5 @@ spec:
     name: flux-sync
     namespace: flux-system
   path: ./infrastructure
-  prune: false
+  prune: true
  #wait: true
