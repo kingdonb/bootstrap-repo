@@ -10,5 +10,5 @@ spec:
     kind: GitRepository
     name: flux-sync
   path: ./infrastructure
-  prune: true
+  prune: false
  #wait: true
