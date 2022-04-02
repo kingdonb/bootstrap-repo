@@ -1,4 +1,4 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: 11-certificates
@@ -18,5 +18,5 @@ spec:
   dependsOn:
     - name: 20-my-secrets
   prune: false
- #wait: false
+  wait: false
  #suspend: false

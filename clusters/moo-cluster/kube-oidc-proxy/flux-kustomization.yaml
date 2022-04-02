@@ -4,9 +4,9 @@ metadata:
   name: 33-kube-oidc-proxy
   namespace: kube-oidc-proxy
 spec:
-  interval: 75m
-  retryInterval: 10m
-  timeout: 5m0s
+  interval: 10m
+  retryInterval: 3m
+  timeout: 2m0s
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -22,5 +22,5 @@ spec:
     - name: 32-keycloak
       namespace: keycloak
   prune: true
- #wait: true
+  wait: true
   suspend: false
