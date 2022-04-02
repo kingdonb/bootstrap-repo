@@ -11,8 +11,8 @@ spec:
   project: default
   source:
     path: ./
-    repoURL: flux://loopback
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
     - ApplyOutOfSyncOnly=true
+    - FluxSubsystem=true
