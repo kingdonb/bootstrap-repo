@@ -15,7 +15,7 @@ spec:
   dependsOn:
     - name: 29-metallb
       namespace: metallb-system
-  prune: true
+  prune: false
  #wait: true
   healthChecks:
     - apiVersion: apps/v1
