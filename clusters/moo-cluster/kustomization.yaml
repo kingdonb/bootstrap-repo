@@ -15,7 +15,6 @@ resources:
 - flux-system-extras/on-call-webapp-alert.yaml
 - flux-system-extras/podinfo-image-webhook-receiver.yaml
 - flux-system-extras/slack-notification.yaml
-- ../../base/staging
 - harbor
 - hephy/flux-kustomization.yaml
 - hephy/namespace.yaml
@@ -30,6 +29,7 @@ resources:
 - openvpn-as
 - scrob
 #- sealed-secrets
+- staging
 - ingress-nginx
 - cert-manager
 - keycloak
