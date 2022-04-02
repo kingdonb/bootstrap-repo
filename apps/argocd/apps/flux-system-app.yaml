@@ -1,4 +1,4 @@
-### From the instructions at https://github.com/chanwit/flamingo/releases/tag/v2.2.5-fl.0
+### This was based on the instructions at https://github.com/chanwit/flamingo/releases/tag/v2.2.5-fl.0
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -10,8 +10,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: ./
-    targetRevision: HEAD
+    path: ./clusters/moo-cluster
+    repoURL: https://github.com/kingdonb/bootstrap-repo
+    targetRevision: staging
   syncPolicy:
     syncOptions:
     - ApplyOutOfSyncOnly=true

@@ -9,8 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: ./
-    targetRevision: HEAD
+    path: ./manifests/monitoring/kube-prometheus-stack
+    repoURL: https://github.com/kingdonb/flux2
+    targetRevision: monitoring
   syncPolicy:
     syncOptions:
     - ApplyOutOfSyncOnly=true

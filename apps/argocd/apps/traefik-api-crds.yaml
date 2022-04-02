@@ -9,8 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: ./
-    targetRevision: HEAD
+    path: ./traefik/crds/
+    repoURL: https://github.com/traefik/traefik-helm-chart.git
+    targetRevision: v10.3.0
   syncPolicy:
     syncOptions:
     - ApplyOutOfSyncOnly=true
