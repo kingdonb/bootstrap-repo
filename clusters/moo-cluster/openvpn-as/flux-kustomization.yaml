@@ -1,8 +1,8 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: 31-openvpn
-  namespace: flux-system
+  namespace: openvpn
 spec:
   interval: 15m0s
   retryInterval: 10m
@@ -10,12 +10,17 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
+    namespace: flux-system
   path: ./apps/openvpn
   dependsOn:
     - name: 11-certificates
+      namespace: flux-system
     - name: 12-persistence
+      namespace: harbor
     - name: 20-my-secrets
+      namespace: flux-system
     - name: 30-ingress-nginx
+      namespace: ingress-nginx
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
@@ -23,4 +28,4 @@ spec:
       namespace: openvpn
   prune: false
  #wait: true
- #suspend: false
+  suspend: false

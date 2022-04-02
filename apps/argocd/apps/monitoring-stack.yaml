@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring-stack
+  namespace: argocd
+spec:
+  destination:
+    namespace: monitoring
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./manifests/monitoring/kube-prometheus-stack
+    repoURL: https://github.com/kingdonb/flux2
+    targetRevision: monitoring
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - FluxSubsystem=true

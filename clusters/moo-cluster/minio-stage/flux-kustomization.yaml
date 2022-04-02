@@ -2,7 +2,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
   name: 90-minio-stage
-  namespace: flux-system
+  namespace: minio-stage
 spec:
   interval: 60m0s
   retryInterval: 6m0s
@@ -10,12 +10,16 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-sync
+    namespace: flux-system
   path: ./apps/minio
   dependsOn:
   # - name: 11-certificates
     - name: 12-persistence
+      namespace: harbor
     - name: infrastructure
+      namespace: flux-system
     - name: traefik-api-crds
+      namespace: flux-system
   prune: true
  #wait: false
  #suspend: false

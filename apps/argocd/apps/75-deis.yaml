@@ -1,18 +1,18 @@
-### From the instructions at https://github.com/chanwit/flamingo/releases/tag/v2.2.5-fl.0
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: flux-system
+  name: 75-deis
   namespace: argocd
 spec:
   destination:
-    namespace: flux-system
+    namespace: deis
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: ./
-    repoURL: flux://loopback
-    targetRevision: HEAD
+    path: ./apps/hephy
+    repoURL: https://github.com/kingdonb/bootstrap-repo
+    targetRevision: staging
   syncPolicy:
     syncOptions:
     - ApplyOutOfSyncOnly=true
+    - FluxSubsystem=true

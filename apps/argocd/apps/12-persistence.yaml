@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 12-persistence
+  namespace: argocd
+spec:
+  destination:
+    namespace: harbor
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./apps/harbor
+    repoURL: https://github.com/kingdonb/bootstrap-repo
+    targetRevision: staging
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - FluxSubsystem=true

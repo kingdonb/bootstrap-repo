@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 90-minio-stage
+  namespace: argocd
+spec:
+  destination:
+    namespace: minio-stage
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./apps/minio
+    repoURL: https://github.com/kingdonb/bootstrap-repo
+    targetRevision: staging
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - FluxSubsystem=true

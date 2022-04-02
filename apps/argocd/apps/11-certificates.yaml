@@ -1,9 +1,7 @@
-### This Application doesn't function correctly because the destination
-### namespace isn't matching, so downstream resources aren't visualized.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 93-scrob-prod
+  name: 11-certificates
   namespace: argocd
 spec:
   destination:
@@ -11,9 +9,10 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: ./
-    repoURL: flux://loopback
-    targetRevision: HEAD
+    path: ./apps/certificates
+    repoURL: https://github.com/kingdonb/bootstrap-repo
+    targetRevision: staging
   syncPolicy:
     syncOptions:
     - ApplyOutOfSyncOnly=true
+    - FluxSubsystem=true

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 93-scrob-prod
+  namespace: argocd
+spec:
+  destination:
+    namespace: scrob-production
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./manifests
+    repoURL: https://github.com/kingdonb/scrob-web
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - FluxSubsystem=true

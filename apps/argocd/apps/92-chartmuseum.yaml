@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 92-chartmuseum
+  namespace: argocd
+spec:
+  destination:
+    namespace: chartmuseum
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./apps/chartmuseum
+    repoURL: https://github.com/kingdonb/bootstrap-repo
+    targetRevision: staging
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - FluxSubsystem=true

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apps
+  namespace: argocd
+spec:
+  destination:
+    namespace: flux-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./apps/staging
+    repoURL: https://github.com/kingdonb/bootstrap-repo
+    targetRevision: staging
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - FluxSubsystem=true

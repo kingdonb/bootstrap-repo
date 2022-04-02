@@ -11,6 +11,7 @@ spec:
   resources:
   - kind: GitRepository
     name: scrob-web
+    namespace: scrob-production
   secretRef:
     name: webhook-token
   type: github

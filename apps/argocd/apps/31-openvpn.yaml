@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 31-openvpn
+  namespace: argocd
+spec:
+  destination:
+    namespace: openvpn
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./apps/openvpn
+    repoURL: https://github.com/kingdonb/bootstrap-repo
+    targetRevision: staging
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - FluxSubsystem=true

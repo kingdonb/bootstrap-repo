@@ -4,3 +4,10 @@ namespace: metallb-system
 resources:
 - ../base/metallb
 - metallb-address-pool.yaml
+patchesStrategicMerge:
+  - |-
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: metallb-system
+    $patch: delete

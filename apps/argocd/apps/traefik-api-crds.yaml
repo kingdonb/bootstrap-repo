@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik-api-crds
+  namespace: argocd
+spec:
+  destination:
+    namespace: flux-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./traefik/crds/
+    repoURL: https://github.com/traefik/traefik-helm-chart.git
+    targetRevision: v10.3.0
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - FluxSubsystem=true

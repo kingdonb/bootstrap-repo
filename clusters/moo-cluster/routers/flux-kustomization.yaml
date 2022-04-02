@@ -2,7 +2,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
   name: 40-routers
-  namespace: flux-system
+  namespace: traefik-staging
 spec:
   interval: 60m0s
   retryInterval: 6m0s
@@ -10,9 +10,13 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-sync
+    namespace: flux-system
   path: ./apps/routers
   dependsOn:
     - name: infrastructure
+      namespace: flux-system
+    - name: traefik-api-crds
+      namespace: flux-system
   prune: true
  #wait: true
  #suspend: false

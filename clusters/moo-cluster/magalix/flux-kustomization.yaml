@@ -2,7 +2,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
   name: 34-magalix
-  namespace: flux-system
+  namespace: kube-system
 spec:
   interval: 73m0s
   retryInterval: 1m30s
@@ -10,6 +10,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
+    namespace: flux-system
   path: ./apps/magalix
   dependsOn: []
   #  - name: 11-certificates
