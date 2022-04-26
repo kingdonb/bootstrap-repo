@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: argocd
 resources:
 # Flamingo (Flux Subsystem for Argo)
-  - https://github.com/chanwit/flamingo//release?ref=v2.2.5-fl.0
+  - https://github.com/chanwit/flamingo//release?ref=v2.2.8-fl.0-main-3cefc21e
 # See: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/
   - argocd-ingress.yaml
   - argocd-ingressroute.yaml
@@ -20,4 +20,4 @@ patchesStrategicMerge:
 images:
   - name: ghcr.io/chanwit/flamingo/argocd
     newName: ghcr.io/flux-subsystem-argo/fsa/argocd
-    newTag: v2.2.8-fl.0-main-c97931a3
+    newTag: v2.2.8-fl.0-main-3cefc21e

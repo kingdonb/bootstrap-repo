@@ -36,7 +36,7 @@ spec:
               containers:
               - name: openvpn-as
                 livenessProbe:
-                  initialDelaySeconds: 300
+                  initialDelaySeconds: 150
               tolerations:
               - key: "node-role.kubernetes.io/master"
                 operator: "Exists"

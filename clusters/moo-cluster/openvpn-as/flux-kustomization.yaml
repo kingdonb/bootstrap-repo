@@ -5,7 +5,7 @@ metadata:
   namespace: openvpn
 spec:
   interval: 15m0s
-  retryInterval: 10m
+  retryInterval: 11m
   timeout: 12m0s
   sourceRef:
     kind: GitRepository
@@ -27,5 +27,5 @@ spec:
       name: openvpn-openvpn-as
       namespace: openvpn
   prune: false
- #wait: true
+  wait: true
   suspend: false
