@@ -9,7 +9,7 @@ resources:
 - cluster-api/gitrepository.yaml
 - cluster-api/gke-cluster-1.yaml
 - flamingo/flux-kustomization.yaml
-- flux-system
+#- flux-system
 - flux-system-extras/git-commit-status-alert-provider.yaml
 - flux-system-extras/git-webhook-receiver.yaml
 - flux-system-extras/gitno-hephy-pro-ingress.yaml
