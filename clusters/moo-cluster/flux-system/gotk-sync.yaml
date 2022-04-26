@@ -21,6 +21,7 @@ metadata:
 spec:
   interval: 10m0s
   path: ./clusters/moo-cluster
+  prune: false
   sourceRef:
     kind: GitRepository
     name: flux-system
