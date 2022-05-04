@@ -19,15 +19,16 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
 metadata:
   name: img
-  namespace: traefik-staging
+  namespace: harbor
 spec:
   entryPoints:
     - websecure
   routes:
   - match: HostSNI(`img.hephy.pro`)
     services:
-    - name: img-public-challenge
-      namespace: traefik-staging
-      port: 443
+    - name: harbor-core
+      namespace: harbor
+      port: 80
   tls:
-    passthrough: true
+    passthrough: false
+    secret: harbor-ingress
