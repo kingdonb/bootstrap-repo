@@ -9,7 +9,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: harbor
-      version: 1.8.1
+      version: 1.9.0
   interval: 15m15s
   timeout: 5m0s
   dependsOn:
@@ -74,7 +74,7 @@ spec:
             metadata:
               name: harbor-ingress
             spec:
-              ingressClassName: internal
+              ingressClassName: public
               tls:
               - hosts:
                 - img.hephy.pro
