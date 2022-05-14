@@ -1,0 +1,15 @@
+apiVersion: kpack.io/v1alpha2
+kind: Image
+metadata:
+  name: planet-image
+  namespace: planet-store
+spec:
+  tag: img.hephy.pro/planetstore/web
+  serviceAccountName: planet-pusher
+  builder:
+    name: planet-builder
+    kind: Builder
+  source:
+    git:
+      url: https://github.com/yebyen/planet-store
+      revision: 5cab9718bcb19fd681db3c34ded6d8559e6dbdb5

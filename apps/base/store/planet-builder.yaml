@@ -1,0 +1,23 @@
+apiVersion: kpack.io/v1alpha2
+kind: Builder
+metadata:
+  name: planet-builder
+  namespace: planet-store
+spec:
+  serviceAccountName: planet-pusher
+  tag: img.hephy.pro/planetstore/web
+  stack:
+    name: base
+    kind: ClusterStack
+  store:
+    name: default
+    kind: ClusterStore
+  order:
+  - group:
+    - id: paketo-buildpacks/nodejs
+  - group:
+    - id: paketo-buildpacks/yarn
+  - group:
+    - id: paketo-buildpacks/yarn-install
+  - group:
+    - id: paketo-buildpacks/ruby
