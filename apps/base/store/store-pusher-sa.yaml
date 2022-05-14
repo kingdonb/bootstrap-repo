@@ -5,6 +5,6 @@ metadata:
   namespace: planet-store
 secrets:
 - name: planet-pusher
+- name: store-git-reader
 imagePullSecrets:
 - name: planet-pusher
-- name: store-git-reader

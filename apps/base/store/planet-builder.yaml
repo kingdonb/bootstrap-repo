@@ -4,7 +4,7 @@ metadata:
   name: planet-builder
   namespace: planet-store
 spec:
-  serviceAccountName: planet-pusher
+  serviceAccountName: store-pusher
   tag: img.hephy.pro/planetstore/web
   stack:
     name: base
@@ -17,7 +17,10 @@ spec:
     - id: paketo-buildpacks/nodejs
   - group:
     - id: paketo-buildpacks/yarn
+      optional: false
   - group:
     - id: paketo-buildpacks/yarn-install
+      optional: false
   - group:
     - id: paketo-buildpacks/ruby
+      optional: false
