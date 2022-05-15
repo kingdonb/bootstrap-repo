@@ -7,20 +7,15 @@ spec:
   serviceAccountName: store-pusher
   tag: img.hephy.pro/planetstore/web
   stack:
-    name: base
+    name: full
     kind: ClusterStack
   store:
     name: default
     kind: ClusterStore
   order:
   - group:
-    - id: paketo-buildpacks/nodejs
-  - group:
-    - id: paketo-buildpacks/yarn
-      optional: false
-  - group:
-    - id: paketo-buildpacks/yarn-install
-      optional: false
-  - group:
     - id: paketo-buildpacks/ruby
-      optional: false
+  build:
+    env:
+      - name: SECRET_KEY_BASE
+        value: asdf1234
