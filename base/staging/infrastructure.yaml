@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
+  retryInterval: 45s
   timeout: 2m0s
   sourceRef:
     kind: GitRepository
@@ -12,4 +13,4 @@ spec:
     namespace: flux-system
   path: ./infrastructure
   prune: false
- #wait: true
+  wait: true

@@ -5,11 +5,17 @@ metadata:
   namespace: planet-store
 spec:
   tag: img.hephy.pro/planetstore/web
-  serviceAccountName: planet-pusher
+  imageTaggingStrategy: BuildNumber
+  serviceAccountName: store-pusher
   builder:
     name: planet-builder
     kind: Builder
   source:
     git:
-      url: https://github.com/yebyen/planet-store
-      revision: 5cab9718bcb19fd681db3c34ded6d8559e6dbdb5
+      url: git@github.com:yebyen/planet-store.git
+      revision: production
+      #revision: c090ccca4a41096cc1155d20e05ddf9999211754
+  build:
+    env:
+      - name: SECRET_KEY_BASE
+        value: asdf1234

@@ -4,7 +4,4 @@ metadata:
   name: default
 spec:
   sources:
-  - image: gcr.io/paketo-buildpacks/nodejs
-  - image: gcr.io/paketo-buildpacks/yarn
-  - image: gcr.io/paketo-buildpacks/yarn-install
   - image: gcr.io/paketo-buildpacks/ruby

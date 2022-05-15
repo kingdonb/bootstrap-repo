@@ -1,0 +1,32 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: simpleplanetstore
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`fix.me`) && PathPrefix(`/notls`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: planet-store
+      port: 9898
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: planetstoretls
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`fix.me`) && PathPrefix(`/tls`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: planet-store
+      port: 9898
+  tls:
+    certResolver: myresolver

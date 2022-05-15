@@ -4,20 +4,14 @@ metadata:
   name: planet-builder
   namespace: planet-store
 spec:
-  serviceAccountName: planet-pusher
-  tag: img.hephy.pro/planetstore/web
+  serviceAccountName: store-pusher
+  tag: img.hephy.pro/planetstore/web-builder
   stack:
-    name: base
+    name: full
     kind: ClusterStack
   store:
     name: default
     kind: ClusterStore
   order:
-  - group:
-    - id: paketo-buildpacks/nodejs
-  - group:
-    - id: paketo-buildpacks/yarn
-  - group:
-    - id: paketo-buildpacks/yarn-install
   - group:
     - id: paketo-buildpacks/ruby

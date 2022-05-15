@@ -1,0 +1,25 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: simpleplanetstore
+spec:
+  routes:
+   - kind: Rule
+     match: Host(`planetstore.staging.hephy.pro`)
+     services:
+        - kind: Service
+          name: planet-store
+          port: 9898
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: planetstoretls
+spec:
+  routes:
+   - kind: Rule
+     match: Host(`planetstore.staging.hephy.pro`)
+     services:
+        - kind: Service
+          name: planet-store
+          port: 9898
