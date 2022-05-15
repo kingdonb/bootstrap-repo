@@ -5,6 +5,7 @@ namespace: planet-store
 resources:
   #- namespace.yaml
   - ../../base/store
+  - imageauto.yaml
   - imagerepo.yaml
   - imagepolicy.yaml
 
