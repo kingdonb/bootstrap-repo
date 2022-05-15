@@ -15,3 +15,7 @@ spec:
       url: git@github.com:yebyen/planet-store.git
       revision: production
       #revision: c090ccca4a41096cc1155d20e05ddf9999211754
+  build:
+    env:
+      - name: SECRET_KEY_BASE
+        value: asdf1234

@@ -15,7 +15,3 @@ spec:
   order:
   - group:
     - id: paketo-buildpacks/ruby
-  build:
-    env:
-      - name: SECRET_KEY_BASE
-        value: asdf1234
