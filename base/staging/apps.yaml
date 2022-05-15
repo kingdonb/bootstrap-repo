@@ -18,6 +18,8 @@ spec:
       namespace: ingress-nginx
     - name: 85-kpack
       namespace: kpack
+    - name: 91-harbor
+      namespace: harbor
   sourceRef:
     kind: GitRepository
     name: flux-sync
