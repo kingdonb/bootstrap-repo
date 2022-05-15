@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 60m0s
   retryInterval: 6m0s
-  timeout: 4m0s
+  timeout: 4m45s
   sourceRef:
     kind: GitRepository
     name: flux-sync
@@ -23,5 +23,5 @@ spec:
     namespace: minio-stage
   # - name: traefik-api-crds
   prune: true
-  wait: false
+  wait: true
   suspend: false

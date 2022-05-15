@@ -13,8 +13,12 @@ spec:
     namespace: flux-system
   path: ./apps/kpack
   dependsOn:
+    - name: apps
+      namespace: podinfo-staging
     - name: infrastructure
       namespace: flux-system
+    - name: 91-harbor
+      namespace: harbor
   prune: true
   wait: true
  #suspend: false
