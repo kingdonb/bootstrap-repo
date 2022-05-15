@@ -11,7 +11,7 @@ spec:
     - name: infrastructure
       namespace: flux-system
     - name: 85-kpack
-      namespace: flux-system
+      namespace: kpack
   sourceRef:
     kind: GitRepository
     name: flux-sync

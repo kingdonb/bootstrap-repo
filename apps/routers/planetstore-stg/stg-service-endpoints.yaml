@@ -1,0 +1,31 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: stg-public-ingress
+  namespace: planet-store
+spec:
+  ports:
+    - name: planet-store-http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 0
+    - name: planet-store-https
+      protocol: TCP
+      port: 443
+      targetPort: 443
+      nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: stg-public-ingress
+  namespace: planet-store
+subsets:
+- addresses:
+  - ip: 10.17.12.202
+  ports:
+  - port: 80
+    name: planet-store-http
+  - port: 443
+    name: planet-store-https
