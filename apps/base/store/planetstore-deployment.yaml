@@ -24,7 +24,7 @@ spec:
                   optional: false
           ports:
             - name: http
-              containerPort: 9898
+              containerPort: 9292
               protocol: TCP
 
 ---
@@ -37,6 +37,6 @@ metadata:
 spec:
   ports:
     - name: http
-      port: 9898
+      port: 9292
   selector:
     app: planet-store

@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: planetstore
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+spec:
+  ingressClassName: internal
+  rules:
+  - host: planetstore.staging.hephy.pro
+    http:
+      paths:
+      - backend:
+          service:
+            name: planet-store
+            port:
+              number: 9292
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - planetstore.staging.hephy.pro
+    secretName: planetstore-stg-tls

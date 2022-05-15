@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
   - crds
   - kpack-release-0.5.3.yaml
+  - planet-clusterstack.yaml
+  - planet-clusterstore.yaml

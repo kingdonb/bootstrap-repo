@@ -13,4 +13,5 @@ resources:
 
 patchesStrategicMerge:
   - planetstore-patch.yaml
-  - ingressroute-patch.yaml
+  #- ingressroute-patch.yaml
+  - ingress-patch.yaml
