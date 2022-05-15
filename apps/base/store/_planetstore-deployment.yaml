@@ -16,11 +16,19 @@ spec:
           image: img.hephy.pro/planetstore/web:1.0.0
           imagePullPolicy: IfNotPresent
           env:
+            - name: DATABASE_HOST
+              value: 10.17.12.228
             - name: RAILS_MASTER_KEY
               valueFrom:
                 secretKeyRef:
                   name: rails-master-key
                   key: master-key
+                  optional: false
+            - name: PLANETSTORE_DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: planetstore-db-password
+                  key: db-password
                   optional: false
           ports:
             - name: http
