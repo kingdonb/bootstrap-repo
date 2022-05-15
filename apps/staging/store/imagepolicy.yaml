@@ -2,12 +2,14 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 metadata:
-  name: planet-store
+  name: web
   namespace: planet-store
 spec:
   imageRepositoryRef:
     name: planet-store-web
+  filterTags:
+    pattern: '^b[0-9]+\.(?P<ts>[0-9]{8}\.[0-9]{6})'
+    extract: '$ts'
   policy:
-    semver:
-      range: 1.0.x
-
+    numerical:
+      order: asc

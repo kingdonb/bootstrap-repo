@@ -15,9 +15,16 @@ spec:
         - name: planet-store
           image: img.hephy.pro/planetstore/web:1.0.0
           imagePullPolicy: IfNotPresent
+          env:
+            - name: RAILS_MASTER_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: rails-master-key
+                  key: master-key
+                  optional: false
           ports:
             - name: http
-              containerPort: 9898
+              containerPort: 9292
               protocol: TCP
 
 ---
@@ -30,6 +37,6 @@ metadata:
 spec:
   ports:
     - name: http
-      port: 9898
+      port: 9292
   selector:
     app: planet-store

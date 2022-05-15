@@ -1,0 +1,34 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: planet-store-stg
+  namespace: traefik-staging
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`planetstore.staging.hephy.pro`)
+    services:
+    - kind: Service
+      name: stg-public-ingress
+      namespace: planet-store
+      port: 80
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: planet-store-stg
+  namespace: traefik-staging
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: HostSNI(`planetstore.staging.hephy.pro`)
+    services:
+    - name: stg-public-ingress
+      namespace: planet-store
+      port: 443
+  tls:
+    secretName: planetstore-stg-tls
+    passthrough: true

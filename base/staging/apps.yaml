@@ -5,11 +5,13 @@ metadata:
   namespace: podinfo-staging
 spec:
   interval: 10m0s
-  timeout: 1m30s
+  timeout: 2m30s
   retryInterval: 2m0s
   dependsOn:
     - name: infrastructure
       namespace: flux-system
+    - name: 85-kpack
+      namespace: kpack
   sourceRef:
     kind: GitRepository
     name: flux-sync

@@ -1,10 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- planet-builder.yaml
-- planet-clusterstack.yaml
-- planet-clusterstore.yaml
+#- planet-builder.yaml
 - planet-image.yaml
 - store-pusher-sa.yaml
 - planetstore-deployment.yaml
-- ingressroute.yaml
+- ingress.yaml
