@@ -27,9 +27,10 @@ spec:
     - kind: ImageRepository
       name: '*'
       namespace: planet-store
-    - kind: ImagePolicy
-      name: '*'
-      namespace: planet-store
+        #Imagepolicy resources are noisy, do not monitor them
+    #- kind: ImagePolicy
+    #  name: '*'
+    #  namespace: planet-store
     - kind: ImageUpdateAutomation
       name: '*'
       namespace: planet-store
