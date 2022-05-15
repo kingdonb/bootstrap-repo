@@ -15,6 +15,13 @@ spec:
         - name: planet-store
           image: img.hephy.pro/planetstore/web:1.0.0
           imagePullPolicy: IfNotPresent
+          env:
+            - name: RAILS_MASTER_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: rails-master-key
+                  key: master-key
+                  optional: false
           ports:
             - name: http
               containerPort: 9898
