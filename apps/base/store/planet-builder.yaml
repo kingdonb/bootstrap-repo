@@ -5,7 +5,7 @@ metadata:
   namespace: planet-store
 spec:
   serviceAccountName: store-pusher
-  tag: img.hephy.pro/planetstore/web
+  tag: img.hephy.pro/planetstore/web-builder
   stack:
     name: full
     kind: ClusterStack
