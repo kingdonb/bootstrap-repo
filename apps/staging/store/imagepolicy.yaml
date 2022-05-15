@@ -1,0 +1,13 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: planet-store
+  namespace: planet-store
+spec:
+  imageRepositoryRef:
+    name: planet-store-web
+  policy:
+    semver:
+      range: 1.0.x
+
