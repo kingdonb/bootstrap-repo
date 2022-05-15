@@ -6,3 +6,5 @@ resources:
 - planet-clusterstore.yaml
 - planet-image.yaml
 - store-pusher-sa.yaml
+- planetstore-deployment.yaml
+- ingressroute.yaml
