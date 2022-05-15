@@ -12,10 +12,8 @@ spec:
     name: flux-system
     namespace: flux-system
   path: ./apps/magalix
-  dependsOn: []
-  #  - name: 11-certificates
-  #  - name: 20-my-secrets
-  #  - name: 30-ingress-nginx
+  dependsOn:
+    - name: 20-my-secrets
   prune: true
   wait: true
   suspend: false
