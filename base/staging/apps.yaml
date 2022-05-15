@@ -12,7 +12,7 @@ spec:
       namespace: flux-system
     - name: 11-certificates
       namespace: flux-system
-    - name: 12-my-secrets
+    - name: 20-my-secrets
       namespace: flux-system
     - name: 30-ingress-nginx
       namespace: ingress-nginx
