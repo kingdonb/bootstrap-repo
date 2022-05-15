@@ -5,15 +5,24 @@ metadata:
   namespace: podinfo-staging
 spec:
   interval: 10m0s
-  timeout: 1m30s
+  timeout: 2m30s
   retryInterval: 2m0s
   dependsOn:
     - name: infrastructure
       namespace: flux-system
+    - name: 11-certificates
+      namespace: flux-system
+    - name: 20-my-secrets
+      namespace: flux-system
+    - name: 30-ingress-nginx
+      namespace: ingress-nginx
+    - name: 91-harbor
+      namespace: harbor
   sourceRef:
     kind: GitRepository
     name: flux-sync
     namespace: flux-system
   path: ./apps/staging
   prune: true
- #wait: true
+  # Setting wait: true here causes all sorts of havoc
+  wait: false

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: planet-store
+spec:
+  selector:
+    matchLabels:
+      app: planet-store
+  template:
+    metadata:
+      labels:
+        app: planet-store
+    spec:
+      containers:
+        - name: planet-store
+          image: img.hephy.pro/planetstore/web:1.0.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: RAILS_MASTER_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: rails-master-key
+                  key: master-key
+                  optional: false
+          ports:
+            - name: http
+              containerPort: 9292
+              protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: planet-store
+  namespace: app
+spec:
+  ports:
+    - name: http
+      port: 9292
+  selector:
+    app: planet-store

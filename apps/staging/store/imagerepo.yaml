@@ -1,0 +1,10 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: planet-store-web
+  namespace: planet-store
+spec:
+  image: img.hephy.pro/planetstore/web
+  interval: 1m0s
+

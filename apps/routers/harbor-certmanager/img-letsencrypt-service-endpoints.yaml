@@ -1,16 +1,16 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: img-nginx-backend
+  name: img-public-challenge
   namespace: traefik-staging
 spec:
   ports:
-    - name: img-nginx-backend
+    - name: img-not-found
       protocol: TCP
       port: 443
       targetPort: 443
       nodePort: 0
-    - name: img-not-found-http
+    - name: img-http-challenge
       protocol: TCP
       port: 80
       targetPort: 80
@@ -19,13 +19,13 @@ spec:
 kind: Endpoints
 apiVersion: v1
 metadata:
-  name: img-nginx-backend
+  name: img-public-challenge
   namespace: traefik-staging
 subsets:
 - addresses:
   - ip: 10.17.12.202
   ports:
   - port: 443
-    name: img-nginx-backend
+    name: img-not-found
   - port: 80
-    name: img-not-found-http
+    name: img-http-challenge

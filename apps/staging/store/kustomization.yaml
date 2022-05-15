@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: planet-store
+resources:
+  #- namespace.yaml
+  - ../../base/store
+  - imagerepo.yaml
+  - imagepolicy.yaml
+  # read-write for image update automation
+  - imageauto.yaml
+  - flux-system-rw-gitrepo.yaml
+
+patchesStrategicMerge:
+  - planetstore-patch.yaml
+  #- ingressroute-patch.yaml
+  - ingress-patch.yaml

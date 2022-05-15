@@ -1,0 +1,11 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: planet-store
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: planet-store
+        image: img.hephy.pro/planetstore/web:b1.20220515.183934 # {"$imagepolicy": "planet-store:web"}

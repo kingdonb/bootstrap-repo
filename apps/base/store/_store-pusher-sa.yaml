@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: store-pusher
+  namespace: planet-store
+secrets:
+- name: planet-pusher
+- name: store-git-reader
+imagePullSecrets:
+- name: planet-pusher

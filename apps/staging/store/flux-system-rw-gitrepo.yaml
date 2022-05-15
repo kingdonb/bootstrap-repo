@@ -1,0 +1,15 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: flux-system-rw
+  namespace: planet-store
+spec:
+  gitImplementation: go-git
+  interval: 30m0s
+  ref:
+    branch: staging
+  secretRef:
+    name: flux-system-rw
+  timeout: 20s
+  url: ssh://git@github.com/kingdonb/bootstrap-repo

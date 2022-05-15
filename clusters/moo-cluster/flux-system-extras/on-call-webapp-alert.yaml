@@ -18,6 +18,22 @@ spec:
     - kind: HelmRelease
       name: '*'
       #namespace: flux-system  # (this is inferred from the Alert namespace)
+    - kind: Kustomization
+      name: '*'
+      namespace: podinfo-staging
+    - kind: Kustomization
+      name: '*'
+      namespace: traefik-staging
+    - kind: ImageRepository
+      name: '*'
+      namespace: planet-store
+        #Imagepolicy resources are noisy, do not monitor them
+    #- kind: ImagePolicy
+    #  name: '*'
+    #  namespace: planet-store
+    - kind: ImageUpdateAutomation
+      name: '*'
+      namespace: planet-store
     - kind: HelmRelease
       name: '*'
       namespace: minio-juozas
