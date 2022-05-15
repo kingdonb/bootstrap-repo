@@ -16,4 +16,4 @@ spec:
     namespace: flux-system
   path: ./apps/staging
   prune: true
- #wait: true
+  wait: true
