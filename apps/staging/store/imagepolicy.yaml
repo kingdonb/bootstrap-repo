@@ -2,7 +2,7 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 metadata:
-  name: planet-store
+  name: web
   namespace: planet-store
 spec:
   imageRepositoryRef:

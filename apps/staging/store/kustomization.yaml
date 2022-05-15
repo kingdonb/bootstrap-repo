@@ -5,9 +5,11 @@ namespace: planet-store
 resources:
   #- namespace.yaml
   - ../../base/store
-  - imageauto.yaml
   - imagerepo.yaml
   - imagepolicy.yaml
+  # read-write for image update automation
+  - imageauto.yaml
+  - flux-system-rw-gitrepo.yaml
 
 patchesStrategicMerge:
   - planetstore-patch.yaml

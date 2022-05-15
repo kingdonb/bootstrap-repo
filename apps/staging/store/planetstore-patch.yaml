@@ -5,10 +5,8 @@ metadata:
   name: planet-store
 spec:
   replicas: 1
-  #template:
-  #  spec:
-  #    containers:
-  #      - name: podinfo
-  #        args:
-  #          - -ascii
-  #          - -name=STAGING
+  template:
+    spec:
+      containers:
+        - name: planet-store
+          image: img.hephy.pro/planetstore/web:1.0.0 # {"$imagepolicy": "planet-store:web"}
