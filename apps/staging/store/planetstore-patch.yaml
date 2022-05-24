@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: planet-store
-        image: img.hephy.pro/planetstore/web:b4.20220519.221602 # {"$imagepolicy": "planet-store:web"}
+        image: img.hephy.pro/planetstore/web:b5.20220524.121716 # {"$imagepolicy": "planet-store:web"}
