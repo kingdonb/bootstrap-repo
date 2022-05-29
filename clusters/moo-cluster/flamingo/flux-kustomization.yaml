@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   interval: 60m0s
-  retryInterval: 4m0s
+  retryInterval: 3m10s
   timeout: 3m0s
   sourceRef:
     kind: GitRepository
