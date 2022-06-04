@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sintache
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+spec:
+  ingressClassName: internal
+  rules:
+  - host: sintache.staging.hephy.pro
+    http:
+      paths:
+      - backend:
+          service:
+            name: sintache
+            port:
+              number: 9393
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - sintache.staging.hephy.pro
+    secretName: sintache-stg-tls

@@ -1,0 +1,25 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: sintache-stg
+  namespace: sintache
+spec:
+  git:
+    checkout:
+      ref:
+        branch: staging
+    commit:
+      author:
+        email: yebyen+fluxcd@gmail.com
+        name: fluxcdbot
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: staging
+  interval: 1m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system-rw
+  update:
+    path: ./apps/staging/sintache
+    strategy: Setters
