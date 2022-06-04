@@ -24,7 +24,7 @@ spec:
                   name: rails-master-key
                   key: master-key
                   optional: false
-            - name: PLANETSTORE_DATABASE_PASSWORD
+            - name: MYSQL_DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: sintache-db-password
