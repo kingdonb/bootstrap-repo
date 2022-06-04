@@ -45,6 +45,6 @@ metadata:
 spec:
   ports:
     - name: http
-      port: 9393
+      port: 9292
   selector:
     app: sintache
