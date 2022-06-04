@@ -8,7 +8,7 @@ spec:
   imageTaggingStrategy: BuildNumber
   serviceAccountName: example-pusher
   builder:
-    name: planet-builder
+    name: example-builder
     kind: Builder
   source:
     git:
