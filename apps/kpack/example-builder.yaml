@@ -1,0 +1,17 @@
+apiVersion: kpack.io/v1alpha2
+kind: Builder
+metadata:
+  name: example-builder
+  namespace: sintache
+spec:
+  serviceAccountName: example-pusher
+  tag: img.hephy.pro/examples/ruby-builder
+  stack:
+    name: full
+    kind: ClusterStack
+  store:
+    name: default
+    kind: ClusterStore
+  order:
+  - group:
+    - id: paketo-buildpacks/ruby

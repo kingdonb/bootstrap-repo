@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sintache
+spec:
+  selector:
+    matchLabels:
+      app: sintache
+  template:
+    metadata:
+      labels:
+        app: sintache
+    spec:
+      containers:
+        - name: sintache
+          image: img.hephy.pro/examples/mustache-sinatra:1.0.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DATABASE_HOST
+              value: 10.17.12.228
+            - name: RAILS_MASTER_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: rails-master-key
+                  key: master-key
+                  optional: false
+            - name: MYSQL_DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sintache-db-password
+                  key: db-password
+                  optional: false
+          ports:
+            - name: http
+              containerPort: 9292
+              protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: sintache
+  namespace: app
+spec:
+  ports:
+    - name: http
+      port: 9292
+  selector:
+    app: sintache

@@ -1,0 +1,11 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: sintache
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: sintache
+        image: img.hephy.pro/examples/sinatra-mustache:b6.20220604.173946 # {"$imagepolicy": "sintache:example"}

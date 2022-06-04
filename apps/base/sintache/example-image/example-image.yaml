@@ -1,0 +1,20 @@
+apiVersion: kpack.io/v1alpha2
+kind: Image
+metadata:
+  name: example-image
+  namespace: sintache
+spec:
+  tag: img.hephy.pro/examples/sinatra-mustache
+  imageTaggingStrategy: BuildNumber
+  serviceAccountName: example-pusher
+  builder:
+    name: example-builder
+    kind: Builder
+  source:
+    git:
+      url: git@github.com:yebyen/mustache-sinatra-example.git
+      revision: master
+  build:
+    env:
+      - name: EXAMPLE_BUILD_VAR
+        value: asdf1234
