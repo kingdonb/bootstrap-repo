@@ -5,5 +5,5 @@ metadata:
   name: mustache-sinatra-example
   namespace: sintache
 spec:
-  image: img.hephy.pro/examples/mustache-sinatra
+  image: img.hephy.pro/examples/sinatra-mustache
   interval: 1m0s
