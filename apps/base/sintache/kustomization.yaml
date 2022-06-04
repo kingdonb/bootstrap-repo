@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- example-image-flux-ks.yaml
+- _example-pusher-sa.yaml
+- _sinatra-example-deployment.yaml
+- _ingress.yaml

@@ -1,0 +1,20 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: 97-example-image-build
+  namespace: sintache
+spec:
+  interval: 60m0s
+  retryInterval: 1m0s
+  timeout: 5m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-sync
+    namespace: flux-system
+  path: ./apps/base/sintache/example-image
+  dependsOn:
+    - name: 85-kpack
+      namespace: kpack
+  prune: true
+  wait: true
+ #suspend: false
