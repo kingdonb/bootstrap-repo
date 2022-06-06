@@ -2,7 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - helmrepo.yaml
-- helmrelease.yaml
-- kingdonb-helm-charts-1-gitrepo.yaml
-- openvpn-openvpn-as-lb-udp.yaml
-- vpn-ingressroute.yaml
+## WARNING - OpenVPN does not work  
+# - helmrelease.yaml
+# - kingdonb-helm-charts-1-gitrepo.yaml
+# - openvpn-openvpn-as-lb-udp.yaml
+# - vpn-ingressroute.yaml

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: planet-store
+  name: sintache
 spec:
   selector:
     matchLabels:
-      app: planet-store
+      app: sintache
   template:
     metadata:
       labels:
-        app: planet-store
+        app: sintache
     spec:
       containers:
-        - name: planet-store
-          image: img.hephy.pro/planetstore/web:1.0.0
+        - name: sintache
+          image: img.hephy.pro/examples/mustache-sinatra:1.0.0
           imagePullPolicy: IfNotPresent
           env:
             - name: DATABASE_HOST
@@ -24,10 +24,10 @@ spec:
                   name: rails-master-key
                   key: master-key
                   optional: false
-            - name: PLANETSTORE_DATABASE_PASSWORD
+            - name: MYSQL_DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: planetstore-db-password
+                  name: sintache-db-password
                   key: db-password
                   optional: false
           ports:
@@ -40,11 +40,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: planet-store
+  name: sintache
   namespace: app
 spec:
   ports:
     - name: http
       port: 9292
   selector:
-    app: planet-store
+    app: sintache

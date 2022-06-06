@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: example-pusher
+  namespace: sintache
+secrets:
+- name: example-pusher
+- name: example-git-reader
+imagePullSecrets:
+- name: example-pusher
