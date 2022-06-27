@@ -3,14 +3,14 @@ kind: PersistentVolume
 metadata:
   annotations:
     pv.kubernetes.io/provisioned-by: rancher.io/local-path
-  name: pvc-e0215d50-9977-48ea-8e36-29e8b60e5620
+  name: pvc-e0215d50-9977-48ea-8e36-29e8b60e5621
 spec:
   accessModes:
   - ReadWriteOnce
   capacity:
     storage: 5Gi
   hostPath:
-    path: /opt/local-path-provisioner/pvc-e0215d50-9977-48ea-8e36-29e8b60e5620_harbor_data-harbor-trivy-0
+    path: /opt/local-path-provisioner/pvc-e0215d50-9977-48ea-8e36-29e8b60e5621_harbor_data-harbor-trivy-0
     type: DirectoryOrCreate
   nodeAffinity:
     required:
