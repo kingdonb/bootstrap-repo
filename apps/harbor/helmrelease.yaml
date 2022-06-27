@@ -20,6 +20,8 @@ spec:
   values:
     notary:
       enabled: false
+    chartmuseum:
+      enabled: false
     expose:
       tls:
         certSource: secret
