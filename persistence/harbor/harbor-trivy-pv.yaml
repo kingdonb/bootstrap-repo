@@ -20,5 +20,5 @@ spec:
           operator: In
           values:
           - msigaming
-  persistentVolumeReclaimPolicy: Retain
+  persistentVolumeReclaimPolicy: Delete
   storageClassName: local-path
