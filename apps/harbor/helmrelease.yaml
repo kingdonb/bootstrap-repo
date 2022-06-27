@@ -9,7 +9,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: harbor
-      version: 1.9.0
+      version: 1.9.1
   interval: 15m15s
   timeout: 5m0s
   dependsOn:
@@ -19,6 +19,8 @@ spec:
       namespace: ingress-nginx
   values:
     notary:
+      enabled: false
+    chartmuseum:
       enabled: false
     expose:
       tls:
@@ -38,19 +40,19 @@ spec:
           region: us-east-1
           bucket: harbor-storage
           regionendpoint: https://minio.hephy.pro
-      persistentVolumeClaim:
-        registry:
-          existingClaim: "harbor-registry"
-        chartmuseum:
-          existingClaim: "harbor-chartmuseum"
-        jobservice:
-          existingClaim: "harbor-jobservice"
-        database:
-          existingClaim: "database-data-harbor-database-0"
-        redis:
-          existingClaim: "data-harbor-redis-0"
-        trivy:
-          existingClaim: "data-harbor-trivy-0"
+      #persistentVolumeClaim:
+      #  registry:
+      #    existingClaim: "harbor-registry"
+      #  chartmuseum:
+      #    existingClaim: "harbor-chartmuseum"
+      #  jobservice:
+      #    existingClaim: "harbor-jobservice"
+      #  database:
+      #    existingClaim: "database-data-harbor-database-0"
+      #  redis:
+      #    existingClaim: "data-harbor-redis-0"
+      #  trivy:
+      #    existingClaim: "data-harbor-trivy-0"
 
   valuesFrom:
   - kind: Secret

@@ -24,4 +24,4 @@ spec:
   # - name: traefik-api-crds
   prune: true
   wait: true
-  suspend: false
+  # suspend: false
