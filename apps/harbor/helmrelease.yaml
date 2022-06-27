@@ -40,17 +40,17 @@ spec:
           regionendpoint: https://minio.hephy.pro
       persistentVolumeClaim:
         registry:
-          existingClaim: "harbor-registry"
+          # existingClaim: "harbor-registry"
         chartmuseum:
-          existingClaim: "harbor-chartmuseum"
+          # existingClaim: "harbor-chartmuseum"
         jobservice:
-          existingClaim: "harbor-jobservice"
+          # existingClaim: "harbor-jobservice"
         database:
-          existingClaim: "database-data-harbor-database-0"
+          # existingClaim: "database-data-harbor-database-0"
         redis:
-          existingClaim: "data-harbor-redis-0"
+          # existingClaim: "data-harbor-redis-0"
         trivy:
-          existingClaim: "data-harbor-trivy-0"
+          # existingClaim: "data-harbor-trivy-0"
 
   valuesFrom:
   - kind: Secret
