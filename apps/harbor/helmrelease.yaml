@@ -38,19 +38,19 @@ spec:
           region: us-east-1
           bucket: harbor-storage
           regionendpoint: https://minio.hephy.pro
-      persistentVolumeClaim:
-        registry:
-          # existingClaim: "harbor-registry"
-        chartmuseum:
-          # existingClaim: "harbor-chartmuseum"
-        jobservice:
-          # existingClaim: "harbor-jobservice"
-        database:
-          # existingClaim: "database-data-harbor-database-0"
-        redis:
-          # existingClaim: "data-harbor-redis-0"
-        trivy:
-          # existingClaim: "data-harbor-trivy-0"
+      #persistentVolumeClaim:
+      #  registry:
+      #    existingClaim: "harbor-registry"
+      #  chartmuseum:
+      #    existingClaim: "harbor-chartmuseum"
+      #  jobservice:
+      #    existingClaim: "harbor-jobservice"
+      #  database:
+      #    existingClaim: "database-data-harbor-database-0"
+      #  redis:
+      #    existingClaim: "data-harbor-redis-0"
+      #  trivy:
+      #    existingClaim: "data-harbor-trivy-0"
 
   valuesFrom:
   - kind: Secret
