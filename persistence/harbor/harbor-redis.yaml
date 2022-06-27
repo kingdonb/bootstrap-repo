@@ -20,4 +20,4 @@ spec:
     requests:
       storage: 1Gi
   storageClassName: local-path
-  volumeName: pvc-78670a3b-c0ea-4130-9740-ae48eec43bbe
+  volumeName: pvc-78670a3b-c0ea-4130-9740-ae48eec43bbd

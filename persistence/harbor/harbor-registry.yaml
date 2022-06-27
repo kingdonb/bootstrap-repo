@@ -26,4 +26,4 @@ spec:
     requests:
       storage: 5Gi
   storageClassName: local-path
-  volumeName: pvc-f6c57a73-91d5-4bac-b7a2-0bd3d11bec17
+  volumeName: pvc-f6c57a73-91d5-4bac-b7a2-0bd3d11bec16
