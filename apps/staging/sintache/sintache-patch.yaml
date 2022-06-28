@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: sintache
-        image: img.hephy.pro/examples/sinatra-mustache:b1.20220628.122008 # {"$imagepolicy": "sintache:example"}
+        image: img.hephy.pro/examples/sinatra-mustache:b3.20220628.131901 # {"$imagepolicy": "sintache:example"}
