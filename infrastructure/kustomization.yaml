@@ -2,6 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - crds
-  - kpack-release-0.5.3.yaml
+  - kpack-release-0.6.0.yaml
   - planet-clusterstack.yaml
   - planet-clusterstore.yaml
