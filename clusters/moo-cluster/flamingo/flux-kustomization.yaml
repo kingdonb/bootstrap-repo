@@ -11,9 +11,9 @@ spec:
     kind: GitRepository
     name: flux-sync
     namespace: flux-system
-  dependsOn:
-    - name: 30-ingress-nginx
-      namespace: ingress-nginx
+  #dependsOn:
+  #  - name: 30-ingress-nginx
+  #    namespace: ingress-nginx
   path: ./apps/argocd
   prune: true
  #wait: false
