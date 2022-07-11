@@ -14,11 +14,11 @@ spec:
   timeout: 10m0s
   storageNamespace: deis
   targetNamespace: deis
-  dependsOn:
-    - namespace: ingress-nginx
-      name: internal-ingress
-    - namespace: ingress-nginx
-      name: public-ingress
+  # dependsOn:
+  #   - namespace: ingress-nginx
+  #     name: internal-ingress
+  #   - namespace: ingress-nginx
+  #     name: public-ingress
   postRenderers:
     - kustomize:
         patchesStrategicMerge:
