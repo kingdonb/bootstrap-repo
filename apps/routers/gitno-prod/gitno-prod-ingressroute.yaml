@@ -19,7 +19,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
 metadata:
   name: gitno-prod-web
-  namespace: gitno-prod-production
+  namespace: traefik-staging
 spec:
   entryPoints:
   - websecure
