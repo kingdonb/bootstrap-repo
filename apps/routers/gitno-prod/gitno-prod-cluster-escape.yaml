@@ -1,0 +1,24 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: gitno-prod-cluster-escape
+  namespace: flux-system
+spec:
+  ports:
+    - name: gitno-prod-http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: gitno-prod-cluster-escape
+  namespace: flux-system
+subsets:
+- addresses:
+  - ip: 10.105.191.113
+  ports:
+  - port: 80
+    name: gitno-prod-http
