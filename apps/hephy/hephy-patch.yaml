@@ -51,6 +51,11 @@ spec:
           - kind: DaemonSet
             apiVersion: apps/v1
             metadata:
+              name: deis-logger-fluentd
+            "$patch": delete
+          - kind: DaemonSet
+            apiVersion: apps/v1
+            metadata:
               name: deis-monitor-telegraf
             "$patch": delete
           - kind: Deployment
