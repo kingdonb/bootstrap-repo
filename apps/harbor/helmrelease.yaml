@@ -12,11 +12,11 @@ spec:
       version: 1.9.1
   interval: 15m15s
   timeout: 5m0s
-  dependsOn:
-    - name: internal-ingress
-      namespace: ingress-nginx
-    - name: public-ingress
-      namespace: ingress-nginx
+  # dependsOn:
+  #   - name: internal-ingress
+  #     namespace: ingress-nginx
+  #   - name: public-ingress
+  #     namespace: ingress-nginx
   values:
     notary:
       enabled: false

@@ -14,11 +14,11 @@ spec:
   timeout: 10m0s
   storageNamespace: deis
   targetNamespace: deis
-  dependsOn:
-    - namespace: ingress-nginx
-      name: internal-ingress
-    - namespace: ingress-nginx
-      name: public-ingress
+  # dependsOn:
+  #   - namespace: ingress-nginx
+  #     name: internal-ingress
+  #   - namespace: ingress-nginx
+  #     name: public-ingress
   postRenderers:
     - kustomize:
         patchesStrategicMerge:
@@ -48,6 +48,26 @@ spec:
               name: deis-builder
             spec:
               loadBalancerIP: 10.17.12.205        # deis-builder.nerdland.local
+          - kind: StatefulSet
+            apiVersion: apps/v1
+            metadata:
+              name: deis-nsqd
+            "$patch": delete
+          - kind: DaemonSet
+            apiVersion: apps/v1
+            metadata:
+              name: deis-logger-fluentd
+            "$patch": delete
+          - kind: Deployment
+            apiVersion: apps/v1
+            metadata:
+              name: deis-logger-redis
+            "$patch": delete
+          - kind: Deployment
+            apiVersion: apps/v1
+            metadata:
+              name: deis-logger
+            "$patch": delete
           - kind: DaemonSet
             apiVersion: apps/v1
             metadata:

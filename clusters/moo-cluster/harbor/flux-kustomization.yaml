@@ -17,8 +17,8 @@ spec:
     namespace: flux-system
   - name: 12-persistence
     namespace: harbor
-  - name: 30-ingress-nginx
-    namespace: ingress-nginx
+  # - name: 30-ingress-nginx
+  #   namespace: ingress-nginx
   - name: 90-minio-stage
     namespace: minio-stage
   # - name: traefik-api-crds
