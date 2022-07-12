@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: webhook-receiver
+  name: webhook-receiver-prod
   namespace: flux-system
   annotations: {}
     #cert-manager.io/cluster-issuer: letsencrypt-production
