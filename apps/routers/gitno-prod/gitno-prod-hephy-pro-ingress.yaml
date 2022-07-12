@@ -3,10 +3,10 @@ kind: Ingress
 metadata:
   name: webhook-receiver-prod
   namespace: flux-system
-  annotations: {}
-    #cert-manager.io/cluster-issuer: letsencrypt-production
-    #nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
-    #nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: public
   rules:
@@ -20,7 +20,7 @@ spec:
             name: gitno-prod-cluster-escape
             port:
               number: 80
-  #tls:
-  #- hosts:
-  #  - gitno.hephy.pro
-  #  secretName: gitno-hephy-pro-tls
+  tls:
+  - hosts:
+    - gitno-prod.hephy.pro
+    secretName: gitno-prod-hephy-pro-tls
