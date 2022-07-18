@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webhook-receiver-prod
+  namespace: flux-system
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: public
+  rules:
+  - host: gitno-prod.hephy.pro
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: gitno-prod-cluster-escape
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - gitno-prod.hephy.pro
+    secretName: gitno-prod-hephy-pro-tls
