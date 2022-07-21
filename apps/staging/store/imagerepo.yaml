@@ -7,5 +7,5 @@ metadata:
 spec:
   image: img.hephy.pro/planetstore/web
   interval: 1m0s
-secretRef:
-  name: planet-readonly
+  secretRef:
+    name: planet-readonly
