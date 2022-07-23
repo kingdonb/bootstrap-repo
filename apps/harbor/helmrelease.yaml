@@ -27,6 +27,7 @@ spec:
       loadBalancer:
         IP: 10.17.12.231
       tls:
+        enabled: true
         auto:
           commonName: "img.hephy.pro"
         certSource: secret
