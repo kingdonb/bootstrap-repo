@@ -27,8 +27,8 @@ spec:
       loadBalancer:
         IP: 10.17.12.231
       tls:
-        # auto:
-        #   commonName: "img.hephy.pro"
+        auto:
+          commonName: "img.hephy.pro"
         certSource: secret
         secretName: harbor-ingress
       # tls:
