@@ -26,6 +26,9 @@ spec:
       type: loadBalancer
       loadBalancer:
         IP: 10.17.12.231
+      tls:
+        auto:
+          commonName: "harbor-lb.turkey.local"
       # tls:
       #   certSource: secret
       #   secretName: harbor-ingress
