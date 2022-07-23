@@ -74,22 +74,22 @@ spec:
     valuesKey: adminpw
     targetPath: harborAdminPassword
 
-  postRenderers:
-    - kustomize:
-        patchesStrategicMerge:
-          - apiVersion: networking.k8s.io/v1
-            kind: Ingress
-            metadata:
-              name: harbor-ingress
-            spec:
-              ingressClassName: public
-              tls:
-              - hosts:
-                - img.hephy.pro
-                secretName: harbor-ingress
-         #- apiVersion: networking.k8s.io/v1
-         #  kind: Ingress
-         #  metadata:
-         #    name: harbor-ingress-notary
-         #  spec:
-         #    ingressClassName: internal
+  # postRenderers:
+  #   - kustomize:
+  #       patchesStrategicMerge:
+  #         - apiVersion: networking.k8s.io/v1
+  #           kind: Ingress
+  #           metadata:
+  #             name: harbor-ingress
+  #           spec:
+  #             ingressClassName: public
+  #             tls:
+  #             - hosts:
+  #               - img.hephy.pro
+  #               secretName: harbor-ingress
+  #        #- apiVersion: networking.k8s.io/v1
+  #        #  kind: Ingress
+  #        #  metadata:
+  #        #    name: harbor-ingress-notary
+  #        #  spec:
+  #        #    ingressClassName: internal
