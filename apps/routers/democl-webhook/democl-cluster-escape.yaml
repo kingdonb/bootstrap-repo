@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: democl-webhook-cluster-escape
-  namespace: flux-system
+  namespace: traefik-staging
 spec:
   ports:
     - name: democl-webhook-http
@@ -15,7 +15,7 @@ kind: Endpoints
 apiVersion: v1
 metadata:
   name: democl-webhook-cluster-escape
-  namespace: flux-system
+  namespace: traefik-staging
 subsets:
 - addresses:
   - ip: 10.105.209.52
