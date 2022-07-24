@@ -14,7 +14,7 @@ spec:
       name: scrob-dev-public-ingress
       namespace: traefik-staging
       port: 80
-#--- # Make sure backend is configured for TLS before we enable this
+--- # Make sure backend is configured for TLS before we enable this
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
 metadata:
@@ -30,5 +30,5 @@ spec:
       namespace: traefik-staging
       port: 443
   tls:
-    secretName: scrob-dev-tls
+    # secretName: scrob-dev-tls
     passthrough: true
