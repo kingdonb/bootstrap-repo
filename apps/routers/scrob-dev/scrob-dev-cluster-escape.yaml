@@ -8,7 +8,7 @@ spec:
     - name: scrob-dev-http
       protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 443
       nodePort: 0
 ---
 kind: Endpoints
@@ -18,7 +18,7 @@ metadata:
   namespace: traefik-staging
 subsets:
 - addresses:
-  - ip: 10.102.15.111
+  - ip: 10.17.12.202
   ports:
-  - port: 8080
-    name: scrob-dev-http
+  - port: 443
+    name: scrob-dev-public-http

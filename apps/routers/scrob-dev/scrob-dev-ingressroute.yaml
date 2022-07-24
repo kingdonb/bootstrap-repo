@@ -15,20 +15,20 @@ spec:
       namespace: traefik-staging
       port: 80
 #--- # Make sure backend is configured for TLS before we enable this
-#apiVersion: traefik.containo.us/v1alpha1
-#kind: IngressRouteTCP
-#metadata:
-#  name: scrob-dev-web
-#  namespace: traefik-staging
-#spec:
-#  entryPoints:
-#  - websecure
-#  routes:
-#  - match: HostSNI(`scrob-dev.hephy.pro`)
-#    services:
-#    - name: scrob-dev-public-ingress
-#      namespace: traefik-staging
-#      port: 443
-#  tls:
-#    secretName: scrob-dev-tls
-#    passthrough: true
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: scrob-dev-web
+  namespace: traefik-staging
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: HostSNI(`scrob-dev.hephy.pro`)
+    services:
+    - name: scrob-dev-cluster-escape
+      namespace: traefik-staging
+      port: 443
+  tls:
+    secretName: scrob-dev-tls
+    passthrough: true
