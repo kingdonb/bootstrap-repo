@@ -11,7 +11,7 @@ spec:
     match: Host(`democl-webhook.hephy.pro`)
     services:
     - kind: Service
-      name: democl-webhook-public-ingress
+      name: democl-webhook-cluster-escape
       namespace: traefik-staging
       port: 80
 #--- # Make sure backend is configured for TLS before we enable this
