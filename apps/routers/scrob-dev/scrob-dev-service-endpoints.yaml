@@ -23,7 +23,7 @@ metadata:
   namespace: traefik-staging
 subsets:
 - addresses:
-  - ip: 10.17.12.202
+  - ip: 10.17.12.222
   ports:
   - port: 80
     name: scrob-dev-http
