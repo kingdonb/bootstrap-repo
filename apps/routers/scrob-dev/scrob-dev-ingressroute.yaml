@@ -11,7 +11,7 @@ spec:
     match: Host(`scrob-dev.hephy.pro`)
     services:
     - kind: Service
-      name: scrob-dev-cluster-escape
+      name: scrob-dev-public-ingress
       namespace: traefik-staging
       port: 80
 #--- # Make sure backend is configured for TLS before we enable this
