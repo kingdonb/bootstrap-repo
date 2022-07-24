@@ -1,0 +1,24 @@
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   name: democl-webhook-cluster-escape
+#   namespace: flux-system
+# spec:
+#   ports:
+#     - name: democl-webhook-http
+#       protocol: TCP
+#       port: 80
+#       targetPort: 80
+#       nodePort: 0
+# ---
+# kind: Endpoints
+# apiVersion: v1
+# metadata:
+#   name: democl-webhook-cluster-escape
+#   namespace: flux-system
+# subsets:
+# - addresses:
+#   - ip: 10.17.12.202
+#   ports:
+#   - port: 80
+#     name: democl-webhook-http
