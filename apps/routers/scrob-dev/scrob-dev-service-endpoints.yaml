@@ -1,0 +1,31 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: scrob-dev-public-ingress
+  namespace: traefik-staging
+spec:
+  ports:
+    - name: scrob-dev-http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 0
+    - name: scrob-dev-https
+      protocol: TCP
+      port: 443
+      targetPort: 443
+      nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: scrob-dev-public-ingress
+  namespace: traefik-staging
+subsets:
+- addresses:
+  - ip: 10.17.12.202
+  ports:
+  - port: 80
+    name: scrob-dev-http
+  - port: 443
+    name: scrob-dev-https

@@ -1,0 +1,24 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: scrob-dev-cluster-escape
+  namespace: traefik-staging
+spec:
+  ports:
+    - name: scrob-dev-http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: scrob-dev-cluster-escape
+  namespace: traefik-staging
+subsets:
+- addresses:
+  - ip: 10.105.209.52
+  ports:
+  - port: 80
+    name: scrob-dev-http
