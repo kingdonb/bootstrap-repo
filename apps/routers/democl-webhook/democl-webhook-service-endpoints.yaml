@@ -1,0 +1,31 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: democl-webhook-public-ingress
+  namespace: traefik-staging
+spec:
+  ports:
+    - name: democl-webhook-http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 0
+    - name: democl-webhook-https
+      protocol: TCP
+      port: 443
+      targetPort: 443
+      nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: democl-webhook-public-ingress
+  namespace: traefik-staging
+subsets:
+- addresses:
+  - ip: 10.17.12.202
+  ports:
+  - port: 80
+    name: democl-webhook-http
+  - port: 443
+    name: democl-webhook-https

@@ -23,15 +23,25 @@ spec:
     chartmuseum:
       enabled: false
     expose:
+      type: loadBalancer
+      loadBalancer:
+        IP: 10.17.12.231
       tls:
+        enabled: true
+        # auto:
+        #   commonName: "img.hephy.pro"
         certSource: secret
-        secretName: harbor-ingress
-      ingress:
-        hosts:
-          core: img.hephy.pro
-          #notary: not.hephy.pro
-        annotations:
-          cert-manager.io/cluster-issuer: letsencrypt-production
+        secret:
+          secretName: harbor-ingress
+      # tls:
+      #   certSource: secret
+      #   secretName: harbor-ingress
+      # ingress:
+      #   hosts:
+      #     core: img.hephy.pro
+      #     #notary: not.hephy.pro
+      #   annotations:
+      #     cert-manager.io/cluster-issuer: letsencrypt-production
     externalURL: https://img.hephy.pro
     persistence:
       imageChartStorage:
@@ -68,22 +78,22 @@ spec:
     valuesKey: adminpw
     targetPath: harborAdminPassword
 
-  postRenderers:
-    - kustomize:
-        patchesStrategicMerge:
-          - apiVersion: networking.k8s.io/v1
-            kind: Ingress
-            metadata:
-              name: harbor-ingress
-            spec:
-              ingressClassName: public
-              tls:
-              - hosts:
-                - img.hephy.pro
-                secretName: harbor-ingress
-         #- apiVersion: networking.k8s.io/v1
-         #  kind: Ingress
-         #  metadata:
-         #    name: harbor-ingress-notary
-         #  spec:
-         #    ingressClassName: internal
+  # postRenderers:
+  #   - kustomize:
+  #       patchesStrategicMerge:
+  #         - apiVersion: networking.k8s.io/v1
+  #           kind: Ingress
+  #           metadata:
+  #             name: harbor-ingress
+  #           spec:
+  #             ingressClassName: public
+  #             tls:
+  #             - hosts:
+  #               - img.hephy.pro
+  #               secretName: harbor-ingress
+  #        #- apiVersion: networking.k8s.io/v1
+  #        #  kind: Ingress
+  #        #  metadata:
+  #        #    name: harbor-ingress-notary
+  #        #  spec:
+  #        #    ingressClassName: internal

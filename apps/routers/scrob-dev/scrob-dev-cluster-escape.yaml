@@ -1,31 +1,24 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: img-nginx-backend
+  name: scrob-dev-cluster-escape
   namespace: traefik-staging
 spec:
   ports:
-    - name: img-nginx-backend
+    - name: scrob-dev-public-https
       protocol: TCP
       port: 443
       targetPort: 443
-      nodePort: 0
-    - name: img-not-found-http
-      protocol: TCP
-      port: 80
-      targetPort: 80
       nodePort: 0
 ---
 kind: Endpoints
 apiVersion: v1
 metadata:
-  name: img-nginx-backend
+  name: scrob-dev-cluster-escape
   namespace: traefik-staging
 subsets:
 - addresses:
-  - ip: 10.17.12.231
+  - ip: 10.17.12.202
   ports:
   - port: 443
-    name: img-nginx-backend
-  - port: 80
-    name: img-not-found-http
+    name: scrob-dev-public-https
