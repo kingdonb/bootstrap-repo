@@ -1,0 +1,64 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: my-first-minecraft
+  namespace: minecraft
+spec:
+  chart:
+    spec:
+      chart: charts/minecraft
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: GitRepository
+        name: minecraft-public-chart
+  interval: 1m0s
+  releaseName: my-first-minecraft
+  valuesFrom:
+  - kind: Secret
+    name: minecraft-rcon-password
+    valuesKey: password
+    targetPath: minecraftServer.rcon.password
+  values:
+    extraEnv:
+      ENABLE_ROLLING_LOGS: true
+      FORCE_WORLD_COPY: false
+      OVERRIDE_SERVER_PROPERTIES: true
+    minecraftServer:
+      downloadWorldUrl: null
+      eula: true
+      forcegameMode: true
+      gameMode: survival
+      levelSeed: null
+      loadBalancerIP: 10.17.12.203
+      maxWorldSize: 10000
+      memory: 4g
+      motd: Howard.Moomboo.Space Minecraft Host
+      ops: kingdonb,JuozasG,limnogirl
+      pvp: false
+      rcon:
+        enabled: true
+        loadBalancerIP: 10.17.12.204
+        serviceType: LoadBalancer
+      serviceType: LoadBalancer
+      spawnProtection: 32
+      version: LATEST
+      viewDistance: 25
+      whitelist: null
+    nodeSelector:
+      kubernetes.io/hostname: hpworker01
+    persistence:
+      annotations: {}
+      dataDir:
+        Size: 1Gi
+        enabled: true
+        existingClaim: my-first-minecraft-minecraft-datadir
+      storageClass: local-path
+    resources:
+      limits:
+        cpu: 6
+        memory: 5Gi
+      requests:
+        cpu: 1
+        memory: 4Gi
+

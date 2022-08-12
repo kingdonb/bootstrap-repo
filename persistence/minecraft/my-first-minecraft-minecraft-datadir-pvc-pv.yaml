@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pvc-31a35ad1-1cbb-4f59-bc11-24dc710934bf
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: /opt/local-path-provisioner/pvc-31a35ad1-1cbb-4f59-bc11-24dc710934bf_vcluster-moo-cluster-mgorr_my-first-minecraft-minecraft-datadir-x-minecraft-x-moo-cluster
+    type: DirectoryOrCreate
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - hpworker01
+  storageClassName: local-path

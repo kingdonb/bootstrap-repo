@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  back: later
+kind: ConfigMap
+metadata:
+  name: gone-fishing
+  namespace: kubytest-production
