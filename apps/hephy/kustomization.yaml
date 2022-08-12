@@ -2,8 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: deis
 resources:
-#- ../base/hephy
+- ../base/hephy
 - blog-ingressroute.yaml
 
-#patchesStrategicMerge:
-#  - hephy-patch.yaml
+patchesStrategicMerge:
+  - hephy-patch.yaml
