@@ -18,7 +18,7 @@ metadata:
   namespace: traefik-staging
 subsets:
 - addresses:
-  - ip: 10.96.248.135
+  - ip: 10.99.212.190
   ports:
   - port: 80
     name: democl-webhook-http
