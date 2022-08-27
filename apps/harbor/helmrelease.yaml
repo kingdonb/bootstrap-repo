@@ -37,6 +37,7 @@ spec:
       #   certSource: secret
       #   secretName: harbor-ingress
       ingress:
+        enabled: true
         hosts:
           core: img.hephy.pro
           #notary: not.hephy.pro
