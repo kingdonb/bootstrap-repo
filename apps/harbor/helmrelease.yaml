@@ -23,7 +23,7 @@ spec:
     chartmuseum:
       enabled: false
     expose:
-      type: ingress
+      type: loadBalancer
       loadBalancer:
         IP: 10.17.12.231
       tls:
@@ -36,12 +36,12 @@ spec:
       # tls:
       #   certSource: secret
       #   secretName: harbor-ingress
-      ingress:
-        hosts:
-          core: img.hephy.pro
-          #notary: not.hephy.pro
-        annotations:
-          cert-manager.io/cluster-issuer: letsencrypt-production
+      # ingress:
+      #   hosts:
+      #     core: img.hephy.pro
+      #     #notary: not.hephy.pro
+      #   annotations:
+      #     cert-manager.io/cluster-issuer: letsencrypt-production
     externalURL: https://img.hephy.pro
     persistence:
       imageChartStorage:
