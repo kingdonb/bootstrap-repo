@@ -12,9 +12,9 @@ spec:
     name: flux-system
     namespace: flux-system
   path: ./apps/ingress-nginx
-  dependsOn:
-    - name: 29-metallb
-      namespace: metallb-system
+  # dependsOn:
+  #   - name: 29-metallb
+  #     namespace: metallb-system
   prune: true
   wait: true
   healthChecks:
