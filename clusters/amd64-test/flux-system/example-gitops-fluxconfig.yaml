@@ -1,0 +1,28 @@
+apiVersion: clusterconfig.azure.com/v1alpha1
+kind: FluxConfig
+metadata:
+  name: example-gitops
+  namespace: default
+spec:
+  correlationId: 3c4acde9-47e5-4e40-8329-36164d9632ac
+  gitRepository:
+    ref:
+      branch: staging
+    syncInterval: 10m0s
+    timeout: 10m0s
+    url: https://github.com/kingdonb/bootstrap-repo
+  kustomizations:
+  - force: false
+    name: example-ks
+    path: ./clusters/amd64-test
+    prune: true
+    retryInterval: 2m0s
+    syncInterval: 10m0s
+    timeout: 1m0s
+    validation: none
+  operationId: eafb59fc-6761-4a0a-87a1-f2a37bf9b04c
+  protectedParametersSecretRef:
+    name: example-gitops-protected-parameters
+  scope: cluster
+  softDelete: false
+  sourceKind: GitRepository
