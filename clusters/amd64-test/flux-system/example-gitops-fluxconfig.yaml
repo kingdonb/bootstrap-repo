@@ -8,8 +8,8 @@ spec:
   gitRepository:
     ref:
       branch: staging
-    syncInterval: 10m0s
-    timeout: 10m0s
+    syncInterval: 1m0s
+    timeout: 1m0s
     url: https://github.com/kingdonb/bootstrap-repo
   kustomizations:
   - force: false
