@@ -4,4 +4,4 @@ metadata:
   name: foobar
   namespace: default
 data:
-  TEXT: updated-example
+  TEXT: new-updated-example
