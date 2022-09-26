@@ -1,0 +1,6 @@
+creation_rules:
+  - path_regex: .*.yaml
+    encrypted_regex: ^(data|stringData)$
+    pgp: 79FD1F571145F9C311F19621B629389F44594604
+  - filename_regex: values.yml
+    pgp: 79FD1F571145F9C311F19621B629389F44594604

@@ -1,0 +1,36 @@
+adminUser:
+    create: ENC[AES256_GCM,data:n1Ubog==,iv:1lBDJM/4NiohzjXOO+57gpYjEySgc4cqywMenChDrtM=,tag:+X2uC2SzNUvuEFJDFedQBg==,type:bool]
+    username: ENC[AES256_GCM,data:wBAgXQ/UGQ==,iv:7nL8SYkN8OgEqf3CwAoXB1pNwn1rAxE3EFTPmpQe6DI=,tag:k/TjvxNJU5JKR52cePwwvQ==,type:str]
+    passwordHash: ENC[AES256_GCM,data:xbfR0e+zg6i/hSnHrbt2j0KUqAZZcaFGnYr2RINtgr9fM1LknjyI2iA+QdOQU74KIfcEPAaZBNbOAaRx,iv:VSgDfGTIi+0Lib9T2JxZY0pBZsbmHO1o9i0lURXkbkc=,tag:aRqw/9bWE7bjD+mNDwz8yw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-09-26T19:06:32Z"
+    mac: ENC[AES256_GCM,data:Fk9gw+HHSotwPgqJluvNyhioDVeICtbVoSYp9VlyPF17hm1NZfMBuaHA6LhpGII8EJ0KghSV0NZwdus1jS1kb5nbuzXPq2p0oUo82gRRFPdVXBYcbm/QlHFkiOVmhhVFo3EahT8A2nb0414WKq5LKQW1wb9EqFaVfUXjOak15YI=,iv:oU5u3BlG/wAAq9D594a8LObPMeKpL1+qBkZdbCJ17o8=,tag:W83YYNSHKBPCE53buYobbA==,type:str]
+    pgp:
+        - created_at: "2022-09-26T19:06:32Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9kIuoQYq+8NAQ/+M/9+2M/E1iYuh8Iy/KVYQFIw+8OxVs2WeGz8J0PkGmNN
+            iHg2C3DxXg4sso7lHllmjCnwXN6Kc7Hf+xYZ5pTxekH8JCfbVOs/c2cz7e8IlzMo
+            BqpMmq6JMd/ynAV3D1sL7viaJtDkUVs8RRACSaMwTgfaOTEDuMnu7wtahh2TVpSd
+            lP4qCvCnGSGte0gdK9Q5m41/cDnkwqqNSuCVurjDKktjuS+wdX+t4KHFHRwYm2B7
+            +470zlTQb4+sm4Uzpm+jnidBRE2f0AcC4op9RWb87HHor8hLWfWqVYp0eIMFp7GB
+            p5VfMtPImN2p/F5cFXZfkdFWDoWIbWKDOkEsrXH4zvbvB8eQQcnOJbHGwy9dA9lR
+            wLsiMKoqMewDNjmIC8NxATn4a1QK66Yi3VVdU6IW2tH9kfsdyno+OKfXyhJ/uF1A
+            gLTq+2ptp661L4k8me8SqF342xmyaQNEPRTkVpKJG9gun9T8zn4Goakh8Krd2S69
+            mx4A11O9ZJZqgPL96XeqaShRVr+jZ2reWkGliuHD7/cyB9i16Mt6SbpVu4+JeoQO
+            GY7At1jYA93t9YCZvZp5HJXn/KIKMPGiSSL/UMi5FdZnq4Y3hHNviDMa35jAAV8E
+            F2LLJYOJ1pNj7B13khstRua3VKYQ+nvGt0uLqICvgYXmDC9J9Ozh+RmX5ClsOPHU
+            aAEJAhDUI1DIrYCAe/xn/qfsR2n/IsbEfHyFBtrmqTLMEdHbXgK2f3w7vTZWK+kl
+            A4PVYG9Cxqhs8AJIczWZW5dZAMG/5++M4QLJfxKvzI9H9oi/WIk7+i1cWZrF7cEO
+            pcr5Bz/cdg5p
+            =qDMh
+            -----END PGP MESSAGE-----
+          fp: 79FD1F571145F9C311F19621B629389F44594604
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
