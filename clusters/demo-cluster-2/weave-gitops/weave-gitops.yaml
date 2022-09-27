@@ -11,6 +11,9 @@ spec:
         kind: HelmRepository
         name: ww-gitops
   interval: 1h0m0s
+  valuesFrom:
+    - kind: Secret
+      name: weave-gitops-values
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository

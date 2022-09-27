@@ -4,7 +4,7 @@ namespace: podinfo
 resources:
   - weave-gitops.yaml
 secretGenerator:
-  - name: podinfo-values
+  - name: weave-gitops-values
     files:
       - values.yaml=values.yml.encrypted
 configurations:
