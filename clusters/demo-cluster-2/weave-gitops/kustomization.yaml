@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: default
 resources:
   - weave-gitops.yaml
-configMapGenerator:
+secretGenerator:
   - name: weave-gitops-values
     files:
       - values.yaml=values.enc.yaml
