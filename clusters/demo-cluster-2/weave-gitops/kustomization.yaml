@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: podinfo
 resources:
   - weave-gitops.yaml
-secretGenerator:
+configMapGenerator:
   - name: weave-gitops-values
     files:
       - values.yaml=values.enc.yml
