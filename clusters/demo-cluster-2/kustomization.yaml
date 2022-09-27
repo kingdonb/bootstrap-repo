@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - configmap-example.yaml
 - flux-system/
-#- secrets/
+- secrets/crypted-secrets-fluxconfig.yaml
 #- tenant-permissions/
 #- trash/
 # - weave-gitops
