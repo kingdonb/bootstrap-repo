@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - configmap-example.yaml
-- crypted-secrets-fluxconfig.yaml
+#- secrets/
 #- tenant-permissions/
 #- trash/
-- weave-gitops
+# - weave-gitops
