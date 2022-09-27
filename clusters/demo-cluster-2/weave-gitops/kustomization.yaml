@@ -6,6 +6,6 @@ resources:
 configMapGenerator:
   - name: weave-gitops-values
     files:
-      - values.yaml=values.enc.yml
+      - values.yaml=values.enc.yaml
 configurations:
   - kustomizeconfig.yaml
