@@ -2,8 +2,9 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: ww-gitops
-  namespace: flux-system
+  namespace: default
 spec:
+  targetNamespace: default
   chart:
     spec:
       chart: weave-gitops
@@ -19,7 +20,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: ww-gitops
-  namespace: flux-system
+  namespace: default
 spec:
   interval: 1h0m0s
   type: oci
