@@ -6,6 +6,6 @@ resources:
 secretGenerator:
   - name: weave-gitops-values
     files:
-      - values.yaml=values.yml.encrypted
+      - values.yaml=values.enc.yml
 configurations:
   - kustomizeconfig.yaml
