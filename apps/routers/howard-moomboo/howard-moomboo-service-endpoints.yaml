@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: howard-moomboo
-  namespace: vcluster-howard-moomboo-space
+  namespace: traefik-staging
 spec:
   ports:
     - name: k8s-https
@@ -15,7 +15,7 @@ kind: Endpoints
 apiVersion: v1
 metadata:
   name: howard-moomboo
-  namespace: vcluster-howard-moomboo-space
+  namespace: traefik-staging
 subsets:
 - addresses:
   - ip: 10.17.12.233

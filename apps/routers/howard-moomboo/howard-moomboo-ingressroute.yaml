@@ -3,7 +3,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
 metadata:
   name: howard-moomboo
-  namespace: vcluster-howard-moomboo-space
+  namespace: traefik-staging
 spec:
   entryPoints:
     - websecure
@@ -11,7 +11,7 @@ spec:
   - match: HostSNI(`howard.moomboo.space`)
     services:
     - name: howard-moomboo
-      namespace: vcluster-howard-moomboo-space
+      namespace: traefik-staging
       port: 443
   tls:
     passthrough: true
