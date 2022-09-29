@@ -21,4 +21,4 @@ spec:
       namespace: harbor
   prune: true
   wait: true
- #suspend: false
+  suspend: false

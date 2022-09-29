@@ -1,0 +1,22 @@
+apiVersion: clusterconfig.azure.com/v1alpha1
+kind: FluxConfig
+metadata:
+  name: flux-system
+  namespace: flux-system
+spec:
+  gitRepository:
+    ref:
+      branch: staging
+    syncInterval: 1m0s
+    timeout: 1m0s
+    url: https://github.com/kingdonb/bootstrap-repo
+  kustomizations:
+  - name: flux-system
+    path: ./clusters/demo-cluster-2
+    prune: true
+    retryInterval: 2m0s
+    syncInterval: 10m0s
+    timeout: 1m0s
+    validation: none
+  scope: cluster
+  sourceKind: GitRepository

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: foobar
+  namespace: default
+data:
+  TEXT: new-updated-example
