@@ -11,5 +11,5 @@ spec:
   prune: true
   serviceAccountName: flux-applier
   sourceRef:
-    kind: Kustomization
+    kind: GitRepository
     name: flux-system
