@@ -9,7 +9,7 @@ spec:
   retryInterval: 1m0s
   path: ./apps/howard-prod
   prune: true
-  serviceAccountName: flux-applier
+  serviceAccountName: kustomize-controller
   sourceRef:
     kind: GitRepository
     name: flux-system
