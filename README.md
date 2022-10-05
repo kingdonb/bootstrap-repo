@@ -1,6 +1,6 @@
 # Test Repo
 
-FIXME: add real docs here
+FIXME: add real docs here.
 
 ## Create repository structure
 
