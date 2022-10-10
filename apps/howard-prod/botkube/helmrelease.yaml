@@ -8,7 +8,6 @@ spec:
   targetNamespace: botkube
   storageNamespace: botkube
   releaseName: botkube
-  createNamespace: true
   chart:
     spec:
       chart: botkube
@@ -19,3 +18,8 @@ spec:
       version: ">=v0.14.0"
   interval: 10m0s
   timeout: 1m0s
+  install:
+    createNamespace: true
+  valuesFrom:
+  - kind: Secret
+    name: botkube-values
