@@ -1,0 +1,21 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: botkube
+  namespace: flux-system
+spec:
+  targetNamespace: botkube
+  storageNamespace: botkube
+  releaseName: botkube
+  createNamespace: true
+  chart:
+    spec:
+      chart: botkube
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: botkube
+      version: ">=v0.14.0"
+  interval: 10m0s
+  timeout: 1m0s
