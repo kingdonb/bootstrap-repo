@@ -8,7 +8,7 @@ metadata:
 spec:
   interval: 30s
   ref:
-    branch: staging
+    branch: main
   secretRef:
     name: flux-system
   url: ssh://git@github.com/kingdonb/bootstrap-repo
