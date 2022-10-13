@@ -21,7 +21,7 @@ spec:
   install:
     createNamespace: true
   values:
-    # controller:
+    controller:
     #   extraArgs:
     #     enable-ssl-passthrough: ""
     #     ingress-class: internal
@@ -32,5 +32,8 @@ spec:
     #     controllerValue: "k8s.io/ingress-nginx-internal"
     #   service:
     #     loadBalancerIP: 10.17.12.201
-    #   metrics:
-    #     enabled: true
+      metrics:
+        enabled: true
+      podAnnotations:
+        prometheus.io/scrape: true
+        prometheus.io/port: 10254
