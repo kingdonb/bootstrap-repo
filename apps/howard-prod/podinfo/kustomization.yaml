@@ -8,6 +8,6 @@ resources:
 - podinfo-kustomization.yaml
 - podinfo-canary.yaml
 images:
-- name: podinfo
+- name: ghcr.io/stefanprodan/podinfo
   newName: ghcr.io/stefanprodan/podinfo
   newTag: 6.0.1
