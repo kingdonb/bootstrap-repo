@@ -4,3 +4,5 @@ namespace: flux-system
 resources:
   - helmrepository.yaml
   - helmrelease.yaml
+  - flagger-helmrepo.yaml
+  - flagger-helmrelease.yaml
