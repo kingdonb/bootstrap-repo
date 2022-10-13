@@ -3,3 +3,4 @@ resources:
   - loadtester-helmrelease.yaml
   - podinfo-ingress.yaml
   - podinfo-kustomization.yaml
+  - podinfo-canary.yaml
