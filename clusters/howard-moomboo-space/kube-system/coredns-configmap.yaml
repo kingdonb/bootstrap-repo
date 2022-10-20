@@ -24,4 +24,4 @@ data:
         reload
         loadbalance
     }
-  NodeHosts: 10.99.243.107 hpworker01
+  NodeHosts: 10.105.217.245 hpworker01
