@@ -5,8 +5,8 @@ metadata:
   name: loadtester
   namespace: flux-system
 spec:
-  targetNamespace: test
-  storageNamespace: test
+  targetNamespace: default
+  storageNamespace: default
   releaseName: flagger-loadtester
   chart:
     spec:
