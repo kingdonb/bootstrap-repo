@@ -16,7 +16,7 @@ spec:
             - "--api.dashboard=true"
             - "--ping=true"
             - "--providers.kubernetescrd"
-            - "--providers.kubernetescrd.allowCrossNamespace=true" 
+            - "--providers.kubernetescrd.allowCrossNamespace=true"
             - "--certificatesresolvers.myresolver.acme.storage=/data/acme.json"
             - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
             - "--certificatesresolvers.myresolver.acme.email=kingdon+acme@weave.works"

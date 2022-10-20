@@ -29,10 +29,10 @@ spec:
       clientId: kube-oidc-proxy
       issuerUrl: https://keycloak.hephy.pro/auth/realms/hephymoo
       usernameClaim: sub
-    
+
    # extraArgs:
    #   v: 10
-    
+
     ingress:
       enabled: true
       ingressClassName: internal
