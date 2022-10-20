@@ -1,0 +1,25 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: flagger
+  namespace: flux-system
+spec:
+  targetNamespace: ingress-nginx
+  storageNamespace: ingress-nginx
+  releaseName: flagger
+  chart:
+    spec:
+      chart: flagger
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: flagger
+  interval: 10m0s
+  timeout: 1m0s
+  install:
+    createNamespace: true
+  values:
+    prometheus:
+      install: true
+    meshProvider: nginx

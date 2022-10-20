@@ -4,9 +4,5 @@ namespace: default
 resources:
   - helmrepository.yaml
   - helmrelease.yaml
-secretGenerator:
-  - name: botkube-values
-    files:
-      - values.yaml=botkube-values.enc.yaml
-configurations:
-  - kustomizeconfig.yaml
+  - flagger-helmrepo.yaml
+  - flagger-helmrelease.yaml

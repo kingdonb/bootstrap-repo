@@ -20,7 +20,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./clusters/howard-moomboo-space
+  path: ./clusters/full-ape-aks
   prune: true
   sourceRef:
     kind: GitRepository
