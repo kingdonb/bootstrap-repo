@@ -21,6 +21,5 @@ spec:
           backend:
             service:
               name: argocd-server
-              port: 
+              port:
                 name: https
-

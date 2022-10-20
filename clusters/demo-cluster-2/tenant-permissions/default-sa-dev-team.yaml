@@ -34,4 +34,3 @@ subjects:
 - kind: ServiceAccount
   name: dev-team
   namespace: default
-

@@ -23,4 +23,3 @@ spec:
   update:
     path: ./apps/staging/store
     strategy: Setters
-

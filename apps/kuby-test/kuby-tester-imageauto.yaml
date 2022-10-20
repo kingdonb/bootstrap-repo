@@ -23,4 +23,3 @@ spec:
   update:
     path: ./clusters/moo-cluster/kuby-test
     strategy: Setters
-

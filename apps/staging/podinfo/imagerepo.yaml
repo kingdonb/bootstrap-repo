@@ -7,4 +7,3 @@ metadata:
 spec:
   image: ghcr.io/stefanprodan/podinfo
   interval: 1m0s
-

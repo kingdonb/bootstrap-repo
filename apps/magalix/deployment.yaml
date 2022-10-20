@@ -104,7 +104,7 @@ rules:
   - networking.k8s.io
   - rbac.authorization.k8s.io
   - storage.k8s.io
-  resources: 
+  resources:
   - nodes
   - nodes/proxy
   - namespaces
@@ -153,4 +153,3 @@ roleRef:
   kind: ClusterRole
   name: magalix-agent
   apiGroup: rbac.authorization.k8s.io
-

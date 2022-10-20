@@ -7,7 +7,7 @@ FIXME: add real docs here.
 ```sh
 ├── apps
 │   ├── base
-│   ├── production 
+│   ├── production
 │   └── staging
 ├── infrastructure
 │   ├── crds
@@ -86,5 +86,5 @@ flux bootstrap github \
 ## To do
 
 - [] promotion from staging to production
-- [] webhook recievers 
-- [] flagger 
+- [] webhook recievers
+- [] flagger
