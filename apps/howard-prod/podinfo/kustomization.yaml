@@ -10,4 +10,4 @@ resources:
 images:
 - name: ghcr.io/stefanprodan/podinfo
   newName: ghcr.io/stefanprodan/podinfo
-  newTag: 6.0.3
+  newTag: 6.0.4
