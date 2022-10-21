@@ -6,7 +6,8 @@ resources:
 - loadtester-helmrelease.yaml
 - podinfo-ingress.yaml
 - podinfo-kustomization.yaml
-- podinfo-canary.yaml
+# - podinfo-canary.yaml
+- podinfo-service.yaml
 images:
 - name: ghcr.io/stefanprodan/podinfo
   newName: ghcr.io/stefanprodan/podinfo
