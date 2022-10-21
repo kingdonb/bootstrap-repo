@@ -19,7 +19,17 @@ spec:
   timeout: 1m0s
   install:
     createNamespace: true
+  valuesFrom:
+  - kind: Secret
+    name: flagger-webhook-url
+    valuesKey: webhook_url
+    targetPath: slack.url
+    optional: false
   values:
     prometheus:
       install: true
     meshProvider: nginx
+    slack:
+      # url: [secret]
+      channel: gitops
+      user: Flagger
