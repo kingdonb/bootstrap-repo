@@ -2,6 +2,8 @@
 
 FIXME: add real docs here.
 
+TODO: eliminate the staging branch
+
 ## Create repository structure
 
 ```sh
