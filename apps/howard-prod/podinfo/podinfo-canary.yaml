@@ -2,7 +2,7 @@ apiVersion: flagger.app/v1beta1
 kind: Canary
 metadata:
   name: podinfo
-  namespace: test
+  namespace: default
 spec:
   provider: nginx
   # deployment reference
@@ -51,13 +51,13 @@ spec:
     webhooks:
       - name: acceptance-test
         type: pre-rollout
-        url: http://flagger-loadtester.test/
+        url: http://flagger-loadtester.default/
         timeout: 30s
         metadata:
           type: bash
           cmd: "curl -sd 'test' http://podinfo-canary/token | grep token"
       - name: load-test
-        url: http://flagger-loadtester.test/
+        url: http://flagger-loadtester.default/
         timeout: 5s
         metadata:
-          cmd: "hey -z 1m -q 10 -c 2 http://app.example.com/"
+          cmd: "hey -z 1m -q 10 -c 2 http://podinfo.demo.test/"

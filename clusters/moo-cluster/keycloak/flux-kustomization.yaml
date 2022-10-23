@@ -21,4 +21,4 @@ spec:
   #     namespace: ingress-nginx
   prune: true
   wait: true
-  suspend: false
+  suspend: true

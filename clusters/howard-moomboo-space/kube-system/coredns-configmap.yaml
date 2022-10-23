@@ -5,12 +5,13 @@ metadata:
   namespace: kube-system
 data:
   Corefile: |
-    .:53 {
+    .:1053 {
         errors
         health {
             lameduck 5s
         }
         ready
+        rewrite name podinfo.demo.test ingress-nginx-controller.ingress-nginx.svc.cluster.local
         kubernetes cluster.local in-addr.arpa ip6.arpa {
             pods insecure
             fallthrough in-addr.arpa ip6.arpa
@@ -23,4 +24,4 @@ data:
         reload
         loadbalance
     }
-  NodeHosts: 10.99.243.107 hpworker01
+  NodeHosts: 10.105.217.245 hpworker01
