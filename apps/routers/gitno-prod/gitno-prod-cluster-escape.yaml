@@ -18,7 +18,7 @@ metadata:
   namespace: flux-system
 subsets:
 - addresses:
-  - ip: 10.105.191.113
+  - ip: 10.110.150.176
   ports:
   - port: 80
     name: gitno-prod-http
