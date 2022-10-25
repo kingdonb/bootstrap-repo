@@ -14,7 +14,7 @@ spec:
         name: stable-deprecated
   interval: 10m0s
   timeout: 3m0s
-  releaseName: my-bookstack-release
+  releaseName: my-bookstack-wiki
   targetNamespace: bookstack
   storageNamespace: bookstack
   valuesFrom:
