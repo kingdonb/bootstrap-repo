@@ -14,7 +14,7 @@ spec:
   - type: prometheus
     metricType: AverageValue
     metadata:
-      serverAddress: http://prometheus.istio-system:9090
+      serverAddress: http://flagger-prometheus.ingress-nginx:9090
       metricName: http_requests_total
       query: sum(rate(http_requests_total{ app="podinfo" }[30s]))
       threshold: '250'
