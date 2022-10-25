@@ -14,3 +14,11 @@ images:
 - name: ghcr.io/stefanprodan/podinfo
   newName: ghcr.io/stefanprodan/podinfo
   newTag: 6.1.6
+patchesStrategicMerge:
+- |-
+  apiVersion: autoscaling/v2beta2
+  kind: HorizontalPodAutoscaler
+  metadata:
+    name: podinfo
+    namespace: test
+  $patch: delete
