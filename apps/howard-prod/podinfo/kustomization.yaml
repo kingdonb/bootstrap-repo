@@ -7,6 +7,7 @@ resources:
 - podinfo-ingress.yaml
 - podinfo-kustomization.yaml
 - podinfo-canary.yaml
+- metric-template.yaml
 # - podinfo-service.yaml
 images:
 - name: ghcr.io/stefanprodan/podinfo

@@ -41,6 +41,13 @@ spec:
     stepWeight: 5
     # NGINX Prometheus checks
     metrics:
+    - name: latency
+      templateRef:
+        name: latency
+        namespace: ingress-nginx
+      thresholdRange:
+        max: 500
+      interval: 1m
     - name: request-success-rate
       # minimum req success rate (non 5xx responses)
       # percentage (0-100)
