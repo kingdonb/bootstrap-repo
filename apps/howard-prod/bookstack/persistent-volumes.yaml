@@ -1,0 +1,74 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      pv.kubernetes.io/provisioned-by: disk.csi.azure.com
+    name: pvc-bc97f907-8af8-440c-be51-ebf8aad5e295
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 8Gi
+    csi:
+      driver: disk.csi.azure.com
+      volumeAttributes:
+        csi.storage.k8s.io/pv/name: pvc-bc97f907-8af8-440c-be51-ebf8aad5e295
+        csi.storage.k8s.io/pvc/name: data-my-bookstack-wiki-mariadb-0
+        csi.storage.k8s.io/pvc/namespace: bookstack
+        requestedsizegib: "8"
+        skuname: StandardSSD_LRS
+        storage.kubernetes.io/csiProvisionerIdentity: 1666218795323-8081-disk.csi.azure.com
+      volumeHandle: /subscriptions/a41b2f2c-7466-45b4-9aa1-c681210e1936/resourceGroups/mc_aks-kingdon_full-ape-aks_eastus/providers/Microsoft.Compute/disks/pvc-bc97f907-8af8-440c-be51-ebf8aad5e295
+    persistentVolumeReclaimPolicy: Retain
+    storageClassName: default
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      pv.kubernetes.io/provisioned-by: disk.csi.azure.com
+    name: pvc-d3c4c936-b15c-4664-b686-536f49d2870d
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 8Gi
+    csi:
+      driver: disk.csi.azure.com
+      volumeAttributes:
+        csi.storage.k8s.io/pv/name: pvc-d3c4c936-b15c-4664-b686-536f49d2870d
+        csi.storage.k8s.io/pvc/name: my-bookstack-wiki-uploads
+        csi.storage.k8s.io/pvc/namespace: bookstack
+        requestedsizegib: "8"
+        skuname: StandardSSD_LRS
+        storage.kubernetes.io/csiProvisionerIdentity: 1666218795323-8081-disk.csi.azure.com
+      volumeHandle: /subscriptions/a41b2f2c-7466-45b4-9aa1-c681210e1936/resourceGroups/mc_aks-kingdon_full-ape-aks_eastus/providers/Microsoft.Compute/disks/pvc-d3c4c936-b15c-4664-b686-536f49d2870d
+    persistentVolumeReclaimPolicy: Retain
+    storageClassName: default
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    annotations:
+      pv.kubernetes.io/provisioned-by: disk.csi.azure.com
+    name: pvc-dfe7c571-3dd8-4d22-a55d-2c0b30607a07
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    capacity:
+      storage: 8Gi
+    csi:
+      driver: disk.csi.azure.com
+      volumeAttributes:
+        csi.storage.k8s.io/pv/name: pvc-dfe7c571-3dd8-4d22-a55d-2c0b30607a07
+        csi.storage.k8s.io/pvc/name: my-bookstack-wiki-storage
+        csi.storage.k8s.io/pvc/namespace: bookstack
+        requestedsizegib: "8"
+        skuname: StandardSSD_LRS
+        storage.kubernetes.io/csiProvisionerIdentity: 1666218795323-8081-disk.csi.azure.com
+      volumeHandle: /subscriptions/a41b2f2c-7466-45b4-9aa1-c681210e1936/resourceGroups/mc_aks-kingdon_full-ape-aks_eastus/providers/Microsoft.Compute/disks/pvc-dfe7c571-3dd8-4d22-a55d-2c0b30607a07
+    persistentVolumeReclaimPolicy: Retain
+    storageClassName: default
+kind: List
+metadata:
+  resourceVersion: ""

@@ -1,0 +1,74 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      volume.beta.kubernetes.io/storage-provisioner: disk.csi.azure.com
+      volume.kubernetes.io/storage-provisioner: disk.csi.azure.com
+    labels:
+      app: mariadb
+      component: master
+      heritage: Helm
+      release: my-bookstack-wiki
+    name: data-my-bookstack-wiki-mariadb-0
+    namespace: bookstack
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 8Gi
+    storageClassName: default
+    volumeName: pvc-bc97f907-8af8-440c-be51-ebf8aad5e295
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: my-bookstack-wiki
+      meta.helm.sh/release-namespace: bookstack
+      volume.beta.kubernetes.io/storage-provisioner: disk.csi.azure.com
+      volume.kubernetes.io/storage-provisioner: disk.csi.azure.com
+    labels:
+      app: my-bookstack-wiki
+      app.kubernetes.io/managed-by: Helm
+      chart: bookstack-1.2.4
+      heritage: Helm
+      release: my-bookstack-wiki
+    name: my-bookstack-wiki-storage
+    namespace: bookstack
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 8Gi
+    storageClassName: default
+    volumeName: pvc-dfe7c571-3dd8-4d22-a55d-2c0b30607a07
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: my-bookstack-wiki
+      meta.helm.sh/release-namespace: bookstack
+      volume.beta.kubernetes.io/storage-provisioner: disk.csi.azure.com
+      volume.kubernetes.io/storage-provisioner: disk.csi.azure.com
+    labels:
+      app: my-bookstack-wiki
+      app.kubernetes.io/managed-by: Helm
+      chart: bookstack-1.2.4
+      heritage: Helm
+      release: my-bookstack-wiki
+    name: my-bookstack-wiki-uploads
+    namespace: bookstack
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 8Gi
+    storageClassName: default
+    volumeName: pvc-d3c4c936-b15c-4664-b686-536f49d2870d
+kind: List
+metadata:
+  resourceVersion: ""

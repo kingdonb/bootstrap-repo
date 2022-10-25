@@ -1,0 +1,22 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: bookstack
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: bookstack
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: stable-deprecated
+  interval: 10m0s
+  timeout: 3m0s
+  releaseName: my-bookstack-release
+  targetNamespace: bookstack
+  storageNamespace: bookstack
+  valuesFrom:
+    - kind: Secret
+      name: bookstack-values

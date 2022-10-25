@@ -1,0 +1,11 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: stable-deprecated
+  namespace: flux-system
+spec:
+  interval: 1h
+  provider: generic
+  timeout: 2m0s
+  url: https://charts.helm.sh/stable
