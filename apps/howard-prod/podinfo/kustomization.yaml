@@ -8,6 +8,7 @@ resources:
 - podinfo-kustomization.yaml
 - podinfo-canary.yaml
 - metric-template.yaml
+- podinfo-so.yaml
 # - podinfo-service.yaml
 images:
 - name: ghcr.io/stefanprodan/podinfo
