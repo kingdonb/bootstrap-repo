@@ -1,0 +1,21 @@
+apiVersion: flagger.app/v1beta1
+kind: MetricTemplate
+metadata:
+  name: latency
+  namespace: ingress-nginx
+spec:
+  provider:
+    type: prometheus
+    address: http://flagger-prometheus.ingress-nginx:9090
+  query: |
+    histogram_quantile(0.99,
+      sum(
+        rate(
+          http_request_duration_seconds_bucket{
+            kubernetes_namespace="{{ namespace }}",
+            kubernetes_pod_name=~"{{ target }}-[0-9a-zA-Z]+(-[0-9a-zA-Z]+)",
+            path="root"
+          }[{{ interval }}]
+        )
+      ) by (le)
+    )

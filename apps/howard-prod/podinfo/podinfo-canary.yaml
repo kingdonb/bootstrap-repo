@@ -2,7 +2,7 @@ apiVersion: flagger.app/v1beta1
 kind: Canary
 metadata:
   name: podinfo
-  namespace: default
+  namespace: test
 spec:
   provider: nginx
   # deployment reference
@@ -15,10 +15,10 @@ spec:
     apiVersion: networking.k8s.io/v1
     kind: Ingress
     name: podinfo
-  # HPA reference (optional)
+  # Autoscaler reference (optional)
   autoscalerRef:
-    apiVersion: autoscaling/v2beta2
-    kind: HorizontalPodAutoscaler
+    apiVersion: keda.sh/v1alpha1
+    kind: ScaledObject
     name: podinfo
   # the maximum time in seconds for the canary deployment
   # to make progress before it is rollback (default 600s)
@@ -41,6 +41,13 @@ spec:
     stepWeight: 5
     # NGINX Prometheus checks
     metrics:
+    - name: latency
+      templateRef:
+        name: latency
+        namespace: ingress-nginx
+      thresholdRange:
+        max: 500
+      interval: 1m
     - name: request-success-rate
       # minimum req success rate (non 5xx responses)
       # percentage (0-100)
@@ -55,9 +62,9 @@ spec:
         timeout: 30s
         metadata:
           type: bash
-          cmd: "curl -sd 'test' http://podinfo-canary/token | grep token"
+          cmd: "curl -sd 'test' http://podinfo-canary.test/token | grep token"
       - name: load-test
         url: http://flagger-loadtester.default/
         timeout: 5s
         metadata:
-          cmd: "hey -z 1m -q 10 -c 2 http://podinfo.demo.test/"
+          cmd: "hey -z 1m -c 2 http://podinfo.demo.test/"

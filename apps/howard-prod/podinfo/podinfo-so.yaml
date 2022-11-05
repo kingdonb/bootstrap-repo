@@ -1,0 +1,20 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: podinfo
+  namespace: test
+spec:
+  scaleTargetRef:
+    name: podinfo
+  pollingInterval: 10
+  cooldownPeriod: 20
+  minReplicaCount: 1
+  maxReplicaCount: 3
+  triggers:
+  - type: prometheus
+    metricType: AverageValue
+    metadata:
+      serverAddress: http://flagger-prometheus.ingress-nginx:9090
+      metricName: http_requests_total
+      query: sum(rate(http_requests_total{ app="podinfo" }[30s]))
+      threshold: '250'

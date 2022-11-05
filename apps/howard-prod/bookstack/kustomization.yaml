@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: bookstack
+resources:
+  - namespace.yaml
+  - helmrepository.yaml
+  - helmrelease.yaml
+  - persistent-volumes.yaml
+  - pv-claims.yaml
+secretGenerator:
+  - name: bookstack-values
+    files:
+      - values.yaml=values.enc.yaml
+configurations:
+  - kustomizeconfig.yaml
