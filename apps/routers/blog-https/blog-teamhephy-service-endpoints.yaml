@@ -1,0 +1,31 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: blog-teamhephy
+  namespace: traefik-staging
+spec:
+  ports:
+    - name: blog-https
+      protocol: TCP
+      port: 443
+      targetPort: 443
+      nodePort: 0
+    - name: blog-http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: blog-teamhephy
+  namespace: traefik-staging
+subsets:
+- addresses:
+  - ip: 10.17.12.208
+  ports:
+  - port: 443
+    name: blog-https
+  - port: 80
+    name: blog-http
