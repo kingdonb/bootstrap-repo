@@ -21,7 +21,8 @@ metadata:
 spec:
   interval: 10m0s
   path: ./clusters/vcluster
-  prune: true
+  prune: false
+  suspend: true
   sourceRef:
     kind: GitRepository
     name: flux-system
