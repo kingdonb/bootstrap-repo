@@ -1,0 +1,19 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: web-miles-web-sofico-customer-support-design-200-design-221
+  namespace: default
+spec:
+  interval: 5m
+  releaseName: web-miles-web-sofico-customer-support-design-200-design-221
+  chart:
+    spec:
+      chart: podinfo
+      version: '*'
+      sourceRef:
+        kind: HelmRepository
+        name: podinfo
+        namespace: flux-system
+      interval: 1m
+  values:
+    replicaCount: 2
