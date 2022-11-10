@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   interval: 5m
-  releaseName: web-miles-web-sofico-customer-support-design-200-design-221
+  releaseName: web-miles-web-sofico-customer-support-design-200-design
   chart:
     spec:
       chart: podinfo
