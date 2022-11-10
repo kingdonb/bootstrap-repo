@@ -1,7 +1,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: web-miles-web-sofico-customer-support-design-200-design-221
+  name: bad-podinfo
   namespace: default
 spec:
   interval: 5m
