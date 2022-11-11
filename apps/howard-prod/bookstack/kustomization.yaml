@@ -4,8 +4,8 @@ kind: Kustomization
 resources:
   - helmrepository.yaml
   - helmrelease.yaml
-  - persistent-volumes.yaml
-  - pv-claims.yaml
+  # - persistent-volumes.yaml
+  # - pv-claims.yaml
 secretGenerator:
   - name: bookstack-values
     files:
