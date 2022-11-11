@@ -6,7 +6,7 @@ metadata:
   labels:
     weave.works/template-type: cluster
 spec:
-  description: A simple CAPD template
+  description: A simple VCluster template
   params:
     - name: CLUSTER_NAME
       required: true
