@@ -2,7 +2,7 @@ apiVersion: capi.weave.works/v1alpha1
 kind: CAPITemplate
 metadata:
   name: cluster-template-development
-  namespace: capi-secrets
+  namespace: default
   labels:
     weave.works/template-type: cluster
 spec:
@@ -50,7 +50,7 @@ spec:
         namespace: "${NAMESPACE}"
       spec:
         controlPlaneEndpoint:
-          host: "${CLUSTER_NAME}".turkey.local
+          host: "${CLUSTER_NAME}.turkey.local"
           port: 443
         kubernetesVersion: "${KUBERNETES_VERSION}"
         helmRelease:

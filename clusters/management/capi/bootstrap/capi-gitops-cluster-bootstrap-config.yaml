@@ -2,7 +2,7 @@ apiVersion: capi.weave.works/v1alpha1
 kind: ClusterBootstrapConfig
 metadata:
   name: capi-gitops
-  namespace: capi-secrets
+  namespace: default
 spec:
   clusterSelector:
     matchLabels:
