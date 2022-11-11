@@ -45,6 +45,8 @@ spec:
     port: 443
   helmRelease:
     values: |-
+      vcluster:
+        image: "rancher/k3s:v1.24.7-k3s1"
       syncer:
         extraArgs:
         - "--tls-san=example.turkey.local"
