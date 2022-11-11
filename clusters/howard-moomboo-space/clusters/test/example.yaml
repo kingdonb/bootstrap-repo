@@ -2,9 +2,9 @@ apiVersion: gitops.weave.works/v1alpha1
 kind: GitopsCluster
 metadata:
   annotations:
-    templates.weave.works/create-request: '{"head_branch":"create-clusters-branch-fvqyjgm","title":"Creates
-      cluster example","description":"This PR creates a new cluster","template_name":"cluster-template-development","parameter_values":{"CLUSTER_NAME":"example","KUBERNETES_VERSION":"1.25.3","NAMESPACE":"test"},"commit_message":"Creates
-      capi cluster","credentials":{}}'
+    templates.weave.works/create-request: '{"head_branch":"edit-cluster-example-branch-ywaxyq","title":"Edits
+      cluster example","description":"This PR edits the cluster","template_name":"cluster-template-development","parameter_values":{"CLUSTER_NAME":"example","KUBERNETES_VERSION":"1.24.7","NAMESPACE":"test"},"commit_message":"Edits
+      capi cluster example","credentials":{}}'
   labels:
     weave.works/capi: bootstrap
   name: example
@@ -59,4 +59,4 @@ spec:
           enabled: true
         ingresses:
           enabled: true
-  kubernetesVersion: 1.25.3
+  kubernetesVersion: 1.24.7
