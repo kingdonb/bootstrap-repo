@@ -1,5 +1,10 @@
 # to be applied on the leaf: howard-moomboo-cluster
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: test
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: example-loadbalancer
