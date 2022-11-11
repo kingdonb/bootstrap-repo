@@ -1,24 +1,24 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: 32-keycloak
-  namespace: keycloak
-spec:
-  interval: 10m
-  retryInterval: 1m30s
-  timeout: 4m0s
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-    namespace: flux-system
-  path: ./apps/keycloak
-  dependsOn:
-    - name: 11-certificates
-      namespace: flux-system
-    - name: 20-my-secrets
-      namespace: flux-system
-  #   - name: 30-ingress-nginx
-  #     namespace: ingress-nginx
-  prune: true
-  wait: true
-  suspend: true
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: 32-keycloak
+#   namespace: keycloak
+# spec:
+#   interval: 10m
+#   retryInterval: 1m30s
+#   timeout: 4m0s
+#   sourceRef:
+#     kind: GitRepository
+#     name: flux-system
+#     namespace: flux-system
+#   path: ./apps/keycloak
+#   dependsOn:
+#     - name: 11-certificates
+#       namespace: flux-system
+#     - name: 20-my-secrets
+#       namespace: flux-system
+#   #   - name: 30-ingress-nginx
+#   #     namespace: ingress-nginx
+#   prune: true
+#   wait: true
+#   suspend: true
