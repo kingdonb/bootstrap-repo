@@ -1,0 +1,62 @@
+apiVersion: gitops.weave.works/v1alpha1
+kind: GitopsCluster
+metadata:
+  annotations:
+    templates.weave.works/create-request: '{"head_branch":"create-clusters-branch-fvqyjgm","title":"Creates
+      cluster example","description":"This PR creates a new cluster","template_name":"cluster-template-development","parameter_values":{"CLUSTER_NAME":"example","KUBERNETES_VERSION":"1.25.3","NAMESPACE":"test"},"commit_message":"Creates
+      capi cluster","credentials":{}}'
+  labels:
+    weave.works/capi: bootstrap
+  name: example
+  namespace: test
+spec:
+  capiClusterRef:
+    name: example
+
+---
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: example
+  namespace: test
+spec:
+  controlPlaneRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+    kind: VCluster
+    name: example
+  infrastructureRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+    kind: VCluster
+    name: example
+
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+kind: VCluster
+metadata:
+  annotations:
+    kustomize.toolkit.fluxcd.io/prune: disabled
+  labels:
+    cluster.x-k8s.io/cluster-name: example
+  name: example
+  namespace: test
+spec:
+  controlPlaneEndpoint:
+    host: example.turkey.local
+    port: 443
+  helmRelease:
+    values: |-
+      syncer:
+        extraArgs:
+        - "--tls-san=example.turkey.local"
+      sync:
+        nodes:
+          enabled: true
+        persistentvolumes:
+          enabled: true
+        # If you want to create custom storage classes
+        # inside the vcluster.
+        storageclasses:
+          enabled: true
+        ingresses:
+          enabled: true
+  kubernetesVersion: 1.25.3
