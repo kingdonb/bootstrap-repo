@@ -1,0 +1,17 @@
+# to be applied on the leaf: howard-moomboo-cluster
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-loadbalancer
+  namespace: test
+spec:
+  loadBalancerIP: 10.17.12.236
+  selector:
+    app: vcluster
+    release: example
+  ports:
+    - name: https
+      port: 443
+      targetPort: 8443
+      protocol: TCP
+  type: LoadBalancer
