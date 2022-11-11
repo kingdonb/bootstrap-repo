@@ -2,7 +2,7 @@ apiVersion: capi.weave.works/v1alpha1
 kind: CAPITemplate
 metadata:
   name: cluster-template-development
-  namespace: default
+  namespace: test
   labels:
     weave.works/template-type: cluster
 spec:
