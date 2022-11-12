@@ -11,7 +11,7 @@ spec:
     match: Host(`docs.teamhephy.info`)
     services:
     - kind: Service
-      name: workflow-docs
+      name: docs-teamhephy
       namespace: traefik-staging
       port: 80
 # ---
@@ -26,7 +26,7 @@ spec:
 #   routes:
 #   - match: HostSNI(`docs.teamhephy.info`)
 #     services:
-#     - name: workflow-docs
+#     - name: docs-teamhephy
 #       namespace: traefik-staging
 #       port: 443
 #   tls:
