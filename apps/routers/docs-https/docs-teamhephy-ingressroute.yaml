@@ -12,7 +12,7 @@ spec:
     services:
     - kind: Service
       name: workflow-docs
-      namespace: default
+      namespace: traefik-staging
       port: 80
 ---
 apiVersion: traefik.containo.us/v1alpha1
@@ -27,7 +27,7 @@ spec:
   - match: HostSNI(`docs.teamhephy.info`)
     services:
     - name: workflow-docs
-      namespace: default
+      namespace: traefik-staging
       port: 443
   tls:
     passthrough: true
