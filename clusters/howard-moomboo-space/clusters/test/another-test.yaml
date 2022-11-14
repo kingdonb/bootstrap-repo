@@ -1,0 +1,64 @@
+apiVersion: gitops.weave.works/v1alpha1
+kind: GitopsCluster
+metadata:
+  annotations:
+    templates.weave.works/create-request: '{"head_branch":"create-clusters-branch-3t1iyo","title":"Creates
+      cluster another-test","description":"This PR creates a new cluster","template_name":"cluster-template-development","parameter_values":{"CLUSTER_NAME":"another-test","K3S_VERSION":"v1.24.7-k3s1","KUBERNETES_VERSION":"1.24.7","NAMESPACE":"test"},"commit_message":"Creates
+      capi cluster","credentials":{}}'
+  labels:
+    weave.works/capi: bootstrap
+  name: another-test
+  namespace: test
+spec:
+  capiClusterRef:
+    name: another-test
+
+---
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: another-test
+  namespace: test
+spec:
+  controlPlaneRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+    kind: VCluster
+    name: another-test
+  infrastructureRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+    kind: VCluster
+    name: another-test
+
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+kind: VCluster
+metadata:
+  annotations:
+    kustomize.toolkit.fluxcd.io/prune: disabled
+  labels:
+    cluster.x-k8s.io/cluster-name: another-test
+  name: another-test
+  namespace: test
+spec:
+  controlPlaneEndpoint:
+    host: another-test.turkey.local
+    port: 443
+  helmRelease:
+    values: |-
+      vcluster:
+        image: "rancher/k3s:v1.24.7-k3s1"
+      syncer:
+        extraArgs:
+        - "--tls-san=another-test.turkey.local"
+      sync:
+        nodes:
+          enabled: true
+        persistentvolumes:
+          enabled: true
+        # If you want to create custom storage classes
+        # inside the vcluster.
+        storageclasses:
+          enabled: true
+        ingresses:
+          enabled: true
+  kubernetesVersion: 1.24.7
