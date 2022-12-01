@@ -8,7 +8,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: HostSNI(`kb.moomboo.space`)
+  - match: HostSNI(`kb.kingdonb.dev`)
     services:
     - name: kingdonb-dev
       namespace: traefik-staging
