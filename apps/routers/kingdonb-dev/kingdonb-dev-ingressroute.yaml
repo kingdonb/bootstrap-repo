@@ -8,6 +8,11 @@ spec:
   entryPoints:
     - websecure
   routes:
+  - match: HostSNI(`kingdonb.dev`)
+    services:
+    - name: kingdonb-dev
+      namespace: traefik-staging
+      port: 443
   - match: HostSNI(`kb.kingdonb.dev`)
     services:
     - name: kingdonb-dev
