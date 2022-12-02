@@ -1,0 +1,17 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: yaateeh-dev
+  namespace: traefik-staging
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: HostSNI(`giovanni.yaateeh.dev`,`nwinter.yaateeh.dev`,`alys.yaateeh.dev`,`dan.yaateeh.dev`,`xenocid.yaateeh.dev`,`jordan.yaateeh.dev`,`alys.yaateeh.dev`,`dan.yaateeh.dev`,`xenocid.yaateeh.dev`,`jordan.yaateeh.dev`,`brian.yaateeh.dev`,`nick.yaateeh.dev`,`alex.yaateeh.dev`,`clarissa.yaateeh.dev`,`luke.yaateeh.dev`,`mike.yaateeh.dev`,`max.yaateeh.dev`,`jay.yaateeh.dev`,`sergii.yaateeh.dev`,`cole.yaateeh.dev`,`forrest.yaateeh.dev`,`chris.yaateeh.dev`,`echodaniel.yaateeh.dev`,`edyson.yaateeh.dev`,`clive.yaateeh.dev`,`byorgey.yaateeh.dev`,`kim.yaateeh.dev`,`kb.yaateeh.dev`,`kevin.yaateeh.dev`,`mbork.yaateeh.dev`,`shanaqui.yaateeh.dev`,`philip.yaateeh.dev`,`bee.yaateeh.dev`,`adam.yaateeh.dev`,`mary.yaateeh.dev`,`martin.yaateeh.dev`,`dreev.yaateeh.dev`,`aian.yaateeh.dev`,`yaateeh.dev`)
+    services:
+    - name: yaateeh-dev
+      namespace: traefik-staging
+      port: 443
+  tls:
+    passthrough: true
