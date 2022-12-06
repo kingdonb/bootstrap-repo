@@ -1,5 +1,21 @@
 ---
 apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: commits-to
+  namespace: traefik-staging
+spec:
+  entryPoints:
+    - web
+  routes:
+  - kind: Rule
+    match: Host(`commits.to`,`giovanni.commits.to`,`nwinter.commits.to`,`patrick.commits.to`,`thameera.commits.to`,`madge.commits.to`,`xenocid.commits.to`,`alok.commits.to`,`luke.commits.to`,`eugeniobruno.commits.to`,`arti.commits.to`,`brian.commits.to`,`michael.commits.to`,`chris.commits.to`,`forrest.commits.to`,`byorgey.commits.to`,`az.commits.to`,`sergii.commits.to`,`kim.commits.to`,`edyson.commits.to`,`bee.commits.to`,`max.commits.to`,`kevin.commits.to`,`philip.commits.to`,`alex.commits.to`,`aian.commits.to`,`mbork.commits.to`,`shanaqui.commits.to`,`martin.commits.to`,`cole.commits.to`,`dan.commits.to`,`alys.commits.to`,`clive.commits.to`,`dreev.commits.to`,`jordan.commits.to`,`clarissa.commits.to`,`mary.commits.to`,`echodaniel.commits.to`,`adam.commits.to`,`elviejo79.commits.to`,`jade.commits.to`,`jay.commits.to`,`mike.commits.to`,`kb.commits.to`,`nick.commits.to`)
+    services:
+    - name: commits-to
+      namespace: traefik-staging
+      port: 80
+---
+apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
 metadata:
   name: commits-to

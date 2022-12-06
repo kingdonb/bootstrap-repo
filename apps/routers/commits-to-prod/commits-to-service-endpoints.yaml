@@ -5,7 +5,12 @@ metadata:
   namespace: traefik-staging
 spec:
   ports:
-    - name: k8s-https
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 0
+    - name: https
       protocol: TCP
       port: 443
       targetPort: 443
@@ -20,5 +25,7 @@ subsets:
 - addresses:
   - ip: 10.17.12.208
   ports:
+  - port: 80
+    name: http
   - port: 443
-    name: k8s-https
+    name: https
