@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: rancher.io/local-path
+    vcluster.loft.sh/host-pv: pvc-69c1ec10-9e0a-43d9-894d-e2a66a0bf3b4
+  name: pvc-69c1ec10-9e0a-43d9-894d-e2a66a0bf3b4
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: /opt/local-path-provisioner/pvc-69c1ec10-9e0a-43d9-894d-e2a66a0bf3b4_vcluster-moo-cluster-mgorr_harbor-jobservice-scandata-x-harbor-x-moo-cluster
+    type: DirectoryOrCreate
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - msigaming
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-path
