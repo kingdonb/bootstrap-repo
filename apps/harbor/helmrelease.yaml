@@ -9,7 +9,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: harbor
-      version: 1.9.1
+      version: 1.11.0
   interval: 15m15s
   timeout: 5m0s
   # dependsOn:
@@ -18,6 +18,9 @@ spec:
   #   - name: public-ingress
   #     namespace: ingress-nginx
   values:
+    ipFamily:
+      ipv6:
+        enabled: false
     notary:
       enabled: false
     chartmuseum:
