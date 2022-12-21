@@ -1,4 +1,4 @@
-apiVersion: notification.toolkit.fluxcd.io/v1beta1
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
 kind: Receiver
 metadata:
   name: image-webhook
@@ -12,7 +12,7 @@ spec:
       kind: ImageRepository
       name: kuby-tester
 #---
-#apiVersion: notification.toolkit.fluxcd.io/v1beta1
+#apiVersion: notification.toolkit.fluxcd.io/v1beta2
 #kind: Receiver
 #metadata:
 #  name: image-webhook
