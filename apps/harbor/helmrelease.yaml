@@ -39,12 +39,12 @@ spec:
       # tls:
       #   certSource: secret
       #   secretName: harbor-ingress
-      ingress:
-        hosts:
-          core: img.hephy.pro
-          #notary: not.hephy.pro
-        annotations:
-          cert-manager.io/cluster-issuer: letsencrypt-production
+      # ingress:
+      #   hosts:
+      #     core: img.hephy.pro
+      #     #notary: not.hephy.pro
+      #   annotations:
+      #     cert-manager.io/cluster-issuer: letsencrypt-production
     externalURL: https://img.hephy.pro
     persistence:
       imageChartStorage:
