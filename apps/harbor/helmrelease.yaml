@@ -26,9 +26,9 @@ spec:
     chartmuseum:
       enabled: false
     expose:
-      type: loadBalancer
-      loadBalancer:
-        IP: 10.17.12.231
+      # type: loadBalancer
+      # loadBalancer:
+      #   IP: 10.17.12.231
       tls:
         enabled: true
         # auto:
