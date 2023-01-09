@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: GitRepository
         name: minecraft-public-chart
-  interval: 10d
+  interval: 30m0s
   releaseName: my-first-minecraft
   valuesFrom:
   - kind: Secret
