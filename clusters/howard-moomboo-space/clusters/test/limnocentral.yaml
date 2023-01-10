@@ -1,65 +1,65 @@
-apiVersion: gitops.weave.works/v1alpha1
-kind: GitopsCluster
-metadata:
-  annotations:
-    templates.weave.works/create-request: '{"head_branch":"create-clusters-branch-mh65xl","title":"Creates
-      cluster limnocentral","description":"This PR creates a new cluster","template_name":"cluster-template-development","parameter_values":{"CLUSTER_NAME":"limnocentral","K3S_VERSION":"v1.23.14-k3s1","KUBERNETES_VERSION":"1.23.14","NAMESPACE":"test"},"commit_message":"Creates
-      capi cluster","credentials":{}}'
-  labels:
-    weave.works/capi: bootstrap
-  name: limnocentral
-  namespace: test
-spec:
-  capiClusterRef:
-    name: limnocentral
-
----
-apiVersion: cluster.x-k8s.io/v1beta1
-kind: Cluster
-metadata:
-  name: limnocentral
-  namespace: test
-spec:
-  controlPlaneRef:
-    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
-    kind: VCluster
-    name: limnocentral
-  infrastructureRef:
-    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
-    kind: VCluster
-    name: limnocentral
-
----
-apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
-kind: VCluster
-metadata:
-  annotations:
-    kustomize.toolkit.fluxcd.io/prune: disabled
-  labels:
-    cluster.x-k8s.io/cluster-name: limnocentral
-  name: limnocentral
-  namespace: test
-spec:
-  controlPlaneEndpoint:
-    host: limnocentral.turkey.local
-    port: 443
-  kubernetesVersion: 1.26.0
-  helmRelease:
-    values: |-
-      vcluster:
-        image: "rancher/k3s:v1.26.0-rc1-k3s2"
-      syncer:
-        extraArgs:
-        - "--tls-san=limnocentral.turkey.local"
-      sync:
-        nodes:
-          enabled: true
-          enableScheduler: true
-        persistentvolumes:
-          enabled: true
-        # If you want to create custom storage classes
-        # inside the vcluster.
-        storageclasses:
-          enabled: true
-        ingresses:
-          enabled: true
+# apiVersion: gitops.weave.works/v1alpha1
+# kind: GitopsCluster
+# metadata:
+#   annotations:
+#     templates.weave.works/create-request: '{"head_branch":"create-clusters-branch-mh65xl","title":"Creates
+#       cluster limnocentral","description":"This PR creates a new cluster","template_name":"cluster-template-development","parameter_values":{"CLUSTER_NAME":"limnocentral","K3S_VERSION":"v1.23.14-k3s1","KUBERNETES_VERSION":"1.23.14","NAMESPACE":"test"},"commit_message":"Creates
+#       capi cluster","credentials":{}}'
+#   labels:
+#     weave.works/capi: bootstrap
+#   name: limnocentral
+#   namespace: test
+# spec:
+#   capiClusterRef:
+#     name: limnocentral
+# 
+# ---
+# apiVersion: cluster.x-k8s.io/v1beta1
+# kind: Cluster
+# metadata:
+#   name: limnocentral
+#   namespace: test
+# spec:
+#   controlPlaneRef:
+#     apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+#     kind: VCluster
+#     name: limnocentral
+#   infrastructureRef:
+#     apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+#     kind: VCluster
+#     name: limnocentral
+# 
+# ---
+# apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+# kind: VCluster
+# metadata:
+#   annotations:
+#     kustomize.toolkit.fluxcd.io/prune: disabled
+#   labels:
+#     cluster.x-k8s.io/cluster-name: limnocentral
+#   name: limnocentral
+#   namespace: test
+# spec:
+#   controlPlaneEndpoint:
+#     host: limnocentral.turkey.local
+#     port: 443
+#   kubernetesVersion: 1.26.0
+#   helmRelease:
+#     values: |-
+#       vcluster:
+#         image: "rancher/k3s:v1.26.0-rc1-k3s2"
+#       syncer:
+#         extraArgs:
+#         - "--tls-san=limnocentral.turkey.local"
+#       sync:
+#         nodes:
+#           enabled: true
+#           enableScheduler: true
+#         persistentvolumes:
+#           enabled: true
+#         # If you want to create custom storage classes
+#         # inside the vcluster.
+#         storageclasses:
+#           enabled: true
+#         ingresses:
+#           enabled: true
