@@ -53,6 +53,7 @@ spec:
       sync:
         nodes:
           enabled: true
+          enableScheduler: true
         persistentvolumes:
           enabled: true
         # If you want to create custom storage classes
