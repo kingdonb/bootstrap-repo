@@ -11,8 +11,12 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
+
       - name: Setup Flux CLI
         uses: fluxcd/flux2/action@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # Testing fix for fluxcd/flux2#3455
+
       - name: Check for updates
         id: update
         run: |
