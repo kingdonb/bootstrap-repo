@@ -6,7 +6,7 @@ resources:
 - loadtester-helmrelease.yaml
 - podinfo-ingress.yaml
 - podinfo-kustomization.yaml
-- podinfo-canary.yaml
+# - podinfo-canary.yaml
 - metric-template.yaml
 # - podinfo-so.yaml
 - podinfo-service.yaml
