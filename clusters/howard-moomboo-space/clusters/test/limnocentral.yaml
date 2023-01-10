@@ -43,10 +43,11 @@ spec:
   controlPlaneEndpoint:
     host: limnocentral.turkey.local
     port: 443
+  kubernetesVersion: 1.26.0
   helmRelease:
     values: |-
       vcluster:
-        image: "rancher/k3s:v1.23.13-k3s1"
+        image: "rancher/k3s:v1.26.0-k3s2"
       syncer:
         extraArgs:
         - "--tls-san=limnocentral.turkey.local"
@@ -62,4 +63,3 @@ spec:
           enabled: true
         ingresses:
           enabled: true
-  kubernetesVersion: 1.23.13
