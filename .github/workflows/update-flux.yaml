@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Flux CLI
-        uses: fluxcd/flux2/action@main
+        uses: ekristen/flux2/action@flux-action-updates # Revert Me after test
         with:
           token: ${{ secrets.GITHUB_TOKEN }} # Testing fix for fluxcd/flux2#3455
 
