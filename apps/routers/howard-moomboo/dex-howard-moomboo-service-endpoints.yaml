@@ -14,7 +14,7 @@ spec:
 kind: Endpoints
 apiVersion: v1
 metadata:
-  name: howard-moomboo
+  name: dex-howard-moomboo
   namespace: traefik-staging
 subsets:
 - addresses:
