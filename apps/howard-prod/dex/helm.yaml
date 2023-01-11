@@ -1,0 +1,86 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: dex
+  namespace: dex
+spec:
+  interval: 1m
+  url: https://charts.dexidp.io
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: dex
+  namespace: dex
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: dex
+      version: 0.6.5 
+      sourceRef:
+        kind: HelmRepository
+        name: dex
+        namespace: dex
+      interval: 1m
+  values:
+    image:
+      tag: v2.31.0
+    envVars:
+    - name: GITHUB_CLIENT_ID
+      valueFrom:
+        secretKeyRef:
+          name: github-client
+          key: client-id
+    - name: GITHUB_CLIENT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: github-client
+          key: client-secret
+    config:
+      # Set it to a valid URL
+      issuer: https://dex.howard.moomboo.space
+
+      # See https://dexidp.io/docs/storage/ for more options
+      storage:
+        type: memory
+
+      staticClients:
+      - name: 'Weave GitOps Core'
+        id: weave-gitops
+        secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
+        redirectURIs:
+        - 'https://localhost:9001/oauth2/callback'
+        - 'https://0.0.0.0:9001/oauth2/callback'
+        - 'http://0.0.0.0:9001/oauth2/callback'
+        - 'http://localhost:4567/oauth2/callback'
+        - 'https://localhost:4567/oauth2/callback'
+        - 'http://localhost:3000/oauth2/callback'
+
+      connectors:
+      - type: github
+        id: github
+        name: GitHub
+        config:
+          clientID: $GITHUB_CLIENT_ID
+          clientSecret: $GITHUB_CLIENT_SECRET
+          redirectURI: https://dex.howard.moomboo.space/callback
+          orgs:
+          - name: kingdon-ci
+            teams:
+            - weave-gitops
+    ingress:
+      enabled: true
+      className: public
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      hosts:
+        - host: dex.howard.moomboo.space
+          paths:
+          - path: /
+            pathType: ImplementationSpecific
+      tls:
+        - hosts:
+          - dex.howard.moomboo.space
+          secretName: dex-dev-example-tld
