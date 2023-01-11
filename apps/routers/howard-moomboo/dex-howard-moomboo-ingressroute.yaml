@@ -1,3 +1,19 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dex-howard-moomboo-public-challenge
+  namespace: traefik-staging
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`dex.howard.moomboo.space`)
+    services:
+    - kind: Service
+      name: dex-howard-moomboo-public-challenge
+      namespace: traefik-staging
+      port: 80
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
