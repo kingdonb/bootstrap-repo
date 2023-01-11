@@ -37,7 +37,7 @@ spec:
         name: clusters-service
         port: 8000
       annotations:
-        cert-manager.io/cluster-issuer: production-letsencrypt
+        # cert-manager.io/cluster-issuer: production-letsencrypt
       hosts:
         - host: "mccp.howard.moomboo.space"
           paths:
