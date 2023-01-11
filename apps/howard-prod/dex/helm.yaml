@@ -16,6 +16,7 @@ metadata:
 spec:
   interval: 5m
   timeout: 1m
+  targetNamespace: dex
   chart:
     spec:
       chart: dex
