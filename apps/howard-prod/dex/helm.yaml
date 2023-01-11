@@ -76,7 +76,7 @@ spec:
       enabled: true
       className: public
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
+        cert-manager.io/cluster-issuer: production-letsencrypt
       hosts:
         - host: dex.howard.moomboo.space
           paths:
