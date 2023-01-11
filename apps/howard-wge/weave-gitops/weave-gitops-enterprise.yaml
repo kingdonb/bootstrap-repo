@@ -48,6 +48,13 @@ spec:
          hosts:
            - mccp.howard.moomboo.space
 
+    # -- Configure TLS settings if needed
+    tls:
+      enabled: false
+      # -- Can be disabled if TLS is handled by a user-provided ingress controller
+      # enabled: true
+      # -- optionally specify a TLS secret
+      # secretName: null
     config:
       oidc:
         enabled: true
@@ -61,19 +68,12 @@ spec:
         # Customise the requested scopes for then OIDC authentication flow - openid will always be requested
         customScopes: ""
 
-    # -- Configure TLS settings if needed
-    tls:
-      enabled: false
-      # -- Can be disabled if TLS is handled by a user-provided ingress controller
-      # enabled: true
-      # -- optionally specify a TLS secret
-      # secretName: null
-    config:
       capi:
         repositoryURL: https://github.com/kingdonb/bootstrap-repo
         # -- Can be changed depending on your git repo structure
         repositoryPath: ./clusters/howard-moomboo-space/clusters
         # repositoryClustersPath: ./cluster
+
       git:
         type: github
         # -- Change if using on-prem github/gitlab
