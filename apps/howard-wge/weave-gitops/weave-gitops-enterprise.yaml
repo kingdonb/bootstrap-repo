@@ -30,6 +30,8 @@ spec:
     crds: CreateReplace
   interval: 50m
   values:
+    ingress:
+      enabled: true
     # -- Configure TLS settings if needed
     # tls:
       # -- Can be disabled if TLS is handled by a user-provided ingress controller
