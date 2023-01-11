@@ -32,6 +32,22 @@ spec:
   values:
     ingress:
       enabled: true
+      className: "public"
+      service:
+        name: clusters-service
+        port: 8000
+      annotations:
+        cert-manager.io/cluster-issuer: production-letsencrypt
+      hosts:
+        - host: "mccp.howard.moomboo.space"
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+      tls:
+       - secretName: mccp-howard-tls
+         hosts:
+           - mccp.howard.moomboo.space
+
     # -- Configure TLS settings if needed
     # tls:
       # -- Can be disabled if TLS is handled by a user-provided ingress controller
