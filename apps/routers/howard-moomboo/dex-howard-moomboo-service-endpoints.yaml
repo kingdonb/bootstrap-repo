@@ -1,0 +1,24 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: dex-howard-moomboo
+  namespace: traefik-staging
+spec:
+  ports:
+    - name: public-ingress
+      protocol: TCP
+      port: 443
+      targetPort: 443
+      nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: howard-moomboo
+  namespace: traefik-staging
+subsets:
+- addresses:
+  - ip: 10.17.12.206
+  ports:
+  - port: 443
+    name: public-ingress
