@@ -49,7 +49,8 @@ spec:
            - mccp.howard.moomboo.space
 
     # -- Configure TLS settings if needed
-    # tls:
+    tls:
+      enabled: false
       # -- Can be disabled if TLS is handled by a user-provided ingress controller
       # enabled: true
       # -- optionally specify a TLS secret
