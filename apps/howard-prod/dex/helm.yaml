@@ -3,7 +3,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: dex
-  namespace: dex
+  namespace: default
 spec:
   interval: 1m
   url: https://charts.dexidp.io
@@ -12,7 +12,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: dex
-  namespace: dex
+  namespace: default
 spec:
   interval: 5m
   chart:
@@ -22,7 +22,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: dex
-        namespace: dex
+        namespace: default
       interval: 1m
   values:
     image:
