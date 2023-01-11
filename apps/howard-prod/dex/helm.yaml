@@ -15,6 +15,7 @@ metadata:
   namespace: default
 spec:
   interval: 5m
+  timeout: 1m
   chart:
     spec:
       chart: dex
