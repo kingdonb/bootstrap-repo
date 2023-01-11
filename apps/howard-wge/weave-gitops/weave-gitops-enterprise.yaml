@@ -58,7 +58,7 @@ spec:
     config:
       oidc:
         enabled: true
-        issuerURL: "https://dex.howard.moomboo.space/"
+        issuerURL: "https://dex.howard.moomboo.space"
         redirectURL: "https://dex.howard.moomboo.space/callback"
         cookieDuration: 1h
         claimUsername: ""
