@@ -66,7 +66,7 @@ spec:
           orgs:
           - name: kingdon-ci
             teams:
-            - weave-gitops-1
+            - weave-gitops
     ingress:
       enabled: true
       className: public
