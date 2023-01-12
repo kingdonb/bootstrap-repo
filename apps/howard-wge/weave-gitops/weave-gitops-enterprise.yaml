@@ -59,7 +59,7 @@ spec:
       oidc:
         enabled: true
         issuerURL: "https://dex.howard.moomboo.space"
-        redirectURL: "https://dex.howard.moomboo.space/callback"
+        redirectURL: "https://mccp.howard.moomboo.space/callback"
         cookieDuration: 1h
         claimUsername: ""
         claimGroups: ""
