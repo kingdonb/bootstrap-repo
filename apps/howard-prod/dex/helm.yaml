@@ -53,7 +53,7 @@ spec:
         id: weave-gitops
         secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
         redirectURIs:
-        - 'https://mccp.howard.moomboo.space/callback'
+        - 'https://mccp.howard.moomboo.space/oauth2/callback'
 
       connectors:
       - type: github
