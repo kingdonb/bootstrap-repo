@@ -62,7 +62,7 @@ spec:
         config:
           clientID: $GITHUB_CLIENT_ID
           clientSecret: $GITHUB_CLIENT_SECRET
-          redirectURI: https://dex.howard.moomboo.space/callback
+          redirectURI: https://mccp.howard.moomboo.space/oauth2/callback
           orgs:
           - name: kingdon-ci
             teams:
