@@ -50,7 +50,7 @@ spec:
 
       staticClients:
       - name: 'Weave GitOps Core'
-        id: weave-gitops
+        id: e98a857a22a0a675093c
         secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
         redirectURIs:
         - 'https://localhost:9001/oauth2/callback'
