@@ -54,6 +54,7 @@ spec:
         secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
         redirectURIs:
         - 'https://mccp.howard.moomboo.space/oauth2/callback'
+        - 'http://localhost:8000'
 
       connectors:
       - type: github
