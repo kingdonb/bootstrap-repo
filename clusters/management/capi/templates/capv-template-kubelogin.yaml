@@ -1,7 +1,7 @@
 apiVersion: capi.weave.works/v1alpha1
 kind: CAPITemplate
 metadata:
-  name: cluster-template-development
+  name: cluster-template-development-plus-kubelogin
   namespace: default
   labels:
     weave.works/template-type: cluster
@@ -60,6 +60,10 @@ spec:
           values: |-
             vcluster:
               image: "rancher/k3s:${K3S_VERSION}"
+              extraArgs:
+              - --kube-apiserver-arg --oidc-issuer-url=https://dex.howard.moomboo.space
+              - --kube-apiserver-arg --oidc-client-id=weave-gitops
+              - --kube-apiserver-arg --oidc-groups-claim=groups
             syncer:
               extraArgs:
               - "--tls-san=${CLUSTER_NAME}.turkey.local"
