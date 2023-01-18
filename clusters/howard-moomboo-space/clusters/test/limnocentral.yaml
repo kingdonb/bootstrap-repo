@@ -43,7 +43,7 @@ spec:
   helmRelease:
     values: |-
       vcluster:
-        image: "rancher/k3s:v1.26.0-rc1-k3s2"
+        image: "rancher/k3s:v1.26.0-k3s2"
         extraArgs:
         - --kube-apiserver-arg --oidc-issuer-url=https://dex.howard.moomboo.space
         - --kube-apiserver-arg --oidc-client-id=weave-gitops
