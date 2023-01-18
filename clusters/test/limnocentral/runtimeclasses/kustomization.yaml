@@ -1,1 +1,2 @@
-resources: []
+resources:
+  - spin-rc.yaml
