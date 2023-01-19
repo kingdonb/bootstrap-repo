@@ -70,6 +70,6 @@ spec:
         ingresses:
           enabled: true
       nodeSelector:
-        kubernetes.io/hostname: hpworker02
+        kubernetes.io/hostname: moo
 
   kubernetesVersion: 1.26.0
