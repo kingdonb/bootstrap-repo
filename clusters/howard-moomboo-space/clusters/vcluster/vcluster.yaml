@@ -69,7 +69,5 @@ spec:
           enabled: true
         ingresses:
           enabled: true
-      nodeSelector:
-        kubernetes.io/hostname: moo
 
   kubernetesVersion: 1.26.0
