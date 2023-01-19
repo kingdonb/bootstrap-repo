@@ -4,14 +4,14 @@ metadata:
   annotations:
     templates.weave.works/create-request: '{"head_branch":"wge-create-branch-whcgf","title":"Creates
       resource somtochi","description":"This PR creates a cluster-template-development
-      instance","template_name":"cluster-template-development","parameter_values":{"CLUSTER_NAME":"somtochi","K3S_VERSION":"v1.25.3-k3s1","KUBERNETES_VERSION":"1.25.3","NAMESPACE":"defau"},"commit_message":"Creates
+      instance","template_name":"cluster-template-development","parameter_values":{"CLUSTER_NAME":"somtochi","K3S_VERSION":"v1.25.3-k3s1","KUBERNETES_VERSION":"1.25.3","NAMESPACE":"default"},"commit_message":"Creates
       cluster-template-development instance","credentials":{},"template_namespace":"default","template_kind":"CAPITemplate"}'
   labels:
     templates.weave.works/template-name: cluster-template-development
     templates.weave.works/template-namespace: default
     weave.works/capi: bootstrap
   name: somtochi
-  namespace: defau
+  namespace: default
 spec:
   capiClusterRef:
     name: somtochi
@@ -24,7 +24,7 @@ metadata:
     templates.weave.works/template-name: cluster-template-development
     templates.weave.works/template-namespace: default
   name: somtochi
-  namespace: defau
+  namespace: default
 spec:
   controlPlaneRef:
     apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
@@ -46,7 +46,7 @@ metadata:
     templates.weave.works/template-name: cluster-template-development
     templates.weave.works/template-namespace: default
   name: somtochi
-  namespace: defau
+  namespace: default
 spec:
   controlPlaneEndpoint:
     host: somtochi.turkey.local
