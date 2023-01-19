@@ -63,3 +63,6 @@ spec:
           enabled: true
         ingresses:
           enabled: true
+      nodeSelector:
+        kubernetes.io/hostname: hpworker02
+
