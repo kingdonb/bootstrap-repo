@@ -5,8 +5,8 @@ metadata:
   namespace: traefik-staging
 spec:
   entryPoints:
-  # - web
-  - websecure
+  - web
+  # - websecure
   routes:
   - kind: Rule
     match: Host(`socryx-topled.arvo.network`) && PathPrefix(`/`)
@@ -14,10 +14,10 @@ spec:
     - kind: Service
       name: socryx-topled
       namespace: traefik-staging
-      port: 443
+      port: 80
       # scheme: https
-  tls:
-    certResolver: prodresolver
+  # tls:
+  #   certResolver: prodresolver
 
 # ---
 # apiVersion: traefik.containo.us/v1alpha1
