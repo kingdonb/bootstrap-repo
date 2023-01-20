@@ -15,6 +15,9 @@ spec:
       namespace: traefik-staging
       port: 443
       scheme: https
+  tls:
+    certResolver: prodresolver
+
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
