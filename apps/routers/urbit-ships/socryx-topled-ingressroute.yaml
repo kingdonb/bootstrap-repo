@@ -5,7 +5,7 @@ metadata:
   namespace: traefik-staging
 spec:
   entryPoints:
-  - web
+  # - web
   - websecure
   routes:
   - kind: Rule
