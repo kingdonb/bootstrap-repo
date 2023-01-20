@@ -14,8 +14,8 @@ spec:
     - kind: Service
       name: socryx-topled
       namespace: traefik-staging
-      port: 443
-      scheme: https
+      port: 80
+      # scheme: https
   tls:
     certResolver: prodresolver
 
