@@ -5,8 +5,8 @@ metadata:
   namespace: traefik-staging
 spec:
   interval: 60m0s
-  retryInterval: 6m0s
-  timeout: 4m0s
+  retryInterval: 1m10s
+  timeout: 1m0s
   sourceRef:
     kind: GitRepository
     name: flux-sync
