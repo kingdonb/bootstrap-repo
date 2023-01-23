@@ -27,9 +27,12 @@ spec:
               "--repository=bootstrap-repo",
               "--path=./clusters/{{ .ObjectMeta.Namespace }}/{{ .ObjectMeta.Name }}",
             ]
-          envFrom:
-            - secretRef:
-                name: my-pat
+          env:
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: my-app-secret
+                  key: password
       restartPolicy: Never
       volumes:
         - name: kubeconfig
