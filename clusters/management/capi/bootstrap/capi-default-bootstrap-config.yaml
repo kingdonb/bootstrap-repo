@@ -1,0 +1,40 @@
+apiVersion: capi.weave.works/v1alpha1
+kind: ClusterBootstrapConfig
+metadata:
+  name: capi-gitops
+  namespace: default
+spec:
+  clusterSelector:
+    matchLabels:
+      weave.works/capi: bootstrap
+  jobTemplate:
+    generateName: "run-gitops-{{ .ObjectMeta.Name }}"
+    spec:
+      containers:
+        - image: ghcr.io/fluxcd/flux-cli:v0.38.3
+          name: flux-bootstrap
+          resources: {}
+          volumeMounts:
+            - name: kubeconfig
+              mountPath: "/etc/gitops"
+              readOnly: true
+          args:
+            [
+              "bootstrap",
+              "github",
+              "--kubeconfig=/etc/gitops/value",
+              "--owner=kingdonb",
+              "--repository=bootstrap-repo",
+              "--path=./clusters/{{ .ObjectMeta.Namespace }}/{{ .ObjectMeta.Name }}",
+            ]
+          env:
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: my-app-secret
+                  key: password
+      restartPolicy: Never
+      volumes:
+        - name: kubeconfig
+          secret:
+            secretName: "{{ .ObjectMeta.Name }}-kubeconfig"
