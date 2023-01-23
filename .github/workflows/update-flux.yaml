@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Flux CLI
-        uses: fluxcd/flux2/action@main
+        uses: kingdonb/flux2/action@main
         # with:
         #   token: ${{ secrets.GITHUB_TOKEN }}
 
