@@ -14,8 +14,8 @@ jobs:
 
       - name: Setup Flux CLI
         uses: fluxcd/flux2/action@main
-        # with:
-        #   token: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check for updates
         id: update
