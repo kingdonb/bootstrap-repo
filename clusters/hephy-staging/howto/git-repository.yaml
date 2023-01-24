@@ -1,0 +1,14 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: example-kubeconfig
+  namespace: default
+spec:
+  interval: 1m0s
+  ref:
+    branch: dev-branch
+  secretRef:
+    name: example-kubeconfig
+  url: ssh://git@github.com/kingdon-ci/example-kubeconfig.git
+

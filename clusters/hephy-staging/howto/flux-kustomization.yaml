@@ -1,0 +1,14 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: example-kubeconfig
+  namespace: default
+spec:
+  interval: 10m0s
+  path: ./manifests/moomboo.space
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: example-kubeconfig
+
