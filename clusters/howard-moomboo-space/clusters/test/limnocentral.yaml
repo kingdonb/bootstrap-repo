@@ -1,68 +1,68 @@
-# apiVersion: gitops.weave.works/v1alpha1
-# kind: GitopsCluster
-# metadata:
-#   labels:
-#     weave.works/capi: bootstrap
-#   name: limnocentral
-#   namespace: test
-# spec:
-#   capiClusterRef:
-#     name: limnocentral
-# 
-# ---
-# apiVersion: cluster.x-k8s.io/v1beta1
-# kind: Cluster
-# metadata:
-#   name: limnocentral
-#   namespace: test
-# spec:
-#   controlPlaneRef:
-#     apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
-#     kind: VCluster
-#     name: limnocentral
-#   infrastructureRef:
-#     apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
-#     kind: VCluster
-#     name: limnocentral
-# 
-# ---
-# apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
-# kind: VCluster
-# metadata:
-#   annotations:
-#     kustomize.toolkit.fluxcd.io/prune: disabled
-#   labels:
-#     cluster.x-k8s.io/cluster-name: limnocentral
-#   name: limnocentral
-#   namespace: test
-# spec:
-#   controlPlaneEndpoint:
-#     host: limnocentral.turkey.local
-#     port: 443
-#   kubernetesVersion: 1.26.0
-#   helmRelease:
-#     values: |-
-#       vcluster:
-#         image: "rancher/k3s:v1.26.0-k3s2"
-#         extraArgs:
-#         - --kube-apiserver-arg --oidc-issuer-url=https://dex.howard.moomboo.space
-#         - --kube-apiserver-arg --oidc-client-id=weave-gitops
-#         - --kube-apiserver-arg --oidc-groups-claim=groups
-#       syncer:
-#         extraArgs:
-#         - "--tls-san=limnocentral.turkey.local"
-#       sync:
-#         nodes:
-#           enabled: true
-#           enableScheduler: true
-#         persistentvolumes:
-#           enabled: true
-#         # If you want to create custom storage classes
-#         # inside the vcluster.
-#         storageclasses:
-#           enabled: true
-#         ingresses:
-#           enabled: true
-#       nodeSelector:
-#         kubernetes.io/hostname: hpworker02
-# 
+apiVersion: gitops.weave.works/v1alpha1
+kind: GitopsCluster
+metadata:
+  labels:
+    weave.works/capi: bootstrap
+  name: limnocentral
+  namespace: test
+spec:
+  capiClusterRef:
+    name: limnocentral
+
+---
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: limnocentral
+  namespace: test
+spec:
+  controlPlaneRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+    kind: VCluster
+    name: limnocentral
+  infrastructureRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+    kind: VCluster
+    name: limnocentral
+
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+kind: VCluster
+metadata:
+  annotations:
+    kustomize.toolkit.fluxcd.io/prune: disabled
+  labels:
+    cluster.x-k8s.io/cluster-name: limnocentral
+  name: limnocentral
+  namespace: test
+spec:
+  controlPlaneEndpoint:
+    host: limnocentral.turkey.local
+    port: 443
+  kubernetesVersion: 1.26.0
+  helmRelease:
+    values: |-
+      vcluster:
+        image: "rancher/k3s:v1.26.0-k3s2"
+        extraArgs:
+        - --kube-apiserver-arg --oidc-issuer-url=https://dex.howard.moomboo.space
+        - --kube-apiserver-arg --oidc-client-id=weave-gitops
+        - --kube-apiserver-arg --oidc-groups-claim=groups
+      syncer:
+        extraArgs:
+        - "--tls-san=limnocentral.turkey.local"
+      sync:
+        nodes:
+          enabled: true
+          enableScheduler: true
+        persistentvolumes:
+          enabled: true
+        # If you want to create custom storage classes
+        # inside the vcluster.
+        storageclasses:
+          enabled: true
+        ingresses:
+          enabled: true
+      nodeSelector:
+        kubernetes.io/hostname: hpworker02
+
