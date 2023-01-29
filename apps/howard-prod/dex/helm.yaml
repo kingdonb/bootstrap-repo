@@ -28,7 +28,7 @@ spec:
       interval: 1m
   values:
     image:
-      tag: v2.31.0
+      tag: v2.35.3
     envVars:
     - name: GITHUB_CLIENT_ID
       valueFrom:
