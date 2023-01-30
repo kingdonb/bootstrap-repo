@@ -1,0 +1,26 @@
+# ---
+# apiVersion: source.toolkit.fluxcd.io/v1beta2
+# kind: GitRepository
+# metadata:
+#   name: fleet-infra
+#   namespace: flux-system
+# spec:
+#   interval: 30s
+#   ref:
+#     branch: main
+#   secretRef:
+#     name: flux-system
+#   url: ssh://git@github.com/kingdonb/bootstrap-repo
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: fleet-infra
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./clusters/howard-moomboo-space
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: fleet-infra
