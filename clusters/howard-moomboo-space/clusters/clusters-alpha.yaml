@@ -21,6 +21,8 @@ spec:
   interval: 10m0s
   path: ./clusters/howard-moomboo-space
   prune: true
+  dependsOn:
+    - name: howard-production
   sourceRef:
     kind: GitRepository
     name: fleet-infra
