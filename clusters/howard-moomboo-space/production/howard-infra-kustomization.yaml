@@ -2,23 +2,16 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: howard-production
+  name: howard-infra
   namespace: flux-system
 spec:
   interval: 10m0s
   retryInterval: 1m0s
   # targetNamespace: default
-  path: ./apps/howard-prod
+  path: ./apps/howard-infra
   prune: true
   wait: true
   serviceAccountName: kustomize-controller
   sourceRef:
     kind: GitRepository
     name: flux-system
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-gpg
-  dependsOn:
-    - name: my-secrets
-    - name: howard-infra
