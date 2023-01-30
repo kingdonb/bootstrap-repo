@@ -1,8 +1,11 @@
-apiVersion: capi.weave.works/v1alpha1
-kind: CAPITemplate
+apiVersion: clustertemplates.weave.works/v1alpha2
+kind: GitOpsTemplate
 metadata:
   name: cluster-template-development-plus-kubelogin
   namespace: default
+  annotations:
+    templates.weave.works/add-common-bases: "true"
+    templates.weave.works/inject-prune-annotations: "true"
   labels:
     weave.works/template-type: cluster
 spec:
@@ -18,7 +21,7 @@ spec:
       options: ["1.21", "1.22", "1.23", "1.24", "1.25", "1.26"]
     - name: K3S_VERSION
       description: Kubernetes version to use for the cluster
-      options: ["v1.21.14-k3s1", "v1.22.15-k3s1", "v1.23.13-k3s1", "v1.24.7-k3s1", "v1.25.3-k3s1", "v1.26.0-k3s2"]
+      options: ["v1.21.14-k3s1", "v1.22.15-k3s1", "v1.23.16-k3s1", "v1.24.10-k3s1", "v1.25.6-k3s1", "v1.26.1-k3s1"]
   resourcetemplates:
     - apiVersion: gitops.weave.works/v1alpha1
       kind: GitopsCluster
