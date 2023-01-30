@@ -15,6 +15,8 @@ metadata:
   name: weave-gitops-enterprise
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: ww-gitops
   chart:
     spec:
       interval: 65m
