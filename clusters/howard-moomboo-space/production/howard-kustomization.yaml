@@ -10,6 +10,7 @@ spec:
   targetNamespace: default
   path: ./apps/howard-prod
   prune: true
+  wait: true
   serviceAccountName: kustomize-controller
   sourceRef:
     kind: GitRepository
@@ -18,3 +19,5 @@ spec:
     provider: sops
     secretRef:
       name: sops-gpg
+  dependsOn:
+    - name: my-secrets
