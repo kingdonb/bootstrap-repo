@@ -23,8 +23,8 @@ spec:
               "bootstrap",
               "github",
               "--kubeconfig=/etc/gitops/value",
-              "--owner=kingdonb",
-              "--repository=bootstrap-repo",
+              "--owner=kingdon-ci",
+              "--repository=fleet-infra",
               "--path=./clusters/{{ .ObjectMeta.Namespace }}/{{ .ObjectMeta.Name }}",
             ]
           env:
