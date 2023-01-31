@@ -2,7 +2,7 @@ apiVersion: templates.weave.works/v1alpha2
 kind: GitOpsTemplate
 metadata:
   name: cluster-template-development
-  namespace: default
+  namespace: vcluster
   annotations:
     templates.weave.works/add-common-bases: "true"
     templates.weave.works/inject-prune-annotations: "true"
