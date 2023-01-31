@@ -10,6 +10,7 @@ metadata:
     weave.works/template-type: cluster
 spec:
   description: A simple VCluster template
+  renderType: templating
   params:
     - name: CLUSTER_NAME
       required: true
@@ -27,50 +28,50 @@ spec:
     - apiVersion: gitops.weave.works/v1alpha1
       kind: GitopsCluster
       metadata:
-        name: "${CLUSTER_NAME}"
-        namespace: "${NAMESPACE}"
+        name: "{{ .params.CLUSTER_NAME }}"
+        namespace: "{{ .params.NAMESPACE }}"
         labels:
           weave.works/capi: bootstrap
       spec:
         capiClusterRef:
-          name: "${CLUSTER_NAME}"
+          name: "{{ .params.CLUSTER_NAME }}"
     - apiVersion: cluster.x-k8s.io/v1beta1
       kind: Cluster
       metadata:
-        name: "${CLUSTER_NAME}"
-        namespace: "${NAMESPACE}"
+        name: "{{ .params.CLUSTER_NAME }}"
+        namespace: "{{ .params.NAMESPACE }}"
       spec:
         controlPlaneRef:
           apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
           kind: VCluster
-          name: "${CLUSTER_NAME}"
+          name: "{{ .params.CLUSTER_NAME }}"
         infrastructureRef:
           apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
           kind: VCluster
-          name: "${CLUSTER_NAME}"
+          name: "{{ .params.CLUSTER_NAME }}"
     - apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
       kind: VCluster
       metadata:
         labels:
-          cluster.x-k8s.io/cluster-name: "${CLUSTER_NAME}"
-        name: "${CLUSTER_NAME}"
-        namespace: "${NAMESPACE}"
+          cluster.x-k8s.io/cluster-name: "{{ .params.CLUSTER_NAME }}"
+        name: "{{ .params.CLUSTER_NAME }}"
+        namespace: "{{ .params.NAMESPACE }}"
       spec:
         controlPlaneEndpoint:
-          host: "${CLUSTER_NAME}.turkey.local"
+          host: "{{ .params.CLUSTER_NAME }}.turkey.local"
           port: 443
         kubernetesVersion: "{{ .params.KUBERNETES_VERSION }}"
         helmRelease:
           values: |-
             vcluster:
-              image: "rancher/k3s:${K3S_VERSION}"
+              image: "rancher/k3s:{{ .params.K3S_VERSION }}"
               extraArgs:
               - --kube-apiserver-arg --oidc-issuer-url=https://dex.howard.moomboo.space
               - --kube-apiserver-arg --oidc-client-id=weave-gitops
               - --kube-apiserver-arg --oidc-groups-claim=groups
             syncer:
               extraArgs:
-              - "--tls-san=${CLUSTER_NAME}.turkey.local"
+              - "--tls-san={{ .params.CLUSTER_NAME }}.turkey.local"
             sync:
               nodes:
                 enabled: true
