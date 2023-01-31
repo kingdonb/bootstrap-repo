@@ -16,6 +16,12 @@ spec:
       create: true
       username: wego-admin
       passwordHash: "$2a$10$LpBFEv1nCe4f3e30WoZYTuiOmDUu7qTNJWAkcwlTM62dORqDHjWeC"
+    oidcSecret:
+      create: true
+      clientID: weave-gitops
+      clientSecret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
+      issuerURL: https://dex.howard.moomboo.space
+      redirectURL: http://localhost:9001/oauth2/callback
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
