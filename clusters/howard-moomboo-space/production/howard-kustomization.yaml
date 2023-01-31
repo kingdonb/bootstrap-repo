@@ -6,6 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
+  timeout: 1m30s
   retryInterval: 1m0s
   # targetNamespace: default
   path: ./apps/howard-prod
