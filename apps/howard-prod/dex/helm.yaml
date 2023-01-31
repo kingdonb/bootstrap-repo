@@ -58,6 +58,7 @@ spec:
         - 'https://mccp.howard.moomboo.space/oauth2/callback'
         - 'http://loft.loft.svc.cluster.local/auth/oidc/callback'
         - 'http://localhost:8000'
+        - 'http://localhost:9001'
 
       connectors:
       - type: github
