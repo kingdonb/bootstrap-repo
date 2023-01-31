@@ -1,0 +1,6 @@
+resources:
+  - ../../../clusters/management/capi/bootstrap/capi-default-bootstrap-config.yaml
+  - ../../../clusters/management/capi/bootstrap/capi-gitops-cluster-bootstrap-config.yaml
+  - ../../../clusters/management/capi/bootstrap/capi-vcluster-bootstrap-config.yaml
+  - ../../../clusters/management/capi/templates/capv-template.yaml
+  - ../../../clusters/management/capi/templates/capv-template-kubelogin.yaml
