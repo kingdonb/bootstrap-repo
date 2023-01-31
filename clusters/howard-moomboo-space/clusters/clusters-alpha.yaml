@@ -23,6 +23,8 @@ spec:
   prune: true
   dependsOn:
     - name: howard-production
+    - name: weave-gitops
+    - name: weave-capi-resources
   sourceRef:
     kind: GitRepository
     name: fleet-infra
