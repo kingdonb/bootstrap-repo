@@ -59,7 +59,7 @@ spec:
         controlPlaneEndpoint:
           host: "${CLUSTER_NAME}.turkey.local"
           port: 443
-        kubernetesVersion: "${KUBERNETES_VERSION}"
+        kubernetesVersion: "{{ .params.KUBERNETES_VERSION }}"
         helmRelease:
           values: |-
             vcluster:
