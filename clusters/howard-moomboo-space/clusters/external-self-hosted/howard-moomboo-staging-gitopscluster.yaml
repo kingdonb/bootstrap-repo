@@ -1,0 +1,11 @@
+apiVersion: gitops.weave.works/v1alpha1
+kind: GitopsCluster
+metadata:
+  name: howard-moomboo-staging
+  namespace: external
+  # Signals that this cluster should be bootstrapped.
+  # labels:
+  #   weave.works/capi: bootstrap
+spec:
+  secretRef:
+    name: howard-moomboo-staging-kubeconfig

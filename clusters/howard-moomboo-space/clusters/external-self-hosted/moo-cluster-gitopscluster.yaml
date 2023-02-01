@@ -1,0 +1,11 @@
+apiVersion: gitops.weave.works/v1alpha1
+kind: GitopsCluster
+metadata:
+  name: moo-cluster
+  namespace: external
+  # Signals that this cluster should be bootstrapped.
+  # labels:
+  #   weave.works/capi: bootstrap
+spec:
+  secretRef:
+    name: moo-cluster-kubeconfig
