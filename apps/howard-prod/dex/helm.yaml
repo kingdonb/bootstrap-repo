@@ -56,6 +56,7 @@ spec:
         secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
         redirectURIs:
         - 'https://mccp.howard.moomboo.space/oauth2/callback'
+        - 'https://mccp-staging.howard.moomboo.space/oauth2/callback'
         - 'http://loft.loft.svc.cluster.local/auth/oidc/callback'
         - 'http://localhost:8000'
         - 'http://localhost:9001/oauth2/callback'
