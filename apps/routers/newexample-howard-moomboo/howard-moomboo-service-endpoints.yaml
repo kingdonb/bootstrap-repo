@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: example-howard-moomboo
+  name: newexample-howard-moomboo
   namespace: traefik-staging
 spec:
   ports:
@@ -14,7 +14,7 @@ spec:
 kind: Endpoints
 apiVersion: v1
 metadata:
-  name: example-howard-moomboo
+  name: newexample-howard-moomboo
   namespace: traefik-staging
 subsets:
 - addresses:
