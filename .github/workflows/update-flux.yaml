@@ -20,16 +20,20 @@ jobs:
       - name: Check for updates
         id: update
         run: |
-          flux install \
-            --export > ./clusters/production/flux-system/gotk-components.yaml
-          flux install \
-            --export > ./clusters/staging/flux-system/gotk-components.yaml
-          flux install --components-extra=image-reflector-controller,image-automation-controller \
-            --export > ./clusters/aks-kuberkingdon/flux-system/gotk-components.yaml
-          flux install --components-extra=image-reflector-controller,image-automation-controller \
-            --export > ./clusters/gke-geekingdon/flux-system/gotk-components.yaml
+          # flux install \
+          #   --export > ./clusters/production/flux-system/gotk-components.yaml
+          # flux install \
+          #   --export > ./clusters/staging/flux-system/gotk-components.yaml
+          # flux install --components-extra=image-reflector-controller,image-automation-controller \
+          #   --export > ./clusters/aks-kuberkingdon/flux-system/gotk-components.yaml
+          # flux install --components-extra=image-reflector-controller,image-automation-controller \
+          #   --export > ./clusters/gke-geekingdon/flux-system/gotk-components.yaml
           flux install --components-extra=image-reflector-controller,image-automation-controller \
             --export > ./clusters/moo-cluster/flux-system/gotk-components.yaml
+          flux install --components-extra=image-reflector-controller,image-automation-controller \
+            --export > ./clusters/hephy-staging/flux-system/gotk-components.yaml
+          flux install \
+            --export > ./clusters/howard-moomboo-space/flux-system/gotk-components.yaml
 
           VERSION="$(flux -v)"
           echo "flux_version=$VERSION" >> $GITHUB_OUTPUT
