@@ -69,6 +69,9 @@ spec:
         clientCredentialsSecret: github-client
         # Customise the requested scopes for then OIDC authentication flow - openid will always be requested
         customScopes: ""
+      auth:
+        userAccount:
+          enabled: false
 
       capi:
         repositoryURL: https://github.com/kingdonb/bootstrap-repo
@@ -80,3 +83,10 @@ spec:
         type: github
         # -- Change if using on-prem github/gitlab
         # hostname: https://github.com
+
+    policy-agent:
+      enabled: false
+
+    # Preview feature
+    gitopssets-controller:
+      enabled: true
