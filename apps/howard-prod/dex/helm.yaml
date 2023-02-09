@@ -50,6 +50,12 @@ spec:
         config:
           inCluster: true
 
+      expiry:
+        idTokens: 10m
+        refreshTokens:
+          validIfNotUsedFor: 10h
+          absoluteLifetime: 72h
+
       staticClients:
       - name: 'Weave GitOps Core'
         id: weave-gitops
