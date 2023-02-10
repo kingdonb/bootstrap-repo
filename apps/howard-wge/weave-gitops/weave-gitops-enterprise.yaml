@@ -68,7 +68,7 @@ spec:
         # Name of secret in flux-system namespace that contains a clientId and clientSecret
         clientCredentialsSecret: github-client
         # Customise the requested scopes for then OIDC authentication flow - openid will always be requested
-        customScopes: "offline_access"
+        customScopes: "offline_access,groups"
       auth:
         userAccount:
           enabled: false
