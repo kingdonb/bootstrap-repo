@@ -62,7 +62,7 @@ spec:
         enabled: true
         issuerURL: "https://dex.howard.moomboo.space"
         redirectURL: "https://mccp.howard.moomboo.space/oauth2/callback"
-        cookieDuration: 10h
+        cookieDuration: 72h
         claimUsername: ""
         claimGroups: ""
         # Name of secret in flux-system namespace that contains a clientId and clientSecret
