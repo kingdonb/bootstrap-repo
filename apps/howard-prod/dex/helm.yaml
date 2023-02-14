@@ -51,7 +51,7 @@ spec:
           inCluster: true
 
       expiry:
-        idTokens: 10m
+        idTokens: 50m
         refreshTokens:
           validIfNotUsedFor: 10h
           absoluteLifetime: 72h
