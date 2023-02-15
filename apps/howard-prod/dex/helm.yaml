@@ -51,7 +51,7 @@ spec:
           inCluster: true
 
       expiry:
-        idTokens: 50m
+        idTokens: 10m
         refreshTokens:
           validIfNotUsedFor: 10h
           absoluteLifetime: 72h
@@ -61,11 +61,26 @@ spec:
         id: weave-gitops
         secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
         redirectURIs:
-        - 'https://mccp.howard.moomboo.space/oauth2/callback'
         - 'https://mccp-staging.howard.moomboo.space/oauth2/callback'
-        - 'http://loft.loft.svc.cluster.local/auth/oidc/callback'
-        - 'http://localhost:8000'
         - 'http://localhost:9001/oauth2/callback'
+
+      - name: 'Weave GitOps Enterprise'
+        id: weave-gitops-ee
+        secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
+        redirectURIs:
+        - 'https://mccp.howard.moomboo.space/oauth2/callback'
+
+      - name: 'Weave GitOps Kubelogin'
+        id: wg-kubelogin
+        secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
+        redirectURIs:
+        - 'http://localhost:8000'
+
+      - name: 'Loft.sh'
+        id: wg-loft
+        secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
+        redirectURIs:
+        - 'http://loft.loft.svc.cluster.local/auth/oidc/callback'
 
       connectors:
       - type: github
