@@ -2,7 +2,7 @@ apiVersion: gitops.weave.works/v1alpha1
 kind: GitopsCluster
 metadata:
   name: howard-moomboo-staging
-  namespace: external
+  namespace: ext
   # Signals that this cluster should be bootstrapped.
   # labels:
   #   weave.works/capi: bootstrap
