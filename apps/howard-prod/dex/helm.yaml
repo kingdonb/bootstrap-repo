@@ -95,6 +95,7 @@ spec:
             teams:
             - weave-gitops
             - home-workers
+            - home-guests
     ingress:
       enabled: true
       className: public

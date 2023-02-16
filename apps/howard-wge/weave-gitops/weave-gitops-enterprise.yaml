@@ -84,10 +84,7 @@ spec:
         # -- Change if using on-prem github/gitlab
         # hostname: https://github.com
 
-    clustersService:
-      args:
-        - --oidc-token-duration
-        - 72h
+    #clustersService:
 
     policy-agent:
       enabled: false
