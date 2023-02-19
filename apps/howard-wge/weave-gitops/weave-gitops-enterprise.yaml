@@ -80,7 +80,7 @@ spec:
           enabled: false
 
       capi:
-        repositoryURL: https://github.com/kingdonb/bootstrap-repo
+        repositoryURL: https://github.com/kingdon-ci/fleet-infra
         # -- Can be changed depending on your git repo structure
         repositoryPath: ./clusters/howard-moomboo-space/clusters
         # repositoryClustersPath: ./cluster
