@@ -57,7 +57,13 @@ spec:
       # enabled: true
       # -- optionally specify a TLS secret
       # secretName: null
+
+    listOCIRepositories: true
+    enableRunUI: true
+
     config:
+      cluster:
+        name: howard-moomboo-space
       oidc:
         enabled: true
         issuerURL: "https://dex.howard.moomboo.space"
