@@ -67,7 +67,7 @@ spec:
               image: "rancher/k3s:{{ .params.K3S_VERSION }}"
               extraArgs:
               - --kube-apiserver-arg --oidc-issuer-url=https://dex.howard.moomboo.space
-              - --kube-apiserver-arg --oidc-client-id=weave-gitops
+              - --kube-apiserver-arg --oidc-client-id=wg-kubelogin
               - --kube-apiserver-arg --oidc-groups-claim=groups
             syncer:
               extraArgs:
