@@ -43,7 +43,7 @@ metadata:
   namespace: traefik-staging
 subsets:
 - addresses:
-  - ip: 10.17.12.206
+  - ip: 10.17.12.202
   ports:
   - port: 80
     name: public-ingress
