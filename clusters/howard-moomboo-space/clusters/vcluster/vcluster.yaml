@@ -1,0 +1,74 @@
+apiVersion: gitops.weave.works/v1alpha1
+kind: GitopsCluster
+metadata:
+  annotations:
+    templates.weave.works/create-request: '{"repository_url":"https://github.com/kingdonb/bootstrap-repo","head_branch":"wge-create-branch-bxc4z","title":"Creates
+      resource vcluster","description":"This PR creates a cluster-template-development-plus-kubelogin
+      instance","template_name":"cluster-template-development-plus-kubelogin","parameter_values":{"CLUSTER_NAME":"vcluster","K3S_VERSION":"v1.23.16-k3s1","KUBERNETES_VERSION":"1.23","NAMESPACE":"vcluster"},"commit_message":"Creates
+      cluster-template-development-plus-kubelogin instance","credentials":{},"template_namespace":"vcluster","template_kind":"GitOpsTemplate"}'
+  labels:
+    templates.weave.works/template-name: cluster-template-development-plus-kubelogin
+    templates.weave.works/template-namespace: default
+    weave.works/capi: bootstrap
+  name: vcluster
+  namespace: vcluster
+spec:
+  capiClusterRef:
+    name: vcluster
+
+---
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  labels:
+    templates.weave.works/template-name: cluster-template-development-plus-kubelogin
+    templates.weave.works/template-namespace: default
+  name: vcluster
+  namespace: vcluster
+spec:
+  controlPlaneRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+    kind: VCluster
+    name: vcluster
+  infrastructureRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+    kind: VCluster
+    name: vcluster
+
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+kind: VCluster
+metadata:
+  labels:
+    cluster.x-k8s.io/cluster-name: vcluster
+    templates.weave.works/template-name: cluster-template-development-plus-kubelogin
+    templates.weave.works/template-namespace: default
+  name: vcluster
+  namespace: vcluster
+spec:
+  controlPlaneEndpoint:
+    host: vcluster.turkey.local
+    port: 443
+  helmRelease:
+    values: |-
+      vcluster:
+        image: "rancher/k3s:v1.23.16-k3s1"
+        extraArgs:
+        - --kube-apiserver-arg --oidc-issuer-url=https://dex.howard.moomboo.space
+        - --kube-apiserver-arg --oidc-client-id=wg-kubelogin
+        - --kube-apiserver-arg --oidc-groups-claim=groups
+      syncer:
+        extraArgs:
+        - "--tls-san=vcluster.turkey.local"
+      sync:
+        nodes:
+          enabled: true
+        persistentvolumes:
+          enabled: true
+        # If you want to create custom storage classes
+        # inside the vcluster.
+        storageclasses:
+          enabled: true
+        ingresses:
+          enabled: true
+  kubernetesVersion: "1.23"
