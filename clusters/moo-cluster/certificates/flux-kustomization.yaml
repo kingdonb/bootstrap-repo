@@ -19,4 +19,4 @@ spec:
     - name: 20-my-secrets
   prune: false
   wait: false
-  suspend: false
+  #suspend: false
