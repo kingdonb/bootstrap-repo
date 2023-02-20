@@ -95,6 +95,24 @@ spec:
     policy-agent:
       enabled: false
 
+    enablePipelines: true
+    pipeline-controller:
+      promotion:
+        ingress:
+          enabled: true
+          className: public
+          annotations:
+            cert-manager.io/cluster-issuer: production-letsencrypt
+          hosts:
+          - host: promotions.howard.moomboo.space
+            paths:
+            - path: /?(.*)
+              pathType: ImplementationSpecific
+          tls:
+          - secretName: promotions-tls
+            hosts:
+            - promotions.howard.moomboo.space
+
     # Preview feature
     gitopssets-controller:
       enabled: true
