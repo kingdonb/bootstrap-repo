@@ -1,0 +1,49 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: promotions-howard-staging
+  namespace: traefik-staging
+spec:
+  ports:
+    - name: public-ingress
+      protocol: TCP
+      port: 443
+      targetPort: 443
+      nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: promotions-howard-staging
+  namespace: traefik-staging
+subsets:
+- addresses:
+  - ip: 10.17.12.202
+  ports:
+  - port: 443
+    name: public-ingress
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: promotions-howard-staging-public-challenge
+  namespace: traefik-staging
+spec:
+  ports:
+    - name: public-ingress
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: promotions-howard-staging-public-challenge
+  namespace: traefik-staging
+subsets:
+- addresses:
+  - ip: 10.17.12.202
+  ports:
+  - port: 80
+    name: public-ingress
