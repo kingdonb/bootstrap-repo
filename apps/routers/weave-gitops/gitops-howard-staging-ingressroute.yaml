@@ -1,0 +1,33 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: gitops-howard-staging-public-challenge
+  namespace: traefik-staging
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`gitops-staging.howard.moomboo.space`)
+    services:
+    - kind: Service
+      name: gitops-howard-staging-public-challenge
+      namespace: traefik-staging
+      port: 80
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: gitops-howard-staging
+  namespace: traefik-staging
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: HostSNI(`gitops-staging.howard.moomboo.space`)
+    services:
+    - name: gitops-howard-staging
+      namespace: traefik-staging
+      port: 443
+  tls:
+    passthrough: true
