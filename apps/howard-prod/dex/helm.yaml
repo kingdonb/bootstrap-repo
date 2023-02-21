@@ -61,7 +61,7 @@ spec:
         id: weave-gitops
         secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
         redirectURIs:
-        - 'https://mccp-staging.howard.moomboo.space/oauth2/callback'
+        - 'https://gitops-staging.howard.moomboo.space/oauth2/callback'
         - 'http://localhost:9001/oauth2/callback'
 
       - name: 'Weave GitOps Enterprise'
@@ -69,6 +69,12 @@ spec:
         secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
         redirectURIs:
         - 'https://mccp.howard.moomboo.space/oauth2/callback'
+
+      - name: 'Weave GitOps Enterprise (Staging)'
+        id: weave-gitops-ee-staging
+        secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
+        redirectURIs:
+        - 'https://mccp-staging.howard.moomboo.space/oauth2/callback'
 
       - name: 'Weave GitOps Kubelogin'
         id: wg-kubelogin
