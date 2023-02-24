@@ -20,65 +20,65 @@ spec:
     - name: K3S_VERSION
       description: Kubernetes version to use for the cluster
       options:
-      - "v1.23.16-k3s1" # {"$imagepolicy": "flux-system:k3s-1-23"}
-      - "v1.24.10-k3s1" # {"$imagepolicy": "flux-system:k3s-1-24"}
-      - "v1.25.6-k3s1" # {"$imagepolicy": "flux-system:k3s-1-25"}
-      - "v1.26.1-k3s1" # {"$imagepolicy": "flux-system:k3s-1-26"}
+        - "rancher/k3s:v1.23.16-k3s1-s390x" # {"$imagepolicy": "flux-system:k3s-1-23"}
+        - "rancher/k3s:v1.24.10-k3s1-s390x" # {"$imagepolicy": "flux-system:k3s-1-24"}
+        - "rancher/k3s:v1.25.6-k3s1-s390x" # {"$imagepolicy": "flux-system:k3s-1-25"}
+        - "rancher/k3s:v1.26.1-k3s1-s390x" # {"$imagepolicy": "flux-system:k3s-1-26"}
   resourcetemplates:
-  - content:
-    - apiVersion: gitops.weave.works/v1alpha1
-      kind: GitopsCluster
-      metadata:
-        name: "{{ .params.CLUSTER_NAME }}"
-        namespace: "{{ .params.NAMESPACE }}"
-        labels:
-          weave.works/capi: bootstrap
-      spec:
-        capiClusterRef:
-          name: "{{ .params.CLUSTER_NAME }}"
-    - apiVersion: cluster.x-k8s.io/v1beta1
-      kind: Cluster
-      metadata:
-        name: "{{ .params.CLUSTER_NAME }}"
-        namespace: "{{ .params.NAMESPACE }}"
-      spec:
-        controlPlaneRef:
-          apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+    - content:
+        - apiVersion: gitops.weave.works/v1alpha1
+          kind: GitopsCluster
+          metadata:
+            name: "{{ .params.CLUSTER_NAME }}"
+            namespace: "{{ .params.NAMESPACE }}"
+            labels:
+              weave.works/capi: bootstrap
+          spec:
+            capiClusterRef:
+              name: "{{ .params.CLUSTER_NAME }}"
+        - apiVersion: cluster.x-k8s.io/v1beta1
+          kind: Cluster
+          metadata:
+            name: "{{ .params.CLUSTER_NAME }}"
+            namespace: "{{ .params.NAMESPACE }}"
+          spec:
+            controlPlaneRef:
+              apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+              kind: VCluster
+              name: "{{ .params.CLUSTER_NAME }}"
+            infrastructureRef:
+              apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+              kind: VCluster
+              name: "{{ .params.CLUSTER_NAME }}"
+        - apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
           kind: VCluster
-          name: "{{ .params.CLUSTER_NAME }}"
-        infrastructureRef:
-          apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
-          kind: VCluster
-          name: "{{ .params.CLUSTER_NAME }}"
-    - apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
-      kind: VCluster
-      metadata:
-        labels:
-          cluster.x-k8s.io/cluster-name: "{{ .params.CLUSTER_NAME }}"
-          k3s_version: "{{ $version := semver .params.K3S_VERSION }}{{ $version }}"
-          minor_k8s_version: '{{ $minorVersion := printf "%d.%d" $version.Major $version.Minor }}{{ $minorVersion }}'
-        name: "{{ .params.CLUSTER_NAME }}"
-        namespace: "{{ .params.NAMESPACE }}"
-      spec:
-        controlPlaneEndpoint:
-          host: "{{ .params.CLUSTER_NAME }}.turkey.local"
-          port: 443
-        kubernetesVersion: "{{ $minorVersion }}"
-        helmRelease:
-          values: |-
-            vcluster:
-              image: "rancher/k3s:{{ .params.K3S_VERSION }}"
-            syncer:
-              extraArgs:
-              - "--tls-san={{ .params.CLUSTER_NAME }}.turkey.local"
-            sync:
-              nodes:
-                enabled: true
-              persistentvolumes:
-                enabled: true
-              # If you want to create custom storage classes
-              # inside the vcluster.
-              storageclasses:
-                enabled: true
-              ingresses:
-                enabled: true
+          metadata:
+            labels:
+              cluster.x-k8s.io/cluster-name: "{{ .params.CLUSTER_NAME }}"
+              k3s_version: "{{ $version := semver .params.K3S_VERSION }}{{ $version }}"
+              minor_k8s_version: '{{ $minorVersion := printf "%d.%d" $version.Major $version.Minor }}{{ $minorVersion }}'
+            name: "{{ .params.CLUSTER_NAME }}"
+            namespace: "{{ .params.NAMESPACE }}"
+          spec:
+            controlPlaneEndpoint:
+              host: "{{ .params.CLUSTER_NAME }}.turkey.local"
+              port: 443
+            kubernetesVersion: "{{ $minorVersion }}"
+            helmRelease:
+              values: |-
+                vcluster:
+                  image: "rancher/k3s:{{ .params.K3S_VERSION }}"
+                syncer:
+                  extraArgs:
+                  - "--tls-san={{ .params.CLUSTER_NAME }}.turkey.local"
+                sync:
+                  nodes:
+                    enabled: true
+                  persistentvolumes:
+                    enabled: true
+                  # If you want to create custom storage classes
+                  # inside the vcluster.
+                  storageclasses:
+                    enabled: true
+                  ingresses:
+                    enabled: true
