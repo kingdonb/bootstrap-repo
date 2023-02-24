@@ -55,14 +55,14 @@ spec:
       metadata:
         labels:
           cluster.x-k8s.io/cluster-name: "{{ .params.CLUSTER_NAME }}"
+          k3s_version: "{{ $version := semver .params.K3S_VERSION }}"
+          minor_k8s_version: '{{ $minorVersion := cat $version.Major "." $version.Minor }}'
         name: "{{ .params.CLUSTER_NAME }}"
         namespace: "{{ .params.NAMESPACE }}"
       spec:
         controlPlaneEndpoint:
           host: "{{ .params.CLUSTER_NAME }}.turkey.local"
           port: 443
-# {{- $version := semver .params.K3S_VERSION -}}
-# {{- $minorVersion := cat $version.Major "." $version.Minor }}
         kubernetesVersion: "{{ $minorVersion | quote }}"
         helmRelease:
           values: |-
