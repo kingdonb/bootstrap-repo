@@ -4,3 +4,9 @@ resources:
   - ../../../clusters/management/capi/bootstrap/capi-vcluster-bootstrap-config.yaml
   - ../../../clusters/management/capi/templates/capv-template.yaml
   - ../../../clusters/management/capi/templates/capv-template-kubelogin.yaml
+  - ../../../clusters/management/flux-iuas/k3s-1-23-policy.yaml
+  - ../../../clusters/management/flux-iuas/k3s-1-24-policy.yaml
+  - ../../../clusters/management/flux-iuas/k3s-1-25-policy.yaml
+  - ../../../clusters/management/flux-iuas/k3s-1-26-policy.yaml
+  - ../../../clusters/management/flux-iuas/k3s-imagerepo.yaml
+  - ../../../clusters/management/flux-iuas/k3s-update.yaml
