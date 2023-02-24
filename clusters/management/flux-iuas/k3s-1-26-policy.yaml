@@ -1,0 +1,14 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: k3s-1-26
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: k3s
+  filterTags:
+    pattern: '^v1\.26\.[0-9]+-k3s[0-9]+$'
+  policy:
+    semver:
+      range: 1.26.x-0

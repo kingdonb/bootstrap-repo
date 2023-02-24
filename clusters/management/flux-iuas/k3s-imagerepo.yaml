@@ -1,0 +1,9 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: k3s
+  namespace: flux-system
+spec:
+  image: rancher/k3s
+  interval: 1h0m0s
