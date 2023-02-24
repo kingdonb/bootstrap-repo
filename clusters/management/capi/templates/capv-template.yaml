@@ -20,10 +20,10 @@ spec:
     - name: K3S_VERSION
       description: Kubernetes version to use for the cluster
       options:
-        - "rancher/k3s:v1.23.16-k3s1-s390x" # {"$imagepolicy": "flux-system:k3s-1-23"}
-        - "rancher/k3s:v1.24.10-k3s1-s390x" # {"$imagepolicy": "flux-system:k3s-1-24"}
-        - "rancher/k3s:v1.25.6-k3s1-s390x" # {"$imagepolicy": "flux-system:k3s-1-25"}
-        - "rancher/k3s:v1.26.1-k3s1-s390x" # {"$imagepolicy": "flux-system:k3s-1-26"}
+        - "rancher/k3s:v1.23.16-k3s1" # {"$imagepolicy": "flux-system:k3s-1-23"}
+        - "rancher/k3s:v1.24.10-k3s1" # {"$imagepolicy": "flux-system:k3s-1-24"}
+        - "rancher/k3s:v1.25.6-k3s1" # {"$imagepolicy": "flux-system:k3s-1-25"}
+        - "rancher/k3s:v1.26.1-k3s1" # {"$imagepolicy": "flux-system:k3s-1-26"}
   resourcetemplates:
     - content:
         - apiVersion: gitops.weave.works/v1alpha1
