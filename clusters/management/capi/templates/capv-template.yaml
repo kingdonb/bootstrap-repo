@@ -20,10 +20,10 @@ spec:
     - name: K3S_VERSION
       description: Kubernetes version to use for the cluster
       options:
-      - "v1.23.16-k3s1"
-      - "v1.24.10-k3s1"
-      - "v1.25.6-k3s1"
-      - "v1.26.1-k3s1"
+      - "v1.23.16-k3s1" # {"$imagepolicy": "flux-system:k3s-1-23"}
+      - "v1.24.10-k3s1" # {"$imagepolicy": "flux-system:k3s-1-24"}
+      - "v1.25.6-k3s1" # {"$imagepolicy": "flux-system:k3s-1-25"}
+      - "v1.26.1-k3s1" # {"$imagepolicy": "flux-system:k3s-1-26"}
   resourcetemplates:
   - content:
     - apiVersion: gitops.weave.works/v1alpha1
