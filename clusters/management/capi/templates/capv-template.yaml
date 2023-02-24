@@ -63,7 +63,7 @@ spec:
           port: 443
 # {{- $version := semver .params.K3S_VERSION -}}
 # {{- $minorVersion := cat $version.Major "." $version.Minor }}
-        kubernetesVersion: {{ $minorVersion | quote }}
+        kubernetesVersion: "{{ $minorVersion | quote }}"
         helmRelease:
           values: |-
             vcluster:
