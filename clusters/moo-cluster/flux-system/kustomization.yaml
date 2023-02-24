@@ -12,7 +12,29 @@ images: []
 #  - name: fluxcd/source-controller
 #    newName: fluxcd/source-controller
 #    newTag: rc-61941672
-patches: []
+patches:
+  - patch: |
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: helm-controller
+        namespace: flux-system
+      spec:
+        template:
+          spec:
+            containers:
+            - image: ghcr.io/fluxcd/helm-controller:rc-fed429bf
+              name: manager
+              args:
+                - --events-addr=http://notification-controller.flux-system.svc.cluster.local./
+                - --watch-all-namespaces=true
+                - --log-level=info
+                - --log-encoding=json
+                - --enable-leader-election
+                - --feature-gates=DetectDrift=True
+    target:
+      kind: Deployment
+      name: "helm-controller"
 #- patch: |
 #    - op: add
 #      path: /spec/template/spec/containers/0/env/0
