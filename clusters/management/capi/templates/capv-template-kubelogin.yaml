@@ -17,12 +17,13 @@ spec:
       description: This is used for the cluster naming.
     - name: NAMESPACE
       description: Namespace to create the cluster in
-    - name: KUBERNETES_VERSION
-      description: Kubernetes version to use for the cluster
-      options: ["1.23", "1.24", "1.25", "1.26"]
     - name: K3S_VERSION
       description: Kubernetes version to use for the cluster
-      options: ["v1.23.16-k3s1", "v1.24.10-k3s1", "v1.25.6-k3s1", "v1.26.1-k3s1"]
+      options:
+      - "v1.23.16-k3s1"
+      - "v1.24.10-k3s1"
+      - "v1.25.6-k3s1"
+      - "v1.26.1-k3s1"
   resourcetemplates:
   - content:
     - apiVersion: gitops.weave.works/v1alpha1
@@ -60,7 +61,9 @@ spec:
         controlPlaneEndpoint:
           host: "{{ .params.CLUSTER_NAME }}.turkey.local"
           port: 443
-        kubernetesVersion: "{{ .params.KUBERNETES_VERSION }}"
+{{- $version := semver .params.K3S_VERSION -}}
+{{- $minorVersion := cat $version.Major "." $version.Minor }}
+        kubernetesVersion: {{ $minorVersion | quote }}
         helmRelease:
           values: |-
             vcluster:
