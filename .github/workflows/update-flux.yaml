@@ -32,7 +32,7 @@ jobs:
             --export > ./clusters/moo-cluster/flux-system/gotk-components.yaml
           flux install --components-extra=image-reflector-controller,image-automation-controller \
             --export > ./clusters/hephy-staging/flux-system/gotk-components.yaml
-          flux install \
+          flux install --components-extra=image-reflector-controller,image-automation-controller \
             --export > ./clusters/howard-moomboo-space/flux-system/gotk-components.yaml
 
           VERSION="$(flux -v)"
