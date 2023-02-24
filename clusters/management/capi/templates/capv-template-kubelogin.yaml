@@ -61,8 +61,8 @@ spec:
         controlPlaneEndpoint:
           host: "{{ .params.CLUSTER_NAME }}.turkey.local"
           port: 443
-{{- $version := semver .params.K3S_VERSION -}}
-{{- $minorVersion := cat $version.Major "." $version.Minor }}
+# {{- $version := semver .params.K3S_VERSION -}}
+# {{- $minorVersion := cat $version.Major "." $version.Minor }}
         kubernetesVersion: {{ $minorVersion | quote }}
         helmRelease:
           values: |-
