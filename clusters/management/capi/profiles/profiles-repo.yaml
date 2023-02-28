@@ -1,0 +1,8 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: weaveworks-charts
+  namespace: flux-system
+spec:
+  interval: 10m
+  url: https://weaveworks.github.io/profiles-catalog/
