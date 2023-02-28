@@ -63,7 +63,7 @@ spec:
 
     config:
       cluster:
-        name: howard-moomboo-space
+        name: management
       oidc:
         enabled: true
         issuerURL: "https://dex.howard.moomboo.space"
