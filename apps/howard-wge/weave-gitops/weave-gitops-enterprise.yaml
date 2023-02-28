@@ -93,7 +93,7 @@ spec:
     #clustersService:
 
     policy-agent:
-      enabled: false
+      enabled: true
 
     enablePipelines: true
     pipeline-controller:
