@@ -14,25 +14,3 @@ patches:
       - op: add
         path: /spec/template/spec/containers/0/args/-
         value: --requeue-dependency=5s
-  - patch: |
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: helm-controller
-        namespace: flux-system
-      spec:
-        template:
-          spec:
-            containers:
-            - image: ghcr.io/fluxcd/helm-controller:rc-b68592c4
-              name: manager
-              args:
-                - --events-addr=http://notification-controller.flux-system.svc.cluster.local./
-                - --watch-all-namespaces=true
-                - --log-level=debug
-                - --log-encoding=json
-                - --enable-leader-election
-                - --feature-gates=DetectDrift=True
-    target:
-      kind: Deployment
-      name: "helm-controller"
