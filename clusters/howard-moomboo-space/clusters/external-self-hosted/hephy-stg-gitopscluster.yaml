@@ -1,11 +1,11 @@
-# apiVersion: gitops.weave.works/v1alpha1
-# kind: GitopsCluster
-# metadata:
-#   name: hephy-stg
-#   namespace: ext
-#   # Signals that this cluster should be bootstrapped.
-#   # labels:
-#   #   weave.works/capi: bootstrap
-# spec:
-#   secretRef:
-#     name: hephy-stg-kubeconfig
+apiVersion: gitops.weave.works/v1alpha1
+kind: GitopsCluster
+metadata:
+  name: hephy-stg
+  namespace: ext
+  # Signals that this cluster should be bootstrapped.
+  # labels:
+  #   weave.works/capi: bootstrap
+spec:
+  secretRef:
+    name: hephy-stg-kubeconfig

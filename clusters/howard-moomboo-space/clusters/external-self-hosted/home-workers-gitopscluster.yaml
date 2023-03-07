@@ -1,11 +1,11 @@
-# apiVersion: gitops.weave.works/v1alpha1
-# kind: GitopsCluster
-# metadata:
-#   name: home-workers
-#   namespace: ext
-#   # Signals that this cluster should be bootstrapped.
-#   # labels:
-#   #   weave.works/capi: bootstrap
-# spec:
-#   secretRef:
-#     name: home-workers-kubeconfig
+apiVersion: gitops.weave.works/v1alpha1
+kind: GitopsCluster
+metadata:
+  name: home-workers
+  namespace: ext
+  # Signals that this cluster should be bootstrapped.
+  # labels:
+  #   weave.works/capi: bootstrap
+spec:
+  secretRef:
+    name: home-workers-kubeconfig
