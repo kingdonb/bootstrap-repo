@@ -14,13 +14,13 @@ patches:
       - op: add
         path: /spec/template/spec/containers/0/args/-
         value: --requeue-dependency=5s
-          #  - target:
-          #      version: v1beta2
-          #      group: source.toolkit.fluxcd.io
-          #      kind: GitRepository
-          #      name: flux-system
-          #      namespace: flux-system
-          #    patch: |-
-          #      - op: replace
-          #        path: /spec/secretRef/name
-          #        value: my-app-secret
+  - target:
+      version: v1beta2
+      group: source.toolkit.fluxcd.io
+      kind: GitRepository
+      name: flux-system
+      namespace: flux-system
+    patch: |-
+      - op: replace
+        path: /spec/secretRef/name
+        value: my-app-secret
