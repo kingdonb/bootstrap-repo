@@ -2,3 +2,4 @@ resources:
   - default
   - test
   - vcluster
+  - flux-system
