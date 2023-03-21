@@ -13,6 +13,7 @@ spec:
         kind: GitRepository
         name: minecraft-public-chart
   interval: 30m0s
+  timeout: 2m0s
   releaseName: my-first-minecraft
   valuesFrom:
   - kind: Secret
