@@ -1,6 +1,0 @@
-resources:
-  - ../../../clusters/management/capi/bootstrap
-  - ../../../clusters/management/capi/profiles
-  - ../../../clusters/management/capi/templates
-  - ../../../clusters/management/flux-iuas
-  - ../../../clusters/management/pipelines
