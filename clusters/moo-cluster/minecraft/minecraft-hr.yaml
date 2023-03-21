@@ -24,7 +24,7 @@ spec:
     extraEnv:
       ENABLE_ROLLING_LOGS: true
       FORCE_WORLD_COPY: false
-      OVERRIDE_SERVER_PROPERTIES: true
+      # OVERRIDE_SERVER_PROPERTIES: true
     minecraftServer:
       downloadWorldUrl: null
       eula: true
