@@ -8,11 +8,11 @@ spec:
   interval: 10m0s
   timeout: 1m30s
   retryInterval: 1m0s
-  path: ./apps/howard-later
+  path: ./examples/weave-gitops-capi/howard-later
   prune: true
   wait: true
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: fleet-infra
   dependsOn:
     - name: weave-gitops
