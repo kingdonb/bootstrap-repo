@@ -34,6 +34,9 @@ patches:
       - op: add
         path: /spec/template/spec/containers/0/args/-
         value: --oom-watch-interval=500ms
+    target:
+      kind: Deployment
+      name: helm-controller
 #- patch: |
 #    - op: add
 #      path: /spec/template/spec/containers/0/env/0
