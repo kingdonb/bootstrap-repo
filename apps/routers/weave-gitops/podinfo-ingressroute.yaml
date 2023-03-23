@@ -1,0 +1,36 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: podinfo-insecure
+  namespace: traefik-production
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`podinfo.howard.moomboo.space`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: podinfo-http
+      namespace: podinfo-staging
+      port: 80
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: podinfo
+  namespace: traefik-production
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`podinfo.howard.moomboo.space`)
+    kind: Rule
+    services:
+    - kind: Service
+      name: podinfo
+      namespace: traefik-staging
+      port: 443
+  tls:
+    passthrough: true
