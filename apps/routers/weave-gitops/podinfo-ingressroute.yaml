@@ -17,7 +17,7 @@ spec:
       port: 80
 ---
 apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+kind: IngressRouteTCP
 metadata:
   name: podinfo
   namespace: traefik-production
@@ -25,11 +25,9 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`podinfo.howard.moomboo.space`)
-    kind: Rule
+  - match: HostSNI(`podinfo.howard.moomboo.space`)
     services:
-    - kind: Service
-      name: podinfo
+    - name: podinfo
       namespace: traefik-staging
       port: 443
   tls:
