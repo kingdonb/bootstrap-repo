@@ -13,7 +13,7 @@ spec:
     services:
     - kind: Service
       name: podinfo-http
-      namespace: podinfo-staging
+      namespace: traefik-staging
       port: 80
 ---
 apiVersion: traefik.containo.us/v1alpha1
