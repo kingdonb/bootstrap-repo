@@ -10,17 +10,17 @@ communications:
 settings:
     clusterName: ENC[AES256_GCM,data:9kVxd//evRHbwY0V,iv:jSP/8QlCI2cH3CPlwwf/HRgvDnqg11QSe3e2bFPm/Yk=,tag:Z6dT3/NNb7Eqdm1whDh0GA==,type:str]
 executors:
-    kubectl-read-only:
-        kubectl:
-            enabled: ENC[AES256_GCM,data:54mR5A==,iv:KsXwWkT9cWgz3C6QOst8OCMtICaqdkjNWgbKcvnU77w=,tag:mQAURihZqFrWww0WjiF9VA==,type:str]
+    k8s-default-tools:
+        botkube/kubectl:
+            enabled: ENC[AES256_GCM,data:Y8izcw==,iv:mzFExdTrkEFQO3CQJhCV7SX+NLFikPbPj+cW2DMpV8o=,tag:AqeMCTS/v4INuh0PWWiRTQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-01-21T15:32:17Z"
-    mac: ENC[AES256_GCM,data:jsZR6VUnsdtkeJx5sjH2Cee8vIaJKsmLx8Hd0xW7FLBNl6YVioXMKxVAypl+HO+JMXvoS+QWJO/EQB08PyTRbRRO9grGOL3ZsyGyozqbekPDcZkceoDLfetsWgoOh8VcYinnKun6ZBkq1oFV373z9CHzEry4uDDsphg4wgq2zYc=,iv:SVNa8DTwVpDSkvvD/R+DKl8M+S33NlLCl+/UR7svl2k=,tag:1Sk0enzYOERWoOAS8lNwPg==,type:str]
+    lastmodified: "2023-04-03T15:18:32Z"
+    mac: ENC[AES256_GCM,data:nmfGTn5ugV4V9ViN7YnXA4BbuhJYQ2dJwex04040GEtSCGVbpc/BPrxEe3Js4A2uFnakkZD0iF9/8fBqTU7XRPNWgmFVNKuirt62QNUTiZdCAXcprooxGog7ftgJYns8NOF7Ln2VMPZkzquulbFJSvXCsb8MZP6OvqglgbToYXc=,iv:oA8vxb53BX9uWyW/7SuwAcxtN2YChvZiIe2rjjGor34=,tag:kuDRj9J4EGO+9IqhxdP0IA==,type:str]
     pgp:
         - created_at: "2022-10-10T16:06:58Z"
           enc: |
