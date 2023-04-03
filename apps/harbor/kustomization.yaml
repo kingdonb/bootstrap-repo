@@ -4,4 +4,4 @@ namespace: harbor
 resources:
 - helmrelease.yaml
 - helmrepo.yaml
-# - harbor-ingress-stub.yaml
+- harbor-ingress-stub.yaml

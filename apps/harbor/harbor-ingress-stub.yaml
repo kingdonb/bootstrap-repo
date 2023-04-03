@@ -20,7 +20,7 @@ metadata:
   namespace: harbor
 spec:
   rules:
-  - host: img-retry.hephy.pro
+  - host: img.hephy.pro
     http:
       paths:
       - backend:
@@ -65,7 +65,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  - host: img.hephy.pro
+  - host: img-retry.hephy.pro
     http:
       paths:
       - backend:
