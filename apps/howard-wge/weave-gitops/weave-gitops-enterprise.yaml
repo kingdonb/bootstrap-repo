@@ -45,10 +45,15 @@ spec:
           paths:
             - path: /
               pathType: ImplementationSpecific
+        - host: "mccp-fix.howard.moomboo.space"
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
       tls:
        - secretName: mccp-howard-tls
          hosts:
            - mccp.howard.moomboo.space
+           - mccp-fix.howard.moomboo.space
 
     # -- Configure TLS settings if needed
     tls:
