@@ -6,7 +6,7 @@ spec:
   chart:
     spec:
       sourceRef:
-        kind: GitRepository
+        kind: HelmRepository
         name: hephy-workflow-beta
         namespace: deis
       version: ^2.24.0-0
