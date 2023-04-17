@@ -2,7 +2,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: teamhephy
+  name: hephy-workflow-beta
   namespace: deis
 spec:
   interval: 10m0s
