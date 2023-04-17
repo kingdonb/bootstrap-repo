@@ -8,7 +8,7 @@ spec:
       chart: minio
       sourceRef:
         kind: HelmRepository
-        name: teamhephy
+        name: hephy-workflow-beta
         namespace: deis
       version: v2.4.5
   interval: 15m15s
