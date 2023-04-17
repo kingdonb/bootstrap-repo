@@ -6,4 +6,5 @@ metadata:
   namespace: deis
 spec:
   interval: 10m0s
-  url: https://charts.teamhephy.com
+  type: oci
+  url: oci://ghcr.io/kingdonb/hephy-workflow-beta
