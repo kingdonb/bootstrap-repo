@@ -7,8 +7,6 @@ metadata:
 spec:
   type: oci
   interval: 1m0s
-  ref:
-    branch: main
   url: oci://ghcr.io/kingdonb/hephy-workflow-beta
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
