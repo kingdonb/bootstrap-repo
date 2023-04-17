@@ -6,7 +6,7 @@ spec:
   chart:
     spec:
       chart: minio
-      interval: 1m0s
+      interval: 10m0s
       sourceRef:
         kind: HelmRepository
         name: hephy-workflow-beta
