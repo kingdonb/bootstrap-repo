@@ -11,7 +11,7 @@ spec:
         kind: HelmRepository
         name: hephy-workflow-beta
         namespace: deis
-      version: v2.4.5
+      version: 2.4.5
   interval: 15m15s
   timeout: 10m0s
   storageNamespace: minio-stage
