@@ -10,6 +10,7 @@ spec:
   summary: Internal (staging) cluster ROOT events
   exclusionList:
     - '^Dependencies do not meet ready condition, retrying in \d+s$'
+    - '.*skipped$'
   eventSources:
     - kind: GitRepository
       name: '*'
