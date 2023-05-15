@@ -9,7 +9,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: harbor
-      version: 1.11.0
+      version: 1.12.0
   interval: 15m15s
   timeout: 5m0s
   # dependsOn:
