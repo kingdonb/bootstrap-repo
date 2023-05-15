@@ -1,14 +1,14 @@
-# apiVersion: cert-manager.io/v1
-# kind: ClusterIssuer
-# metadata:
-#   name: letsencrypt-production
-# spec:
-#   acme:
-#     email: acme@teamhephy.info
-#     server: https://acme-v02.api.letsencrypt.org/directory
-#     privateKeySecretRef:
-#       name: production-clusterissuer-account-key
-#     solvers:
-#     - http01:
-#        ingress:
-#          class: public
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+spec:
+  acme:
+    email: acme@teamhephy.info
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: production-clusterissuer-account-key
+    solvers:
+    - http01:
+       ingress:
+         class: public
