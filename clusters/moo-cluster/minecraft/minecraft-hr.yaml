@@ -5,7 +5,7 @@ metadata:
   name: my-first-minecraft
   namespace: minecraft
 spec:
-  suspend: false
+  suspend: true
   chart:
     spec:
       chart: charts/minecraft
