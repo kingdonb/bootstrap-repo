@@ -1,0 +1,24 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: howard-examples
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  timeout: 1m30s
+  retryInterval: 1m0s
+  path: ./clusters/howard-moomboo-space/examples
+  prune: true
+  wait: true
+  serviceAccountName: kustomize-controller
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  # decryption:
+  #   provider: sops
+  #   secretRef:
+  #     name: sops-gpg
+  dependsOn:
+    - name: my-secrets
+    - name: howard-infra
