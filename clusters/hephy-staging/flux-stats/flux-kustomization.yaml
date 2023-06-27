@@ -32,3 +32,11 @@ spec:
                         number: 80
                   path: /
                   pathType: Prefix
+    - target:
+        kind: CronJob
+        name: stats-tracker-ghcr
+        namespace: default
+      patch: |-
+        - op: add
+          path: /spec/suspend
+          value: true
