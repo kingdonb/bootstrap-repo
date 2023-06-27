@@ -1,0 +1,12 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: stats-prod
+  namespace: default
+spec:
+  interval: 1m0s
+  provider: generic
+  ref:
+    semver: ^0.1.1
+  url: oci://ghcr.io/kingdonb/manifests/stats-tracker
