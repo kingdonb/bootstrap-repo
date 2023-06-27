@@ -10,3 +10,5 @@ spec:
   ref:
     semver: ^0.1.1
   url: oci://ghcr.io/kingdonb/manifests/stats-tracker
+  verify:
+    provider: cosign
