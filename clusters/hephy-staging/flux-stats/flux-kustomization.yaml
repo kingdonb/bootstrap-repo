@@ -39,4 +39,4 @@ spec:
       patch: |-
         - op: add
           path: /spec/suspend
-          value: true
+          value: false
