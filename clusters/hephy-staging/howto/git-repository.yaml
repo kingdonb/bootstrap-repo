@@ -8,7 +8,7 @@ spec:
   interval: 1m0s
   ref:
     branch: dev-branch
-  secretRef:
-    name: example-kubeconfig-git-ssh
-  url: ssh://git@github.com/kingdon-ci/example-kubeconfig.git
+  # secretRef:
+  #   name: example-kubeconfig-git-ssh
+  url: https://github.com/kingdon-ci/example-kubeconfig.git
 
