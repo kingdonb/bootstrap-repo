@@ -10,7 +10,7 @@ spec:
   retryInterval: 2m0s
   path: ./examples/weave-gitops-capi/howard-later
   prune: true
-  wait: true
+  wait: false
   sourceRef:
     kind: GitRepository
     name: fleet-infra
