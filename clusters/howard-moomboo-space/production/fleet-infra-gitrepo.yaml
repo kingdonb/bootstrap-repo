@@ -9,5 +9,5 @@ spec:
   ref:
     branch: main
   secretRef:
-    name: github-client
+    name: my-app-secret
   url: https://github.com/kingdon-ci/fleet-infra
