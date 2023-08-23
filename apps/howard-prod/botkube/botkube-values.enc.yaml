@@ -1,47 +1,47 @@
-# communications:
-#     default-group:
-#         socketSlack:
-#             enabled: ENC[AES256_GCM,data:0eYddQ==,iv:y/h01eX2B6WFma+oogE5zToT8h8g1IHzQWtMBP80/Vc=,tag:m3BrwPq7W9Yn7ydSsrHWQQ==,type:str]
-#             channels:
-#                 default:
-#                     name: ENC[AES256_GCM,data:QgIQIWgZ1rQ=,iv:nTLN57yP+vVG8u2wij0+cVr/N2MPdWnKv+qztMXNxCM=,tag:BhRKHJwgGfERRTForpYc/w==,type:str]
-#             appToken: ENC[AES256_GCM,data:U5H7RIb5UjLpdW8PiReckcDEx+8CKkQYkklcaphFmIRU/wL3OIw4jjj5GzReNCHLf7cqNNdxlHUTtLB1pZ8AkcB17H/gr07bYMY/GJUNS38VCBHCmvj13HUCOgEw4eOSCg==,iv:luhPAw+KEB2X9nQCmVe+wfqWbnvK6xICoGhiZ7lx6Fg=,tag:k2EIpzanWCcwlQlXh9yp8w==,type:str]
-#             botToken: ENC[AES256_GCM,data:v5rzfEAmu8C4F1fgQoTh7CCQ29dL0ATer/AjH6KLmlJvE5aB7J1eemDpsbXL857JGMCgOHM23M4=,iv:H5jJuAaCOdt6Z/rGxspWNn+z6vxkk3X2PE1UMrQeK/w=,tag:oNUvg8lvTU49RtpJfleutQ==,type:str]
-# settings:
-#     clusterName: ENC[AES256_GCM,data:9kVxd//evRHbwY0V,iv:jSP/8QlCI2cH3CPlwwf/HRgvDnqg11QSe3e2bFPm/Yk=,tag:Z6dT3/NNb7Eqdm1whDh0GA==,type:str]
-# executors:
-#     k8s-default-tools:
-#         botkube/kubectl:
-#             enabled: ENC[AES256_GCM,data:Y8izcw==,iv:mzFExdTrkEFQO3CQJhCV7SX+NLFikPbPj+cW2DMpV8o=,tag:AqeMCTS/v4INuh0PWWiRTQ==,type:str]
-# sops:
-#     kms: []
-#     gcp_kms: []
-#     azure_kv: []
-#     hc_vault: []
-#     age: []
-#     lastmodified: "2023-04-03T15:18:32Z"
-#     mac: ENC[AES256_GCM,data:nmfGTn5ugV4V9ViN7YnXA4BbuhJYQ2dJwex04040GEtSCGVbpc/BPrxEe3Js4A2uFnakkZD0iF9/8fBqTU7XRPNWgmFVNKuirt62QNUTiZdCAXcprooxGog7ftgJYns8NOF7Ln2VMPZkzquulbFJSvXCsb8MZP6OvqglgbToYXc=,iv:oA8vxb53BX9uWyW/7SuwAcxtN2YChvZiIe2rjjGor34=,tag:kuDRj9J4EGO+9IqhxdP0IA==,type:str]
-#     pgp:
-#         - created_at: "2022-10-10T16:06:58Z"
-#           enc: |
-#             -----BEGIN PGP MESSAGE-----
-# 
-#             hQIMA8Mjj0ahSlwgAQ/+LM2fMnVR1rP94XwGtMsPXn5C7LuYqy0LP6FjW7CxeO8x
-#             VIoiFaYH/ObzK0lf7Ij2D7o9EmVKzLIgMyQ/1wbYojx7M5rZuLaUZOXuuxWpCX9u
-#             ayjaxkibLRPlb/f4x0Zjq2cMnhQOiQu+B4qMWK29vDRcV5Aav0lgjZaESXAOAz28
-#             +M7xjpIn5XmctD/Cgz53KP0KGmlKKUTVQ07HvbN55vi74Q+LbwccV+Ex6o/3wgfa
-#             jXBo+lJLOpD0DWleC3aAHu8PB2IzRyZdUhtfKanJWFfzuiLmQn9YVVv9aihf6Z+g
-#             RXS+vvmH3AKADJtaxIyoCNkVz4DqOUAQTFshDghUKxSwB0Td/QLkoy1jAekVnmUx
-#             JOmDwaUO7THIvP0phMG/JvB5sF6kkhNMxuZOdqVE3PbA2JK3p/QGa2QezHQ6Rbeo
-#             QDBBaW0kouEaIlThXekmMHsIFGLLnyCz6NnZSKzlMUFhoxBwf53P4/x6Ok0D9ILH
-#             MkPfO2p/nznoIKPNHCqrr5ZWV74uJurDxm/oI73u60UDnmOVaoTDPCv3PJwSIfGb
-#             63gAXtAjgp9HcW+961v/IEcxtxkTXN3Va/v0JkFAUsehYIaRQuqXtNzRKXQRw5xd
-#             Ekghu6q0qtCp6mjOphfjnxlCgUaBRPff88hky50cEU5wQiWDJGzujXB9E8vfZxPU
-#             aAEJAhDBXbpudh8Yn4TFXd3VZtAR3POIUzA0pZ3QGVuK4/bFDKWv0DFbFFtPx7dU
-#             1+YoPOB/b2B2eA0S9eobphrM4qHia1tuRNft5YM9752PqQUqOCiW7ZofF3W5UTUQ
-#             cX5YBVDMlKR9
-#             =uQlE
-#             -----END PGP MESSAGE-----
-#           fp: 4524E49D3C40FB2D0E130205C769E1FE14ADE97A
-#     unencrypted_suffix: _unencrypted
-#     version: 3.7.3
+communications:
+    default-group:
+        socketSlack:
+            enabled: ENC[AES256_GCM,data:0eYddQ==,iv:y/h01eX2B6WFma+oogE5zToT8h8g1IHzQWtMBP80/Vc=,tag:m3BrwPq7W9Yn7ydSsrHWQQ==,type:str]
+            channels:
+                default:
+                    name: ENC[AES256_GCM,data:QgIQIWgZ1rQ=,iv:nTLN57yP+vVG8u2wij0+cVr/N2MPdWnKv+qztMXNxCM=,tag:BhRKHJwgGfERRTForpYc/w==,type:str]
+            appToken: ENC[AES256_GCM,data:U5H7RIb5UjLpdW8PiReckcDEx+8CKkQYkklcaphFmIRU/wL3OIw4jjj5GzReNCHLf7cqNNdxlHUTtLB1pZ8AkcB17H/gr07bYMY/GJUNS38VCBHCmvj13HUCOgEw4eOSCg==,iv:luhPAw+KEB2X9nQCmVe+wfqWbnvK6xICoGhiZ7lx6Fg=,tag:k2EIpzanWCcwlQlXh9yp8w==,type:str]
+            botToken: ENC[AES256_GCM,data:v5rzfEAmu8C4F1fgQoTh7CCQ29dL0ATer/AjH6KLmlJvE5aB7J1eemDpsbXL857JGMCgOHM23M4=,iv:H5jJuAaCOdt6Z/rGxspWNn+z6vxkk3X2PE1UMrQeK/w=,tag:oNUvg8lvTU49RtpJfleutQ==,type:str]
+settings:
+    clusterName: ENC[AES256_GCM,data:9kVxd//evRHbwY0V,iv:jSP/8QlCI2cH3CPlwwf/HRgvDnqg11QSe3e2bFPm/Yk=,tag:Z6dT3/NNb7Eqdm1whDh0GA==,type:str]
+executors:
+    k8s-default-tools:
+        botkube/kubectl:
+            enabled: ENC[AES256_GCM,data:Y8izcw==,iv:mzFExdTrkEFQO3CQJhCV7SX+NLFikPbPj+cW2DMpV8o=,tag:AqeMCTS/v4INuh0PWWiRTQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-04-03T15:18:32Z"
+    mac: ENC[AES256_GCM,data:nmfGTn5ugV4V9ViN7YnXA4BbuhJYQ2dJwex04040GEtSCGVbpc/BPrxEe3Js4A2uFnakkZD0iF9/8fBqTU7XRPNWgmFVNKuirt62QNUTiZdCAXcprooxGog7ftgJYns8NOF7Ln2VMPZkzquulbFJSvXCsb8MZP6OvqglgbToYXc=,iv:oA8vxb53BX9uWyW/7SuwAcxtN2YChvZiIe2rjjGor34=,tag:kuDRj9J4EGO+9IqhxdP0IA==,type:str]
+    pgp:
+        - created_at: "2022-10-10T16:06:58Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA8Mjj0ahSlwgAQ/+LM2fMnVR1rP94XwGtMsPXn5C7LuYqy0LP6FjW7CxeO8x
+            VIoiFaYH/ObzK0lf7Ij2D7o9EmVKzLIgMyQ/1wbYojx7M5rZuLaUZOXuuxWpCX9u
+            ayjaxkibLRPlb/f4x0Zjq2cMnhQOiQu+B4qMWK29vDRcV5Aav0lgjZaESXAOAz28
+            +M7xjpIn5XmctD/Cgz53KP0KGmlKKUTVQ07HvbN55vi74Q+LbwccV+Ex6o/3wgfa
+            jXBo+lJLOpD0DWleC3aAHu8PB2IzRyZdUhtfKanJWFfzuiLmQn9YVVv9aihf6Z+g
+            RXS+vvmH3AKADJtaxIyoCNkVz4DqOUAQTFshDghUKxSwB0Td/QLkoy1jAekVnmUx
+            JOmDwaUO7THIvP0phMG/JvB5sF6kkhNMxuZOdqVE3PbA2JK3p/QGa2QezHQ6Rbeo
+            QDBBaW0kouEaIlThXekmMHsIFGLLnyCz6NnZSKzlMUFhoxBwf53P4/x6Ok0D9ILH
+            MkPfO2p/nznoIKPNHCqrr5ZWV74uJurDxm/oI73u60UDnmOVaoTDPCv3PJwSIfGb
+            63gAXtAjgp9HcW+961v/IEcxtxkTXN3Va/v0JkFAUsehYIaRQuqXtNzRKXQRw5xd
+            Ekghu6q0qtCp6mjOphfjnxlCgUaBRPff88hky50cEU5wQiWDJGzujXB9E8vfZxPU
+            aAEJAhDBXbpudh8Yn4TFXd3VZtAR3POIUzA0pZ3QGVuK4/bFDKWv0DFbFFtPx7dU
+            1+YoPOB/b2B2eA0S9eobphrM4qHia1tuRNft5YM9752PqQUqOCiW7ZofF3W5UTUQ
+            cX5YBVDMlKR9
+            =uQlE
+            -----END PGP MESSAGE-----
+          fp: 4524E49D3C40FB2D0E130205C769E1FE14ADE97A
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
