@@ -96,33 +96,33 @@ patchesStrategicMerge:
     namespace: flux-system
   spec:
     interval: 1m
-    patches:
-    - target:
-        version: v1
-        group: apps
-        kind: Deployment
-        name: notification-controller
-        namespace: flux-system
-      patch: |-
-        - op: add
-          path: /spec/template/spec/containers/0/args/-
-          value: --rate-limit-interval=10s
-    - target:
-        version: v1
-        group: apps
-        kind: Deployment
-        name: kustomize-controller
-        namespace: flux-system
-      patch: |-
-        - op: add
-          path: /spec/template/spec/containers/0/args/-
-          value: --requeue-dependency=3s
-        - op: add
-          path: /spec/template/spec/containers/0/args/0
-          value: --concurrent=6
-        - op: replace
-          path: /spec/template/spec/containers/0/resources/limits/cpu
-          value: "2"
-        - op: replace
-          path: /spec/template/spec/containers/0/resources/limits/memory
-          value: "2Gi"
+      #     patches:
+      #     - target:
+      #         version: v1
+      #         group: apps
+      #         kind: Deployment
+      #         name: notification-controller
+      #         namespace: flux-system
+      #       patch: |-
+      #         - op: add
+      #           path: /spec/template/spec/containers/0/args/-
+      #           value: --rate-limit-interval=10s
+      #     - target:
+      #         version: v1
+      #         group: apps
+      #         kind: Deployment
+      #         name: kustomize-controller
+      #         namespace: flux-system
+      #       patch: |-
+      #         - op: add
+      #           path: /spec/template/spec/containers/0/args/-
+      #           value: --requeue-dependency=3s
+      #         - op: add
+      #           path: /spec/template/spec/containers/0/args/0
+      #           value: --concurrent=6
+      #         - op: replace
+      #           path: /spec/template/spec/containers/0/resources/limits/cpu
+      #           value: "2"
+      #         - op: replace
+      #           path: /spec/template/spec/containers/0/resources/limits/memory
+      #           value: "2Gi"
