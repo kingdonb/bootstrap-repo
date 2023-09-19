@@ -1,0 +1,3 @@
+namespace: vcluster-howard-moomboo-stage
+resources:
+- ../../basic

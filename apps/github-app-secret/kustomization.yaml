@@ -2,4 +2,5 @@ resources:
   - default
   - test
   - vcluster
+  - vcluster-howard-moomboo-stage
   - flux-system
