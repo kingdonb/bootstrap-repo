@@ -58,6 +58,11 @@ spec:
             metadata:
               name: deis-logger-fluentd
             "$patch": delete
+          - kind: StatefulSet
+            apiVersion: apps/v1
+            metadata:
+              name: deis-logger-redis
+            "$patch": delete
           - kind: Deployment
             apiVersion: apps/v1
             metadata:
@@ -97,7 +102,7 @@ spec:
     controller:
       platform_domain: deis.hephy.pro
     global:
-      experimental_native_ingress: true
+      use_native_ingress: true
       use_cni: true
       gunicorn_workers: 5
       database_location: off-cluster
