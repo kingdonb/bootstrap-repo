@@ -61,11 +61,6 @@ spec:
           - kind: Deployment
             apiVersion: apps/v1
             metadata:
-              name: deis-logger-redis
-            "$patch": delete
-          - kind: Deployment
-            apiVersion: apps/v1
-            metadata:
               name: deis-logger
             "$patch": delete
           - kind: DaemonSet
