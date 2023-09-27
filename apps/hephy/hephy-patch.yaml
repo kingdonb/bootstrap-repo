@@ -48,21 +48,21 @@ spec:
               name: deis-builder
             spec:
               loadBalancerIP: 10.17.12.205        # deis-builder.nerdland.local
-          - kind: StatefulSet
-            apiVersion: apps/v1
-            metadata:
-              name: deis-nsqd
-            "$patch": delete
+          # - kind: StatefulSet
+          #   apiVersion: apps/v1
+          #   metadata:
+          #     name: deis-nsqd
+          #   "$patch": delete
           - kind: DaemonSet
             apiVersion: apps/v1
             metadata:
               name: deis-logger-fluentd
             "$patch": delete
-          - kind: StatefulSet
-            apiVersion: apps/v1
-            metadata:
-              name: deis-logger-redis
-            "$patch": delete
+          # - kind: StatefulSet
+          #   apiVersion: apps/v1
+          #   metadata:
+          #     name: deis-logger-redis
+          #   "$patch": delete
           - kind: Deployment
             apiVersion: apps/v1
             metadata:
