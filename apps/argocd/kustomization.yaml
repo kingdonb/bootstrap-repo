@@ -1,23 +1,23 @@
-# apiVersion: kustomize.config.k8s.io/v1beta1
-# kind: Kustomization
-# namespace: argocd
-# resources:
-# # Flamingo (Flux Subsystem for Argo)
-#   - https://github.com/chanwit/flamingo//release?ref=v2.2.8-fl.0-main-3cefc21e
-# # See: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/
-#   - argocd-ingress.yaml
-#   - argocd-ingressroute.yaml
-#   - argocd-service-endpoints.yaml
-# # A Flux Kustomization in ArgoCD is instantiated with a matching Application
-#   - apps
-# patchesStrategicMerge:
-# - |-  # The certificate is already captured in /certificates/moo-cluster
-#   apiVersion: v1
-#   kind: Secret
-#   metadata:
-#     name: argocd-secret
-#   $patch: delete
-# images:
-#   - name: ghcr.io/chanwit/flamingo/argocd
-#     newName: ghcr.io/flux-subsystem-argo/fsa/argocd
-#     newTag: v2.2.8-fl.0-main-3cefc21e
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: argocd
+resources:
+# Flamingo (Flux Subsystem for Argo)
+  - https://github.com/chanwit/flamingo//release?ref=v2.2.8-fl.0-main-3cefc21e
+# See: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/
+  - argocd-ingress.yaml
+  - argocd-ingressroute.yaml
+  - argocd-service-endpoints.yaml
+# A Flux Kustomization in ArgoCD is instantiated with a matching Application
+  - apps
+patchesStrategicMerge:
+- |-  # The certificate is already captured in /certificates/moo-cluster
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: argocd-secret
+  $patch: delete
+images:
+  - name: ghcr.io/chanwit/flamingo/argocd
+    newName: ghcr.io/flux-subsystem-argo/fsa/argocd
+    newTag: v2.2.8-fl.0-main-3cefc21e
