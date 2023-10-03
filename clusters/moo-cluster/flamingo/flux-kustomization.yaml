@@ -1,20 +1,20 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: 95-flamingo
-  namespace: argocd
-spec:
-  interval: 60m0s
-  retryInterval: 3m10s
-  timeout: 3m0s
-  sourceRef:
-    kind: GitRepository
-    name: flux-sync
-    namespace: flux-system
-  #dependsOn:
-  #  - name: 30-ingress-nginx
-  #    namespace: ingress-nginx
-  path: ./apps/argocd
-  prune: true
- #wait: false
- #suspend: false
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: 95-flamingo
+#   namespace: argocd
+# spec:
+#   interval: 60m0s
+#   retryInterval: 3m10s
+#   timeout: 3m0s
+#   sourceRef:
+#     kind: GitRepository
+#     name: flux-sync
+#     namespace: flux-system
+#   #dependsOn:
+#   #  - name: 30-ingress-nginx
+#   #    namespace: ingress-nginx
+#   path: ./apps/argocd
+#   prune: true
+#  #wait: false
+#  #suspend: false
