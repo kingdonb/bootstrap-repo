@@ -101,6 +101,7 @@ spec:
          #   #   ingressClassName: internal
   values:
     controller:
+      ingress_class: internal
       platform_domain: deis.hephy.pro
     global:
       use_native_ingress: true
