@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kustomize.toolkit.fluxcd.io/ssa: merge
+  name: coredns
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      k8s-app: kube-dns
+  template:
+    metadata:
+      labels:
+        k8s-app: kube-dns
+    spec:
+      containers:
+      - name: coredns
+        image: coredns/coredns
+        imagePullPolicy: Always
+        securityContext:
+          allowPrivilegeEscalation: true
+          capabilities:
+            drop:
+            # Everything but NET_BIND_SERVICE
+            - SETPCAP
+            - MKNOD
+            - AUDIT_WRITE
+            - CHOWN
+            - NET_RAW
+            - DAC_OVERRIDE
+            - FOWNER
+            - FSETID
+            - KILL
+            - SETGID
+            - SETUID
+            - SYS_CHROOT
+            - SETFCAP
