@@ -65,53 +65,53 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-          #   - host: img-retry.hephy.pro
-          #     http:
-          #       paths:
-          #       - backend:
-          #           service:
-          #             name: harbor-core
-          #             port:
-          #               number: 80
-          #         path: /api/
-          #         pathType: Prefix
-          #       - backend:
-          #           service:
-          #             name: harbor-core
-          #             port:
-          #               number: 80
-          #         path: /service/
-          #         pathType: Prefix
-          #       - backend:
-          #           service:
-          #             name: harbor-core
-          #             port:
-          #               number: 80
-          #         path: /v2/
-          #         pathType: Prefix
-          #       - backend:
-          #           service:
-          #             name: harbor-core
-          #             port:
-          #               number: 80
-          #         path: /chartrepo/
-          #         pathType: Prefix
-          #       - backend:
-          #           service:
-          #             name: harbor-core
-          #             port:
-          #               number: 80
-          #         path: /c/
-          #         pathType: Prefix
-          #       - backend:
-          #           service:
-          #             name: harbor-portal
-          #             port:
-          #               number: 80
-          #         path: /
-          #         pathType: Prefix
+   - host: img-retry.hephy.pro
+     http:
+       paths:
+       - backend:
+           service:
+             name: harbor-core
+             port:
+               number: 80
+         path: /api/
+         pathType: Prefix
+       - backend:
+           service:
+             name: harbor-core
+             port:
+               number: 80
+         path: /service/
+         pathType: Prefix
+       - backend:
+           service:
+             name: harbor-core
+             port:
+               number: 80
+         path: /v2/
+         pathType: Prefix
+       - backend:
+           service:
+             name: harbor-core
+             port:
+               number: 80
+         path: /chartrepo/
+         pathType: Prefix
+       - backend:
+           service:
+             name: harbor-core
+             port:
+               number: 80
+         path: /c/
+         pathType: Prefix
+       - backend:
+           service:
+             name: harbor-portal
+             port:
+               number: 80
+         path: /
+         pathType: Prefix
   tls:
   - hosts:
     - img.hephy.pro
-      # - img-retry.hephy.pro
+    - img-retry.hephy.pro
     secretName: harbor-ingress
