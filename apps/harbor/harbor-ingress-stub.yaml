@@ -2,6 +2,7 @@
 # Flip img.hephy.pro internal DNS CNAME from harbor-lb.hephy.pro (shadowed)
 # to nginx-dmz.turkey.local (NOT harbor-lb.turkey.local! this is to reach cert-manager's ingress stub, which uses the dmz on moo-cluster!)
 # (then remember to change it back, once the cert renewal succeeded 👍)
+# And remember to restart the harbor-nginx pod, or it will not reflect the update!
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
