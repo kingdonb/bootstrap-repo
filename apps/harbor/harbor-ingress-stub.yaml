@@ -1,6 +1,6 @@
 # This resource is kept around so that the SSL Cert renewal can be attempted
 # Flip img.hephy.pro internal DNS CNAME from harbor-lb.hephy.pro (shadowed)
-# to nginx-dmz.turkey.local
+# to nginx-dmz.turkey.local (NOT harbor-lb.turkey.local! this is to reach cert-manager's ingress stub, which uses the dmz on moo-cluster!)
 # (then remember to change it back, once the cert renewal succeeded 👍)
 apiVersion: networking.k8s.io/v1
 kind: Ingress
