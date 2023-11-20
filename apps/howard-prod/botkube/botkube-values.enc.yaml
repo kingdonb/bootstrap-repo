@@ -7,6 +7,8 @@ communications:
                     name: ENC[AES256_GCM,data:QgIQIWgZ1rQ=,iv:nTLN57yP+vVG8u2wij0+cVr/N2MPdWnKv+qztMXNxCM=,tag:BhRKHJwgGfERRTForpYc/w==,type:str]
             appToken: ENC[AES256_GCM,data:U5H7RIb5UjLpdW8PiReckcDEx+8CKkQYkklcaphFmIRU/wL3OIw4jjj5GzReNCHLf7cqNNdxlHUTtLB1pZ8AkcB17H/gr07bYMY/GJUNS38VCBHCmvj13HUCOgEw4eOSCg==,iv:luhPAw+KEB2X9nQCmVe+wfqWbnvK6xICoGhiZ7lx6Fg=,tag:k2EIpzanWCcwlQlXh9yp8w==,type:str]
             botToken: ENC[AES256_GCM,data:v5rzfEAmu8C4F1fgQoTh7CCQ29dL0ATer/AjH6KLmlJvE5aB7J1eemDpsbXL857JGMCgOHM23M4=,iv:H5jJuAaCOdt6Z/rGxspWNn+z6vxkk3X2PE1UMrQeK/w=,tag:oNUvg8lvTU49RtpJfleutQ==,type:str]
+analytics:
+    disable: ENC[AES256_GCM,data:/mwbhQ==,iv:dUsn4tRrMBvUpYaLuseKgOjO+5w007Vto+CH4iAvbUs=,tag:hBUzbQYRSBpLTnE6LYmzAw==,type:bool]
 settings:
     clusterName: ENC[AES256_GCM,data:9kVxd//evRHbwY0V,iv:jSP/8QlCI2cH3CPlwwf/HRgvDnqg11QSe3e2bFPm/Yk=,tag:Z6dT3/NNb7Eqdm1whDh0GA==,type:str]
 executors:
@@ -19,8 +21,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-04-03T15:18:32Z"
-    mac: ENC[AES256_GCM,data:nmfGTn5ugV4V9ViN7YnXA4BbuhJYQ2dJwex04040GEtSCGVbpc/BPrxEe3Js4A2uFnakkZD0iF9/8fBqTU7XRPNWgmFVNKuirt62QNUTiZdCAXcprooxGog7ftgJYns8NOF7Ln2VMPZkzquulbFJSvXCsb8MZP6OvqglgbToYXc=,iv:oA8vxb53BX9uWyW/7SuwAcxtN2YChvZiIe2rjjGor34=,tag:kuDRj9J4EGO+9IqhxdP0IA==,type:str]
+    lastmodified: "2023-11-20T16:59:36Z"
+    mac: ENC[AES256_GCM,data:OThvKipkpA0u5+euSwIy3nEKKQUcASO/3EgmUd85/YIjMesGpehn0R5AC9by3FSUke3J6ffAtuI4YsdhiwUPuvuK5kFvZ/io57QxfuJj6i5AfsWXhNSDfI9hJUQJLAPHwWD96WT40DljBceJ0Q1fQQGc7EmTXyBTjVk7bJzHh6o=,iv:1JaIIkOwxNy40qGbQUmWX+F+sJ4WAIZWncbBY//Rg8o=,tag:7dJiAmXAfqH8p66AlmtpDg==,type:str]
     pgp:
         - created_at: "2022-10-10T16:06:58Z"
           enc: |
@@ -44,4 +46,4 @@ sops:
             -----END PGP MESSAGE-----
           fp: 4524E49D3C40FB2D0E130205C769E1FE14ADE97A
     unencrypted_suffix: _unencrypted
-    version: 3.7.3
+    version: 3.8.1
