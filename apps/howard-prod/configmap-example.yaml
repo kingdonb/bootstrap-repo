@@ -4,4 +4,4 @@ metadata:
   name: foobar-prod
   namespace: default
 data:
-  TEXT: example
+  TEXT: something
