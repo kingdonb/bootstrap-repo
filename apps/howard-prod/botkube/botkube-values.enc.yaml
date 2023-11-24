@@ -19,14 +19,20 @@ plugins:
     repositories:
         botkube:
             url: ENC[AES256_GCM,data:SsXWUIy8DvMQ80vJZKOZsEGMLs3t9hC+/NN6x0yvWjJA/0m2Tzbzp5RB8SDn0j6zzdnGKE2YlJgxnyVnA1Y+Rd5ZpS+pO+1pCGdF7YKnZA==,iv:uazpLWlOjEQzptG16fD8/jRI8WNM+drO/GFjesUg2C8=,tag:kGtH11w1nKjVV0JyLSHVsg==,type:str]
+sources:
+    github:
+        botkube/github-events:
+            enabled: ENC[AES256_GCM,data:fqehMQ==,iv:qbOcMOMKyffcdiH8AwkqR65J8SBlteNEw1xX2ufA/tg=,tag:XHIzFQt4IuMVpzXjj43ElQ==,type:bool]
+        botkube/flux:
+            enabled: ENC[AES256_GCM,data:Jm5sMg==,iv:Yjza68hyRRC7MguTxz29m3+uT+X9glxYm3OnBk7zgsc=,tag:IQxVTr6rKqhanILzQXfJHw==,type:bool]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-11-24T17:05:48Z"
-    mac: ENC[AES256_GCM,data:gpH0iG0/GU3AK7X/KUOX+r76HK3fnXLrVk3rcNNAm0Do900Y9SRNC58b6uMDLqEgyX94OiPT+67tmVHHBdJ9QmaKt4ENPEbIHjR45ye7hWgmpRbjlaXbi4xXg960cJVGgbJTDvIigMgivC90S+01pcTnaB7VuKFwDwBL103T3A0=,iv:x1mzOF9DsSd2/y4ubfH5eh5i1rcvsO1t3vxM8uDnwRY=,tag:j5a88DNWFzj8VzWmLUhmVw==,type:str]
+    lastmodified: "2023-11-24T17:21:34Z"
+    mac: ENC[AES256_GCM,data:wDv/BRXNsy2iqNo/Ecf5L6rJQqUaHFb8kLwO2JwSBhl7ypU4+Zua+kX8rJ1D7c7osZgqfaSEYx6SmzTjffZq6nbGT5ZpXGocKbaa5LPCbNYFHh2k4f4PY96ICA4Z/jF7h6hqZvB/L3Bnabo1Pve4BvU+wqcSa+CMkm8ALp0+mzo=,iv:Ld0dLvryrybwQiSBctLvODauWaMl6qU1wUAj+c/wBd8=,tag:tJsWQEmgjSDZ+TTveRTxmQ==,type:str]
     pgp:
         - created_at: "2022-10-10T16:06:58Z"
           enc: |
