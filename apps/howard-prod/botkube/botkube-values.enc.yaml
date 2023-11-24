@@ -15,14 +15,18 @@ executors:
     k8s-default-tools:
         botkube/kubectl:
             enabled: ENC[AES256_GCM,data:Y8izcw==,iv:mzFExdTrkEFQO3CQJhCV7SX+NLFikPbPj+cW2DMpV8o=,tag:AqeMCTS/v4INuh0PWWiRTQ==,type:str]
+plugins:
+    repositories:
+        botkube:
+            url: ENC[AES256_GCM,data:SsXWUIy8DvMQ80vJZKOZsEGMLs3t9hC+/NN6x0yvWjJA/0m2Tzbzp5RB8SDn0j6zzdnGKE2YlJgxnyVnA1Y+Rd5ZpS+pO+1pCGdF7YKnZA==,iv:uazpLWlOjEQzptG16fD8/jRI8WNM+drO/GFjesUg2C8=,tag:kGtH11w1nKjVV0JyLSHVsg==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-11-20T17:07:13Z"
-    mac: ENC[AES256_GCM,data:RbtccTxOHlw9EKLPFnKhaUQVdg7J6B0e1EUdKIm+LtqUVHlMS7+gVx4A7wX96xFWQfBGIckT0NCqCKQYzwSUiskMdBUwXrm6+gOz7mWUIgQ6CjVpphjZd103vcD5AL4FrXzACS17AF56y9nkanct1j5cMDnNg780or3QgSy9Syo=,iv:dBme9dv/5HJ2iKogPBcQ69bd3SETUimilaBEywNTgZQ=,tag:9Sta68ueRmL+OBaoDIRx1A==,type:str]
+    lastmodified: "2023-11-24T17:05:48Z"
+    mac: ENC[AES256_GCM,data:gpH0iG0/GU3AK7X/KUOX+r76HK3fnXLrVk3rcNNAm0Do900Y9SRNC58b6uMDLqEgyX94OiPT+67tmVHHBdJ9QmaKt4ENPEbIHjR45ye7hWgmpRbjlaXbi4xXg960cJVGgbJTDvIigMgivC90S+01pcTnaB7VuKFwDwBL103T3A0=,iv:x1mzOF9DsSd2/y4ubfH5eh5i1rcvsO1t3vxM8uDnwRY=,tag:j5a88DNWFzj8VzWmLUhmVw==,type:str]
     pgp:
         - created_at: "2022-10-10T16:06:58Z"
           enc: |
