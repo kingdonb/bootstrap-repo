@@ -4,7 +4,7 @@ metadata:
   name: vcluster-botkube-demo
   namespace: default
 spec:
-  # loadBalancerIP: 10.17.12.213
+  loadBalancerIP: 10.17.12.214
   selector:
     app: vcluster
     release: botkube-demo
