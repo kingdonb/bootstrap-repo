@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vcluster-botkube-demo
+  namespace: default
+spec:
+  # loadBalancerIP: 10.17.12.213
+  selector:
+    app: vcluster
+    release: botkube-demo
+  ports:
+    - name: https
+      port: 443
+      targetPort: 8443
+      protocol: TCP
+  type: LoadBalancer
