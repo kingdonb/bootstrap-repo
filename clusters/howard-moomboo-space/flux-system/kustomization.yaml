@@ -16,7 +16,7 @@ patches:
           spec:
             containers:
             - name: manager
-              image: kingdonb/helm-controller:113bf54
+              image: kingdonb/helm-controller:842a942
     target:
       kind: Deployment
       name: "helm-controller"
