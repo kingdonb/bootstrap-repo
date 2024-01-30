@@ -10,5 +10,5 @@ spec:
     branch: dev-branch
   secretRef:
     name: example-kubeconfig
-  url: https://github.com/kingdon-ci/example-kubeconfig.git
+  url: ssh://git@github.com/kingdon-ci/example-kubeconfig.git
 
