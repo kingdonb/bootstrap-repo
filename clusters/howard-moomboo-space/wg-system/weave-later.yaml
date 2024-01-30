@@ -1,18 +1,18 @@
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: weave-capi-resources
-  namespace: flux-system
-spec:
-  interval: 10m0s
-  timeout: 1m30s
-  retryInterval: 2m0s
-  path: ./examples/weave-gitops-capi/howard-later
-  prune: true
-  wait: false
-  sourceRef:
-    kind: GitRepository
-    name: fleet-infra
-  dependsOn:
-    - name: weave-gitops
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: weave-capi-resources
+#   namespace: flux-system
+# spec:
+#   interval: 10m0s
+#   timeout: 1m30s
+#   retryInterval: 2m0s
+#   path: ./examples/weave-gitops-capi/howard-later
+#   prune: true
+#   wait: false
+#   sourceRef:
+#     kind: GitRepository
+#     name: fleet-infra
+#   dependsOn:
+#     - name: weave-gitops
