@@ -1,18 +1,18 @@
-apiVersion: v1
-kind: Secret
-metadata:
-    annotations:
-      kustomize.toolkit.fluxcd.io/ssa: IfNotPresent
-      cert-manager.io/alt-names: gitno-prod.hephy.pro
-      cert-manager.io/certificate-name: gitno-prod-hephy-pro-tls
-      cert-manager.io/common-name: gitno-prod.hephy.pro
-      cert-manager.io/ip-sans: ""
-      cert-manager.io/issuer-group: cert-manager.io
-      cert-manager.io/issuer-kind: ClusterIssuer
-      cert-manager.io/issuer-name: letsencrypt-production
-      cert-manager.io/uri-sans: ""
-    labels:
-      controller.cert-manager.io/fao: "true"
-    name: gitno-prod-hephy-pro-tls
-    namespace: flux-system
-type: kubernetes.io/tls
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#     annotations:
+#       kustomize.toolkit.fluxcd.io/ssa: IfNotPresent
+#       cert-manager.io/alt-names: gitno-prod.hephy.pro
+#       cert-manager.io/certificate-name: gitno-prod-hephy-pro-tls
+#       cert-manager.io/common-name: gitno-prod.hephy.pro
+#       cert-manager.io/ip-sans: ""
+#       cert-manager.io/issuer-group: cert-manager.io
+#       cert-manager.io/issuer-kind: ClusterIssuer
+#       cert-manager.io/issuer-name: letsencrypt-production
+#       cert-manager.io/uri-sans: ""
+#     labels:
+#       controller.cert-manager.io/fao: "true"
+#     name: gitno-prod-hephy-pro-tls
+#     namespace: flux-system
+# type: kubernetes.io/tls
