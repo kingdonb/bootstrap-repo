@@ -1,42 +1,42 @@
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: stats-tracker
-  namespace: default
-spec:
-  interval: 10m0s
-  timeout: 1m0s
-  retryInterval: 1m30s
-  path: ./overlays/production
-  prune: true
-  sourceRef:
-    kind: OCIRepository
-    name: stats-prod
-  patches:
-    - target:
-        kind: Ingress
-        name: stats-viewer
-        namespace: default
-      patch: |-
-        - op: replace
-          path: /spec/rules
-          value:
-            - host: stats.hephy.pro
-              http:
-                paths:
-                - backend:
-                    service:
-                      name: stats-viewer
-                      port:
-                        number: 80
-                  path: /
-                  pathType: Prefix
-    - target:
-        kind: CronJob
-        name: stats-tracker-ghcr
-        namespace: default
-      patch: |-
-        - op: add
-          path: /spec/suspend
-          value: true
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: stats-tracker
+#   namespace: default
+# spec:
+#   interval: 10m0s
+#   timeout: 1m0s
+#   retryInterval: 1m30s
+#   path: ./overlays/production
+#   prune: true
+#   sourceRef:
+#     kind: OCIRepository
+#     name: stats-prod
+#   patches:
+#     - target:
+#         kind: Ingress
+#         name: stats-viewer
+#         namespace: default
+#       patch: |-
+#         - op: replace
+#           path: /spec/rules
+#           value:
+#             - host: stats.hephy.pro
+#               http:
+#                 paths:
+#                 - backend:
+#                     service:
+#                       name: stats-viewer
+#                       port:
+#                         number: 80
+#                   path: /
+#                   pathType: Prefix
+#     - target:
+#         kind: CronJob
+#         name: stats-tracker-ghcr
+#         namespace: default
+#       patch: |-
+#         - op: add
+#           path: /spec/suspend
+#           value: true
