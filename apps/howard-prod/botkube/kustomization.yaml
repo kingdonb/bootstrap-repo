@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: default
 resources:
   - helmrepository.yaml
-  - helmrelease.yaml
+#  - helmrelease.yaml
 secretGenerator:
   - name: botkube-values
     files:
