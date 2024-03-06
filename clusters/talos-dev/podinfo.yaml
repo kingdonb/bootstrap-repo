@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: podinfod
-          image: ghcr.io/stefanprodan/podinfo:4.0.6 # {"$imagepolicy": "default:podinfo"}
+          image: ghcr.io/stefanprodan/podinfo:5.0.3 # {"$imagepolicy": "default:podinfo"}
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
