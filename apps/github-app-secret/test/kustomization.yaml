@@ -1,3 +1,4 @@
-namespace: test
-resources:
-- ../../basic
+# namespace: test
+# resources:
+# - ../../basic
+resources: []
