@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: talos-dev-webhook
+  namespace: flux-system
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: public
+  rules:
+  - host: talos-dev-webhook.howard.moomboo.space
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: talos-dev-cluster-escape
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - talos-dev-webhook.howard.moomboo.space
+    secretName: talos-dev-webhook-tls
