@@ -30,5 +30,6 @@ spec:
       namespace: traefik-staging
       port: 80
   tls:
-    secretName: talos-dev-tls
+    secretName: talos-dev-tls-host
+    certResolver: prodresolver
     passthrough: false
