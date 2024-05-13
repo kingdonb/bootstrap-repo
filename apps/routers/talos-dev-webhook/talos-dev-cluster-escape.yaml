@@ -18,7 +18,7 @@ metadata:
   namespace: flux-system
 subsets:
 - addresses:
-  - ip: 10.17.13.252
+  - ip: 10.17.12.202
   ports:
   - port: 80
     name: talos-dev-http
