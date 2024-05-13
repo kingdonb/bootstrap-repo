@@ -19,7 +19,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
 metadata:
   name: talos-dev-web
-  namespace: traefik-staging
+  namespace: flux-system
 spec:
   entryPoints:
   - websecure
@@ -30,6 +30,6 @@ spec:
       namespace: traefik-staging
       port: 80
   tls:
-    secretName: talos-dev-tls-host
+    secretName: talos-dev-webhook-tls
     certResolver: prodresolver
     passthrough: false

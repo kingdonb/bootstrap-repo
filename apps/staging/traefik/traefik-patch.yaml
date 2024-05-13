@@ -22,11 +22,11 @@ spec:
             - "--providers.kubernetesingress.ingressclass=traefik"
             - "--certificatesresolvers.myresolver.acme.storage=/data/acme.json"
             - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
-            - "--certificatesresolvers.myresolver.acme.email=kingdon+acme@weave.works"
+            - "--certificatesresolvers.myresolver.acme.email=kingdon+acme@tuesdaystudios.com"
             - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
             - "--certificatesresolvers.prodresolver.acme.storage=/data/acme-prod.json"
             - "--certificatesresolvers.prodresolver.acme.tlschallenge=true"
-            - "--certificatesresolvers.prodresolver.acme.email=kingdon+acme@weave.works"
+            - "--certificatesresolvers.prodresolver.acme.email=kingdon+acme@tuesdaystudios.com"
 
 ---
 apiVersion: v1
