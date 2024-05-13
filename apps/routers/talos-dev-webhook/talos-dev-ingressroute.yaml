@@ -26,9 +26,9 @@ spec:
   routes:
   - match: HostSNI(`talos-dev-webhook.howard.moomboo.space`)
     services:
-    - name: talos-dev-public-http
+    - name: talos-dev-public-https
       namespace: traefik-staging
-      port: 80
+      port: 443
   tls:
     secretName: talos-dev-tls
-    passthrough: false
+    passthrough: true
