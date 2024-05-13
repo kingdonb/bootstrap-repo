@@ -14,7 +14,7 @@ spec:
 kind: Endpoints
 apiVersion: v1
 metadata:
-  name: talos-dev-public-ingress
+  name: talos-dev-public-http
   namespace: traefik-staging
 subsets:
 - addresses:
@@ -39,7 +39,7 @@ spec:
 kind: Endpoints
 apiVersion: v1
 metadata:
-  name: talos-dev-public-ingress
+  name: talos-dev-public-https
   namespace: traefik-staging
 subsets:
 - addresses:
