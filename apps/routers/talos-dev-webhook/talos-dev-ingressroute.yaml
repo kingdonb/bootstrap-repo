@@ -31,5 +31,5 @@ spec:
       port: 80
   tls:
     secretName: talos-dev-webhook-tls
-    certResolver: prodresolver
+    # certResolver: prodresolver
     passthrough: false
