@@ -11,7 +11,7 @@ spec:
     match: Host(`talos-dev-webhook.howard.moomboo.space`)
     services:
     - kind: Service
-      name: talos-dev-public-ingress
+      name: talos-dev-public-http
       namespace: traefik-staging
       port: 80
 ---
@@ -26,7 +26,7 @@ spec:
   routes:
   - match: HostSNI(`talos-dev-webhook.howard.moomboo.space`)
     services:
-    - name: talos-dev-public-ingress
+    - name: talos-dev-public-https
       namespace: traefik-staging
       port: 443
   tls:

@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: talos-dev-public-ingress
+  name: talos-dev-public-http
   namespace: traefik-staging
 spec:
   ports:
@@ -10,6 +10,26 @@ spec:
       port: 80
       targetPort: 80
       nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: talos-dev-public-ingress
+  namespace: traefik-staging
+subsets:
+- addresses:
+  - ip: 10.17.12.202
+  ports:
+  - port: 80
+    name: talos-dev-http
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: talos-dev-public-https
+  namespace: traefik-staging
+spec:
+  ports:
     - name: talos-dev-https
       protocol: TCP
       port: 443
@@ -25,7 +45,5 @@ subsets:
 - addresses:
   - ip: 10.17.13.252
   ports:
-  - port: 80
-    name: talos-dev-http
   - port: 443
     name: talos-dev-https
