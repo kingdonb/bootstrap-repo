@@ -22,12 +22,14 @@ spec:
     controller:
       extraArgs:
         enable-ssl-passthrough: ""
-        ingress-class: public
+        # ingress-class: public
       electionID: public-ingress-leader
       ingressClassResource:
         name: public
         default: false
         controllerValue: "k8s.io/ingress-nginx-public"
+      ingressClassByName: true
+      ingressClass: public
       service:
         loadBalancerIP: 10.17.12.202
       metrics:
