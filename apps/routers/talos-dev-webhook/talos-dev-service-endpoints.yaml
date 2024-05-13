@@ -23,7 +23,7 @@ metadata:
   namespace: traefik-staging
 subsets:
 - addresses:
-  - ip: 10.17.12.252
+  - ip: 10.17.13.252
   ports:
   - port: 80
     name: talos-dev-http
