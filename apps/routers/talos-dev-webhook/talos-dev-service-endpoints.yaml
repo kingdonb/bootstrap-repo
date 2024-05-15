@@ -43,7 +43,7 @@ metadata:
   namespace: traefik-staging
 subsets:
 - addresses:
-  - ip: 10.17.13.249
+  - ip: 10.17.13.248
   ports:
   - port: 443
     name: talos-dev-https
