@@ -8,12 +8,12 @@ spec:
     - name: urbit-https
       protocol: TCP
       port: 443
-      targetPort: 443
+      targetPort: 8443
       nodePort: 0
     - name: urbit-http
       protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 8080
       nodePort: 0
 ---
 kind: Endpoints
@@ -23,9 +23,9 @@ metadata:
   namespace: traefik-staging
 subsets:
 - addresses:
-  - ip: 10.17.13.250
+  - ip: 10.17.12.118
   ports:
-  - port: 443
+  - port: 8443
     name: urbit-https
-  - port: 80
+  - port: 8080
     name: urbit-http
