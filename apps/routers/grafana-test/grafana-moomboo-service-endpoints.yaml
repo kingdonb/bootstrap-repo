@@ -23,7 +23,7 @@ metadata:
   namespace: traefik-staging
 subsets:
 - addresses:
-  - ip: 10.17.13.241
+  - ip: 10.17.13.242
   ports:
   - port: 80
     name: http
