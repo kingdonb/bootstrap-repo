@@ -1,3 +1,24 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: howard-moomboo
+  namespace: traefik-staging
+spec:
+  entryPoints:
+  - web
+  # - websecure
+  routes:
+  - kind: Rule
+    match: Host(`howard.moomboo.space`) && PathPrefix(`/`)
+    services:
+    - kind: Service
+      name: howard-moomboo
+      namespace: traefik-staging
+      port: 80
+      # scheme: https
+  # tls:
+  #   certResolver: prodresolver
+
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
