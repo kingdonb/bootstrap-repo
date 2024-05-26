@@ -1,0 +1,35 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: webhook-test-howard
+  namespace: traefik-staging
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`flux-system-webhook.test.moomboo.space`)
+    services:
+    - kind: Service
+      name: webhook-http
+      namespace: traefik-staging
+      port: 80
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: webhook-test-howard
+  namespace: flux-system
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: HostSNI(`flux-system-webhook.test.moomboo.space`)
+    services:
+    - name: webhook-test-howard-public-http
+      namespace: traefik-staging
+      port: 80
+  tls:
+    secretName: flux-system-webhook-test-tls
+    # certResolver: prodresolver
+    passthrough: false

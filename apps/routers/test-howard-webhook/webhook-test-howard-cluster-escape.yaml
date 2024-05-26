@@ -1,0 +1,24 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: webhook-test-howard-cluster-escape
+  namespace: flux-system
+spec:
+  ports:
+    - name: webhook-http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 0
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: webhook-test-howard-cluster-escape
+  namespace: flux-system
+subsets:
+- addresses:
+  - ip: 10.17.13.242
+  ports:
+  - port: 80
+    name: webhook-http
