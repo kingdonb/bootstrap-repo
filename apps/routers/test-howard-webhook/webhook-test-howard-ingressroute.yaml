@@ -11,7 +11,7 @@ spec:
     match: Host(`flux-system-webhook.test.moomboo.space`)
     services:
     - kind: Service
-      name: webhook-http
+      name: webhook-test-howard-public-http
       namespace: traefik-staging
       port: 80
 ---
