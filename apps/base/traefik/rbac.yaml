@@ -42,6 +42,7 @@ rules:
       - tlsoptions
       - tlsstores
       - serverstransports
+      - serverstransporttcps
     verbs:
       - get
       - list
