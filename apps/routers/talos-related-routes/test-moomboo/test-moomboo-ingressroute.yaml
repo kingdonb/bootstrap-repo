@@ -9,7 +9,7 @@ spec:
   # - websecure
   routes:
   - kind: Rule
-    match: Host(`test.moomboo.space`) && PathPrefix(`/`)
+    match: HostRegexp(`(?i)^.+\.test\.moomboo\.space$`) && PathPrefix(`/`)
     services:
     - kind: Service
       name: test-moomboo
@@ -29,7 +29,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: HostSNI(`test.moomboo.space`)
+  - match: HostSNIRegexp(`(?i)^.+\.test\.moomboo\.space$`)
     services:
     - name: test-moomboo
       namespace: traefik-staging
