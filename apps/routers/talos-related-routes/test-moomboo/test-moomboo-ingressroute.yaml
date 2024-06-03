@@ -36,5 +36,6 @@ spec:
     - name: test-moomboo
       namespace: traefik-staging
       port: 443
+      nativeLB: true
   tls:
     passthrough: true
