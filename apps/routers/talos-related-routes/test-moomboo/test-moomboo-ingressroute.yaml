@@ -29,8 +29,8 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: HostSNIRegexp(`^{subdomain:[[:ascii:]]+}\.test\.moomboo\.space$`)
-    # priority: 1
+  - match: HostSNIRegexp(`{subdomain:[[:ascii:]]+}.test.moomboo.space`)
+    priority: 1
     services:
     - name: test-moomboo
       namespace: traefik-staging
