@@ -30,7 +30,7 @@ spec:
     - websecure
   routes:
   - match: HostSNIRegexp(`^kubernetes-cluster\.test\.moomboo\.space$`)
-    priority: 1
+    # priority: 1
     services:
     - name: test-moomboo
       namespace: traefik-staging
