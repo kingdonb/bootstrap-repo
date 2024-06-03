@@ -1,4 +1,4 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: minio
@@ -18,8 +18,9 @@ spec:
   targetNamespace: minio-stage
   postRenderers:
     - kustomize:
-        patchesStrategicMerge:
-          - kind: Deployment
+        patches:
+        - patch: |
+            kind: Deployment
             apiVersion: apps/v1
             metadata:
               name: deis-minio
@@ -35,3 +36,6 @@ spec:
                   - name: minio-storage
                     persistentVolumeClaim:
                       claimName: minio-stage
+          target:
+            kind: Deployment
+            name: deis-minio
