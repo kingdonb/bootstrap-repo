@@ -8,7 +8,7 @@ spec:
   - web
   routes:
   - kind: Rule
-    match: Host(`ruby.hephy.pro`,`stats.hephy.pro`)
+    match: Host(`ruby.hephy.pro`) || Host(`stats.hephy.pro`)
     services:
     - kind: Service
       name: ruby-stats
@@ -24,7 +24,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: HostSNI(`ruby.hephy.pro`,`stats.hephy.pro`)
+  - match: HostSNI(`ruby.hephy.pro`) || HostSNI(`stats.hephy.pro`)
     services:
     - name: ruby-stats
       namespace: traefik-staging
