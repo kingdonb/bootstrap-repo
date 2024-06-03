@@ -29,8 +29,8 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - # match: HostSNIRegexp(`{subdomain:[[:ascii:]]+}.test.moomboo.space`)
-    match: HostSNI(`kubernetes-cluster.test.moomboo.space`)
+  - match: HostSNIRegexp(`{subdomain:[[:ascii:]]+}\\.test\\.moomboo\\.space`)
+    # match: HostSNI(`kubernetes-cluster.test.moomboo.space`)
     priority: 1
     services:
     - name: test-moomboo
