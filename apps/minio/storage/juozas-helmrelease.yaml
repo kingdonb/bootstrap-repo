@@ -18,8 +18,9 @@ spec:
   targetNamespace: minio-juozas
   postRenderers:
     - kustomize:
-        patchesStrategicMerge:
-          - kind: Deployment
+        patches:
+        - patch: |
+            kind: Deployment
             apiVersion: apps/v1
             metadata:
               name: deis-minio
@@ -35,3 +36,6 @@ spec:
                   - name: minio-storage
                     persistentVolumeClaim:
                       claimName: minio-storage
+          target:
+            name: deis-minio
+            kind: Deployment
