@@ -9,6 +9,12 @@ spec:
     registry: "ghcr.io/fluxcd"
   cluster:
     type: kubernetes
+  sync:
+    kind: GitRepository
+    url: "ssh://git@github.com/kingdonb/bootstrap-repo.git"
+    ref: "refs/heads/main"
+    path: "clusters/hephy-staging"
+    pullSecret: "flux-system"
   components:
     - source-controller
     - kustomize-controller
