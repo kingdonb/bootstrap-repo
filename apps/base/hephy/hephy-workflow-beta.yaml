@@ -1,5 +1,5 @@
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: hephy-workflow-beta
@@ -9,7 +9,7 @@ spec:
   interval: 1m0s
   url: oci://ghcr.io/kingdonb/hephy-workflow-beta
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
   name: hephy-workflow-beta
