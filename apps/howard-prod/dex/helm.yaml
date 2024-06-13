@@ -81,6 +81,7 @@ spec:
         secret: AiAImuXKhoI5ApvKWF988txjZ+6rG3S7o6X5En
         redirectURIs:
         - 'http://localhost:8000'
+        - 'http://localhost:18000'
 
       - name: 'Loft.sh'
         id: wg-loft
