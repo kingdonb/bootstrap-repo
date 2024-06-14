@@ -23,7 +23,7 @@ metadata:
   namespace: traefik-staging
 subsets:
 - addresses:
-  - ip: 10.17.12.118
+  - ip: 10.17.12.102
   ports:
   - port: 8443
     name: urbit-https
