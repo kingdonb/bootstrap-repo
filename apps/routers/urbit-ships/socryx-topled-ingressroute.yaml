@@ -9,7 +9,7 @@ spec:
   # - websecure
   routes:
   - kind: Rule
-    match: Host(`socryx-topled.arvo.network`) && PathPrefix(`/`)
+    match: Host(`socryx-topled.arvo.network`)
     services:
     - kind: Service
       name: socryx-topled
