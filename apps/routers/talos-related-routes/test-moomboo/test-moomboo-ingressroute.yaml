@@ -29,8 +29,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: HostSNIRegexp(`^test\.moomboo\.space$`) || HostSNIRegexp(`(?i)^.+\.test\.moomboo\.space$`)
-  # match: HostSNI(`kubernetes-cluster.test.moomboo.space`)
+  - match: HostSNIRegexp(`(?i)^.+\.test\.moomboo\.space$`)
     priority: 1
     services:
     - name: test-moomboo
