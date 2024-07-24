@@ -1,0 +1,33 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: water-teamhephy
+  namespace: traefik-staging
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`water.teamhephy.info`)
+    services:
+    - kind: Service
+      name: water-teamhephy
+      namespace: traefik-staging
+      port: 80
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: water-teamhephy
+  namespace: traefik-staging
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: HostSNI(`water.teamhephy.info`)
+    services:
+    - name: water-teamhephy
+      namespace: traefik-staging
+      port: 443
+  tls:
+    passthrough: true
