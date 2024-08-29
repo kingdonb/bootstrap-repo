@@ -35,10 +35,6 @@ subsets:
 - addresses:
   - ip: 10.17.12.102
   ports:
-  - port: 443
-    name: urbit-https
-  - port: 80
-    name: urbit-http
   - port: 8443
     name: urbit-https-nonpriv
   - port: 8080
