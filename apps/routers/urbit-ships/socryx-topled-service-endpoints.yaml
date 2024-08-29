@@ -8,12 +8,22 @@ spec:
     - name: urbit-https
       protocol: TCP
       port: 443
-      targetPort: 443
+      targetPort: 8443
       nodePort: 0
     - name: urbit-http
       protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 8080
+      nodePort: 0
+    - name: urbit-https-nonpriv
+      protocol: TCP
+      port: 8443
+      targetPort: 8443
+      nodePort: 0
+    - name: urbit-http-nonpriv
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
       nodePort: 0
 ---
 kind: Endpoints
@@ -29,3 +39,7 @@ subsets:
     name: urbit-https
   - port: 80
     name: urbit-http
+  - port: 8443
+    name: urbit-https-nonpriv
+  - port: 8080
+    name: urbit-http-nonpriv

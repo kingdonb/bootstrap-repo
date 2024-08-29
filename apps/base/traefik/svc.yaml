@@ -22,3 +22,11 @@ spec:
       name: websecure
       targetPort: websecure
       protocol: TCP
+    - port: 8080
+      name: webnonpriv
+      targetPort: webnonpriv
+      protocol: TCP
+    - port: 8443
+      name: websecurenonpriv
+      targetPort: websecurenonpriv
+      protocol: TCP

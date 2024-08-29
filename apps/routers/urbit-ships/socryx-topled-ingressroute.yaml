@@ -16,6 +16,10 @@ spec:
       namespace: traefik-staging
       port: 80
       # scheme: https
+    - kind: Service
+      name: socryx-topled
+      namespace: traefik-staging
+      port: 8080
   # tls:
   #   certResolver: prodresolver
 
@@ -34,5 +38,8 @@ spec:
     - name: socryx-topled
       namespace: traefik-staging
       port: 443
+    - name: socryx-topled
+      namespace: traefik-staging
+      port: 8443
   tls:
     passthrough: true
