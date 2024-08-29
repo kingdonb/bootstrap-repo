@@ -1,7 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: socryx-topled
+  name: socryx-topled-a
   namespace: traefik-staging
 spec:
   entryPoints:
@@ -23,7 +23,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: socryx-topled
+  name: socryx-topled-b
   namespace: traefik-staging
 spec:
   entryPoints:
@@ -44,7 +44,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRouteTCP
 metadata:
-  name: socryx-topled
+  name: socryx-topled-a
   namespace: traefik-staging
 spec:
   entryPoints:
@@ -62,7 +62,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRouteTCP
 metadata:
-  name: socryx-topled
+  name: socryx-topled-b
   namespace: traefik-staging
 spec:
   entryPoints:
