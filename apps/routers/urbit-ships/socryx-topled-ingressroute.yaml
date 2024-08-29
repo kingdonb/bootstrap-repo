@@ -6,6 +6,7 @@ metadata:
 spec:
   entryPoints:
   - web
+  - webnonpriv
   # - websecure
   routes:
   - kind: Rule
@@ -32,6 +33,7 @@ metadata:
 spec:
   entryPoints:
     - websecure
+    - websecnonpriv
   routes:
   - match: HostSNI(`socryx-topled.arvo.network`)
     services:
