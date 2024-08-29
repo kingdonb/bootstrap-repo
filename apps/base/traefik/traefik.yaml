@@ -25,7 +25,9 @@ spec:
           image: traefik:3.0.4
           args:
             - "--entryPoints.web.address=:8000/tcp"
+            - "--entryPoints.webnonpriv.address=:8080/tcp"
             - "--entryPoints.websecure.address=:8443/tcp"
+            - "--entryPoints.websecnonpriv.address=:8445/tcp"
             - "--entryPoints.traefik.address=:9000/tcp"
             - "--api=true"
             - "--api.dashboard=true"
@@ -65,8 +67,16 @@ spec:
               containerPort: 8000
               protocol: TCP
 
+            - name: webnonpriv
+              containerPort: 8080
+              protocol: TCP
+
             - name: websecure
               containerPort: 8443
+              protocol: TCP
+
+            - name: websecnonpriv
+              containerPort: 8445
               protocol: TCP
 
             - name: traefik
