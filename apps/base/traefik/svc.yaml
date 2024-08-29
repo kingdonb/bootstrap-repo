@@ -27,6 +27,6 @@ spec:
       targetPort: webnonpriv
       protocol: TCP
     - port: 8443
-      name: websecurenonpriv
-      targetPort: websecurenonpriv
+      name: websecnonpriv
+      targetPort: websecnonpriv
       protocol: TCP
