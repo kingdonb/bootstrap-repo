@@ -1,0 +1,56 @@
+apiVersion: fluxcd.controlplane.io/v1
+kind: FluxInstance
+metadata:
+  name: flux
+  namespace: flux-system
+spec:
+  distribution:
+    version: "2.x"
+    registry: "ghcr.io/fluxcd"
+  components:
+    - source-controller
+    - kustomize-controller
+    - helm-controller
+    - notification-controller
+    - image-automation-controller
+    - image-reflector-controller
+  cluster:
+    type: kubernetes
+    multitenant: false
+    networkPolicy: false
+    domain: "cluster.local"
+  sync:
+    kind: GitRepository
+    url: "ssh://git@github.com/kingdonb/bootstrap-repo.git"
+    ref: "refs/heads/main"
+    path: "clusters/moo-cluster"
+    pullSecret: "flux-system"
+  kustomize:
+    patches:
+      - patch: |
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: all
+          spec:
+            template:
+              metadata:
+                annotations:
+                  cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
+              spec:
+                affinity:
+                  nodeAffinity:
+                    requiredDuringSchedulingIgnoredDuringExecution:
+                      nodeSelectorTerms:
+                        - matchExpressions:
+                            - key: role
+                              operator: In
+                              values:
+                                - flux
+                tolerations:
+                  - effect: NoSchedule
+                    key: role
+                    operator: Equal
+                    value: flux      
+        target:
+          kind: Deployment

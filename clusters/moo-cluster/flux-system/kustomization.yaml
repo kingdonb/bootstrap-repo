@@ -2,8 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 # - helm.toolkit.fluxcd.io_helmreleases.yaml
-- gotk-components.yaml
-- gotk-sync.yaml
+# - gotk-components.yaml
+# - gotk-sync.yaml
 - flux-sync.yaml
 
 images: []
@@ -13,7 +13,7 @@ images: []
 #  - name: fluxcd/source-controller
 #    newName: fluxcd/source-controller
 #    newTag: rc-61941672
-patches:
+patches: []
   # - patch: |
   #     apiVersion: apps/v1
   #     kind: Deployment
@@ -30,30 +30,30 @@ patches:
   #     kind: Deployment
   #     name: "helm-controller"
 
-  - patch: |
-      # Enable drift detection feature
-      - op: add
-        path: /spec/template/spec/containers/0/args/-
-        value: --feature-gates=DetectDrift=true
-      # Enable debug logging for diff output (optional)
-      - op: replace
-        path: /spec/template/spec/containers/0/args/2
-        value: --log-level=debug
-      # Enable OOM watch feature
-      - op: add
-        path: /spec/template/spec/containers/0/args/-
-        value: --feature-gates=OOMWatch=true
-      # Threshold at which to trigger a graceful shutdown (optional, default 95%)
-      - op: add
-        path: /spec/template/spec/containers/0/args/-
-        value: --oom-watch-memory-threshold=95
-      # Interval at which to check memory usage (optional, default 500ms)
-      - op: add
-        path: /spec/template/spec/containers/0/args/-
-        value: --oom-watch-interval=500ms
-    target:
-      kind: Deployment
-      name: helm-controller
+#   - patch: |
+#       # Enable drift detection feature
+#       - op: add
+#         path: /spec/template/spec/containers/0/args/-
+#         value: --feature-gates=DetectDrift=true
+#       # Enable debug logging for diff output (optional)
+#       - op: replace
+#         path: /spec/template/spec/containers/0/args/2
+#         value: --log-level=debug
+#       # Enable OOM watch feature
+#       - op: add
+#         path: /spec/template/spec/containers/0/args/-
+#         value: --feature-gates=OOMWatch=true
+#       # Threshold at which to trigger a graceful shutdown (optional, default 95%)
+#       - op: add
+#         path: /spec/template/spec/containers/0/args/-
+#         value: --oom-watch-memory-threshold=95
+#       # Interval at which to check memory usage (optional, default 500ms)
+#       - op: add
+#         path: /spec/template/spec/containers/0/args/-
+#         value: --oom-watch-interval=500ms
+#     target:
+#       kind: Deployment
+#       name: helm-controller
 #- patch: |
 #    - op: add
 #      path: /spec/template/spec/containers/0/env/0
@@ -83,63 +83,63 @@ patches:
 #      - op: add
 #        path: /spec/template/spec/containers/0/args/-
 #        value: --requeue-dependency=15s
-patchesStrategicMerge:
-- |-
-  apiVersion: networking.k8s.io/v1
-  kind: NetworkPolicy
-  metadata:
-    name: allow-egress
-    namespace: flux-system
-  $patch: delete
-- |-
-  apiVersion: networking.k8s.io/v1
-  kind: NetworkPolicy
-  metadata:
-    name: allow-scraping
-    namespace: flux-system
-  $patch: delete
-- |-
-  apiVersion: networking.k8s.io/v1
-  kind: NetworkPolicy
-  metadata:
-    name: allow-webhooks
-    namespace: flux-system
-  $patch: delete
-- |-
-  apiVersion: kustomize.toolkit.fluxcd.io/v1
-  kind: Kustomization
-  metadata:
-    name: flux-system
-    namespace: flux-system
-  spec:
-    interval: 1m
-    patches:
-    - target:
-        version: v1
-        group: apps
-        kind: Deployment
-        name: notification-controller
-        namespace: flux-system
-      patch: |-
-        - op: add
-          path: /spec/template/spec/containers/0/args/-
-          value: --rate-limit-interval=10s
-    - target:
-        version: v1
-        group: apps
-        kind: Deployment
-        name: kustomize-controller
-        namespace: flux-system
-      patch: |-
-        - op: add
-          path: /spec/template/spec/containers/0/args/-
-          value: --requeue-dependency=3s
-        - op: add
-          path: /spec/template/spec/containers/0/args/0
-          value: --concurrent=6
-        - op: replace
-          path: /spec/template/spec/containers/0/resources/limits/cpu
-          value: "2"
-        - op: replace
-          path: /spec/template/spec/containers/0/resources/limits/memory
-          value: "2Gi"
+patchesStrategicMerge: []
+# - |-
+#   apiVersion: networking.k8s.io/v1
+#   kind: NetworkPolicy
+#   metadata:
+#     name: allow-egress
+#     namespace: flux-system
+#   $patch: delete
+# - |-
+#   apiVersion: networking.k8s.io/v1
+#   kind: NetworkPolicy
+#   metadata:
+#     name: allow-scraping
+#     namespace: flux-system
+#   $patch: delete
+# - |-
+#   apiVersion: networking.k8s.io/v1
+#   kind: NetworkPolicy
+#   metadata:
+#     name: allow-webhooks
+#     namespace: flux-system
+#   $patch: delete
+# - |-
+#   apiVersion: kustomize.toolkit.fluxcd.io/v1
+#   kind: Kustomization
+#   metadata:
+#     name: flux-system
+#     namespace: flux-system
+#   spec:
+#     interval: 1m
+#     patches:
+#     - target:
+#         version: v1
+#         group: apps
+#         kind: Deployment
+#         name: notification-controller
+#         namespace: flux-system
+#       patch: |-
+#         - op: add
+#           path: /spec/template/spec/containers/0/args/-
+#           value: --rate-limit-interval=10s
+#     - target:
+#         version: v1
+#         group: apps
+#         kind: Deployment
+#         name: kustomize-controller
+#         namespace: flux-system
+#       patch: |-
+#         - op: add
+#           path: /spec/template/spec/containers/0/args/-
+#           value: --requeue-dependency=3s
+#         - op: add
+#           path: /spec/template/spec/containers/0/args/0
+#           value: --concurrent=6
+#         - op: replace
+#           path: /spec/template/spec/containers/0/resources/limits/cpu
+#           value: "2"
+#         - op: replace
+#           path: /spec/template/spec/containers/0/resources/limits/memory
+#           value: "2Gi"
