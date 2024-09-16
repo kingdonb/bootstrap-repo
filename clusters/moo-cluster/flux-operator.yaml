@@ -21,10 +21,9 @@ spec:
     domain: "cluster.local"
   sync:
     kind: GitRepository
-    url: "ssh://git@github.com/kingdonb/bootstrap-repo.git"
+    url: "https://github.com/kingdonb/bootstrap-repo"
     ref: "refs/heads/main"
     path: "clusters/moo-cluster"
-    pullSecret: "flux-system"
   kustomize:
     patches:
       - patch: |
