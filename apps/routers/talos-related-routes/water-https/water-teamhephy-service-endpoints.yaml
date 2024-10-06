@@ -23,7 +23,7 @@ metadata:
   namespace: traefik-staging
 subsets:
 - addresses:
-  - ip: 10.17.12.208
+  - ip: 10.17.13.245
   ports:
   - port: 443
     name: water-https
